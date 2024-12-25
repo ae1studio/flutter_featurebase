@@ -11,7 +11,7 @@ Featurebase is a
 
 First you need to add the package to your `pubspec.yaml` file.
 
-#### Usage
+### Usage
 
 ```dart
 openHelpCenterPage(
