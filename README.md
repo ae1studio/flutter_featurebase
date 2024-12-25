@@ -14,7 +14,7 @@ First you need to add the package to your `pubspec.yaml` file.
 ### Usage
 
 ```dart
-openHelpCenterPage(
+openKnowledgeBase(
     logo: SvgPicture.asset(
         'assets/logo.svg',
         height: 25,

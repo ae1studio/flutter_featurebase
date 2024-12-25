@@ -50,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          openHelpCenterPage(
+          openKnowledgeBase(
             logo: SvgPicture.asset(
               'assets/logo.svg',
               height: 25,

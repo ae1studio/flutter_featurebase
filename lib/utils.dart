@@ -1,6 +1,6 @@
 part of featurebase;
 
-void openHelpCenterPage({
+void openKnowledgeBase({
   /// Logo centered in the Appbar
   required Widget logo,
 
