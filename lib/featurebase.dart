@@ -1,0 +1,14 @@
+// ignore: unnecessary_library_name
+library featurebase;
+
+import 'package:featurebase_dart/featurebase_dart.dart' as fb;
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+part 'ui/help_center/help_center.dart';
+part 'ui/help_center/collection/collection.dart';
+part 'providers/service.dart';
+part 'utils.dart';
+part 'providers/help_center.dart';
+part 'featurebase.g.dart';

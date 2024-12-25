@@ -1,0 +1,31 @@
+name: featurebase
+description: "Featurebase Unofficial SDK"
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: ^3.6.0
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  featurebase_dart:
+    ^0.0.1
+    # path: "../featurebase_dart"
+  flutter_riverpod: ^2.6.1
+  riverpod_annotation: ^2.6.1
+  url_launcher: ^6.3.1
+  custom_top_navigator_plus: ^0.0.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  build_runner: ^2.4.12
+  custom_lint: ^0.7.0
+  riverpod_generator: ^2.6.3
+  riverpod_lint: ^2.6.3
+
+flutter:
+  uses-material-design: true

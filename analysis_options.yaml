@@ -1,0 +1,6 @@
+include: package:flutter_lints/flutter.yaml
+analyzer:
+  errors:
+    use_string_in_part_of_directives: ignore
+# Additional information about this file can be found at
+# https://dart.dev/guides/language/analysis-options
