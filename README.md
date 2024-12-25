@@ -1,6 +1,6 @@
 # Featurebase (Unofficial) Flutter SDK
 
-Featurebase is a
+Featurebase is a Feedback, Knowledge base, Changelog and Survey hub. Learn more at <https://featurebase.app>
 
 ## Features
 
