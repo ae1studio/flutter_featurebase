@@ -92,61 +92,21 @@ class _HelpCenterViewState extends ConsumerState<_HelpCenterView> {
                 itemBuilder: (context, index) {
                   fb.Collection collection = data.structure![index];
 
-                  return Container(
-                    margin:
+                  return Padding(
+                    padding:
                         const EdgeInsets.only(bottom: 10, right: 10, left: 10),
-                    padding: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: widget.textColor.withOpacity(0.05),
-                      ),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          collection.name,
-                          style: TextStyle(
-                            color: widget.textColor,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        const SizedBox(height: 2),
-                        Text(
-                          collection.description,
-                          style: TextStyle(
-                            color: widget.textColor.withOpacity(0.7),
-                            fontSize: 14,
-                          ),
-                        ),
-                        const SizedBox(height: 4),
-                        RichText(
-                          text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text: (collection.structure?.length).toString(),
-                                style: TextStyle(
-                                  color: widget.textColor.withOpacity(0.7),
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                              TextSpan(
-                                text: ' articles',
-                                style: TextStyle(
-                                  color: widget.textColor.withOpacity(0.7),
-                                  fontSize: 13,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
+                    child: _CollectionCard(
+                      collection: collection,
+                      textColor: widget.textColor,
+                      primaryColor: widget.primaryColor,
                     ),
                   );
                 },
+              ),
+              SliverToBoxAdapter(
+                child: const SizedBox(
+                  height: 80,
+                ),
               ),
             ],
           );

@@ -11,12 +11,13 @@ dependencies:
   flutter:
     sdk: flutter
   featurebase_dart:
-    ^0.0.1
+    ^0.0.2
     # path: "../featurebase_dart"
   flutter_riverpod: ^2.6.1
   riverpod_annotation: ^2.6.1
   url_launcher: ^6.3.1
   custom_top_navigator_plus: ^0.0.4
+  flutter_svg: ^2.0.16
 
 dev_dependencies:
   flutter_test:
@@ -29,3 +30,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/icons/hero/

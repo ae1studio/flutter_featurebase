@@ -46,6 +46,9 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: const Text(
           'Open the help center',
+          style: TextStyle(
+            color: Colors.white,
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(

@@ -57,6 +57,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.8"
+  custom_top_navigator_plus:
+    dependency: transitive
+    description:
+      name: custom_top_navigator_plus
+      sha256: "0eb1fed87e8bcd7f1a4c0dba27daf3b5a13dbeef28a9fbd928ff16dfbfacd3af"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.4"
   dio:
     dependency: transitive
     description:
@@ -91,10 +99,11 @@ packages:
   featurebase_dart:
     dependency: transitive
     description:
-      path: "../../featurebase_dart"
-      relative: true
-    source: path
-    version: "0.0.1"
+      name: featurebase_dart
+      sha256: f94b924019d073c8bed541d66962ad9bd98efd5426be906aff392a717cdf2135
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.2"
   flutter:
     dependency: "direct main"
     description: flutter
