@@ -24,7 +24,7 @@ openKnowledgeBase(
             BlendMode.srcIn,
         ),
     ),
-    url: 'https://help.featurebase.app', // Use your featurebase url
+    knowledgeBaseUrl: 'https://help.featurebase.app', // Use your featurebase url
     primaryColor: Theme.of(context).primaryColor,
     textColor: Colors.white,
     backgroundColor: Theme.of(context).scaffoldBackgroundColor,
