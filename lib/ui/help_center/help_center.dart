@@ -1,6 +1,6 @@
 part of featurebase;
 
-class _HelpCenterView extends ConsumerStatefulWidget {
+class KnowledgeBaseView extends ConsumerStatefulWidget {
   /// Logo centered in the Appbar
   final Widget logo;
 
@@ -16,7 +16,7 @@ class _HelpCenterView extends ConsumerStatefulWidget {
   /// Background color
   final Color? backgroundColor;
 
-  const _HelpCenterView({
+  const KnowledgeBaseView({
     required this.logo,
     required this.url,
     required this.primaryColor,
@@ -25,10 +25,10 @@ class _HelpCenterView extends ConsumerStatefulWidget {
   });
 
   @override
-  ConsumerState<_HelpCenterView> createState() => _HelpCenterViewState();
+  ConsumerState<KnowledgeBaseView> createState() => _HelpCenterViewState();
 }
 
-class _HelpCenterViewState extends ConsumerState<_HelpCenterView> {
+class _HelpCenterViewState extends ConsumerState<KnowledgeBaseView> {
   GlobalKey<NavigatorState> helpcCenterNavigatorKey =
       GlobalKey<NavigatorState>(debugLabel: '_HelpCenterNavigatorKey');
 

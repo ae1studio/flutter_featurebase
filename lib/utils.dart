@@ -22,7 +22,7 @@ void openKnowledgeBase({
   Navigator.of(context).push(
     MaterialPageRoute<void>(
       builder: (BuildContext context) => ProviderScope(
-        child: _HelpCenterView(
+        child: KnowledgeBaseView(
           logo: logo,
           url: knowledgeBaseUrl,
           primaryColor: primaryColor,
