@@ -70,29 +70,37 @@ class _CollectionCard extends StatelessWidget {
                 fontFamily: 'Inter',
               ),
             ),
-            const SizedBox(height: 4),
-            RichText(
-              text: TextSpan(
-                children: [
-                  TextSpan(
-                    text: (collection.structure?.length).toString(),
-                    style: TextStyle(
-                      color: textColor.withOpacity(0.7),
-                      fontSize: 13,
-                      fontWeight: FontWeight.w600,
-                      fontFamily: 'Inter',
-                    ),
+            const SizedBox(height: 6),
+            Row(
+              children: [
+                _AuthorsImageStack(
+                  authors: collection.authors,
+                ),
+                const SizedBox(width: 2),
+                RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: (collection.structure?.length).toString(),
+                        style: TextStyle(
+                          color: textColor.withOpacity(0.7),
+                          fontSize: 13,
+                          fontWeight: FontWeight.w600,
+                          fontFamily: 'Inter',
+                        ),
+                      ),
+                      TextSpan(
+                        text: ' articles',
+                        style: TextStyle(
+                          color: textColor.withOpacity(0.7),
+                          fontSize: 13,
+                          fontFamily: 'Inter',
+                        ),
+                      ),
+                    ],
                   ),
-                  TextSpan(
-                    text: ' articles',
-                    style: TextStyle(
-                      color: textColor.withOpacity(0.7),
-                      fontSize: 13,
-                      fontFamily: 'Inter',
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ],
         ),
