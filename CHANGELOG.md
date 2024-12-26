@@ -1,3 +1,7 @@
+## 0.1.0
+
+- Added option to hide authors.
+
 ## 0.0.4
 
 - Updated the README.md
