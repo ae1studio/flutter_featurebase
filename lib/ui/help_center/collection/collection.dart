@@ -92,21 +92,21 @@ class _CollectionViewState extends State<_CollectionView> {
 
                 return widget.collection.structure![index].when(
                   article: (article) {
+                    BorderRadius borderRadius = BorderRadius.only(
+                      topLeft:
+                          !articleBefore ? Radius.circular(8) : Radius.zero,
+                      topRight:
+                          !articleBefore ? Radius.circular(8) : Radius.zero,
+                      bottomLeft:
+                          !articleAfter ? Radius.circular(8) : Radius.zero,
+                      bottomRight:
+                          !articleAfter ? Radius.circular(8) : Radius.zero,
+                    );
+
                     return Container(
                       margin: const EdgeInsets.symmetric(horizontal: 15),
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 11, horizontal: 8),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                          topLeft:
-                              !articleBefore ? Radius.circular(8) : Radius.zero,
-                          topRight:
-                              !articleBefore ? Radius.circular(8) : Radius.zero,
-                          bottomLeft:
-                              !articleAfter ? Radius.circular(8) : Radius.zero,
-                          bottomRight:
-                              !articleAfter ? Radius.circular(8) : Radius.zero,
-                        ),
+                        borderRadius: borderRadius,
                         border: Border(
                           top: !articleBefore
                               ? BorderSide(
@@ -126,36 +126,57 @@ class _CollectionViewState extends State<_CollectionView> {
                               : BorderSide.none,
                         ),
                       ),
-                      child: Row(
-                        children: [
-                          if (article.icon != null)
-                            Container(
-                              margin: const EdgeInsets.only(right: 7),
-                              child: _FBIconWidget(
-                                icon: article.icon,
-                                primaryColor: widget.textColor.withOpacity(0.7),
-                                size: 21,
+                      child: InkWell(
+                        borderRadius: borderRadius,
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => _ArticleView(
+                                article: article,
+                                textColor: widget.textColor,
                               ),
                             ),
-                          Expanded(
-                            child: Text(
-                              article.title,
-                              style: TextStyle(
-                                fontFamily: 'Inter',
-                                fontSize: 16,
-                                fontWeight: FontWeight.w600,
+                          );
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 11,
+                            horizontal: 8,
+                          ),
+                          child: Row(
+                            children: [
+                              if (article.icon != null)
+                                Container(
+                                  margin: const EdgeInsets.only(right: 7),
+                                  child: _FBIconWidget(
+                                    icon: article.icon,
+                                    primaryColor:
+                                        widget.textColor.withOpacity(0.7),
+                                    size: 21,
+                                  ),
+                                ),
+                              Expanded(
+                                child: Text(
+                                  article.title,
+                                  style: TextStyle(
+                                    fontFamily: 'Inter',
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                    color: widget.textColor.withOpacity(0.7),
+                                  ),
+                                  maxLines: 1,
+                                  overflow: TextOverflow.fade,
+                                  softWrap: false,
+                                ),
+                              ),
+                              Icon(
+                                Icons.arrow_right_rounded,
                                 color: widget.textColor.withOpacity(0.7),
                               ),
-                              maxLines: 1,
-                              overflow: TextOverflow.fade,
-                              softWrap: false,
-                            ),
+                            ],
                           ),
-                          Icon(
-                            Icons.arrow_right_rounded,
-                            color: widget.textColor.withOpacity(0.7),
-                          ),
-                        ],
+                        ),
                       ),
                     );
                   },
@@ -222,45 +243,67 @@ class _CollectionViewState extends State<_CollectionView> {
                               return collection.structure![indexCollection]
                                   .when(
                                 article: (article) {
-                                  return Container(
-                                    padding: const EdgeInsets.symmetric(
-                                      vertical: 11,
-                                      horizontal: 10,
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        if (article.icon != null)
-                                          Container(
-                                            margin:
-                                                const EdgeInsets.only(right: 7),
-                                            child: _FBIconWidget(
-                                              icon: article.icon,
-                                              primaryColor: widget.textColor
-                                                  .withOpacity(0.7),
-                                              size: 21,
-                                            ),
-                                          ),
-                                        Expanded(
-                                          child: Text(
-                                            article.title,
-                                            style: TextStyle(
-                                              fontFamily: 'Inter',
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w600,
-                                              color: widget.textColor
-                                                  .withOpacity(0.7),
-                                            ),
-                                            maxLines: 1,
-                                            overflow: TextOverflow.fade,
-                                            softWrap: false,
+                                  return InkWell(
+                                    borderRadius:
+                                        (collection.structure?.length ?? 0) -
+                                                    1 ==
+                                                indexCollection
+                                            ? BorderRadius.only(
+                                                bottomLeft: Radius.circular(8),
+                                                bottomRight: Radius.circular(8),
+                                              )
+                                            : null,
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => _ArticleView(
+                                            article: article,
+                                            textColor: widget.textColor,
                                           ),
                                         ),
-                                        Icon(
-                                          Icons.arrow_right_rounded,
-                                          color:
-                                              widget.textColor.withOpacity(0.7),
-                                        ),
-                                      ],
+                                      );
+                                    },
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        vertical: 11,
+                                        horizontal: 8,
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          if (article.icon != null)
+                                            Container(
+                                              margin: const EdgeInsets.only(
+                                                  right: 7),
+                                              child: _FBIconWidget(
+                                                icon: article.icon,
+                                                primaryColor: widget.textColor
+                                                    .withOpacity(0.7),
+                                                size: 21,
+                                              ),
+                                            ),
+                                          Expanded(
+                                            child: Text(
+                                              article.title,
+                                              style: TextStyle(
+                                                fontFamily: 'Inter',
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w600,
+                                                color: widget.textColor
+                                                    .withOpacity(0.7),
+                                              ),
+                                              maxLines: 1,
+                                              overflow: TextOverflow.fade,
+                                              softWrap: false,
+                                            ),
+                                          ),
+                                          Icon(
+                                            Icons.arrow_right_rounded,
+                                            color: widget.textColor
+                                                .withOpacity(0.7),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   );
                                 },
