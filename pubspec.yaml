@@ -4,15 +4,13 @@ version: 0.0.2
 homepage: https://github.com/ae1dev/flutter_featurebase
 
 environment:
-  sdk: ^3.6.0
+  sdk: ">=3.2.3 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  featurebase_dart:
-    ^0.0.3
-    # path: "../featurebase_dart"
+  featurebase_dart: ^0.0.3
   flutter_riverpod: ^2.6.1
   riverpod_annotation: ^2.6.1
   url_launcher: ^6.3.1
