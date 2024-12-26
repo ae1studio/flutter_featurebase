@@ -22,6 +22,7 @@ part 'ui/widgets/icon.dart';
 part 'ui/widgets/safe_cachednetworkimage.dart';
 part 'providers/service.dart';
 part 'providers/icons.dart';
+part 'actions.dart';
 part 'utils.dart';
 part 'providers/help_center.dart';
 part 'featurebase.g.dart';
