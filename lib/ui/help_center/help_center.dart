@@ -52,7 +52,15 @@ class _HelpCenterViewState extends ConsumerState<_HelpCenterView> {
       child: Scaffold(
         appBar: AppBar(
           leading: IconButton(
-            onPressed: () => Navigator.pop(context),
+            onPressed: () {
+              //Pop normal pages first
+              if (helpcCenterNavigatorKey.currentState?.canPop() == true) {
+                helpcCenterNavigatorKey.currentState?.pop();
+                return;
+              }
+
+              Navigator.pop(context);
+            },
             icon: Icon(
               Icons.arrow_back_ios_new_rounded,
               color: widget.textColor,
