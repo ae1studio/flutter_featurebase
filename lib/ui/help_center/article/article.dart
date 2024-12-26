@@ -117,6 +117,27 @@ class _ArticleViewState extends ConsumerState<_ArticleView> {
                     }
                     return false;
                   },
+                  customWidgetBuilder: (element) {
+                    // Display images
+                    if (element.outerHtml.contains('img')) {
+                      return ClipRRect(
+                        borderRadius: BorderRadius.circular(8),
+                        child: _SafeCachedNetworkImage(
+                          imageUrl: element.attributes['src'],
+                          placeholder: (context, url) => Padding(
+                            padding: const EdgeInsets.all(12),
+                            child: Center(
+                              child: CircularProgressIndicator(
+                                color: Theme.of(context).primaryColor,
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    }
+
+                    return null;
+                  },
                   customStylesBuilder: (element) {
                     if (element.className.contains('link')) {
                       return {
