@@ -1,3 +1,7 @@
+## 0.2.0
+
+- Added support for callouts in articles.
+
 ## 0.1.0
 
 - Added option to hide authors.
