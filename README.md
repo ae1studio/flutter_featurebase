@@ -41,3 +41,7 @@ openKnowledgeBase(
     context: context,
 );
 ```
+
+Example:
+
+![Example Image](https://raw.githubusercontent.com/ae1dev/flutter_featurebase/refs/heads/main/docs/imgs/KnowledgeBaseExample.png)
