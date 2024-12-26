@@ -1,3 +1,7 @@
+## 0.2.1
+
+- Fixed link text color issue.
+
 ## 0.2.0
 
 - Added support for callouts in articles.
