@@ -5,7 +5,7 @@ void openKnowledgeBase({
   required Widget logo,
 
   /// Featurebase url (example: https://help.featurebase.app)
-  required String url,
+  required String knowledgeBaseUrl,
 
   /// Primary color used
   required Color primaryColor,
@@ -24,7 +24,7 @@ void openKnowledgeBase({
       builder: (BuildContext context) => ProviderScope(
         child: _HelpCenterView(
           logo: logo,
-          url: url,
+          url: knowledgeBaseUrl,
           primaryColor: primaryColor,
           textColor: textColor,
           backgroundColor: backgroundColor,

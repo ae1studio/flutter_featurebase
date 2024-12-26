@@ -63,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 BlendMode.srcIn,
               ),
             ),
-            url: 'https://help.featurebase.app',
+            knowledgeBaseUrl: 'https://help.featurebase.app',
             primaryColor: Theme.of(context).primaryColor,
             textColor: Colors.white,
             backgroundColor: Theme.of(context).scaffoldBackgroundColor,
