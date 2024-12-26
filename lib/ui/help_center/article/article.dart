@@ -165,10 +165,14 @@ class _ArticleViewState extends ConsumerState<_ArticleView> {
                     return null;
                   },
                   customStylesBuilder: (element) {
-                    if (element.className.contains('link')) {
+                    if (element.classes.contains('link')) {
+                      Color color = Theme.of(context).primaryColor;
+
+                      // rgba(${color.r * 255}, ${color.g * 255}, ${color.b * 255}, 255)',
+
                       return {
-                        'color': ColorToHex(Theme.of(context).primaryColor)
-                            .toString(),
+                        'color':
+                            'rgba(${color.red}, ${color.green}, ${color.blue}, 255)',
                       };
                     }
                     return null;
