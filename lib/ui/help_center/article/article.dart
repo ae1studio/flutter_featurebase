@@ -140,6 +140,28 @@ class _ArticleViewState extends ConsumerState<_ArticleView> {
                       );
                     }
 
+                    // Callouts
+                    if (element.outerHtml.contains('callout-component')) {
+                      return Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          color: _getCalloutColor(
+                              element.attributes['color'] ?? 'None', context),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Text(
+                          element.text,
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontFamily: 'Inter',
+                            color: _calculateTextColor(_getCalloutColor(
+                                element.attributes['color'] ?? 'None',
+                                context)),
+                          ),
+                        ),
+                      );
+                    }
+
                     return null;
                   },
                   customStylesBuilder: (element) {
