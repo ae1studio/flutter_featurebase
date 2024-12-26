@@ -3,15 +3,11 @@ part of featurebase;
 class _CollectionView extends StatefulWidget {
   final fb.Collection collection;
   final Color textColor;
-  final Color primaryColor;
-  final Color backgroundColor;
   const _CollectionView({
     // ignore: unused_element
     super.key,
     required this.collection,
     required this.textColor,
-    required this.primaryColor,
-    required this.backgroundColor,
   });
 
   @override
@@ -22,7 +18,7 @@ class _CollectionViewState extends State<_CollectionView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: widget.backgroundColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
@@ -36,7 +32,7 @@ class _CollectionViewState extends State<_CollectionView> {
                       padding: const EdgeInsets.only(bottom: 5),
                       child: _FBIconWidget(
                         icon: widget.collection.icon,
-                        primaryColor: widget.primaryColor,
+                        primaryColor: Theme.of(context).primaryColor,
                         size: 36,
                       ),
                     ),

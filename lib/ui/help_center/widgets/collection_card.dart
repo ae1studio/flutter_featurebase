@@ -3,15 +3,11 @@ part of featurebase;
 class _CollectionCard extends StatelessWidget {
   final fb.Collection collection;
   final Color textColor;
-  final Color primaryColor;
-  final Color backgroundColor;
   const _CollectionCard({
     // ignore: unused_element
     super.key,
     required this.collection,
     required this.textColor,
-    required this.primaryColor,
-    required this.backgroundColor,
   });
 
   @override
@@ -24,8 +20,6 @@ class _CollectionCard extends StatelessWidget {
             builder: (context) => _CollectionView(
               collection: collection,
               textColor: textColor,
-              primaryColor: primaryColor,
-              backgroundColor: backgroundColor,
             ),
           ),
         );
@@ -50,12 +44,12 @@ class _CollectionCard extends StatelessWidget {
                   border: Border.all(
                     color: textColor.withOpacity(0.05),
                   ),
-                  color: primaryColor.withOpacity(0.05),
+                  color: Theme.of(context).primaryColor.withOpacity(0.05),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: _FBIconWidget(
                   icon: collection.icon,
-                  primaryColor: primaryColor,
+                  primaryColor: Theme.of(context).primaryColor,
                 ),
               ),
             Text(
