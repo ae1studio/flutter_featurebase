@@ -41,7 +41,7 @@ class _CollectionCard extends StatelessWidget {
             //Collection Icon
             if (collection.icon != null)
               Container(
-                margin: const EdgeInsets.only(bottom: 5),
+                margin: const EdgeInsets.only(bottom: 6),
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   border: Border.all(
@@ -65,14 +65,15 @@ class _CollectionCard extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 2),
-            Text(
-              collection.description,
-              style: TextStyle(
-                color: textColor.withOpacity(0.7),
-                fontSize: 14,
-                fontFamily: 'Inter',
+            if (collection.description.trim().isNotEmpty)
+              Text(
+                collection.description,
+                style: TextStyle(
+                  color: textColor.withOpacity(0.7),
+                  fontSize: 14,
+                  fontFamily: 'Inter',
+                ),
               ),
-            ),
             const SizedBox(height: 6),
             Row(
               children: [
