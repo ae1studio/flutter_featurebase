@@ -1,6 +1,7 @@
 ## 0.2.0
 
 - Added support for callouts in articles.
+- Hide description area for collection cards if none.
 
 ## 0.1.0
 
