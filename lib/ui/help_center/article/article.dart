@@ -17,8 +17,9 @@ class _ArticleView extends ConsumerStatefulWidget {
 class _ArticleViewState extends ConsumerState<_ArticleView> {
   @override
   Widget build(BuildContext context) {
-    AsyncValue<fb.Article> articleAsync = ref.watch(
-      GetHelpCenterArticleProvider(widget.article.articleId),
+    AsyncValue<String?> articleAsync = ref.watch(
+      GetHelpCenterArticleBodyProvider(
+          widget.article.articleId, widget.article.body),
     );
 
     return Scaffold(
@@ -65,11 +66,35 @@ class _ArticleViewState extends ConsumerState<_ArticleView> {
               ),
             ),
             articleAsync.when(
-              data: (article) => SliverPadding(
+              data: (articleBody) => SliverPadding(
                 padding: const EdgeInsets.symmetric(horizontal: 12),
                 sliver: HtmlWidget(
-                  article.body ?? '',
+                  articleBody ?? '',
                   onTapUrl: (url) async {
+                    if (url.contains(_fbSerivce.api.baseApiUrl) &&
+                        url.contains('/articles/')) {
+                      // Extract the article ID from the URL
+                      final articleId =
+                          url.split('/articles/')[1].split('-')[0];
+
+                      fb.Article temp = await ref
+                          .read(GetHelpCenterArticleProvider(articleId).future);
+
+                      if (context.mounted) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => _ArticleView(
+                              article: temp,
+                              textColor: widget.textColor,
+                            ),
+                          ),
+                        );
+                      }
+
+                      return true;
+                    }
+
                     if (await canLaunchUrlString(url)) {
                       launchUrlString(url);
                       return true;
