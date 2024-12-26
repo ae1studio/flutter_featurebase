@@ -1,6 +1,6 @@
 part of featurebase;
 
-class _ArticleView extends StatefulWidget {
+class _ArticleView extends ConsumerStatefulWidget {
   final fb.Article article;
   final Color textColor;
   const _ArticleView({
@@ -11,12 +11,16 @@ class _ArticleView extends StatefulWidget {
   });
 
   @override
-  State<_ArticleView> createState() => _ArticleViewState();
+  ConsumerState<_ArticleView> createState() => _ArticleViewState();
 }
 
-class _ArticleViewState extends State<_ArticleView> {
+class _ArticleViewState extends ConsumerState<_ArticleView> {
   @override
   Widget build(BuildContext context) {
+    AsyncValue<fb.Article> articleAsync = ref.watch(
+      GetHelpCenterArticleProvider(widget.article.articleId),
+    );
+
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Scrollbar(
@@ -57,6 +61,37 @@ class _ArticleViewState extends State<_ArticleView> {
                       textAlign: TextAlign.start,
                     ),
                   ],
+                ),
+              ),
+            ),
+            articleAsync.when(
+              data: (article) => SliverPadding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                sliver: HtmlWidget(
+                  article.body ?? '',
+                  onTapUrl: (url) async {
+                    if (await canLaunchUrlString(url)) {
+                      launchUrlString(url);
+                      return true;
+                    }
+                    return false;
+                  },
+                  textStyle: TextStyle(
+                    fontSize: 15,
+                    fontFamily: 'Inter',
+                    color: widget.textColor,
+                  ),
+                  renderMode: RenderMode.sliverList,
+                ),
+              ),
+              error: (error, stackTrace) => SliverToBoxAdapter(
+                child: SizedBox(height: 0),
+              ),
+              loading: () => SliverToBoxAdapter(
+                child: Center(
+                  child: CircularProgressIndicator(
+                    color: Theme.of(context).primaryColor,
+                  ),
                 ),
               ),
             ),
