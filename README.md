@@ -7,11 +7,21 @@ Featurebase is a Feedback, Knowledge base, Changelog and Survey hub. Learn more 
 - [X] Knowledge base
 - [ ] Feedback
 
+## Platform Support
+
+| Android |  iOS  | MacOS |  Web  | Linux | Windows |
+| :-----: | :---: | :---: | :---: | :---: | :-----: |
+|   ✅   |   ✅   |   ✅   |   ❌*  |   ✅    |    ✅   |
+
+Some CORS issues cause it not to load on web (looking into a fix) *
+
 ## Get started
 
 First you need to add the package to your `pubspec.yaml` file.
 
 ### Usage
+
+Call the openKnowledgeBase function to open the panel.
 
 ```dart
 openKnowledgeBase(
