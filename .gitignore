@@ -34,3 +34,5 @@ example/.symlinks/
 .flutter-plugins-dependencies
 build/
 example/pubspec.lock
+example/pubspec.lock
+example/ios/Podfile.lock
