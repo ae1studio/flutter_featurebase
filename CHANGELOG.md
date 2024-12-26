@@ -1,3 +1,7 @@
+## 0.0.4
+
+- Updated the README.md
+
 ## 0.0.3
 
 - Change Dart SDK version.
