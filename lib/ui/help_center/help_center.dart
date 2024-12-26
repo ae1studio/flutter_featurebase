@@ -17,6 +17,7 @@ class KnowledgeBaseView extends ConsumerStatefulWidget {
   final Color? backgroundColor;
 
   const KnowledgeBaseView({
+    super.key,
     required this.logo,
     required this.url,
     required this.primaryColor,
