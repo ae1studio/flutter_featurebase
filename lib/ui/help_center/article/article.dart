@@ -101,6 +101,15 @@ class _ArticleViewState extends ConsumerState<_ArticleView> {
                     }
                     return false;
                   },
+                  customStylesBuilder: (element) {
+                    if (element.className.contains('link')) {
+                      return {
+                        'color': ColorToHex(Theme.of(context).primaryColor)
+                            .toString(),
+                      };
+                    }
+                    return null;
+                  },
                   textStyle: TextStyle(
                     fontSize: 15,
                     fontFamily: 'Inter',
