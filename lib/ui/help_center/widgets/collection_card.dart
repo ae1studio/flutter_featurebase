@@ -4,12 +4,14 @@ class _CollectionCard extends StatelessWidget {
   final fb.Collection collection;
   final Color textColor;
   final Color primaryColor;
+  final Color backgroundColor;
   const _CollectionCard({
     // ignore: unused_element
     super.key,
     required this.collection,
     required this.textColor,
     required this.primaryColor,
+    required this.backgroundColor,
   });
 
   @override
@@ -19,7 +21,12 @@ class _CollectionCard extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => _CollectionView(collection: collection),
+            builder: (context) => _CollectionView(
+              collection: collection,
+              textColor: textColor,
+              primaryColor: primaryColor,
+              backgroundColor: backgroundColor,
+            ),
           ),
         );
       },
@@ -46,7 +53,10 @@ class _CollectionCard extends StatelessWidget {
                   color: primaryColor.withOpacity(0.05),
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: _buildIcon(collection.icon),
+                child: _FBIconWidget(
+                  icon: collection.icon,
+                  primaryColor: primaryColor,
+                ),
               ),
             Text(
               collection.name,
@@ -89,26 +99,6 @@ class _CollectionCard extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-
-  Widget _buildIcon(fb.FBIcon? icon) {
-    if (icon?.type == 'predefined') {
-      return SvgPicture.asset(
-        'packages/featurebase/assets/icons/hero/${_pascalToKebabIcon(icon!.value)}.svg',
-        height: 18,
-        width: 18,
-        colorFilter: ColorFilter.mode(
-          primaryColor.withOpacity(0.7),
-          BlendMode.srcIn,
-        ),
-      );
-    }
-
-    return Icon(
-      Icons.article_rounded,
-      color: primaryColor.withOpacity(0.8),
-      size: 18,
     );
   }
 }
