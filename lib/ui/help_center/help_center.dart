@@ -63,7 +63,7 @@ class _HelpCenterViewState extends ConsumerState<_HelpCenterView> {
             },
             icon: Icon(
               Icons.arrow_back_ios_new_rounded,
-              color: widget.textColor,
+              color: _calculateTextColor(widget.primaryColor),
             ),
           ),
           title: GestureDetector(
