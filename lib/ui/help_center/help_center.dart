@@ -84,6 +84,7 @@ class _HelpCenterViewState extends ConsumerState<_HelpCenterView> {
                             fontSize: 22,
                             fontWeight: FontWeight.w600,
                             color: widget.textColor,
+                            fontFamily: 'Inter',
                           ),
                           textAlign: TextAlign.center,
                         ),
@@ -91,6 +92,7 @@ class _HelpCenterViewState extends ConsumerState<_HelpCenterView> {
                           data.description,
                           style: TextStyle(
                             color: widget.textColor.withOpacity(0.7),
+                            fontFamily: 'Inter',
                           ),
                           textAlign: TextAlign.center,
                         ),

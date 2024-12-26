@@ -46,6 +46,7 @@ class _CollectionViewState extends State<_CollectionView> {
                       fontSize: 22,
                       fontWeight: FontWeight.w600,
                       color: widget.textColor,
+                      fontFamily: 'Inter',
                     ),
                     textAlign: TextAlign.start,
                   ),
@@ -53,6 +54,7 @@ class _CollectionViewState extends State<_CollectionView> {
                     widget.collection.description,
                     style: TextStyle(
                       color: widget.textColor.withOpacity(0.7),
+                      fontFamily: 'Inter',
                     ),
                     textAlign: TextAlign.start,
                   ),

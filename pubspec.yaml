@@ -33,3 +33,8 @@ flutter:
 
   assets:
     - assets/icons/hero/
+
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter.ttf

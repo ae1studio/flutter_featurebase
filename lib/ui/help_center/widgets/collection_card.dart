@@ -64,6 +64,7 @@ class _CollectionCard extends StatelessWidget {
                 color: textColor,
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
+                fontFamily: 'Inter',
               ),
             ),
             const SizedBox(height: 2),
@@ -72,6 +73,7 @@ class _CollectionCard extends StatelessWidget {
               style: TextStyle(
                 color: textColor.withOpacity(0.7),
                 fontSize: 14,
+                fontFamily: 'Inter',
               ),
             ),
             const SizedBox(height: 4),
@@ -84,6 +86,7 @@ class _CollectionCard extends StatelessWidget {
                       color: textColor.withOpacity(0.7),
                       fontSize: 13,
                       fontWeight: FontWeight.w600,
+                      fontFamily: 'Inter',
                     ),
                   ),
                   TextSpan(
@@ -91,6 +94,7 @@ class _CollectionCard extends StatelessWidget {
                     style: TextStyle(
                       color: textColor.withOpacity(0.7),
                       fontSize: 13,
+                      fontFamily: 'Inter',
                     ),
                   ),
                 ],
