@@ -34,15 +34,6 @@ class _ArticleViewState extends ConsumerState<_ArticleView> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    if (widget.article.icon != null)
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 5),
-                        child: _FBIconWidget(
-                          icon: widget.article.icon,
-                          primaryColor: Theme.of(context).primaryColor,
-                          size: 36,
-                        ),
-                      ),
                     Text(
                       widget.article.title,
                       style: TextStyle(
