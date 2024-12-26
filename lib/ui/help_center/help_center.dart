@@ -83,57 +83,59 @@ class _HelpCenterViewState extends ConsumerState<_HelpCenterView> {
           data: (data) {
             return CustomTopNavigator(
               navigatorKey: helpcCenterNavigatorKey,
-              home: CustomScrollView(
-                slivers: [
-                  SliverToBoxAdapter(
-                    child: Container(
-                      margin: const EdgeInsets.symmetric(
-                          horizontal: 12, vertical: 20),
-                      child: Column(
-                        children: [
-                          Text(
-                            data.title,
-                            style: TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.w600,
-                              color: widget.textColor,
-                              fontFamily: 'Inter',
+              home: Scrollbar(
+                child: CustomScrollView(
+                  slivers: [
+                    SliverToBoxAdapter(
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(
+                            horizontal: 12, vertical: 20),
+                        child: Column(
+                          children: [
+                            Text(
+                              data.title,
+                              style: TextStyle(
+                                fontSize: 22,
+                                fontWeight: FontWeight.w600,
+                                color: widget.textColor,
+                                fontFamily: 'Inter',
+                              ),
+                              textAlign: TextAlign.center,
                             ),
-                            textAlign: TextAlign.center,
-                          ),
-                          Text(
-                            data.description,
-                            style: TextStyle(
-                              color: widget.textColor.withOpacity(0.7),
-                              fontFamily: 'Inter',
+                            Text(
+                              data.description,
+                              style: TextStyle(
+                                color: widget.textColor.withOpacity(0.7),
+                                fontFamily: 'Inter',
+                              ),
+                              textAlign: TextAlign.center,
                             ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  SliverList.builder(
-                    itemCount: data.structure?.length ?? 0,
-                    itemBuilder: (context, index) {
-                      fb.Collection collection = data.structure![index];
+                    SliverList.builder(
+                      itemCount: data.structure?.length ?? 0,
+                      itemBuilder: (context, index) {
+                        fb.Collection collection = data.structure![index];
 
-                      return Padding(
-                        padding: const EdgeInsets.only(
-                            bottom: 10, right: 10, left: 10),
-                        child: _CollectionCard(
-                          collection: collection,
-                          textColor: widget.textColor,
-                        ),
-                      );
-                    },
-                  ),
-                  SliverToBoxAdapter(
-                    child: const SizedBox(
-                      height: 80,
+                        return Padding(
+                          padding: const EdgeInsets.only(
+                              bottom: 10, right: 10, left: 10),
+                          child: _CollectionCard(
+                            collection: collection,
+                            textColor: widget.textColor,
+                          ),
+                        );
+                      },
                     ),
-                  ),
-                ],
+                    SliverToBoxAdapter(
+                      child: const SizedBox(
+                        height: 80,
+                      ),
+                    ),
+                  ],
+                ),
               ),
               pageRoute: PageRoutes.materialPageRoute,
               routes: const {},
