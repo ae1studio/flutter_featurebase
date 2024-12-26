@@ -103,14 +103,15 @@ class _HelpCenterViewState extends ConsumerState<KnowledgeBaseView> {
                               ),
                               textAlign: TextAlign.center,
                             ),
-                            Text(
-                              data.description,
-                              style: TextStyle(
-                                color: widget.textColor.withOpacity(0.7),
-                                fontFamily: 'Inter',
+                            if (data.description.trim().isNotEmpty)
+                              Text(
+                                data.description,
+                                style: TextStyle(
+                                  color: widget.textColor.withOpacity(0.7),
+                                  fontFamily: 'Inter',
+                                ),
+                                textAlign: TextAlign.center,
                               ),
-                              textAlign: TextAlign.center,
-                            ),
                           ],
                         ),
                       ),
