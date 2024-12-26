@@ -36,6 +36,7 @@ class _CollectionViewState extends State<_CollectionView> {
                           icon: widget.collection.icon,
                           primaryColor: Theme.of(context).primaryColor,
                           size: 36,
+                          isDark: false,
                         ),
                       ),
                     Text(

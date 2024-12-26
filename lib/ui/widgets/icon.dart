@@ -4,12 +4,14 @@ class _FBIconWidget extends StatelessWidget {
   final fb.FBIcon? icon;
   final Color primaryColor;
   final double size;
+  final bool isDark;
   const _FBIconWidget({
     // ignore: unused_element
     super.key,
     required this.icon,
     required this.primaryColor,
     this.size = 18,
+    this.isDark = true,
   });
 
   @override
@@ -20,7 +22,7 @@ class _FBIconWidget extends StatelessWidget {
         height: size,
         width: size,
         colorFilter: ColorFilter.mode(
-          primaryColor.withOpacity(0.7),
+          isDark ? primaryColor.withOpacity(0.7) : primaryColor,
           BlendMode.srcIn,
         ),
       );
