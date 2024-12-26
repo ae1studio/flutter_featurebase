@@ -16,6 +16,9 @@ class KnowledgeBaseView extends ConsumerStatefulWidget {
   /// Background color
   final Color? backgroundColor;
 
+  /// Hide Authors
+  final bool hideAuthors;
+
   const KnowledgeBaseView({
     super.key,
     required this.logo,
@@ -23,6 +26,7 @@ class KnowledgeBaseView extends ConsumerStatefulWidget {
     required this.primaryColor,
     this.textColor = Colors.black,
     this.backgroundColor,
+    this.hideAuthors = false,
   });
 
   @override
@@ -127,6 +131,7 @@ class _HelpCenterViewState extends ConsumerState<KnowledgeBaseView> {
                           child: _CollectionCard(
                             collection: collection,
                             textColor: widget.textColor,
+                            hideAuthors: widget.hideAuthors,
                           ),
                         );
                       },

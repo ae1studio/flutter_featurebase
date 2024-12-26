@@ -3,11 +3,13 @@ part of featurebase;
 class _CollectionCard extends StatelessWidget {
   final fb.Collection collection;
   final Color textColor;
+  final bool hideAuthors;
   const _CollectionCard({
     // ignore: unused_element
     super.key,
     required this.collection,
     required this.textColor,
+    required this.hideAuthors,
   });
 
   @override
@@ -20,6 +22,7 @@ class _CollectionCard extends StatelessWidget {
             builder: (context) => _CollectionView(
               collection: collection,
               textColor: textColor,
+              hideAuthors: hideAuthors,
             ),
           ),
         );
@@ -73,10 +76,11 @@ class _CollectionCard extends StatelessWidget {
             const SizedBox(height: 6),
             Row(
               children: [
-                _AuthorsImageStack(
-                  authors: collection.authors,
-                ),
-                const SizedBox(width: 2),
+                if (!hideAuthors)
+                  _AuthorsImageStack(
+                    authors: collection.authors,
+                  ),
+                if (!hideAuthors) const SizedBox(width: 2),
                 RichText(
                   text: TextSpan(
                     children: [

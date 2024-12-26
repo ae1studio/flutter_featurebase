@@ -16,6 +16,9 @@ void openKnowledgeBase({
   /// Background color
   Color? backgroundColor,
 
+  /// Hide Authors
+  bool hideAuthors = false,
+
   /// BuildContext
   required BuildContext context,
 }) {
@@ -28,6 +31,7 @@ void openKnowledgeBase({
           primaryColor: primaryColor,
           textColor: textColor,
           backgroundColor: backgroundColor,
+          hideAuthors: hideAuthors,
         ),
       ),
     ),

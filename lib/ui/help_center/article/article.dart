@@ -3,11 +3,13 @@ part of featurebase;
 class _ArticleView extends ConsumerStatefulWidget {
   final fb.Article article;
   final Color textColor;
+  final bool hideAuthors;
   const _ArticleView({
     // ignore: unused_element
     super.key,
     required this.article,
     required this.textColor,
+    required this.hideAuthors,
   });
 
   @override
@@ -52,30 +54,31 @@ class _ArticleViewState extends ConsumerState<_ArticleView> {
                       ),
                       textAlign: TextAlign.start,
                     ),
-                    const SizedBox(height: 15),
-                    Row(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(40),
-                          child: _SafeCachedNetworkImage(
-                            imageUrl: widget.article.author.avatarUrl,
-                            height: 40,
-                            width: 40,
-                          ),
-                        ),
-                        const SizedBox(width: 10),
-                        Expanded(
-                          child: Text(
-                            'Written by ${widget.article.author.name}',
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontFamily: 'Inter',
-                              color: widget.textColor.withOpacity(0.7),
+                    if (!widget.hideAuthors) const SizedBox(height: 15),
+                    if (!widget.hideAuthors)
+                      Row(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(40),
+                            child: _SafeCachedNetworkImage(
+                              imageUrl: widget.article.author.avatarUrl,
+                              height: 40,
+                              width: 40,
                             ),
                           ),
-                        ),
-                      ],
-                    ),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: Text(
+                              'Written by ${widget.article.author.name}',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontFamily: 'Inter',
+                                color: widget.textColor.withOpacity(0.7),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     const SizedBox(height: 5),
                   ],
                 ),
@@ -103,6 +106,7 @@ class _ArticleViewState extends ConsumerState<_ArticleView> {
                             builder: (context) => _ArticleView(
                               article: temp,
                               textColor: widget.textColor,
+                              hideAuthors: widget.hideAuthors,
                             ),
                           ),
                         );

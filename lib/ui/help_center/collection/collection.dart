@@ -3,11 +3,13 @@ part of featurebase;
 class _CollectionView extends StatefulWidget {
   final fb.Collection collection;
   final Color textColor;
+  final bool hideAuthors;
   const _CollectionView({
     // ignore: unused_element
     super.key,
     required this.collection,
     required this.textColor,
+    required this.hideAuthors,
   });
 
   @override
@@ -136,6 +138,7 @@ class _CollectionViewState extends State<_CollectionView> {
                               builder: (context) => _ArticleView(
                                 article: article,
                                 textColor: widget.textColor,
+                                hideAuthors: widget.hideAuthors,
                               ),
                             ),
                           );
@@ -261,6 +264,7 @@ class _CollectionViewState extends State<_CollectionView> {
                                           builder: (context) => _ArticleView(
                                             article: article,
                                             textColor: widget.textColor,
+                                            hideAuthors: widget.hideAuthors,
                                           ),
                                         ),
                                       );
