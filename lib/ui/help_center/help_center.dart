@@ -145,7 +145,39 @@ class _HelpCenterViewState extends ConsumerState<_HelpCenterView> {
             );
           },
           error: (error, stackTrace) {
-            return Text(error.toString());
+            return Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    Icons.error_outline_rounded,
+                    size: 40,
+                    color: Theme.of(context).primaryColor,
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    'Failed to load',
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w600,
+                      color: widget.textColor,
+                      fontFamily: 'Inter',
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  Text(
+                    'Try again later',
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                      color: widget.textColor.withOpacity(0.7),
+                      fontFamily: 'Inter',
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+            );
           },
           loading: () {
             return Center(
