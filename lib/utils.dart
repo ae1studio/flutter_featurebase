@@ -36,3 +36,10 @@ Color _getCalloutColor(String color, BuildContext context) {
       return Theme.of(context).primaryColor;
   }
 }
+
+String _getLocale(Locale locale) {
+  if (locale.countryCode != null) {
+    return '${locale.languageCode}_${locale.countryCode!}';
+  }
+  return locale.languageCode;
+}

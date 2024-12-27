@@ -4,12 +4,14 @@ class _CollectionCard extends StatelessWidget {
   final fb.Collection collection;
   final Color textColor;
   final bool hideAuthors;
+  final Locale locale;
   const _CollectionCard({
     // ignore: unused_element
     super.key,
     required this.collection,
     required this.textColor,
     required this.hideAuthors,
+    required this.locale,
   });
 
   @override
@@ -23,6 +25,7 @@ class _CollectionCard extends StatelessWidget {
               collection: collection,
               textColor: textColor,
               hideAuthors: hideAuthors,
+              locale: locale,
             ),
           ),
         );

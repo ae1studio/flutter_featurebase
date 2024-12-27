@@ -4,12 +4,14 @@ class _ArticleView extends ConsumerStatefulWidget {
   final fb.Article article;
   final Color textColor;
   final bool hideAuthors;
+  final Locale locale;
   const _ArticleView({
     // ignore: unused_element
     super.key,
     required this.article,
     required this.textColor,
     required this.hideAuthors,
+    required this.locale,
   });
 
   @override
@@ -20,8 +22,8 @@ class _ArticleViewState extends ConsumerState<_ArticleView> {
   @override
   Widget build(BuildContext context) {
     AsyncValue<String?> articleAsync = ref.watch(
-      GetHelpCenterArticleBodyProvider(
-          widget.article.articleId, widget.article.body),
+      GetHelpCenterArticleBodyProvider(widget.article.articleId,
+          widget.article.body, _getLocale(widget.locale)),
     );
 
     return Scaffold(
@@ -97,8 +99,10 @@ class _ArticleViewState extends ConsumerState<_ArticleView> {
                       final articleId =
                           url.split('/articles/')[1].split('-')[0];
 
-                      fb.Article temp = await ref
-                          .read(GetHelpCenterArticleProvider(articleId).future);
+                      fb.Article temp = await ref.read(
+                          GetHelpCenterArticleProvider(
+                                  articleId, _getLocale(widget.locale))
+                              .future);
 
                       if (context.mounted) {
                         Navigator.push(
@@ -108,6 +112,7 @@ class _ArticleViewState extends ConsumerState<_ArticleView> {
                               article: temp,
                               textColor: widget.textColor,
                               hideAuthors: widget.hideAuthors,
+                              locale: widget.locale,
                             ),
                           ),
                         );

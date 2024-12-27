@@ -6,26 +6,7 @@ part of 'featurebase.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$helpCenterInfoHash() => r'4f354f6c3089b27b54fdf107083584bac7d0cebe';
-
-/// See also [helpCenterInfo].
-@ProviderFor(helpCenterInfo)
-final helpCenterInfoProvider =
-    AutoDisposeFutureProvider<fb.HelpCenter>.internal(
-  helpCenterInfo,
-  name: r'helpCenterInfoProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$helpCenterInfoHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef HelpCenterInfoRef = AutoDisposeFutureProviderRef<fb.HelpCenter>;
-String _$getHelpCenterArticleHash() =>
-    r'6ec12e6c0a0fb3f9ece09cf866f79d15d697ab3c';
+String _$helpCenterInfoHash() => r'8643af459878f187e9b9e28d230f4ad9f31ce273';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -48,6 +29,138 @@ class _SystemHash {
   }
 }
 
+/// See also [helpCenterInfo].
+@ProviderFor(helpCenterInfo)
+const helpCenterInfoProvider = HelpCenterInfoFamily();
+
+/// See also [helpCenterInfo].
+class HelpCenterInfoFamily extends Family<AsyncValue<fb.HelpCenter>> {
+  /// See also [helpCenterInfo].
+  const HelpCenterInfoFamily();
+
+  /// See also [helpCenterInfo].
+  HelpCenterInfoProvider call(
+    String locale,
+  ) {
+    return HelpCenterInfoProvider(
+      locale,
+    );
+  }
+
+  @override
+  HelpCenterInfoProvider getProviderOverride(
+    covariant HelpCenterInfoProvider provider,
+  ) {
+    return call(
+      provider.locale,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'helpCenterInfoProvider';
+}
+
+/// See also [helpCenterInfo].
+class HelpCenterInfoProvider extends AutoDisposeFutureProvider<fb.HelpCenter> {
+  /// See also [helpCenterInfo].
+  HelpCenterInfoProvider(
+    String locale,
+  ) : this._internal(
+          (ref) => helpCenterInfo(
+            ref as HelpCenterInfoRef,
+            locale,
+          ),
+          from: helpCenterInfoProvider,
+          name: r'helpCenterInfoProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$helpCenterInfoHash,
+          dependencies: HelpCenterInfoFamily._dependencies,
+          allTransitiveDependencies:
+              HelpCenterInfoFamily._allTransitiveDependencies,
+          locale: locale,
+        );
+
+  HelpCenterInfoProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.locale,
+  }) : super.internal();
+
+  final String locale;
+
+  @override
+  Override overrideWith(
+    FutureOr<fb.HelpCenter> Function(HelpCenterInfoRef provider) create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: HelpCenterInfoProvider._internal(
+        (ref) => create(ref as HelpCenterInfoRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        locale: locale,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<fb.HelpCenter> createElement() {
+    return _HelpCenterInfoProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is HelpCenterInfoProvider && other.locale == locale;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, locale.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+mixin HelpCenterInfoRef on AutoDisposeFutureProviderRef<fb.HelpCenter> {
+  /// The parameter `locale` of this provider.
+  String get locale;
+}
+
+class _HelpCenterInfoProviderElement
+    extends AutoDisposeFutureProviderElement<fb.HelpCenter>
+    with HelpCenterInfoRef {
+  _HelpCenterInfoProviderElement(super.provider);
+
+  @override
+  String get locale => (origin as HelpCenterInfoProvider).locale;
+}
+
+String _$getHelpCenterArticleHash() =>
+    r'f2ce4b83b4b01cfb9f27307afc5061123f66f790';
+
 /// See also [getHelpCenterArticle].
 @ProviderFor(getHelpCenterArticle)
 const getHelpCenterArticleProvider = GetHelpCenterArticleFamily();
@@ -60,9 +173,11 @@ class GetHelpCenterArticleFamily extends Family<AsyncValue<fb.Article>> {
   /// See also [getHelpCenterArticle].
   GetHelpCenterArticleProvider call(
     String articleId,
+    String locale,
   ) {
     return GetHelpCenterArticleProvider(
       articleId,
+      locale,
     );
   }
 
@@ -72,6 +187,7 @@ class GetHelpCenterArticleFamily extends Family<AsyncValue<fb.Article>> {
   ) {
     return call(
       provider.articleId,
+      provider.locale,
     );
   }
 
@@ -96,10 +212,12 @@ class GetHelpCenterArticleProvider
   /// See also [getHelpCenterArticle].
   GetHelpCenterArticleProvider(
     String articleId,
+    String locale,
   ) : this._internal(
           (ref) => getHelpCenterArticle(
             ref as GetHelpCenterArticleRef,
             articleId,
+            locale,
           ),
           from: getHelpCenterArticleProvider,
           name: r'getHelpCenterArticleProvider',
@@ -111,6 +229,7 @@ class GetHelpCenterArticleProvider
           allTransitiveDependencies:
               GetHelpCenterArticleFamily._allTransitiveDependencies,
           articleId: articleId,
+          locale: locale,
         );
 
   GetHelpCenterArticleProvider._internal(
@@ -121,9 +240,11 @@ class GetHelpCenterArticleProvider
     required super.debugGetCreateSourceHash,
     required super.from,
     required this.articleId,
+    required this.locale,
   }) : super.internal();
 
   final String articleId;
+  final String locale;
 
   @override
   Override overrideWith(
@@ -139,6 +260,7 @@ class GetHelpCenterArticleProvider
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
         articleId: articleId,
+        locale: locale,
       ),
     );
   }
@@ -151,13 +273,15 @@ class GetHelpCenterArticleProvider
   @override
   bool operator ==(Object other) {
     return other is GetHelpCenterArticleProvider &&
-        other.articleId == articleId;
+        other.articleId == articleId &&
+        other.locale == locale;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
     hash = _SystemHash.combine(hash, articleId.hashCode);
+    hash = _SystemHash.combine(hash, locale.hashCode);
 
     return _SystemHash.finish(hash);
   }
@@ -168,6 +292,9 @@ class GetHelpCenterArticleProvider
 mixin GetHelpCenterArticleRef on AutoDisposeFutureProviderRef<fb.Article> {
   /// The parameter `articleId` of this provider.
   String get articleId;
+
+  /// The parameter `locale` of this provider.
+  String get locale;
 }
 
 class _GetHelpCenterArticleProviderElement
@@ -177,10 +304,12 @@ class _GetHelpCenterArticleProviderElement
 
   @override
   String get articleId => (origin as GetHelpCenterArticleProvider).articleId;
+  @override
+  String get locale => (origin as GetHelpCenterArticleProvider).locale;
 }
 
 String _$getHelpCenterArticleBodyHash() =>
-    r'bce86ae5843945a51e432ee1a6a53799e1ca1fb1';
+    r'a047ce78265d01d2480763616b8a5e1b903361ab';
 
 /// See also [getHelpCenterArticleBody].
 @ProviderFor(getHelpCenterArticleBody)
@@ -195,10 +324,12 @@ class GetHelpCenterArticleBodyFamily extends Family<AsyncValue<String?>> {
   GetHelpCenterArticleBodyProvider call(
     String articleId,
     String? preLoadedBody,
+    String locale,
   ) {
     return GetHelpCenterArticleBodyProvider(
       articleId,
       preLoadedBody,
+      locale,
     );
   }
 
@@ -209,6 +340,7 @@ class GetHelpCenterArticleBodyFamily extends Family<AsyncValue<String?>> {
     return call(
       provider.articleId,
       provider.preLoadedBody,
+      provider.locale,
     );
   }
 
@@ -234,11 +366,13 @@ class GetHelpCenterArticleBodyProvider
   GetHelpCenterArticleBodyProvider(
     String articleId,
     String? preLoadedBody,
+    String locale,
   ) : this._internal(
           (ref) => getHelpCenterArticleBody(
             ref as GetHelpCenterArticleBodyRef,
             articleId,
             preLoadedBody,
+            locale,
           ),
           from: getHelpCenterArticleBodyProvider,
           name: r'getHelpCenterArticleBodyProvider',
@@ -251,6 +385,7 @@ class GetHelpCenterArticleBodyProvider
               GetHelpCenterArticleBodyFamily._allTransitiveDependencies,
           articleId: articleId,
           preLoadedBody: preLoadedBody,
+          locale: locale,
         );
 
   GetHelpCenterArticleBodyProvider._internal(
@@ -262,10 +397,12 @@ class GetHelpCenterArticleBodyProvider
     required super.from,
     required this.articleId,
     required this.preLoadedBody,
+    required this.locale,
   }) : super.internal();
 
   final String articleId;
   final String? preLoadedBody;
+  final String locale;
 
   @override
   Override overrideWith(
@@ -282,6 +419,7 @@ class GetHelpCenterArticleBodyProvider
         debugGetCreateSourceHash: null,
         articleId: articleId,
         preLoadedBody: preLoadedBody,
+        locale: locale,
       ),
     );
   }
@@ -295,7 +433,8 @@ class GetHelpCenterArticleBodyProvider
   bool operator ==(Object other) {
     return other is GetHelpCenterArticleBodyProvider &&
         other.articleId == articleId &&
-        other.preLoadedBody == preLoadedBody;
+        other.preLoadedBody == preLoadedBody &&
+        other.locale == locale;
   }
 
   @override
@@ -303,6 +442,7 @@ class GetHelpCenterArticleBodyProvider
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
     hash = _SystemHash.combine(hash, articleId.hashCode);
     hash = _SystemHash.combine(hash, preLoadedBody.hashCode);
+    hash = _SystemHash.combine(hash, locale.hashCode);
 
     return _SystemHash.finish(hash);
   }
@@ -316,6 +456,9 @@ mixin GetHelpCenterArticleBodyRef on AutoDisposeFutureProviderRef<String?> {
 
   /// The parameter `preLoadedBody` of this provider.
   String? get preLoadedBody;
+
+  /// The parameter `locale` of this provider.
+  String get locale;
 }
 
 class _GetHelpCenterArticleBodyProviderElement
@@ -329,6 +472,8 @@ class _GetHelpCenterArticleBodyProviderElement
   @override
   String? get preLoadedBody =>
       (origin as GetHelpCenterArticleBodyProvider).preLoadedBody;
+  @override
+  String get locale => (origin as GetHelpCenterArticleBodyProvider).locale;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

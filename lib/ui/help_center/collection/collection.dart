@@ -4,12 +4,14 @@ class _CollectionView extends StatefulWidget {
   final fb.Collection collection;
   final Color textColor;
   final bool hideAuthors;
+  final Locale locale;
   const _CollectionView({
     // ignore: unused_element
     super.key,
     required this.collection,
     required this.textColor,
     required this.hideAuthors,
+    required this.locale,
   });
 
   @override
@@ -139,6 +141,7 @@ class _CollectionViewState extends State<_CollectionView> {
                                 article: article,
                                 textColor: widget.textColor,
                                 hideAuthors: widget.hideAuthors,
+                                locale: widget.locale,
                               ),
                             ),
                           );
@@ -265,6 +268,7 @@ class _CollectionViewState extends State<_CollectionView> {
                                             article: article,
                                             textColor: widget.textColor,
                                             hideAuthors: widget.hideAuthors,
+                                            locale: widget.locale,
                                           ),
                                         ),
                                       );

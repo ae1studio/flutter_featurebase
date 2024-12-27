@@ -19,6 +19,9 @@ class HelpCenterView extends ConsumerStatefulWidget {
   /// Hide Authors
   final bool hideAuthors;
 
+  /// Default Locale (default: en)
+  final Locale defaultLocale;
+
   const HelpCenterView({
     super.key,
     required this.logo,
@@ -27,6 +30,7 @@ class HelpCenterView extends ConsumerStatefulWidget {
     this.textColor = Colors.black,
     this.backgroundColor,
     this.hideAuthors = false,
+    this.defaultLocale = const Locale('en'),
   });
 
   @override
@@ -87,7 +91,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
   @override
   Widget build(BuildContext context) {
     AsyncValue<fb.HelpCenter> helpCenterAsync = ref.watch(
-      helpCenterInfoProvider,
+      HelpCenterInfoProvider(_getLocale(widget.defaultLocale)),
     );
 
     return Theme(
@@ -184,6 +188,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                               collection: collection,
                               textColor: widget.textColor,
                               hideAuthors: widget.hideAuthors,
+                              locale: widget.defaultLocale,
                             ),
                           );
                         },

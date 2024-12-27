@@ -20,6 +20,9 @@ void openHelpCenter({
   /// Hide Authors
   bool hideAuthors = false,
 
+  /// Default Locale (default: en)
+  Locale defaultLocale = const Locale('en'),
+
   /// BuildContext
   required BuildContext context,
 }) {
@@ -33,6 +36,7 @@ void openHelpCenter({
           textColor: textColor,
           backgroundColor: backgroundColor,
           hideAuthors: hideAuthors,
+          defaultLocale: defaultLocale,
         ),
       ),
     ),
