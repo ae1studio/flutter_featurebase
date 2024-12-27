@@ -1,3 +1,4 @@
+import 'package:featurebase/l10n/generated/featurebase_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:featurebase/featurebase.dart';
 import 'package:flutter_svg/svg.dart';
@@ -27,6 +28,13 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const MyHomePage(),
+      locale: Locale('en'),
+      localizationsDelegates: [
+        FeaturebaseLocalizations.delegate,
+      ],
+      supportedLocales: [
+        Locale('en'),
+      ],
     );
   }
 }
