@@ -19,6 +19,15 @@ Some CORS issues cause it not to load on web (looking into a fix) *
 
 First you need to add the package to your `pubspec.yaml` file.
 
+Then add the FeaturebaseLocalizations delegate to your MaterialApp for the packages localization.
+
+```dart
+localizationsDelegates: [
+    FeaturebaseLocalizations.delegate,
+    //Any other delegates
+],
+```
+
 ### Usage
 
 Call the openHelpCenter function to open the panel.
@@ -47,15 +56,6 @@ Example:
 ![Example Image](https://raw.githubusercontent.com/ae1dev/flutter_featurebase/refs/heads/main/docs/imgs/KnowledgeBaseExample.png)
 
 ## Localization
-
-Add the FeaturebaseLocalizations delegate to your MaterialApp.
-
-```dart
-localizationsDelegates: [
-    FeaturebaseLocalizations.delegate,
-    //Any other delegates
-],
-```
 
 Supported languages:
 
