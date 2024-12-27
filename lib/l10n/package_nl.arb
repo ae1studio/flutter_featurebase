@@ -1,0 +1,21 @@
+{
+  "@@locale": "nl",
+  "countArticles": "<strong>{count}</strong> {count, plural, one{artikel} other{artikelen}}",
+  "@countArticles": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "writtenBy": "Geschreven door {author}",
+  "@writtenBy": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  }
+}
