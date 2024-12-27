@@ -1,0 +1,29 @@
+{
+  "@@locale": "ms",
+  "countArticles": "<strong>{count}</strong> {count, plural, one{artikel} other{artikel}}",
+  "@countArticles": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "writtenBy": "Ditulis oleh {author}",
+  "@writtenBy": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  },
+  "failedToLoad": "Gagal dimuat",
+  "@failedToLoad": {
+    "description": "This is the error message that is displayed when the data fails to load."
+  },
+  "tryAgainLater": "Sila cuba lagi kemudian",
+  "@tryAgainLater": {
+    "description": "This is the message that is displayed when the user should try again later."
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "@@locale": "ru",
+  "countArticles": "<strong>{count}</strong> {count, plural, one{статья} few{статьи} many{статей} other{статей}}",
+  "@countArticles": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "writtenBy": "Автор: {author}",
+  "@writtenBy": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  },
+  "failedToLoad": "Не удалось загрузить",
+  "@failedToLoad": {
+    "description": "This is the error message that is displayed when the data fails to load."
+  },
+  "tryAgainLater": "Повторите попытку позже",
+  "@tryAgainLater": {
+    "description": "This is the message that is displayed when the user should try again later."
+  }
+}

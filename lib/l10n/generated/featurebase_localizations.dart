@@ -24,7 +24,31 @@ import 'featurebase_localizations_fr.dart';
 import 'featurebase_localizations_gl.dart';
 import 'featurebase_localizations_hi.dart';
 import 'featurebase_localizations_hr.dart';
+import 'featurebase_localizations_hu.dart';
+import 'featurebase_localizations_id.dart';
+import 'featurebase_localizations_is.dart';
+import 'featurebase_localizations_it.dart';
+import 'featurebase_localizations_ja.dart';
+import 'featurebase_localizations_ko.dart';
+import 'featurebase_localizations_lt.dart';
+import 'featurebase_localizations_lv.dart';
+import 'featurebase_localizations_ms.dart';
+import 'featurebase_localizations_nb.dart';
 import 'featurebase_localizations_nl.dart';
+import 'featurebase_localizations_pl.dart';
+import 'featurebase_localizations_pt.dart';
+import 'featurebase_localizations_ro.dart';
+import 'featurebase_localizations_ru.dart';
+import 'featurebase_localizations_sk.dart';
+import 'featurebase_localizations_sl.dart';
+import 'featurebase_localizations_sr.dart';
+import 'featurebase_localizations_sv.dart';
+import 'featurebase_localizations_sw.dart';
+import 'featurebase_localizations_th.dart';
+import 'featurebase_localizations_tr.dart';
+import 'featurebase_localizations_uk.dart';
+import 'featurebase_localizations_vi.dart';
+import 'featurebase_localizations_zh.dart';
 
 // ignore_for_file: type=lint
 
@@ -134,7 +158,35 @@ abstract class FeaturebaseLocalizations {
     Locale('gl'),
     Locale('hi'),
     Locale('hr'),
-    Locale('nl')
+    Locale('hu'),
+    Locale('id'),
+    Locale('is'),
+    Locale('it'),
+    Locale('ja'),
+    Locale('ko'),
+    Locale('lt'),
+    Locale('lv'),
+    Locale('ms'),
+    Locale('nb'),
+    Locale('nl'),
+    Locale('pl'),
+    Locale('pt'),
+    Locale('pt', 'BR'),
+    Locale('ro'),
+    Locale('ru'),
+    Locale('sk'),
+    Locale('sl'),
+    Locale('sr'),
+    Locale('sv'),
+    Locale('sw'),
+    Locale('th'),
+    Locale('tr'),
+    Locale('uk'),
+    Locale('vi'),
+    Locale('zh'),
+    Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hans'),
+    Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hant'),
+    Locale('zh', 'TW')
   ];
 
   /// No description provided for @countArticles.
@@ -193,7 +245,31 @@ class _FeaturebaseLocalizationsDelegate
         'gl',
         'hi',
         'hr',
-        'nl'
+        'hu',
+        'id',
+        'is',
+        'it',
+        'ja',
+        'ko',
+        'lt',
+        'lv',
+        'ms',
+        'nb',
+        'nl',
+        'pl',
+        'pt',
+        'ro',
+        'ru',
+        'sk',
+        'sl',
+        'sr',
+        'sv',
+        'sw',
+        'th',
+        'tr',
+        'uk',
+        'vi',
+        'zh'
       ].contains(locale.languageCode);
 
   @override
@@ -201,6 +277,20 @@ class _FeaturebaseLocalizationsDelegate
 }
 
 FeaturebaseLocalizations lookupFeaturebaseLocalizations(Locale locale) {
+  // Lookup logic when language+script codes are specified.
+  switch (locale.languageCode) {
+    case 'zh':
+      {
+        switch (locale.scriptCode) {
+          case 'Hans':
+            return FeaturebaseLocalizationsZhHans();
+          case 'Hant':
+            return FeaturebaseLocalizationsZhHant();
+        }
+        break;
+      }
+  }
+
   // Lookup logic when language+country codes are specified.
   switch (locale.languageCode) {
     case 'de':
@@ -216,6 +306,22 @@ FeaturebaseLocalizations lookupFeaturebaseLocalizations(Locale locale) {
         switch (locale.countryCode) {
           case '419':
             return FeaturebaseLocalizationsEs419();
+        }
+        break;
+      }
+    case 'pt':
+      {
+        switch (locale.countryCode) {
+          case 'BR':
+            return FeaturebaseLocalizationsPtBr();
+        }
+        break;
+      }
+    case 'zh':
+      {
+        switch (locale.countryCode) {
+          case 'TW':
+            return FeaturebaseLocalizationsZhTw();
         }
         break;
       }
@@ -261,8 +367,56 @@ FeaturebaseLocalizations lookupFeaturebaseLocalizations(Locale locale) {
       return FeaturebaseLocalizationsHi();
     case 'hr':
       return FeaturebaseLocalizationsHr();
+    case 'hu':
+      return FeaturebaseLocalizationsHu();
+    case 'id':
+      return FeaturebaseLocalizationsId();
+    case 'is':
+      return FeaturebaseLocalizationsIs();
+    case 'it':
+      return FeaturebaseLocalizationsIt();
+    case 'ja':
+      return FeaturebaseLocalizationsJa();
+    case 'ko':
+      return FeaturebaseLocalizationsKo();
+    case 'lt':
+      return FeaturebaseLocalizationsLt();
+    case 'lv':
+      return FeaturebaseLocalizationsLv();
+    case 'ms':
+      return FeaturebaseLocalizationsMs();
+    case 'nb':
+      return FeaturebaseLocalizationsNb();
     case 'nl':
       return FeaturebaseLocalizationsNl();
+    case 'pl':
+      return FeaturebaseLocalizationsPl();
+    case 'pt':
+      return FeaturebaseLocalizationsPt();
+    case 'ro':
+      return FeaturebaseLocalizationsRo();
+    case 'ru':
+      return FeaturebaseLocalizationsRu();
+    case 'sk':
+      return FeaturebaseLocalizationsSk();
+    case 'sl':
+      return FeaturebaseLocalizationsSl();
+    case 'sr':
+      return FeaturebaseLocalizationsSr();
+    case 'sv':
+      return FeaturebaseLocalizationsSv();
+    case 'sw':
+      return FeaturebaseLocalizationsSw();
+    case 'th':
+      return FeaturebaseLocalizationsTh();
+    case 'tr':
+      return FeaturebaseLocalizationsTr();
+    case 'uk':
+      return FeaturebaseLocalizationsUk();
+    case 'vi':
+      return FeaturebaseLocalizationsVi();
+    case 'zh':
+      return FeaturebaseLocalizationsZh();
   }
 
   throw FlutterError(

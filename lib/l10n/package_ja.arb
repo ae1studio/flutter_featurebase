@@ -1,0 +1,29 @@
+{
+  "@@locale": "ja",
+  "countArticles": "<strong>{count}</strong> {count, plural, one{記事} other{記事}}",
+  "@countArticles": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "writtenBy": "著者: {author}",
+  "@writtenBy": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  },
+  "failedToLoad": "読み込みに失敗しました",
+  "@failedToLoad": {
+    "description": "This is the error message that is displayed when the data fails to load."
+  },
+  "tryAgainLater": "後でもう一度お試しください",
+  "@tryAgainLater": {
+    "description": "This is the message that is displayed when the user should try again later."
+  }
+}

@@ -79,7 +79,33 @@ Supported languages:
 - French
 - Galician
 - Hindi
+- Hungarian
+- Indonesian
+- Icelandic
+- Italian
+- Japanese
+- Korean
+- Lithuanian
+- Latvian
+- Malay
+- Norwegian Bokmal
 - Dutch (@stijnvdkolk)
+- Polish
+- Portuguese (Brazil)
+- Romanian
+- Russian
+- Slovak
+- Slovene
+- Serbian
+- Swedish
+- Swahili
+- Tahi
+- Turkish
+- Ukrainian
+- Vietnamese
+- Chinese (Simplified)
+- Chinese (Traditional)
+- Chinese (Traditional - Taiwan)
 
 ## Contribution
 

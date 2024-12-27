@@ -1,0 +1,29 @@
+{
+  "@@locale": "zh_TW",
+  "countArticles": "<strong>{count}</strong> {count, plural, one{篇文章} other{篇文章}}",
+  "@countArticles": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "writtenBy": "作者：{author}",
+  "@writtenBy": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  },
+  "failedToLoad": "載入失敗",
+  "@failedToLoad": {
+    "description": "This is the error message that is displayed when the data fails to load."
+  },
+  "tryAgainLater": "請稍後再試",
+  "@tryAgainLater": {
+    "description": "This is the message that is displayed when the user should try again later."
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "@@locale": "sw",
+  "countArticles": "<strong>{count}</strong> {count, plural, one{makala} other{makala}}",
+  "@countArticles": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "writtenBy": "Imeandikwa na {author}",
+  "@writtenBy": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  },
+  "failedToLoad": "Imeshindwa kupakia",
+  "@failedToLoad": {
+    "description": "This is the error message that is displayed when the data fails to load."
+  },
+  "tryAgainLater": "Jaribu tena baadaye",
+  "@tryAgainLater": {
+    "description": "This is the message that is displayed when the user should try again later."
+  }
+}
