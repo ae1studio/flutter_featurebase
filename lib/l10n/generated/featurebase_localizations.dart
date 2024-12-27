@@ -18,6 +18,7 @@ import 'featurebase_localizations_de.dart';
 import 'featurebase_localizations_el.dart';
 import 'featurebase_localizations_en.dart';
 import 'featurebase_localizations_es.dart';
+import 'featurebase_localizations_nl.dart';
 
 // ignore_for_file: type=lint
 
@@ -119,7 +120,8 @@ abstract class FeaturebaseLocalizations {
     Locale('de'),
     Locale('de', 'CH'),
     Locale('el'),
-    Locale('es')
+    Locale('es'),
+    Locale('nl')
   ];
 
   /// No description provided for @countArticles.
@@ -159,7 +161,8 @@ class _FeaturebaseLocalizationsDelegate
         'de',
         'el',
         'en',
-        'es'
+        'es',
+        'nl'
       ].contains(locale.languageCode);
 
   @override
@@ -207,6 +210,8 @@ FeaturebaseLocalizations lookupFeaturebaseLocalizations(Locale locale) {
       return FeaturebaseLocalizationsEn();
     case 'es':
       return FeaturebaseLocalizationsEs();
+    case 'nl':
+      return FeaturebaseLocalizationsNl();
   }
 
   throw FlutterError(
