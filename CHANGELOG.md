@@ -1,6 +1,7 @@
 ## 0.3.0
 
 - **BREAKING**: Added localization support (check README for how to setup).
+- Added `defaultLocale` option to set the locale of the articles/help center.
 - Deprecated `openKnowledgeBase`, use `openHelpCenter` instead.
 
 ## 0.2.2
