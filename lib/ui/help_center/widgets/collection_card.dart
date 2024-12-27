@@ -93,7 +93,7 @@ class _CollectionCard extends StatelessWidget {
                     fontFamily: 'Inter',
                   ),
                   tags: {
-                    'bold': StyledTextTag(
+                    'strong': StyledTextTag(
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
                         color: textColor.withOpacity(0.7),
