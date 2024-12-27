@@ -69,7 +69,8 @@ class _ArticleViewState extends ConsumerState<_ArticleView> {
                           const SizedBox(width: 10),
                           Expanded(
                             child: Text(
-                              'Written by ${widget.article.author.name}',
+                              FeaturebaseLocalizations.of(context)
+                                  .writtenBy(widget.article.author.name),
                               style: TextStyle(
                                 fontSize: 14,
                                 fontFamily: 'Inter',

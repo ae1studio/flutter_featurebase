@@ -45,3 +45,18 @@ openKnowledgeBase(
 Example:
 
 ![Example Image](https://raw.githubusercontent.com/ae1dev/flutter_featurebase/refs/heads/main/docs/imgs/KnowledgeBaseExample.png)
+
+## Localization
+
+Add the FeaturebaseLocalizations delegate to your MaterialApp.
+
+```dart
+localizationsDelegates: [
+    FeaturebaseLocalizations.delegate,
+    //Any other delegates
+],
+```
+
+Supported languages:
+
+- English

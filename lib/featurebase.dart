@@ -3,6 +3,7 @@ library featurebase;
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:custom_top_navigator_plus/custom_navigation.dart';
+import 'package:featurebase/l10n/generated/featurebase_localizations.dart';
 import 'package:featurebase_dart/featurebase_dart.dart' as fb;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:styled_text/styled_text.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 part 'ui/help_center/help_center.dart';

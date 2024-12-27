@@ -83,28 +83,25 @@ class _CollectionCard extends StatelessWidget {
                     authors: collection.authors,
                   ),
                 if (!hideAuthors) const SizedBox(width: 2),
-                RichText(
-                  text: TextSpan(
-                    children: [
-                      TextSpan(
-                        text: (collection.structure?.length).toString(),
-                        style: TextStyle(
-                          color: textColor.withOpacity(0.7),
-                          fontSize: 13,
-                          fontWeight: FontWeight.w600,
-                          fontFamily: 'Inter',
-                        ),
-                      ),
-                      TextSpan(
-                        text: ' articles',
-                        style: TextStyle(
-                          color: textColor.withOpacity(0.7),
-                          fontSize: 13,
-                          fontFamily: 'Inter',
-                        ),
-                      ),
-                    ],
+                StyledText(
+                  text: AppLocalizations.of(context).countArticles(
+                    collection.structure?.length ?? 0,
                   ),
+                  style: TextStyle(
+                    color: textColor.withOpacity(0.7),
+                    fontSize: 13,
+                    fontFamily: 'Inter',
+                  ),
+                  tags: {
+                    'bold': StyledTextTag(
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: textColor.withOpacity(0.7),
+                        fontSize: 13,
+                        fontFamily: 'Inter',
+                      ),
+                    ),
+                  },
                 ),
               ],
             ),
