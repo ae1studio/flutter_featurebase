@@ -1,3 +1,8 @@
+## 0.3.0
+
+- **BREAKING**: Added localization support (check README for how to setup).
+- Deprecated `openKnowledgeBase`, use `openHelpCenter` instead.
+
 ## 0.2.2
 
 - Added support for swipe back page iOS gesture.
@@ -14,7 +19,7 @@
 
 ## 0.1.0
 
-- Added option to hide authors.
+- Added `hideAuthors` option to hide authors.
 
 ## 0.0.4
 
