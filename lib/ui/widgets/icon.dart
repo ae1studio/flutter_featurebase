@@ -20,6 +20,7 @@ class _FBIconWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     Color color = primaryColor ?? Theme.of(context).primaryColor;
 
+    //Predefined icon
     if (icon?.type == 'predefined') {
       return SvgPicture.asset(
         'packages/featurebase/assets/icons/hero/${_pascalToKebabIcon(icon!.value)}.svg',
@@ -32,6 +33,7 @@ class _FBIconWidget extends StatelessWidget {
       );
     }
 
+    //Emoji icon
     if (icon?.type == 'emoji') {
       return Text(
         icon!.value,
@@ -40,6 +42,29 @@ class _FBIconWidget extends StatelessWidget {
           color: isDark ? color.withOpacity(0.8) : textColor,
         ),
       );
+    }
+
+    //External icon
+    if (icon?.type == 'external') {
+      if (icon?.value.split('.').last == 'svg') {
+        return SvgPicture.network(
+          icon!.value,
+          height: size,
+          width: size,
+          colorFilter: ColorFilter.mode(
+            isDark ? color.withOpacity(0.8) : color,
+            BlendMode.srcIn,
+          ),
+        );
+      }
+
+      if (icon?.value.split('.').last == 'png') {
+        return _SafeCachedNetworkImage(
+          imageUrl: icon!.value,
+          height: size,
+          width: size,
+        );
+      }
     }
 
     return Icon(
