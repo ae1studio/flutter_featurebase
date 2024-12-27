@@ -73,6 +73,13 @@ Supported languages:
 - Greek
 - English
 - Spanish (Spain)
+- Spanish (Latin America)
+- Persian
+- Finnish
+- French
+- Galician
+- Hindi
+- Dutch (@stijnvdkolk)
 
 ## Contribution
 

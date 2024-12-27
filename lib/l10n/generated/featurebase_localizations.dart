@@ -18,6 +18,12 @@ import 'featurebase_localizations_de.dart';
 import 'featurebase_localizations_el.dart';
 import 'featurebase_localizations_en.dart';
 import 'featurebase_localizations_es.dart';
+import 'featurebase_localizations_fa.dart';
+import 'featurebase_localizations_fi.dart';
+import 'featurebase_localizations_fr.dart';
+import 'featurebase_localizations_gl.dart';
+import 'featurebase_localizations_hi.dart';
+import 'featurebase_localizations_hr.dart';
 import 'featurebase_localizations_nl.dart';
 
 // ignore_for_file: type=lint
@@ -121,6 +127,13 @@ abstract class FeaturebaseLocalizations {
     Locale('de', 'CH'),
     Locale('el'),
     Locale('es'),
+    Locale('es', '419'),
+    Locale('fa'),
+    Locale('fi'),
+    Locale('fr'),
+    Locale('gl'),
+    Locale('hi'),
+    Locale('hr'),
     Locale('nl')
   ];
 
@@ -162,6 +175,12 @@ class _FeaturebaseLocalizationsDelegate
         'el',
         'en',
         'es',
+        'fa',
+        'fi',
+        'fr',
+        'gl',
+        'hi',
+        'hr',
         'nl'
       ].contains(locale.languageCode);
 
@@ -177,6 +196,14 @@ FeaturebaseLocalizations lookupFeaturebaseLocalizations(Locale locale) {
         switch (locale.countryCode) {
           case 'CH':
             return FeaturebaseLocalizationsDeCh();
+        }
+        break;
+      }
+    case 'es':
+      {
+        switch (locale.countryCode) {
+          case '419':
+            return FeaturebaseLocalizationsEs419();
         }
         break;
       }
@@ -210,6 +237,18 @@ FeaturebaseLocalizations lookupFeaturebaseLocalizations(Locale locale) {
       return FeaturebaseLocalizationsEn();
     case 'es':
       return FeaturebaseLocalizationsEs();
+    case 'fa':
+      return FeaturebaseLocalizationsFa();
+    case 'fi':
+      return FeaturebaseLocalizationsFi();
+    case 'fr':
+      return FeaturebaseLocalizationsFr();
+    case 'gl':
+      return FeaturebaseLocalizationsGl();
+    case 'hi':
+      return FeaturebaseLocalizationsHi();
+    case 'hr':
+      return FeaturebaseLocalizationsHr();
     case 'nl':
       return FeaturebaseLocalizationsNl();
   }

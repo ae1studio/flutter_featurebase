@@ -1,0 +1,21 @@
+{
+  "@@locale": "fa",
+  "countArticles": "<strong>{count}</strong> {count, plural, one{مقاله} other{مقاله‌ها}}",
+  "@countArticles": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "writtenBy": "نوشته شده توسط {author}",
+  "@writtenBy": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  }
+}

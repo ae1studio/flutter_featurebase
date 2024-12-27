@@ -1,0 +1,21 @@
+{
+  "@@locale": "fi",
+  "countArticles": "<strong>{count}</strong> {count, plural, one{artikkeli} other{artikkeleita}}",
+  "@countArticles": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "writtenBy": "Kirjoitettu {author}",
+  "@writtenBy": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  }
+}

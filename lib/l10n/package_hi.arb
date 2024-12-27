@@ -1,0 +1,21 @@
+{
+  "@@locale": "hi",
+  "countArticles": "<strong>{count}</strong> {count, plural, one{लेख} other{लेख}}",
+  "@countArticles": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "writtenBy": "{author} द्वारा लिखित",
+  "@writtenBy": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  }
+}
