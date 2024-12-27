@@ -33,9 +33,50 @@ class KnowledgeBaseView extends ConsumerStatefulWidget {
   ConsumerState<KnowledgeBaseView> createState() => _HelpCenterViewState();
 }
 
+class _HelpCenterNavigatorObserver extends NavigatorObserver {
+  final GlobalKey<NavigatorState> navigatorKey;
+  final void Function(bool isRoot) onPageChanged;
+
+  _HelpCenterNavigatorObserver({
+    required this.navigatorKey,
+    required this.onPageChanged,
+  });
+
+  void _updateState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final canPop = navigatorKey.currentState?.canPop() ?? false;
+      onPageChanged(!canPop);
+    });
+  }
+
+  @override
+  void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
+    super.didPush(route, previousRoute);
+    _updateState();
+  }
+
+  @override
+  void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) {
+    super.didPop(route, previousRoute);
+    _updateState();
+  }
+}
+
 class _HelpCenterViewState extends ConsumerState<KnowledgeBaseView> {
-  GlobalKey<NavigatorState> helpcCenterNavigatorKey =
+  GlobalKey<NavigatorState> helpCenterNavigatorKey =
       GlobalKey<NavigatorState>(debugLabel: '_HelpCenterNavigatorKey');
+  bool isHelpCenterHome = true;
+
+  late final _navigatorObserver = _HelpCenterNavigatorObserver(
+    navigatorKey: helpCenterNavigatorKey,
+    onPageChanged: (isRoot) {
+      if (mounted) {
+        setState(() {
+          isHelpCenterHome = isRoot;
+        });
+      }
+    },
+  );
 
   @override
   void initState() {
@@ -59,8 +100,8 @@ class _HelpCenterViewState extends ConsumerState<KnowledgeBaseView> {
           leading: IconButton(
             onPressed: () {
               //Pop normal pages first
-              if (helpcCenterNavigatorKey.currentState?.canPop() == true) {
-                helpcCenterNavigatorKey.currentState?.pop();
+              if (helpCenterNavigatorKey.currentState?.canPop() == true) {
+                helpCenterNavigatorKey.currentState?.pop();
                 return;
               }
 
@@ -73,7 +114,7 @@ class _HelpCenterViewState extends ConsumerState<KnowledgeBaseView> {
           ),
           title: GestureDetector(
             onTap: () {
-              helpcCenterNavigatorKey.currentState
+              helpCenterNavigatorKey.currentState
                   ?.popUntil((route) => route.isFirst);
             },
             child: widget.logo,
@@ -86,69 +127,82 @@ class _HelpCenterViewState extends ConsumerState<KnowledgeBaseView> {
         backgroundColor: widget.backgroundColor,
         body: helpCenterAsync.when(
           data: (data) {
-            return CustomTopNavigator(
-              navigatorKey: helpcCenterNavigatorKey,
-              home: Scrollbar(
-                child: CustomScrollView(
-                  slivers: [
-                    SliverToBoxAdapter(
-                      child: Container(
-                        margin: const EdgeInsets.symmetric(
-                            horizontal: 12, vertical: 20),
-                        child: Column(
-                          children: [
-                            Text(
-                              data.title,
-                              style: TextStyle(
-                                fontSize: 22,
-                                fontWeight: FontWeight.w600,
-                                color: widget.textColor,
-                                fontFamily: 'Inter',
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                            if (data.description.trim().isNotEmpty)
+            return PopScope(
+              canPop: isHelpCenterHome,
+              onPopInvokedWithResult: (bool didPop, dynamic result) {
+                if (!didPop) {
+                  if (helpCenterNavigatorKey.currentState?.canPop() == true) {
+                    helpCenterNavigatorKey.currentState?.pop();
+                    return;
+                  }
+                  Navigator.pop(context);
+                }
+              },
+              child: CustomTopNavigator(
+                navigatorKey: helpCenterNavigatorKey,
+                home: Scrollbar(
+                  child: CustomScrollView(
+                    slivers: [
+                      SliverToBoxAdapter(
+                        child: Container(
+                          margin: const EdgeInsets.symmetric(
+                              horizontal: 12, vertical: 20),
+                          child: Column(
+                            children: [
                               Text(
-                                data.description,
+                                data.title,
                                 style: TextStyle(
-                                  color: widget.textColor.withOpacity(0.7),
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w600,
+                                  color: widget.textColor,
                                   fontFamily: 'Inter',
                                 ),
                                 textAlign: TextAlign.center,
                               ),
-                          ],
+                              if (data.description.trim().isNotEmpty)
+                                Text(
+                                  data.description,
+                                  style: TextStyle(
+                                    color: widget.textColor.withOpacity(0.7),
+                                    fontFamily: 'Inter',
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    SliverList.builder(
-                      itemCount: data.structure?.length ?? 0,
-                      itemBuilder: (context, index) {
-                        fb.Collection collection = data.structure![index];
+                      SliverList.builder(
+                        itemCount: data.structure?.length ?? 0,
+                        itemBuilder: (context, index) {
+                          fb.Collection collection = data.structure![index];
 
-                        return Padding(
-                          padding: const EdgeInsets.only(
-                              bottom: 10, right: 10, left: 10),
-                          child: _CollectionCard(
-                            collection: collection,
-                            textColor: widget.textColor,
-                            hideAuthors: widget.hideAuthors,
-                          ),
-                        );
-                      },
-                    ),
-                    SliverToBoxAdapter(
-                      child: const SizedBox(
-                        height: 80,
+                          return Padding(
+                            padding: const EdgeInsets.only(
+                                bottom: 10, right: 10, left: 10),
+                            child: _CollectionCard(
+                              collection: collection,
+                              textColor: widget.textColor,
+                              hideAuthors: widget.hideAuthors,
+                            ),
+                          );
+                        },
                       ),
-                    ),
-                  ],
+                      SliverToBoxAdapter(
+                        child: const SizedBox(
+                          height: 80,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
+                pageRoute: PageRoutes.materialPageRoute,
+                routes: const {},
+                navigatorObservers: [
+                  HeroController(),
+                  _navigatorObserver,
+                ],
               ),
-              pageRoute: PageRoutes.materialPageRoute,
-              routes: const {},
-              navigatorObservers: [
-                HeroController(),
-              ],
             );
           },
           error: (error, stackTrace) {
