@@ -34,6 +34,7 @@ class _CollectionCard extends StatelessWidget {
             color: textColor.withOpacity(0.05),
           ),
           borderRadius: BorderRadius.circular(8),
+          color: Theme.of(context).cardColor,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
