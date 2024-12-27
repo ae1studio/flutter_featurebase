@@ -110,6 +110,7 @@ class _NavbarExpandingCollectionState
                                         child: _FBIconWidget(
                                           icon: article.icon,
                                           textColor: widget.textColor,
+                                          isDark: false,
                                           size: 19,
                                         ),
                                       ),
@@ -165,6 +166,7 @@ class _NavbarExpandingCollectionState
                                         child: _FBIconWidget(
                                           icon: collection.icon,
                                           textColor: widget.textColor,
+                                          isDark: false,
                                           size: 19,
                                         ),
                                       ),
