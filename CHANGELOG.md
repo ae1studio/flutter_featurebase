@@ -1,6 +1,7 @@
 ## 0.3.0
 
 - **BREAKING**: Added localization support (check README for how to setup).
+- Added navbar popup with articles and nav links.
 - Added support for Emoji/Image/Svg collection, article and nav items icons.
 - Added `defaultLocale` option to set the locale of the articles/help center.
 - Deprecated `openKnowledgeBase`, use `openHelpCenter` instead.
