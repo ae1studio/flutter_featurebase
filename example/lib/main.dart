@@ -63,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          openKnowledgeBase(
+          openHelpCenter(
             logo: SvgPicture.asset(
               'assets/logo.svg',
               height: 25,
@@ -73,10 +73,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 BlendMode.srcIn,
               ),
             ),
-            knowledgeBaseUrl: 'https://help.featurebase.app',
+            helpCenterUrl: 'https://help.featurebase.app',
             primaryColor: Theme.of(context).primaryColor,
             textColor: Colors.white,
             backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+            defaultLocale: Locale('en'),
             context: context,
           );
         },
