@@ -1,3 +1,7 @@
+## 0.3.1
+
+- Switched navbar collection/article icons to use grey instead of the primary color.
+
 ## 0.3.0
 
 - **BREAKING**: Added localization support (check README for how to setup).
