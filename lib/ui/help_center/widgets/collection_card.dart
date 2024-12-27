@@ -84,7 +84,7 @@ class _CollectionCard extends StatelessWidget {
                   ),
                 if (!hideAuthors) const SizedBox(width: 2),
                 StyledText(
-                  text: AppLocalizations.of(context).countArticles(
+                  text: FeaturebaseLocalizations.of(context).countArticles(
                     collection.structure?.length ?? 0,
                   ),
                   style: TextStyle(
