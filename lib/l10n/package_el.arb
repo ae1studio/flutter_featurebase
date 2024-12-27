@@ -1,0 +1,21 @@
+{
+  "@@locale": "el",
+  "countArticles": "<strong>{count}</strong> {count, plural, one{ένα άρθρο} other{άρθρα}}",
+  "@countArticles": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "writtenBy": "Γραφτένο από {author}",
+  "@writtenBy": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  }
+}

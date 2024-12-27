@@ -1,0 +1,21 @@
+{
+  "@@locale": "az",
+  "countArticles": "<strong>{count}</strong> {count, plural, one{məqalə} other{məqalə}}",
+  "@countArticles": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "writtenBy": "{author} tərəfindən yazılmışdır",
+  "@writtenBy": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  }
+}

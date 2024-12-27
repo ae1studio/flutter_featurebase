@@ -1,0 +1,21 @@
+{
+  "@@locale": "bo",
+  "countArticles": "<strong>{count}</strong> {count, plural, one{རྩོམ་ཡིག} other{རྩོམ་ཡིག}}",
+  "@countArticles": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "writtenBy": "བྲིས། {author}",
+  "@writtenBy": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  }
+}

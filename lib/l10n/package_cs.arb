@@ -1,0 +1,21 @@
+{
+  "@@locale": "cs",
+  "countArticles": "<strong>{count}</strong> {count, plural, one{článek} other{články}}",
+  "@countArticles": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "writtenBy": "Napsal {author}",
+  "@writtenBy": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "@@locale": "de",
+  "countArticles": "<strong>{count}</strong> {count, plural, one{Artikel} other{Artikel}}",
+  "@countArticles": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "writtenBy": "Geschrieben von {author}",
+  "@writtenBy": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  }
+}

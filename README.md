@@ -59,4 +59,21 @@ localizationsDelegates: [
 
 Supported languages:
 
+- Afrikaans
+- Arabic
+- Azerbaijani
+- Belarusian
+- Bulgarian
+- Tibetan
+- Catalan
+- Czech
+- Danish
+- German
+- German (Switzerland)
+- Greek
 - English
+- Spanish (Spain)
+
+## Contribution
+
+Please file an issue if you find an issue or you can make a pull request.

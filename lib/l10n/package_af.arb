@@ -1,0 +1,21 @@
+{
+  "@@locale": "af",
+  "countArticles": "<strong>{count}</strong> {count, plural, one{artikel} other{artikels}}",
+  "@countArticles": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "writtenBy": "Geskryf deur {author}",
+  "@writtenBy": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  }
+}

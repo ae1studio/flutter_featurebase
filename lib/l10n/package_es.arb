@@ -1,0 +1,21 @@
+{
+  "@@locale": "es",
+  "countArticles": "<strong>{count}</strong> {count, plural, one{artículo} other{artículos}}",
+  "@countArticles": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "writtenBy": "Escrito por {author}",
+  "@writtenBy": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  }
+}

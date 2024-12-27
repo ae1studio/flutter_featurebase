@@ -1,0 +1,21 @@
+{
+  "@@locale": "be",
+  "countArticles": "<strong>{count}</strong> {count, plural, one{старонка} other{старонкі}}",
+  "@countArticles": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "writtenBy": "{author} напісаў",
+  "@writtenBy": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  }
+}

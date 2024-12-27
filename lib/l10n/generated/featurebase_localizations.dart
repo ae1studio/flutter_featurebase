@@ -5,7 +5,19 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
+import 'featurebase_localizations_af.dart';
+import 'featurebase_localizations_ar.dart';
+import 'featurebase_localizations_az.dart';
+import 'featurebase_localizations_be.dart';
+import 'featurebase_localizations_bg.dart';
+import 'featurebase_localizations_bo.dart';
+import 'featurebase_localizations_ca.dart';
+import 'featurebase_localizations_cs.dart';
+import 'featurebase_localizations_da.dart';
+import 'featurebase_localizations_de.dart';
+import 'featurebase_localizations_el.dart';
 import 'featurebase_localizations_en.dart';
+import 'featurebase_localizations_es.dart';
 
 // ignore_for_file: type=lint
 
@@ -93,7 +105,22 @@ abstract class FeaturebaseLocalizations {
   ];
 
   /// A list of this localizations delegate's supported locales.
-  static const List<Locale> supportedLocales = <Locale>[Locale('en')];
+  static const List<Locale> supportedLocales = <Locale>[
+    Locale('en'),
+    Locale('af'),
+    Locale('ar'),
+    Locale('az'),
+    Locale('be'),
+    Locale('bg'),
+    Locale('bo'),
+    Locale('ca'),
+    Locale('cs'),
+    Locale('da'),
+    Locale('de'),
+    Locale('de', 'CH'),
+    Locale('el'),
+    Locale('es')
+  ];
 
   /// No description provided for @countArticles.
   ///
@@ -119,18 +146,67 @@ class _FeaturebaseLocalizationsDelegate
   }
 
   @override
-  bool isSupported(Locale locale) =>
-      <String>['en'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>[
+        'af',
+        'ar',
+        'az',
+        'be',
+        'bg',
+        'bo',
+        'ca',
+        'cs',
+        'da',
+        'de',
+        'el',
+        'en',
+        'es'
+      ].contains(locale.languageCode);
 
   @override
   bool shouldReload(_FeaturebaseLocalizationsDelegate old) => false;
 }
 
 FeaturebaseLocalizations lookupFeaturebaseLocalizations(Locale locale) {
+  // Lookup logic when language+country codes are specified.
+  switch (locale.languageCode) {
+    case 'de':
+      {
+        switch (locale.countryCode) {
+          case 'CH':
+            return FeaturebaseLocalizationsDeCh();
+        }
+        break;
+      }
+  }
+
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
+    case 'af':
+      return FeaturebaseLocalizationsAf();
+    case 'ar':
+      return FeaturebaseLocalizationsAr();
+    case 'az':
+      return FeaturebaseLocalizationsAz();
+    case 'be':
+      return FeaturebaseLocalizationsBe();
+    case 'bg':
+      return FeaturebaseLocalizationsBg();
+    case 'bo':
+      return FeaturebaseLocalizationsBo();
+    case 'ca':
+      return FeaturebaseLocalizationsCa();
+    case 'cs':
+      return FeaturebaseLocalizationsCs();
+    case 'da':
+      return FeaturebaseLocalizationsDa();
+    case 'de':
+      return FeaturebaseLocalizationsDe();
+    case 'el':
+      return FeaturebaseLocalizationsEl();
     case 'en':
       return FeaturebaseLocalizationsEn();
+    case 'es':
+      return FeaturebaseLocalizationsEs();
   }
 
   throw FlutterError(

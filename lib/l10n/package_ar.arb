@@ -1,0 +1,21 @@
+{
+  "@@locale": "ar",
+  "countArticles": "{count, plural, one{مقالة} other{مقالات}} <strong>{count}</strong>",
+  "@countArticles": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "writtenBy": "مكتوب بواسطة {author}",
+  "@writtenBy": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  }
+}

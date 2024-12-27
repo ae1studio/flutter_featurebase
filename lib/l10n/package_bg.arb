@@ -1,0 +1,21 @@
+{
+  "@@locale": "bg",
+  "countArticles": "<strong>{count}</strong> {count, plural, one{статия} other{статии}}",
+  "@countArticles": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "writtenBy": "Написано от {author}",
+  "@writtenBy": {
+    "placeholders": {
+      "author": {
+        "type": "String",
+        "example": "John Doe"
+      }
+    }
+  }
+}
