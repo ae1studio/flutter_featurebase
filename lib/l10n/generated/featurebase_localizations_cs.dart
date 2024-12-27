@@ -23,4 +23,10 @@ class FeaturebaseLocalizationsCs extends FeaturebaseLocalizations {
   String writtenBy(String author) {
     return 'Napsal $author';
   }
+
+  @override
+  String get failedToLoad => 'Načítání selhalo';
+
+  @override
+  String get tryAgainLater => 'Zkuste to později';
 }

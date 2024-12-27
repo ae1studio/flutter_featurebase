@@ -17,5 +17,13 @@
         "example": "John Doe"
       }
     }
+  },
+  "failedToLoad": "No s'ha pogut carregar",
+  "@failedToLoad": {
+    "description": "This is the error message that is displayed when the data fails to load."
+  },
+  "tryAgainLater": "Torna-ho a provar més tard",
+  "@tryAgainLater": {
+    "description": "This is the message that is displayed when the user should try again later."
   }
 }

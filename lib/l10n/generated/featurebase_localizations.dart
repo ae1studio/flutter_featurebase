@@ -148,6 +148,18 @@ abstract class FeaturebaseLocalizations {
   /// In en, this message translates to:
   /// **'Written by {author}'**
   String writtenBy(String author);
+
+  /// This is the error message that is displayed when the data fails to load.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load'**
+  String get failedToLoad;
+
+  /// This is the message that is displayed when the user should try again later.
+  ///
+  /// In en, this message translates to:
+  /// **'Try again later'**
+  String get tryAgainLater;
 }
 
 class _FeaturebaseLocalizationsDelegate

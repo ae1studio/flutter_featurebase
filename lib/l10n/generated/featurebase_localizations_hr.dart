@@ -23,4 +23,10 @@ class FeaturebaseLocalizationsHr extends FeaturebaseLocalizations {
   String writtenBy(String author) {
     return 'Napisao/la $author';
   }
+
+  @override
+  String get failedToLoad => 'Neuspjelo učitavanje';
+
+  @override
+  String get tryAgainLater => 'Pokušajte ponovno kasnije';
 }

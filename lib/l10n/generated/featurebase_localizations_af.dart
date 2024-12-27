@@ -23,4 +23,10 @@ class FeaturebaseLocalizationsAf extends FeaturebaseLocalizations {
   String writtenBy(String author) {
     return 'Geskryf deur $author';
   }
+
+  @override
+  String get failedToLoad => 'Kon nie laai nie';
+
+  @override
+  String get tryAgainLater => 'Probeer later weer';
 }

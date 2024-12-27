@@ -23,4 +23,10 @@ class FeaturebaseLocalizationsBg extends FeaturebaseLocalizations {
   String writtenBy(String author) {
     return 'Написано от $author';
   }
+
+  @override
+  String get failedToLoad => 'Грешка при зареждането';
+
+  @override
+  String get tryAgainLater => 'Опитайте отново по-късно';
 }

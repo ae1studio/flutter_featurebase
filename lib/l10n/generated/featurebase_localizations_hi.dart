@@ -23,4 +23,10 @@ class FeaturebaseLocalizationsHi extends FeaturebaseLocalizations {
   String writtenBy(String author) {
     return '$author द्वारा लिखित';
   }
+
+  @override
+  String get failedToLoad => 'लोड करने में विफल';
+
+  @override
+  String get tryAgainLater => 'बाद में पुनः प्रयास करें';
 }

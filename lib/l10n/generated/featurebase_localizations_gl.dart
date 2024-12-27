@@ -23,4 +23,10 @@ class FeaturebaseLocalizationsGl extends FeaturebaseLocalizations {
   String writtenBy(String author) {
     return 'Escrito por $author';
   }
+
+  @override
+  String get failedToLoad => 'Erro ao cargar';
+
+  @override
+  String get tryAgainLater => 'Téntao de novo máis tarde';
 }

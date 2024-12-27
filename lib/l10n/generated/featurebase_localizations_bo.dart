@@ -23,4 +23,10 @@ class FeaturebaseLocalizationsBo extends FeaturebaseLocalizations {
   String writtenBy(String author) {
     return 'བྲིས། $author';
   }
+
+  @override
+  String get failedToLoad => 'འཇུག་འདྲེན་བྱེད་མ་ཐུབ།';
+
+  @override
+  String get tryAgainLater => 'ཏོག་ཙམ་རྗེས་ལ་ཡང་བསྐྱར་ཚོད་ལྟ་བྱོས།';
 }

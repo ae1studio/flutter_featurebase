@@ -217,7 +217,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    'Failed to load',
+                    FeaturebaseLocalizations.of(context).failedToLoad,
                     style: TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.w600,
@@ -227,7 +227,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                     textAlign: TextAlign.center,
                   ),
                   Text(
-                    'Try again later',
+                    FeaturebaseLocalizations.of(context).tryAgainLater,
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,

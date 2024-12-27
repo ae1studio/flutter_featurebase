@@ -23,4 +23,10 @@ class FeaturebaseLocalizationsDa extends FeaturebaseLocalizations {
   String writtenBy(String author) {
     return 'Skrevet af $author';
   }
+
+  @override
+  String get failedToLoad => 'Kunne ikke indlæse';
+
+  @override
+  String get tryAgainLater => 'Prøv igen senere';
 }

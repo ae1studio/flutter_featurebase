@@ -23,4 +23,10 @@ class FeaturebaseLocalizationsFa extends FeaturebaseLocalizations {
   String writtenBy(String author) {
     return 'نوشته شده توسط $author';
   }
+
+  @override
+  String get failedToLoad => 'خطا در بارگذاری';
+
+  @override
+  String get tryAgainLater => 'لطفاً بعداً دوباره امتحان کنید';
 }

@@ -23,4 +23,10 @@ class FeaturebaseLocalizationsFi extends FeaturebaseLocalizations {
   String writtenBy(String author) {
     return 'Kirjoitettu $author';
   }
+
+  @override
+  String get failedToLoad => 'Lataus epäonnistui';
+
+  @override
+  String get tryAgainLater => 'Yritä myöhemmin uudelleen';
 }

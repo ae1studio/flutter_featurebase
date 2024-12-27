@@ -23,4 +23,10 @@ class FeaturebaseLocalizationsNl extends FeaturebaseLocalizations {
   String writtenBy(String author) {
     return 'Geschreven door $author';
   }
+
+  @override
+  String get failedToLoad => 'Failed to load';
+
+  @override
+  String get tryAgainLater => 'Try again later';
 }

@@ -23,6 +23,12 @@ class FeaturebaseLocalizationsEs extends FeaturebaseLocalizations {
   String writtenBy(String author) {
     return 'Escrito por $author';
   }
+
+  @override
+  String get failedToLoad => 'Error al cargar';
+
+  @override
+  String get tryAgainLater => 'Inténtalo más tarde';
 }
 
 /// The translations for Spanish Castilian, as used in Latin America and the Caribbean (`es_419`).
@@ -44,4 +50,10 @@ class FeaturebaseLocalizationsEs419 extends FeaturebaseLocalizationsEs {
   String writtenBy(String author) {
     return 'Escrito por $author';
   }
+
+  @override
+  String get failedToLoad => 'Error al cargar';
+
+  @override
+  String get tryAgainLater => 'Inténtalo más tarde';
 }

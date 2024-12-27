@@ -23,4 +23,10 @@ class FeaturebaseLocalizationsCa extends FeaturebaseLocalizations {
   String writtenBy(String author) {
     return 'Escrit per $author';
   }
+
+  @override
+  String get failedToLoad => 'No s\'ha pogut carregar';
+
+  @override
+  String get tryAgainLater => 'Torna-ho a provar més tard';
 }

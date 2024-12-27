@@ -17,5 +17,13 @@
         "example": "John Doe"
       }
     }
+  },
+  "failedToLoad": "Failed to load",
+  "@failedToLoad": {
+    "description": "This is the error message that is displayed when the data fails to load."
+  },
+  "tryAgainLater": "Try again later",
+  "@tryAgainLater": {
+    "description": "This is the message that is displayed when the user should try again later."
   }
 }

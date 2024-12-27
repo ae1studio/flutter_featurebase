@@ -23,4 +23,10 @@ class FeaturebaseLocalizationsAr extends FeaturebaseLocalizations {
   String writtenBy(String author) {
     return 'مكتوب بواسطة $author';
   }
+
+  @override
+  String get failedToLoad => 'فشل التحميل';
+
+  @override
+  String get tryAgainLater => 'حاول مرة أخرى لاحقاً';
 }

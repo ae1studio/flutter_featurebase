@@ -23,6 +23,12 @@ class FeaturebaseLocalizationsDe extends FeaturebaseLocalizations {
   String writtenBy(String author) {
     return 'Geschrieben von $author';
   }
+
+  @override
+  String get failedToLoad => 'Laden fehlgeschlagen';
+
+  @override
+  String get tryAgainLater => 'Versuchen Sie es später erneut';
 }
 
 /// The translations for German, as used in Switzerland (`de_CH`).
@@ -44,4 +50,10 @@ class FeaturebaseLocalizationsDeCh extends FeaturebaseLocalizationsDe {
   String writtenBy(String author) {
     return 'Geschrieben von $author';
   }
+
+  @override
+  String get failedToLoad => 'Laden fehlgeschlagen';
+
+  @override
+  String get tryAgainLater => 'Bitte später erneut versuchen';
 }

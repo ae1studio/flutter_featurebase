@@ -23,4 +23,10 @@ class FeaturebaseLocalizationsEl extends FeaturebaseLocalizations {
   String writtenBy(String author) {
     return 'Γραφτένο από $author';
   }
+
+  @override
+  String get failedToLoad => 'Αποτυχία φόρτωσης';
+
+  @override
+  String get tryAgainLater => 'Δοκιμάστε ξανά αργότερα';
 }

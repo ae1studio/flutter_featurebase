@@ -23,4 +23,10 @@ class FeaturebaseLocalizationsFr extends FeaturebaseLocalizations {
   String writtenBy(String author) {
     return 'Rédigé par $author';
   }
+
+  @override
+  String get failedToLoad => 'Échec du chargement';
+
+  @override
+  String get tryAgainLater => 'Réessayez plus tard';
 }

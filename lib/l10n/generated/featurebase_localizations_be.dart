@@ -23,4 +23,10 @@ class FeaturebaseLocalizationsBe extends FeaturebaseLocalizations {
   String writtenBy(String author) {
     return '$author напісаў';
   }
+
+  @override
+  String get failedToLoad => 'Не атрымалася загрузіць';
+
+  @override
+  String get tryAgainLater => 'Паспрабуйце пазней';
 }

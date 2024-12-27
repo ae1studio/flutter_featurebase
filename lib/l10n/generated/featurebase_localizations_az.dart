@@ -23,4 +23,10 @@ class FeaturebaseLocalizationsAz extends FeaturebaseLocalizations {
   String writtenBy(String author) {
     return '$author tərəfindən yazılmışdır';
   }
+
+  @override
+  String get failedToLoad => 'Yükləmək alınmadı';
+
+  @override
+  String get tryAgainLater => 'Daha sonra yenidən cəhd edin';
 }
