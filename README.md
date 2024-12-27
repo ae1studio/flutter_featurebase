@@ -1,10 +1,10 @@
 # Featurebase (Unofficial) Flutter SDK
 
-Featurebase is a Feedback, Knowledge base, Changelog and Survey hub. Learn more at <https://featurebase.app>
+Featurebase is a Feedback, Help center, Changelog and Survey hub. Learn more at <https://featurebase.app>
 
 ## Features
 
-- [X] Knowledge base
+- [X] Help center
 - [ ] Feedback
 
 ## Platform Support
@@ -21,10 +21,10 @@ First you need to add the package to your `pubspec.yaml` file.
 
 ### Usage
 
-Call the openKnowledgeBase function to open the panel.
+Call the openHelpCenter function to open the panel.
 
 ```dart
-openKnowledgeBase(
+openHelpCenter(
     logo: SvgPicture.asset(
         'assets/logo.svg',
         height: 25,
@@ -34,7 +34,7 @@ openKnowledgeBase(
             BlendMode.srcIn,
         ),
     ),
-    knowledgeBaseUrl: 'https://help.featurebase.app', // Use your featurebase url
+    helpCenterUrl: 'https://help.featurebase.app', // Use your featurebase url
     primaryColor: Theme.of(context).primaryColor,
     textColor: Colors.white,
     backgroundColor: Theme.of(context).scaffoldBackgroundColor,

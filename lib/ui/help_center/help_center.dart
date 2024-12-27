@@ -1,6 +1,6 @@
 part of featurebase;
 
-class KnowledgeBaseView extends ConsumerStatefulWidget {
+class HelpCenterView extends ConsumerStatefulWidget {
   /// Logo centered in the Appbar
   final Widget logo;
 
@@ -19,7 +19,7 @@ class KnowledgeBaseView extends ConsumerStatefulWidget {
   /// Hide Authors
   final bool hideAuthors;
 
-  const KnowledgeBaseView({
+  const HelpCenterView({
     super.key,
     required this.logo,
     required this.url,
@@ -30,7 +30,7 @@ class KnowledgeBaseView extends ConsumerStatefulWidget {
   });
 
   @override
-  ConsumerState<KnowledgeBaseView> createState() => _HelpCenterViewState();
+  ConsumerState<HelpCenterView> createState() => _HelpCenterViewState();
 }
 
 class _HelpCenterNavigatorObserver extends NavigatorObserver {
@@ -62,7 +62,7 @@ class _HelpCenterNavigatorObserver extends NavigatorObserver {
   }
 }
 
-class _HelpCenterViewState extends ConsumerState<KnowledgeBaseView> {
+class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
   GlobalKey<NavigatorState> helpCenterNavigatorKey =
       GlobalKey<NavigatorState>(debugLabel: '_HelpCenterNavigatorKey');
   bool isHelpCenterHome = true;
