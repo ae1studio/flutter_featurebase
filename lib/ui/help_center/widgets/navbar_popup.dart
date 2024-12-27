@@ -4,10 +4,16 @@ class _NavbarPopupWidget extends StatelessWidget {
   final fb.HelpCenter helpCenter;
   final Color textColor;
   final Color primaryColor;
+  final bool hideAuthors;
+  final Locale locale;
+  final BuildContext helpCenterContext;
   const _NavbarPopupWidget({
     required this.helpCenter,
     required this.textColor,
     required this.primaryColor,
+    required this.hideAuthors,
+    required this.locale,
+    required this.helpCenterContext,
   });
 
   @override
@@ -33,12 +39,29 @@ class _NavbarPopupWidget extends StatelessWidget {
         ),
         backgroundColor: Colors.transparent,
         body: Container(
-          color: Theme.of(context).scaffoldBackgroundColor.withOpacity(0.9),
+          color: Theme.of(context).scaffoldBackgroundColor.withOpacity(0.5),
           child: SafeArea(
             child: Column(
               children: [
-                //TODO: Add collection list
-                const Spacer(),
+                Expanded(
+                  child: Scrollbar(
+                    child: ListView.builder(
+                      padding: const EdgeInsets.only(top: 15),
+                      itemCount: helpCenter.structure?.length ?? 0,
+                      itemBuilder: (context, index) {
+                        fb.Collection collection = helpCenter.structure![index];
+
+                        return _NavbarExpandingCollection(
+                          collection: collection,
+                          textColor: textColor,
+                          hideAuthors: hideAuthors,
+                          locale: locale,
+                          helpCenterContext: helpCenterContext,
+                        );
+                      },
+                    ),
+                  ),
+                ),
                 Divider(
                   color: textColor.withOpacity(0.08),
                 ),

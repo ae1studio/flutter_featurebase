@@ -136,10 +136,17 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                     await showDialog(
                       context: context,
                       useSafeArea: false,
-                      builder: (context) => _NavbarPopupWidget(
-                        helpCenter: data,
-                        textColor: widget.textColor,
-                        primaryColor: widget.primaryColor,
+                      builder: (context2) => BackdropFilter(
+                        filter: ui.ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                        child: _NavbarPopupWidget(
+                          helpCenter: data,
+                          textColor: widget.textColor,
+                          primaryColor: widget.primaryColor,
+                          hideAuthors: widget.hideAuthors,
+                          locale: widget.defaultLocale,
+                          helpCenterContext:
+                              helpCenterNavigatorKey.currentContext!,
+                        ),
                       ),
                     );
                     setState(() {
