@@ -1,3 +1,7 @@
+## 0.2.2
+
+- Updated collection card to use Theme.of(context).cardColor.
+
 ## 0.2.1
 
 - Fixed link text color issue.
