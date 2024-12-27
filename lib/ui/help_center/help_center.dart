@@ -71,6 +71,8 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
       GlobalKey<NavigatorState>(debugLabel: '_HelpCenterNavigatorKey');
   bool isHelpCenterHome = true;
 
+  bool navBarOpen = false;
+
   late final _navigatorObserver = _HelpCenterNavigatorObserver(
     navigatorKey: helpCenterNavigatorKey,
     onPageChanged: (isRoot) {
@@ -123,6 +125,48 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
             },
             child: widget.logo,
           ),
+          actions: [
+            helpCenterAsync.when(
+              data: (data) {
+                return IconButton(
+                  onPressed: () async {
+                    setState(() {
+                      navBarOpen = true;
+                    });
+                    await showDialog(
+                      context: context,
+                      useSafeArea: false,
+                      builder: (context) => _NavbarPopupWidget(
+                        helpCenter: data,
+                        textColor: widget.textColor,
+                        primaryColor: widget.primaryColor,
+                      ),
+                    );
+                    setState(() {
+                      navBarOpen = false;
+                    });
+                  },
+                  icon: Icon(
+                    navBarOpen ? Icons.close_rounded : Icons.menu_rounded,
+                    color: _calculateTextColor(widget.primaryColor),
+                  ),
+                );
+              },
+              error: (error, stackTrace) {
+                return const SizedBox.shrink();
+              },
+              loading: () {
+                return IconButton(
+                  onPressed: null,
+                  icon: Icon(
+                    Icons.menu_rounded,
+                    color: _calculateTextColor(widget.primaryColor)
+                        .withOpacity(0.4),
+                  ),
+                );
+              },
+            ),
+          ],
           centerTitle: true,
           backgroundColor: widget.primaryColor,
           surfaceTintColor: widget.primaryColor,

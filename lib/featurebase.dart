@@ -18,6 +18,7 @@ part 'ui/help_center/help_center.dart';
 part 'ui/help_center/collection/collection.dart';
 part 'ui/help_center/article/article.dart';
 part 'ui/help_center/widgets/collection_card.dart';
+part 'ui/help_center/widgets/navbar_popup.dart';
 part 'ui/widgets/authors_image_stack.dart';
 part 'ui/widgets/icon.dart';
 part 'ui/widgets/safe_cachednetworkimage.dart';
