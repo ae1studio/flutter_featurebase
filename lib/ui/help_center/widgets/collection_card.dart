@@ -56,7 +56,7 @@ class _CollectionCard extends StatelessWidget {
                 ),
                 child: _FBIconWidget(
                   icon: collection.icon,
-                  primaryColor: Theme.of(context).primaryColor,
+                  textColor: textColor,
                 ),
               ),
             Text(

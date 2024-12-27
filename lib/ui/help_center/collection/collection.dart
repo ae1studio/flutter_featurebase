@@ -38,7 +38,7 @@ class _CollectionViewState extends State<_CollectionView> {
                         padding: const EdgeInsets.only(bottom: 5),
                         child: _FBIconWidget(
                           icon: widget.collection.icon,
-                          primaryColor: Theme.of(context).primaryColor,
+                          textColor: widget.textColor,
                           size: 36,
                           isDark: false,
                         ),
@@ -158,8 +158,7 @@ class _CollectionViewState extends State<_CollectionView> {
                                   margin: const EdgeInsets.only(right: 7),
                                   child: _FBIconWidget(
                                     icon: article.icon,
-                                    primaryColor:
-                                        widget.textColor.withOpacity(0.7),
+                                    textColor: widget.textColor,
                                     size: 21,
                                   ),
                                 ),
@@ -221,8 +220,7 @@ class _CollectionViewState extends State<_CollectionView> {
                                     margin: const EdgeInsets.only(right: 7),
                                     child: _FBIconWidget(
                                       icon: collection.icon,
-                                      primaryColor:
-                                          widget.textColor.withOpacity(0.7),
+                                      textColor: widget.textColor,
                                       size: 21,
                                     ),
                                   ),
@@ -286,8 +284,7 @@ class _CollectionViewState extends State<_CollectionView> {
                                                   right: 7),
                                               child: _FBIconWidget(
                                                 icon: article.icon,
-                                                primaryColor: widget.textColor
-                                                    .withOpacity(0.7),
+                                                textColor: widget.textColor,
                                                 size: 21,
                                               ),
                                             ),

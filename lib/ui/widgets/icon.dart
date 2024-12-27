@@ -2,14 +2,14 @@ part of featurebase;
 
 class _FBIconWidget extends StatelessWidget {
   final fb.FBIcon? icon;
-  final Color primaryColor;
+  final Color textColor;
   final double size;
   final bool isDark;
   const _FBIconWidget({
     // ignore: unused_element
     super.key,
     required this.icon,
-    required this.primaryColor,
+    required this.textColor,
     this.size = 18,
     this.isDark = true,
   });
@@ -22,15 +22,27 @@ class _FBIconWidget extends StatelessWidget {
         height: size,
         width: size,
         colorFilter: ColorFilter.mode(
-          isDark ? primaryColor.withOpacity(0.7) : primaryColor,
+          isDark
+              ? Theme.of(context).primaryColor.withOpacity(0.8)
+              : Theme.of(context).primaryColor,
           BlendMode.srcIn,
+        ),
+      );
+    }
+
+    if (icon?.type == 'emoji') {
+      return Text(
+        icon!.value,
+        style: TextStyle(
+          fontSize: size,
+          color: textColor,
         ),
       );
     }
 
     return Icon(
       Icons.article_rounded,
-      color: primaryColor.withOpacity(0.8),
+      color: Theme.of(context).primaryColor.withOpacity(0.8),
       size: size,
     );
   }
