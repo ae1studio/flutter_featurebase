@@ -1,5 +1,6 @@
 ## 0.2.2
 
+- Added support for swipe back page iOS gesture.
 - Updated collection card to use Theme.of(context).cardColor.
 
 ## 0.2.1
