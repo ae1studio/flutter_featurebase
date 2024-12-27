@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
           color: Color.fromARGB(255, 80, 72, 230),
         ),
         scaffoldBackgroundColor: Color.fromARGB(255, 20, 22, 31),
+        cardColor: Color.fromARGB(255, 20, 22, 31),
         useMaterial3: true,
       ),
       home: const MyHomePage(),
