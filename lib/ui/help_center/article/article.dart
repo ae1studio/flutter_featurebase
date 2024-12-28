@@ -78,6 +78,7 @@ class _ArticleViewState extends ConsumerState<_ArticleView> {
                               style: TextStyle(
                                 fontSize: 14,
                                 fontFamily: 'Inter',
+                                fontWeight: FontWeight.w600,
                                 color: widget.textColor.withOpacity(0.7),
                               ),
                             ),
