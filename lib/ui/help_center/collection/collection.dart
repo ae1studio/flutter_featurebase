@@ -47,20 +47,22 @@ class _CollectionViewState extends State<_CollectionView> {
                       widget.collection.name,
                       style: TextStyle(
                         fontSize: 22,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w700,
                         color: widget.textColor,
                         fontFamily: 'Inter',
                       ),
                       textAlign: TextAlign.start,
                     ),
-                    Text(
-                      widget.collection.description,
-                      style: TextStyle(
-                        color: widget.textColor.withOpacity(0.7),
-                        fontFamily: 'Inter',
+                    if (widget.collection.description.trim().isNotEmpty)
+                      Text(
+                        widget.collection.description,
+                        style: TextStyle(
+                          color: widget.textColor.withOpacity(0.7),
+                          fontWeight: FontWeight.w500,
+                          fontFamily: 'Inter',
+                        ),
+                        textAlign: TextAlign.start,
                       ),
-                      textAlign: TextAlign.start,
-                    ),
                   ],
                 ),
               ),
