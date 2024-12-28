@@ -38,7 +38,7 @@ class _FBIconWidget extends StatelessWidget {
       return Text(
         icon!.value,
         style: TextStyle(
-          fontSize: (size - 2),
+          fontSize: size / 1.2,
           color: isDark ? color.withOpacity(0.8) : textColor,
         ),
       );
@@ -49,8 +49,8 @@ class _FBIconWidget extends StatelessWidget {
       if (icon?.value.split('.').last == 'svg') {
         return SvgPicture.network(
           icon!.value,
-          height: (size - 4),
-          width: (size - 4),
+          height: size / 1.3,
+          width: size / 1.3,
           colorFilter: ColorFilter.mode(
             isDark ? color.withOpacity(0.8) : color,
             BlendMode.srcIn,
@@ -61,8 +61,8 @@ class _FBIconWidget extends StatelessWidget {
       if (icon?.value.split('.').last == 'png') {
         return _SafeCachedNetworkImage(
           imageUrl: icon!.value,
-          height: (size - 4),
-          width: (size - 4),
+          height: size / 1.3,
+          width: size / 1.3,
         );
       }
     }
