@@ -89,7 +89,7 @@ Supported languages:
 - Latvian
 - Malay
 - Norwegian Bokmal
-- Dutch (@stijnvdkolk)
+- Dutch ([@stijnvdkolk](https://github.com/stijnvdkolk))
 - Polish
 - Portuguese (Brazil)
 - Romanian
