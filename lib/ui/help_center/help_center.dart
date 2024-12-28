@@ -220,7 +220,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                                 data.title,
                                 style: TextStyle(
                                   fontSize: 22,
-                                  fontWeight: FontWeight.w600,
+                                  fontWeight: FontWeight.w700,
                                   color: widget.textColor,
                                   fontFamily: 'Inter',
                                 ),
@@ -230,6 +230,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                                 Text(
                                   data.description,
                                   style: TextStyle(
+                                    fontWeight: FontWeight.w500,
                                     color: widget.textColor.withOpacity(0.7),
                                     fontFamily: 'Inter',
                                   ),
@@ -252,6 +253,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                               cursorColor: Theme.of(context).primaryColor,
                               hintText: data.searchPlaceholder,
                               hintStyle: TextStyle(
+                                fontWeight: FontWeight.w500,
                                 color: widget.textColor.withOpacity(0.7),
                                 fontFamily: 'Inter',
                               ),
@@ -260,6 +262,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                               ),
                               fillColor: Colors.redAccent,
                               searchStyle: TextStyle(
+                                fontWeight: FontWeight.w500,
                                 color: widget.textColor,
                                 fontFamily: 'Inter',
                               ),
@@ -414,7 +417,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                   article.title,
                   style: TextStyle(
                     fontSize: 16,
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.w600,
                     color: widget.textColor,
                     fontFamily: 'Inter',
                   ),
