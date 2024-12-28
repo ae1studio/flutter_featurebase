@@ -23,9 +23,12 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(
           color: Color.fromARGB(255, 80, 72, 230),
         ),
-        scaffoldBackgroundColor: Color.fromARGB(255, 20, 22, 31),
-        cardColor: Color.fromARGB(255, 20, 22, 31),
+        scaffoldBackgroundColor: Color.fromARGB(255, 14, 16, 21),
+        cardColor: Color.fromARGB(255, 16, 18, 23),
         useMaterial3: true,
+        inputDecorationTheme: InputDecorationTheme(
+          fillColor: Color.fromARGB(255, 21, 23, 30),
+        ),
       ),
       home: const MyHomePage(),
       locale: Locale('en'),
