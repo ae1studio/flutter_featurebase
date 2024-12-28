@@ -25,8 +25,8 @@ class FeaturebaseLocalizationsNl extends FeaturebaseLocalizations {
   }
 
   @override
-  String get failedToLoad => 'Failed to load';
+  String get failedToLoad => 'Laden mislukt';
 
   @override
-  String get tryAgainLater => 'Try again later';
+  String get tryAgainLater => 'Probeer het later opnieuw.';
 }
