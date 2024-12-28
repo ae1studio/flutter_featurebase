@@ -243,97 +243,100 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                           ),
                         ),
                       ),
-                      SliverToBoxAdapter(
-                        child: Padding(
-                          padding: const EdgeInsets.only(
-                            bottom: 15,
-                            right: 12,
-                            left: 12,
-                          ),
-                          child: SearchField<fb.Article>(
-                            suggestions: _getArticleSuggestions(data),
-                            searchInputDecoration: SearchInputDecoration(
-                              cursorColor: Theme.of(context).primaryColor,
-                              focusColor: Theme.of(context).primaryColor,
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                                borderSide: BorderSide(
-                                  color: widget.textColor.withOpacity(0.1),
-                                ),
-                              ),
-                              fillColor: Theme.of(context)
-                                  .inputDecorationTheme
-                                  .fillColor,
-                              hintText: data.searchPlaceholder,
-                              hintStyle: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                color: widget.textColor.withOpacity(0.7),
-                                fontFamily: 'Inter',
-                              ),
-                              searchStyle: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                color: widget.textColor,
-                                fontFamily: 'Inter',
-                              ),
+                      if (widget.showSearchBar)
+                        SliverToBoxAdapter(
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                              bottom: 15,
+                              right: 12,
+                              left: 12,
                             ),
-                            suggestionsDecoration: SuggestionDecoration(
-                              color: Theme.of(context).cardColor,
-                              borderRadius: BorderRadius.circular(8),
-                              border: Border.all(
-                                color: widget.textColor.withOpacity(0.1),
-                              ),
-                            ),
-                            onSuggestionTap: (p0) {
-                              if (p0.item == null) return;
-                              Navigator.push(
-                                helpCenterNavigatorKey.currentContext!,
-                                MaterialPageRoute(
-                                  builder: (context) => _ArticleView(
-                                    article: p0.item!,
-                                    textColor: widget.textColor,
-                                    hideAuthors: widget.hideAuthors,
-                                    locale: widget.defaultLocale,
+                            child: SearchField<fb.Article>(
+                              suggestions: _getArticleSuggestions(data),
+                              searchInputDecoration: SearchInputDecoration(
+                                cursorColor: Theme.of(context).primaryColor,
+                                focusColor: Theme.of(context).primaryColor,
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  borderSide: BorderSide(
+                                    color: widget.textColor.withOpacity(0.1),
                                   ),
                                 ),
-                              );
-                            },
-                            dynamicHeight: true,
-                            maxSuggestionBoxHeight: 250,
-                            emptyWidget: Container(
-                              padding: const EdgeInsets.symmetric(vertical: 35),
-                              decoration: BoxDecoration(
+                                fillColor: Theme.of(context)
+                                    .inputDecorationTheme
+                                    .fillColor,
+                                hintText: data.searchPlaceholder,
+                                hintStyle: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  color: widget.textColor.withOpacity(0.7),
+                                  fontFamily: 'Inter',
+                                ),
+                                searchStyle: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  color: widget.textColor,
+                                  fontFamily: 'Inter',
+                                ),
+                              ),
+                              suggestionsDecoration: SuggestionDecoration(
                                 color: Theme.of(context).cardColor,
                                 borderRadius: BorderRadius.circular(8),
                                 border: Border.all(
                                   color: widget.textColor.withOpacity(0.1),
                                 ),
                               ),
-                              child: Center(
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Icon(
-                                      Icons.search_rounded,
-                                      color: widget.textColor.withOpacity(0.7),
+                              onSuggestionTap: (p0) {
+                                if (p0.item == null) return;
+                                Navigator.push(
+                                  helpCenterNavigatorKey.currentContext!,
+                                  MaterialPageRoute(
+                                    builder: (context) => _ArticleView(
+                                      article: p0.item!,
+                                      textColor: widget.textColor,
+                                      hideAuthors: widget.hideAuthors,
+                                      locale: widget.defaultLocale,
                                     ),
-                                    Text(
-                                      FeaturebaseLocalizations.of(context)
-                                          .noResultsFound,
-                                      style: TextStyle(
+                                  ),
+                                );
+                              },
+                              dynamicHeight: true,
+                              maxSuggestionBoxHeight: 250,
+                              emptyWidget: Container(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 35),
+                                decoration: BoxDecoration(
+                                  color: Theme.of(context).cardColor,
+                                  borderRadius: BorderRadius.circular(8),
+                                  border: Border.all(
+                                    color: widget.textColor.withOpacity(0.1),
+                                  ),
+                                ),
+                                child: Center(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Icon(
+                                        Icons.search_rounded,
                                         color:
                                             widget.textColor.withOpacity(0.7),
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                        fontFamily: 'Inter',
                                       ),
-                                    ),
-                                  ],
+                                      Text(
+                                        FeaturebaseLocalizations.of(context)
+                                            .noResultsFound,
+                                        style: TextStyle(
+                                          color:
+                                              widget.textColor.withOpacity(0.7),
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500,
+                                          fontFamily: 'Inter',
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
                           ),
                         ),
-                      ),
                       SliverList.builder(
                         itemCount: data.structure?.length ?? 0,
                         itemBuilder: (context, index) {
