@@ -37,57 +37,38 @@ class HelpCenterView extends ConsumerStatefulWidget {
   ConsumerState<HelpCenterView> createState() => _HelpCenterViewState();
 }
 
-class _HelpCenterNavigatorObserver extends NavigatorObserver {
-  final GlobalKey<NavigatorState> navigatorKey;
-  final void Function(bool isRoot) onPageChanged;
-
-  _HelpCenterNavigatorObserver({
-    required this.navigatorKey,
-    required this.onPageChanged,
-  });
-
-  void _updateState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final canPop = navigatorKey.currentState?.canPop() ?? false;
-      onPageChanged(!canPop);
-    });
-  }
-
-  @override
-  void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
-    super.didPush(route, previousRoute);
-    _updateState();
-  }
-
-  @override
-  void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) {
-    super.didPop(route, previousRoute);
-    _updateState();
-  }
-}
-
 class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
   GlobalKey<NavigatorState> helpCenterNavigatorKey =
       GlobalKey<NavigatorState>(debugLabel: '_HelpCenterNavigatorKey');
   bool isHelpCenterHome = true;
-
   bool navBarOpen = false;
 
-  late final _navigatorObserver = _HelpCenterNavigatorObserver(
-    navigatorKey: helpCenterNavigatorKey,
-    onPageChanged: (isRoot) {
-      if (mounted) {
-        setState(() {
-          isHelpCenterHome = isRoot;
-        });
-      }
-    },
-  );
+  late final _navigatorObserver = NavigationStateObserver(
+      navigatorKey: helpCenterNavigatorKey,
+      onStackStateChanged: _handleStackStateChange);
 
   @override
   void initState() {
     _fbSerivce.setup(widget.url);
     super.initState();
+  }
+
+  void _handleStackStateChange(bool isHome) {
+    if (mounted) {
+      setState(() => isHelpCenterHome = isHome);
+    }
+  }
+
+  void _handleBackPress() {
+    if (helpCenterNavigatorKey.currentState?.canPop() == true) {
+      helpCenterNavigatorKey.currentState?.pop();
+      return;
+    }
+    Navigator.pop(context);
+  }
+
+  void _navigateToHome() {
+    helpCenterNavigatorKey.currentState?.popUntil((route) => route.isFirst);
   }
 
   @override
@@ -104,25 +85,14 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
       child: Scaffold(
         appBar: AppBar(
           leading: IconButton(
-            onPressed: () {
-              //Pop normal pages first
-              if (helpCenterNavigatorKey.currentState?.canPop() == true) {
-                helpCenterNavigatorKey.currentState?.pop();
-                return;
-              }
-
-              Navigator.pop(context);
-            },
+            onPressed: _handleBackPress,
             icon: Icon(
               Icons.arrow_back_ios_new_rounded,
               color: _calculateTextColor(widget.primaryColor),
             ),
           ),
           title: GestureDetector(
-            onTap: () {
-              helpCenterNavigatorKey.currentState
-                  ?.popUntil((route) => route.isFirst);
-            },
+            onTap: _navigateToHome,
             child: widget.logo,
           ),
           actions: [
@@ -186,11 +156,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
               canPop: isHelpCenterHome,
               onPopInvokedWithResult: (bool didPop, dynamic result) {
                 if (!didPop) {
-                  if (helpCenterNavigatorKey.currentState?.canPop() == true) {
-                    helpCenterNavigatorKey.currentState?.pop();
-                    return;
-                  }
-                  Navigator.pop(context);
+                  _handleBackPress();
                 }
               },
               child: CustomTopNavigator(
