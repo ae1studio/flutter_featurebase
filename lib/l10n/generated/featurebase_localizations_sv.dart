@@ -29,4 +29,7 @@ class FeaturebaseLocalizationsSv extends FeaturebaseLocalizations {
 
   @override
   String get tryAgainLater => 'Försök igen senare';
+
+  @override
+  String get noResultsFound => 'Inga resultat hittades';
 }

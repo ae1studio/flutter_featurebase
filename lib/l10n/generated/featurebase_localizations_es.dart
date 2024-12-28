@@ -29,6 +29,9 @@ class FeaturebaseLocalizationsEs extends FeaturebaseLocalizations {
 
   @override
   String get tryAgainLater => 'Inténtalo más tarde';
+
+  @override
+  String get noResultsFound => 'No se encontraron resultados';
 }
 
 /// The translations for Spanish Castilian, as used in Latin America and the Caribbean (`es_419`).
@@ -56,4 +59,7 @@ class FeaturebaseLocalizationsEs419 extends FeaturebaseLocalizationsEs {
 
   @override
   String get tryAgainLater => 'Inténtalo más tarde';
+
+  @override
+  String get noResultsFound => 'No se encontraron resultados';
 }

@@ -29,4 +29,7 @@ class FeaturebaseLocalizationsBe extends FeaturebaseLocalizations {
 
   @override
   String get tryAgainLater => 'Паспрабуйце пазней';
+
+  @override
+  String get noResultsFound => 'Няма резултата';
 }

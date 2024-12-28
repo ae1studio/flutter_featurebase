@@ -29,6 +29,9 @@ class FeaturebaseLocalizationsZh extends FeaturebaseLocalizations {
 
   @override
   String get tryAgainLater => '請稍後再試';
+
+  @override
+  String get noResultsFound => '沒有找到結果';
 }
 
 /// The translations for Chinese, using the Han script (`zh_Hans`).
@@ -56,6 +59,9 @@ class FeaturebaseLocalizationsZhHans extends FeaturebaseLocalizationsZh {
 
   @override
   String get tryAgainLater => '请稍后重试';
+
+  @override
+  String get noResultsFound => '没有找到结果';
 }
 
 /// The translations for Chinese, using the Han script (`zh_Hant`).
@@ -83,6 +89,9 @@ class FeaturebaseLocalizationsZhHant extends FeaturebaseLocalizationsZh {
 
   @override
   String get tryAgainLater => '請稍後再試';
+
+  @override
+  String get noResultsFound => '沒有找到結果';
 }
 
 /// The translations for Chinese, as used in Taiwan (`zh_TW`).
@@ -110,4 +119,7 @@ class FeaturebaseLocalizationsZhTw extends FeaturebaseLocalizationsZh {
 
   @override
   String get tryAgainLater => '請稍後再試';
+
+  @override
+  String get noResultsFound => '沒有找到結果';
 }

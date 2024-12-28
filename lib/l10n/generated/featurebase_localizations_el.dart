@@ -29,4 +29,7 @@ class FeaturebaseLocalizationsEl extends FeaturebaseLocalizations {
 
   @override
   String get tryAgainLater => 'Δοκιμάστε ξανά αργότερα';
+
+  @override
+  String get noResultsFound => 'Δεν βρέθηκαν αποτελέσματα';
 }

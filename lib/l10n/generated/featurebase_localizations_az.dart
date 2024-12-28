@@ -29,4 +29,7 @@ class FeaturebaseLocalizationsAz extends FeaturebaseLocalizations {
 
   @override
   String get tryAgainLater => 'Daha sonra yenidən cəhd edin';
+
+  @override
+  String get noResultsFound => 'Nəticə tapılmadı';
 }

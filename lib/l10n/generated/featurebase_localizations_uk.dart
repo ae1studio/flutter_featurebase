@@ -31,4 +31,7 @@ class FeaturebaseLocalizationsUk extends FeaturebaseLocalizations {
 
   @override
   String get tryAgainLater => 'Спробуйте пізніше';
+
+  @override
+  String get noResultsFound => 'Нічого не знайдено';
 }

@@ -29,4 +29,7 @@ class FeaturebaseLocalizationsDa extends FeaturebaseLocalizations {
 
   @override
   String get tryAgainLater => 'Prøv igen senere';
+
+  @override
+  String get noResultsFound => 'Ingen resultater fundet';
 }

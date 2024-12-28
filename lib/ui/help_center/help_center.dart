@@ -317,7 +317,8 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                                       color: widget.textColor.withOpacity(0.7),
                                     ),
                                     Text(
-                                      'No results found',
+                                      FeaturebaseLocalizations.of(context)
+                                          .noResultsFound,
                                       style: TextStyle(
                                         color:
                                             widget.textColor.withOpacity(0.7),

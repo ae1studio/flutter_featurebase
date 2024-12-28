@@ -29,4 +29,7 @@ class FeaturebaseLocalizationsKo extends FeaturebaseLocalizations {
 
   @override
   String get tryAgainLater => '나중에 다시 시도해주세요';
+
+  @override
+  String get noResultsFound => '검색 결과가 없습니다';
 }

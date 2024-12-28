@@ -29,4 +29,7 @@ class FeaturebaseLocalizationsSw extends FeaturebaseLocalizations {
 
   @override
   String get tryAgainLater => 'Jaribu tena baadaye';
+
+  @override
+  String get noResultsFound => 'Hakujulikani';
 }

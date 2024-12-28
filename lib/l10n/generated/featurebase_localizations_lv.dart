@@ -30,4 +30,7 @@ class FeaturebaseLocalizationsLv extends FeaturebaseLocalizations {
 
   @override
   String get tryAgainLater => 'Mēģiniet vēlāk';
+
+  @override
+  String get noResultsFound => 'Neviens rezultāts nav atrasts';
 }

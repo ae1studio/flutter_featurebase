@@ -25,5 +25,9 @@
   "tryAgainLater": "나중에 다시 시도해주세요",
   "@tryAgainLater": {
     "description": "This is the message that is displayed when the user should try again later."
+  },
+  "noResultsFound": "검색 결과가 없습니다",
+  "@noResultsFound": {
+    "description": "This is the message that is displayed when no results are found in search."
   }
 }

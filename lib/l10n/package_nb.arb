@@ -25,5 +25,9 @@
   "tryAgainLater": "Prøv igjen senere",
   "@tryAgainLater": {
     "description": "This is the message that is displayed when the user should try again later."
+  },
+  "noResultsFound": "Ingen resultater funnet",
+  "@noResultsFound": {
+    "description": "This is the message that is displayed when no results are found in search."
   }
 }

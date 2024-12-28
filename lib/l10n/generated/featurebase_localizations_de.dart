@@ -29,6 +29,9 @@ class FeaturebaseLocalizationsDe extends FeaturebaseLocalizations {
 
   @override
   String get tryAgainLater => 'Versuchen Sie es später erneut';
+
+  @override
+  String get noResultsFound => 'Keine Ergebnisse gefunden';
 }
 
 /// The translations for German, as used in Switzerland (`de_CH`).
@@ -56,4 +59,7 @@ class FeaturebaseLocalizationsDeCh extends FeaturebaseLocalizationsDe {
 
   @override
   String get tryAgainLater => 'Bitte später erneut versuchen';
+
+  @override
+  String get noResultsFound => 'Keine Ergebnisse gefunden';
 }

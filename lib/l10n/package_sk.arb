@@ -25,5 +25,9 @@
   "tryAgainLater": "Skúste to znova neskôr",
   "@tryAgainLater": {
     "description": "This is the message that is displayed when the user should try again later."
+  },
+  "noResultsFound": "Žiadne výsledky",
+  "@noResultsFound": {
+    "description": "This is the message that is displayed when no results are found in search."
   }
 }

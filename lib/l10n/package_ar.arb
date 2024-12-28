@@ -25,5 +25,9 @@
   "tryAgainLater": "حاول مرة أخرى لاحقاً",
   "@tryAgainLater": {
     "description": "This is the message that is displayed when the user should try again later."
+  },
+  "noResultsFound": "لا يوجد نتائج",
+  "@noResultsFound": {
+    "description": "This is the message that is displayed when no results are found in search."
   }
 }

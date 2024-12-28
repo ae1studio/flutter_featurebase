@@ -31,4 +31,7 @@ class FeaturebaseLocalizationsRu extends FeaturebaseLocalizations {
 
   @override
   String get tryAgainLater => 'Повторите попытку позже';
+
+  @override
+  String get noResultsFound => 'Ничего не найдено';
 }

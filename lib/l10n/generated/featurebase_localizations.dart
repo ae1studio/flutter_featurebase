@@ -212,6 +212,12 @@ abstract class FeaturebaseLocalizations {
   /// In en, this message translates to:
   /// **'Try again later'**
   String get tryAgainLater;
+
+  /// This is the message that is displayed when no results are found in search.
+  ///
+  /// In en, this message translates to:
+  /// **'No results found'**
+  String get noResultsFound;
 }
 
 class _FeaturebaseLocalizationsDelegate

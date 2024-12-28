@@ -29,4 +29,8 @@ class FeaturebaseLocalizationsBo extends FeaturebaseLocalizations {
 
   @override
   String get tryAgainLater => 'ཏོག་ཙམ་རྗེས་ལ་ཡང་བསྐྱར་ཚོད་ལྟ་བྱོས།';
+
+  @override
+  String get noResultsFound =>
+      'རིམ་པ་སྤྱི་འགྲེལ་འབུམ་མི་མཐུན་བསྐྱར་ཚོད་ལྟ་བྱོས།';
 }

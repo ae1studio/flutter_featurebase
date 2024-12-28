@@ -29,4 +29,7 @@ class FeaturebaseLocalizationsCs extends FeaturebaseLocalizations {
 
   @override
   String get tryAgainLater => 'Zkuste to později';
+
+  @override
+  String get noResultsFound => 'Nebyly nalezeny žádné výsledky';
 }

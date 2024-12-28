@@ -29,4 +29,7 @@ class FeaturebaseLocalizationsRo extends FeaturebaseLocalizations {
 
   @override
   String get tryAgainLater => 'Încercați din nou mai târziu';
+
+  @override
+  String get noResultsFound => 'Nu s-au găsit rezultate';
 }

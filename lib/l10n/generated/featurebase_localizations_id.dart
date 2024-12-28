@@ -29,4 +29,7 @@ class FeaturebaseLocalizationsId extends FeaturebaseLocalizations {
 
   @override
   String get tryAgainLater => 'Coba lagi nanti';
+
+  @override
+  String get noResultsFound => 'Tidak ada hasil';
 }

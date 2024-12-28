@@ -25,5 +25,9 @@
   "tryAgainLater": "Daha sonra yenidən cəhd edin",
   "@tryAgainLater": {
     "description": "This is the message that is displayed when the user should try again later."
+  },
+  "noResultsFound": "Nəticə tapılmadı",
+  "@noResultsFound": {
+    "description": "This is the message that is displayed when no results are found in search."
   }
 }

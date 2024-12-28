@@ -29,4 +29,7 @@ class FeaturebaseLocalizationsAr extends FeaturebaseLocalizations {
 
   @override
   String get tryAgainLater => 'حاول مرة أخرى لاحقاً';
+
+  @override
+  String get noResultsFound => 'لا يوجد نتائج';
 }

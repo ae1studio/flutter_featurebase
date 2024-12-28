@@ -25,5 +25,9 @@
   "tryAgainLater": "後でもう一度お試しください",
   "@tryAgainLater": {
     "description": "This is the message that is displayed when the user should try again later."
+  },
+  "noResultsFound": "結果が見つかりません",
+  "@noResultsFound": {
+    "description": "This is the message that is displayed when no results are found in search."
   }
 }

@@ -29,6 +29,9 @@ class FeaturebaseLocalizationsPt extends FeaturebaseLocalizations {
 
   @override
   String get tryAgainLater => 'Tente novamente mais tarde';
+
+  @override
+  String get noResultsFound => 'Nenhum resultado encontrado';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -56,4 +59,7 @@ class FeaturebaseLocalizationsPtBr extends FeaturebaseLocalizationsPt {
 
   @override
   String get tryAgainLater => 'Tente novamente mais tarde';
+
+  @override
+  String get noResultsFound => 'Nenhum resultado encontrado';
 }

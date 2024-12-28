@@ -29,4 +29,7 @@ class FeaturebaseLocalizationsVi extends FeaturebaseLocalizations {
 
   @override
   String get tryAgainLater => 'Vui lòng thử lại sau';
+
+  @override
+  String get noResultsFound => 'Không tìm thấy kết quả';
 }

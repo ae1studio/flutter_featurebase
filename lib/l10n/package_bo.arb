@@ -25,5 +25,9 @@
   "tryAgainLater": "ཏོག་ཙམ་རྗེས་ལ་ཡང་བསྐྱར་ཚོད་ལྟ་བྱོས།",
   "@tryAgainLater": {
     "description": "This is the message that is displayed when the user should try again later."
+  },
+  "noResultsFound": "རིམ་པ་སྤྱི་འགྲེལ་འབུམ་མི་མཐུན་བསྐྱར་ཚོད་ལྟ་བྱོས།",
+  "@noResultsFound": {
+    "description": "This is the message that is displayed when no results are found in search."
   }
 }

@@ -29,4 +29,7 @@ class FeaturebaseLocalizationsFi extends FeaturebaseLocalizations {
 
   @override
   String get tryAgainLater => 'Yritä myöhemmin uudelleen';
+
+  @override
+  String get noResultsFound => 'Ei tuloksia';
 }

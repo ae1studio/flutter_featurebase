@@ -30,4 +30,7 @@ class FeaturebaseLocalizationsSk extends FeaturebaseLocalizations {
 
   @override
   String get tryAgainLater => 'Skúste to znova neskôr';
+
+  @override
+  String get noResultsFound => 'Žiadne výsledky';
 }

@@ -29,4 +29,7 @@ class FeaturebaseLocalizationsHu extends FeaturebaseLocalizations {
 
   @override
   String get tryAgainLater => 'Próbálja újra később';
+
+  @override
+  String get noResultsFound => 'Nem található';
 }

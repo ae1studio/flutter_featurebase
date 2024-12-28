@@ -29,4 +29,7 @@ class FeaturebaseLocalizationsIs extends FeaturebaseLocalizations {
 
   @override
   String get tryAgainLater => 'Reyndu aftur síðar';
+
+  @override
+  String get noResultsFound => 'Engin niðurstöður fundust';
 }
