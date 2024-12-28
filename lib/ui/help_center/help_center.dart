@@ -19,6 +19,9 @@ class HelpCenterView extends ConsumerStatefulWidget {
   /// Hide Authors
   final bool hideAuthors;
 
+  /// Show Search Bar
+  final bool showSearchBar;
+
   /// Default Locale (default: en)
   final Locale defaultLocale;
 
@@ -31,6 +34,7 @@ class HelpCenterView extends ConsumerStatefulWidget {
     this.backgroundColor,
     this.hideAuthors = false,
     this.defaultLocale = const Locale('en'),
+    this.showSearchBar = true,
   });
 
   @override
@@ -69,6 +73,48 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
 
   void _navigateToHome() {
     helpCenterNavigatorKey.currentState?.popUntil((route) => route.isFirst);
+  }
+
+  List<SearchFieldListItem<fb.Article>> _getArticleSuggestions(
+      fb.HelpCenter helpCenter) {
+    List<SearchFieldListItem<fb.Article>> suggestions = [];
+
+    for (fb.Collection collection in helpCenter.structure!) {
+      for (fb.CollectionContent content in collection.structure!) {
+        content.when(
+          article: (article) {
+            suggestions.add(
+              SearchFieldListItem<fb.Article>(
+                article.title,
+                item: article,
+                child: _buildArticleSuggestion(article),
+              ),
+            );
+          },
+          collection: (tempCollection) {
+            for (fb.CollectionContent tempContent
+                in tempCollection.structure!) {
+              tempContent.when(
+                article: (article) {
+                  suggestions.add(
+                    SearchFieldListItem<fb.Article>(
+                      article.title,
+                      item: article,
+                      child: _buildArticleSuggestion(article),
+                    ),
+                  );
+                },
+                collection: (tempCollection) {
+                  return;
+                },
+              );
+            }
+          },
+        );
+      }
+    }
+
+    return suggestions;
   }
 
   @override
@@ -193,6 +239,88 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                           ),
                         ),
                       ),
+                      SliverToBoxAdapter(
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            bottom: 15,
+                            right: 12,
+                            left: 12,
+                          ),
+                          child: SearchField<fb.Article>(
+                            suggestions: _getArticleSuggestions(data),
+                            searchInputDecoration: SearchInputDecoration(
+                              cursorColor: Theme.of(context).primaryColor,
+                              hintText: data.searchPlaceholder,
+                              hintStyle: TextStyle(
+                                color: widget.textColor.withOpacity(0.7),
+                                fontFamily: 'Inter',
+                              ),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              fillColor: Colors.redAccent,
+                              searchStyle: TextStyle(
+                                color: widget.textColor,
+                                fontFamily: 'Inter',
+                              ),
+                            ),
+                            suggestionsDecoration: SuggestionDecoration(
+                              color: Theme.of(context).cardColor,
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border.all(
+                                color: widget.textColor.withOpacity(0.1),
+                              ),
+                            ),
+                            onSuggestionTap: (p0) {
+                              if (p0.item == null) return;
+                              Navigator.push(
+                                helpCenterNavigatorKey.currentContext!,
+                                MaterialPageRoute(
+                                  builder: (context) => _ArticleView(
+                                    article: p0.item!,
+                                    textColor: widget.textColor,
+                                    hideAuthors: widget.hideAuthors,
+                                    locale: widget.defaultLocale,
+                                  ),
+                                ),
+                              );
+                            },
+                            dynamicHeight: true,
+                            maxSuggestionBoxHeight: 250,
+                            emptyWidget: Container(
+                              padding: const EdgeInsets.symmetric(vertical: 35),
+                              decoration: BoxDecoration(
+                                color: Theme.of(context).cardColor,
+                                borderRadius: BorderRadius.circular(8),
+                                border: Border.all(
+                                  color: widget.textColor.withOpacity(0.1),
+                                ),
+                              ),
+                              child: Center(
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Icon(
+                                      Icons.search_rounded,
+                                      color: widget.textColor.withOpacity(0.7),
+                                    ),
+                                    Text(
+                                      'No results found',
+                                      style: TextStyle(
+                                        color:
+                                            widget.textColor.withOpacity(0.7),
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                        fontFamily: 'Inter',
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
                       SliverList.builder(
                         itemCount: data.structure?.length ?? 0,
                         itemBuilder: (context, index) {
@@ -270,6 +398,47 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
             );
           },
         ),
+      ),
+    );
+  }
+
+  Widget _buildArticleSuggestion(fb.Article article) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  article.title,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: widget.textColor,
+                    fontFamily: 'Inter',
+                  ),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  softWrap: false,
+                ),
+              ),
+            ],
+          ),
+          if (article.description.trim().isNotEmpty)
+            Text(
+              article.description,
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+                color: widget.textColor.withOpacity(0.7),
+                fontFamily: 'Inter',
+              ),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              softWrap: false,
+            ),
+        ],
       ),
     );
   }

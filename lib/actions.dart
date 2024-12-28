@@ -20,6 +20,9 @@ void openHelpCenter({
   /// Hide Authors
   bool hideAuthors = false,
 
+  /// Show Search Bar
+  bool showSearchBar = true,
+
   /// Default Locale (default: en)
   Locale defaultLocale = const Locale('en'),
 
@@ -37,6 +40,7 @@ void openHelpCenter({
           backgroundColor: backgroundColor,
           hideAuthors: hideAuthors,
           defaultLocale: defaultLocale,
+          showSearchBar: showSearchBar,
         ),
       ),
     ),
