@@ -127,6 +127,9 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
       data: Theme.of(context).copyWith(
         scaffoldBackgroundColor: widget.backgroundColor,
         primaryColor: widget.primaryColor,
+        inputDecorationTheme: InputDecorationTheme(
+          fillColor: widget.textColor.withOpacity(0.1),
+        ),
       ),
       child: Scaffold(
         appBar: AppBar(
@@ -251,16 +254,22 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                             suggestions: _getArticleSuggestions(data),
                             searchInputDecoration: SearchInputDecoration(
                               cursorColor: Theme.of(context).primaryColor,
+                              focusColor: Theme.of(context).primaryColor,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
+                                borderSide: BorderSide(
+                                  color: widget.textColor.withOpacity(0.1),
+                                ),
+                              ),
+                              fillColor: Theme.of(context)
+                                  .inputDecorationTheme
+                                  .fillColor,
                               hintText: data.searchPlaceholder,
                               hintStyle: TextStyle(
                                 fontWeight: FontWeight.w500,
                                 color: widget.textColor.withOpacity(0.7),
                                 fontFamily: 'Inter',
                               ),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              fillColor: Colors.redAccent,
                               searchStyle: TextStyle(
                                 fontWeight: FontWeight.w500,
                                 color: widget.textColor,
