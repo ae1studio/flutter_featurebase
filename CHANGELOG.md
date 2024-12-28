@@ -1,3 +1,7 @@
+## 0.4.1
+
+- Fixed article auggestion description being centered.
+
 ## 0.4.0
 
 - Added basic title search (not as good as the website search that can search article title & body text). Can be disabled with `showSearchBar: false`.
