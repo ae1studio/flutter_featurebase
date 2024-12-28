@@ -152,6 +152,7 @@ class _ArticleViewState extends ConsumerState<_ArticleView> {
                     // Callouts
                     if (element.outerHtml.contains('callout-component')) {
                       return Container(
+                        margin: const EdgeInsets.only(bottom: 8, top: 5),
                         padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
                           color: _getCalloutColor(
