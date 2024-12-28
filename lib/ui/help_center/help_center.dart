@@ -422,6 +422,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
