@@ -1,3 +1,8 @@
+## 0.4.0
+
+- Added basic title search (not as good as the website search that can search article title & body text). Can be disabled with `showSearchBar: false`.
+- Fixed some fontWeights to match the site better.
+
 ## 0.3.1
 
 - Switched navbar collection/article icons to use grey instead of the primary color.
