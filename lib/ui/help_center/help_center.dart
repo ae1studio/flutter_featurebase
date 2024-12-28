@@ -404,7 +404,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
 
   Widget _buildArticleSuggestion(fb.Article article) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
       child: Column(
         children: [
           Row(
