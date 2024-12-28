@@ -42,20 +42,22 @@ class _ArticleViewState extends ConsumerState<_ArticleView> {
                       widget.article.title,
                       style: TextStyle(
                         fontSize: 22,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w700,
                         color: widget.textColor,
                         fontFamily: 'Inter',
                       ),
                       textAlign: TextAlign.start,
                     ),
-                    Text(
-                      widget.article.description,
-                      style: TextStyle(
-                        color: widget.textColor.withOpacity(0.7),
-                        fontFamily: 'Inter',
+                    if (widget.article.description.trim().isNotEmpty)
+                      Text(
+                        widget.article.description,
+                        style: TextStyle(
+                          color: widget.textColor.withOpacity(0.7),
+                          fontWeight: FontWeight.w500,
+                          fontFamily: 'Inter',
+                        ),
+                        textAlign: TextAlign.start,
                       ),
-                      textAlign: TextAlign.start,
-                    ),
                     if (!widget.hideAuthors) const SizedBox(height: 15),
                     if (!widget.hideAuthors)
                       Row(
