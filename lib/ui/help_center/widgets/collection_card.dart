@@ -63,8 +63,8 @@ class _CollectionCard extends StatelessWidget {
               collection.name,
               style: TextStyle(
                 color: textColor,
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
+                fontSize: 17,
+                fontWeight: FontWeight.w700,
                 fontFamily: 'Inter',
               ),
             ),
@@ -74,6 +74,7 @@ class _CollectionCard extends StatelessWidget {
                 collection.description,
                 style: TextStyle(
                   color: textColor.withOpacity(0.7),
+                  fontWeight: FontWeight.w500,
                   fontSize: 14,
                   fontFamily: 'Inter',
                 ),
@@ -92,6 +93,7 @@ class _CollectionCard extends StatelessWidget {
                   ),
                   style: TextStyle(
                     color: textColor.withOpacity(0.7),
+                    fontWeight: FontWeight.w500,
                     fontSize: 13,
                     fontFamily: 'Inter',
                   ),
