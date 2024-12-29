@@ -1,3 +1,7 @@
+## 0.5.0
+
+- Added language picker in the navigation popup.
+
 ## 0.4.1
 
 - Fixed article auggestion description being centered.
