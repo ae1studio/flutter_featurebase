@@ -1,12 +1,13 @@
 part of featurebase;
 
-class _NavbarPopupWidget extends StatelessWidget {
+class _NavbarPopupWidget extends ConsumerWidget {
   final fb.HelpCenter helpCenter;
   final Color textColor;
   final Color primaryColor;
   final bool hideAuthors;
   final Locale locale;
   final BuildContext helpCenterContext;
+  final Function(Locale) onLocaleChange;
   const _NavbarPopupWidget({
     required this.helpCenter,
     required this.textColor,
@@ -14,10 +15,11 @@ class _NavbarPopupWidget extends StatelessWidget {
     required this.hideAuthors,
     required this.locale,
     required this.helpCenterContext,
+    required this.onLocaleChange,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Material(
       color: Colors.transparent,
       child: Scaffold(
@@ -118,6 +120,24 @@ class _NavbarPopupWidget extends StatelessWidget {
                     ),
                   ),
                 ),
+                if (helpCenter.availableLocales.length > 1)
+                  Divider(
+                    color: textColor.withOpacity(0.08),
+                  ),
+                if (helpCenter.availableLocales.length > 1)
+                  Row(
+                    children: [
+                      const Spacer(),
+                      _LanguagePickerWidget(
+                        locale: locale,
+                        availableLocales: helpCenter.availableLocales,
+                        onLocaleChange: onLocaleChange,
+                        primaryColor: primaryColor,
+                        textColor: textColor,
+                      ),
+                      const SizedBox(width: 10),
+                    ],
+                  ),
                 const SizedBox(height: 20),
               ],
             ),

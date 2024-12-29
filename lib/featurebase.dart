@@ -25,6 +25,7 @@ part 'ui/help_center/widgets/navbar_popup.dart';
 part 'ui/widgets/authors_image_stack.dart';
 part 'ui/widgets/icon.dart';
 part 'ui/widgets/safe_cachednetworkimage.dart';
+part 'ui/widgets/langauge_picker.dart';
 part 'providers/service.dart';
 part 'providers/icons.dart';
 part 'actions.dart';

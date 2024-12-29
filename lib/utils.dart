@@ -69,6 +69,95 @@ Color _getCalloutColor(String color, BuildContext context) {
   }
 }
 
+String _langCodeToName(Locale lang) {
+  switch (_getLocale(lang)) {
+    case 'en':
+      return 'English';
+    case 'nl':
+      return 'Dutch';
+    case 'bn':
+      return 'Bengali';
+    case 'bs':
+      return 'Bosnian';
+    case 'pt_BR':
+      return 'Brazilian Portuguese';
+    case 'bg':
+      return 'Bulgarian';
+    case 'ca':
+      return 'Catalan';
+    case 'hr':
+      return 'Croatian';
+    case 'cs':
+      return 'Czech';
+    case 'da':
+      return 'Danish';
+    case 'et':
+      return 'Estonian';
+    case 'fi':
+      return 'Finnish';
+    case 'fr':
+      return 'French';
+    case 'de':
+      return 'German';
+    case 'el':
+      return 'Greek';
+    case 'hi':
+      return 'Hindi';
+    case 'hu':
+      return 'Hungarian';
+    case 'id':
+      return 'Indonesian';
+    case 'it':
+      return 'Italian';
+    case 'ja':
+      return 'Japanese';
+    case 'ko':
+      return 'Korean';
+    case 'lv':
+      return 'Latvian';
+    case 'lt':
+      return 'Lithuanian';
+    case 'ms':
+      return 'Malay';
+    case 'mn':
+      return 'Mongolian';
+    case 'no':
+      return 'Norwegian';
+    case 'pl':
+      return 'Polish';
+    case 'pt':
+      return 'Portuguese';
+    case 'ro':
+      return 'Romanian';
+    case 'ru':
+      return 'Russian';
+    case 'sr':
+      return 'Serbian';
+    case 'sl':
+      return 'Slovenian';
+    case 'es':
+      return 'Spanish';
+    case 'sw':
+      return 'Swahili';
+    case 'sv':
+      return 'Swedish';
+    case 'th':
+      return 'Thai';
+    case 'zh_CN':
+      return 'Chinese Simplified';
+    case 'zh_TW':
+      return 'Chinese Traditional';
+    case 'tr':
+      return 'Turkish';
+    case 'uk':
+      return 'Ukrainian';
+    case 'vi':
+      return 'Vietnamese';
+    default:
+      return _getLocale(lang);
+  }
+}
+
 String _getLocale(Locale locale) {
   if (locale.countryCode != null) {
     return '${locale.languageCode}_${locale.countryCode!}';

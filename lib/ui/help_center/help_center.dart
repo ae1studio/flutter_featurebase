@@ -41,18 +41,22 @@ class HelpCenterView extends ConsumerStatefulWidget {
   ConsumerState<HelpCenterView> createState() => _HelpCenterViewState();
 }
 
+GlobalKey<NavigatorState> _helpCenterNavigatorKey =
+    GlobalKey<NavigatorState>(debugLabel: '_HelpCenterNavigatorKey');
+
 class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
-  GlobalKey<NavigatorState> helpCenterNavigatorKey =
-      GlobalKey<NavigatorState>(debugLabel: '_HelpCenterNavigatorKey');
   bool isHelpCenterHome = true;
   bool navBarOpen = false;
 
+  Locale currentLocale = Locale('en');
+
   late final _navigatorObserver = NavigationStateObserver(
-      navigatorKey: helpCenterNavigatorKey,
+      navigatorKey: _helpCenterNavigatorKey,
       onStackStateChanged: _handleStackStateChange);
 
   @override
   void initState() {
+    currentLocale = widget.defaultLocale;
     _fbSerivce.setup(widget.url);
     super.initState();
   }
@@ -64,15 +68,15 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
   }
 
   void _handleBackPress() {
-    if (helpCenterNavigatorKey.currentState?.canPop() == true) {
-      helpCenterNavigatorKey.currentState?.pop();
+    if (_helpCenterNavigatorKey.currentState?.canPop() == true) {
+      _helpCenterNavigatorKey.currentState?.pop();
       return;
     }
     Navigator.pop(context);
   }
 
   void _navigateToHome() {
-    helpCenterNavigatorKey.currentState?.popUntil((route) => route.isFirst);
+    _helpCenterNavigatorKey.currentState?.popUntil((route) => route.isFirst);
   }
 
   List<SearchFieldListItem<fb.Article>> _getArticleSuggestions(
@@ -120,7 +124,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
   @override
   Widget build(BuildContext context) {
     AsyncValue<fb.HelpCenter> helpCenterAsync = ref.watch(
-      HelpCenterInfoProvider(_getLocale(widget.defaultLocale)),
+      HelpCenterInfoProvider(_getLocale(currentLocale)),
     );
 
     return Theme(
@@ -162,9 +166,16 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                           textColor: widget.textColor,
                           primaryColor: widget.primaryColor,
                           hideAuthors: widget.hideAuthors,
-                          locale: widget.defaultLocale,
+                          locale: currentLocale,
                           helpCenterContext:
-                              helpCenterNavigatorKey.currentContext!,
+                              _helpCenterNavigatorKey.currentContext!,
+                          onLocaleChange: (newLocale) {
+                            ref.invalidate(HelpCenterInfoProvider(
+                                _getLocale(currentLocale)));
+                            currentLocale = newLocale;
+                            _helpCenterNavigatorKey.currentState
+                                ?.popUntil((route) => route.isFirst);
+                          },
                         ),
                       ),
                     );
@@ -209,7 +220,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                 }
               },
               child: CustomTopNavigator(
-                navigatorKey: helpCenterNavigatorKey,
+                navigatorKey: _helpCenterNavigatorKey,
                 home: Scrollbar(
                   child: CustomScrollView(
                     slivers: [
@@ -287,7 +298,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                               onSuggestionTap: (p0) {
                                 if (p0.item == null) return;
                                 Navigator.push(
-                                  helpCenterNavigatorKey.currentContext!,
+                                  _helpCenterNavigatorKey.currentContext!,
                                   MaterialPageRoute(
                                     builder: (context) => _ArticleView(
                                       article: p0.item!,
