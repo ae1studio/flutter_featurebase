@@ -1,3 +1,7 @@
+## 0.5.1
+
+- Fix broken import.
+
 ## 0.5.0
 
 - Added language picker in the navigation popup.
