@@ -50,6 +50,8 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
 
   Locale currentLocale = Locale('en');
 
+  TextEditingController _searchController = TextEditingController();
+
   late final _navigatorObserver = NavigationStateObserver(
       navigatorKey: _helpCenterNavigatorKey,
       onStackStateChanged: _handleStackStateChange);
@@ -59,6 +61,12 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
     currentLocale = widget.defaultLocale;
     _fbSerivce.setup(widget.url);
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
   }
 
   void _handleStackStateChange(bool isHome) {
@@ -263,6 +271,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                               left: 12,
                             ),
                             child: SearchField<fb.Article>(
+                              controller: _searchController,
                               suggestions: _getArticleSuggestions(data),
                               searchInputDecoration: SearchInputDecoration(
                                 cursorColor: Theme.of(context).primaryColor,
@@ -297,6 +306,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                               ),
                               onSuggestionTap: (p0) {
                                 if (p0.item == null) return;
+                                _searchController.clear();
                                 Navigator.push(
                                   _helpCenterNavigatorKey.currentContext!,
                                   MaterialPageRoute(
