@@ -214,7 +214,7 @@ class _ChangelogViewState extends ConsumerState<ChangelogView> {
                         }
                       }
                       //Done with first load
-                      if (loading || added != 0) {
+                      if (loading || added.page != added.totalPages) {
                         loading = false;
                         if (mounted) setState(() {});
                       }
