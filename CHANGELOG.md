@@ -1,3 +1,7 @@
+## 0.6.1
+
+- Added platforms to `pubspec` to show the correct supported platforms list on pub.dev.
+
 ## 0.6.0
 
 - Added support for viewing Changelogs with the `openChangelog` function.
