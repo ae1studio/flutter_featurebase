@@ -140,7 +140,8 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
         scaffoldBackgroundColor: widget.backgroundColor,
         primaryColor: widget.primaryColor,
         inputDecorationTheme: InputDecorationTheme(
-          fillColor: widget.textColor.withOpacity(0.1),
+          fillColor: widget.textColor.withOpacity(0.5),
+          filled: true,
         ),
       ),
       child: Scaffold(
@@ -279,12 +280,13 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(8),
                                   borderSide: BorderSide(
-                                    color: widget.textColor.withOpacity(0.1),
+                                    color: widget.textColor.withOpacity(0.2),
                                   ),
                                 ),
                                 fillColor: Theme.of(context)
                                     .inputDecorationTheme
                                     .fillColor,
+                                filled: true,
                                 hintText: data.searchPlaceholder,
                                 hintStyle: TextStyle(
                                   fontWeight: FontWeight.w500,
