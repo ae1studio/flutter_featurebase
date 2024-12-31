@@ -23,15 +23,25 @@ class _ChangelogCard extends StatelessWidget {
           const SizedBox(height: 6),
           Row(
             children: [
-              Text(
-                DateFormat.yMMMMd(_getLocale(locale)).format(changelog.date),
-                style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w600,
-                  color: textColor.withOpacity(0.7),
-                  fontFamily: 'Inter',
+              Expanded(
+                child: Text(
+                  DateFormat.yMMMMd(_getLocale(locale)).format(changelog.date),
+                  style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                    color: textColor.withOpacity(0.7),
+                    fontFamily: 'Inter',
+                  ),
                 ),
               ),
+              Wrap(
+                spacing: 5,
+                children: List.generate(
+                  changelog.changelogCategories.length,
+                  (index) => _buildCategoryTag(
+                      changelog.changelogCategories[index], context),
+                ),
+              )
             ],
           ),
           const SizedBox(height: 10),
@@ -71,6 +81,25 @@ class _ChangelogCard extends StatelessWidget {
             renderMode: RenderMode.column,
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildCategoryTag(
+      fb.ChangelogCategory category, BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 4),
+      decoration: BoxDecoration(
+        color: _getCalloutColor(category.color, context).withOpacity(0.2),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Text(
+        category.name,
+        style: TextStyle(
+          fontSize: 12,
+          fontWeight: FontWeight.w600,
+          color: _getCalloutColor(category.color, context),
+        ),
       ),
     );
   }
