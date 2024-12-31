@@ -4,8 +4,10 @@ Featurebase is a Feedback, Help center, Changelog and Survey hub. Learn more at 
 
 ## Features
 
-- [X] Help center
 - [ ] Feedback
+- [X] Help center
+- [X] Changelog
+- [ ] Surveys
 
 ## Platform Support
 
@@ -28,9 +30,9 @@ localizationsDelegates: [
 ],
 ```
 
-### Usage
+### Help Center Usage
 
-Call the openHelpCenter function to open the panel.
+Call the openHelpCenter function to open the help center panel.
 
 ```dart
 openHelpCenter(
@@ -54,6 +56,29 @@ openHelpCenter(
 Example:
 
 ![Example Image](https://raw.githubusercontent.com/ae1dev/flutter_featurebase/refs/heads/main/docs/imgs/KnowledgeBaseExample.png)
+
+### Changelog Usage
+
+Call the openChangelog function to open the changelog page.
+
+```dart
+openChangelog(
+    logo: SvgPicture.asset(
+        'assets/logo.svg',
+        height: 25,
+        width: 25,
+        colorFilter: const ColorFilter.mode(
+            Colors.white,
+            BlendMode.srcIn,
+        ),
+    ),
+    feedbackUrl: 'https://feedback.featurebase.app', // Use your featurebase url
+    primaryColor: Theme.of(context).primaryColor,
+    textColor: Colors.white,
+    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+    context: context,
+);
+```
 
 ## Localization
 
