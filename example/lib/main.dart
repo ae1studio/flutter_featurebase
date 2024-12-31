@@ -29,6 +29,14 @@ class MyApp extends StatelessWidget {
         inputDecorationTheme: InputDecorationTheme(
           fillColor: Color.fromARGB(255, 21, 23, 30),
         ),
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
+        textTheme: TextTheme(
+          displayLarge: TextStyle(
+            color: Colors.white,
+          ),
+        ),
       ),
       home: const MyHomePage(),
       locale: Locale('en'),
@@ -56,36 +64,82 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text('Featurebase Demo'),
       ),
-      body: Center(
-        child: const Text(
-          'Open the help center',
-          style: TextStyle(
-            color: Colors.white,
-          ),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          openHelpCenter(
-            logo: SvgPicture.asset(
-              'assets/logo.svg',
-              height: 25,
-              width: 25,
-              colorFilter: const ColorFilter.mode(
-                Colors.white,
-                BlendMode.srcIn,
-              ),
+      body: ListView(
+        children: [
+          ListTile(
+            leading: Icon(
+              Icons.support,
+              color: Theme.of(context).iconTheme.color,
             ),
-            helpCenterUrl: 'https://help.featurebase.app',
-            primaryColor: Theme.of(context).primaryColor,
-            textColor: Colors.white,
-            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-            defaultLocale: Locale('en'),
-            context: context,
-          );
-        },
-        tooltip: 'Help',
-        child: const Icon(Icons.support),
+            title: Text(
+              'Help Center',
+              style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
+            ),
+            trailing: Icon(
+              Icons.arrow_right_rounded,
+              color: Theme.of(context).iconTheme.color,
+            ),
+            onTap: () {
+              openHelpCenter(
+                logo: SvgPicture.asset(
+                  'assets/logo.svg',
+                  height: 25,
+                  width: 25,
+                  colorFilter: const ColorFilter.mode(
+                    Colors.white,
+                    BlendMode.srcIn,
+                  ),
+                ),
+                helpCenterUrl: 'https://help.featurebase.app',
+                primaryColor: Theme.of(context).primaryColor,
+                textColor: Colors.white,
+                backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                defaultLocale: Locale('en'),
+                context: context,
+              );
+            },
+          ),
+          ListTile(
+            leading: Icon(
+              Icons.history_rounded,
+              color: Theme.of(context).iconTheme.color,
+            ),
+            title: Text(
+              'Changelog',
+              style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
+            ),
+            trailing: Icon(
+              Icons.arrow_right_rounded,
+              color: Theme.of(context).iconTheme.color,
+            ),
+            onTap: () {
+              openChangelog(
+                logo: SvgPicture.asset(
+                  'assets/logo.svg',
+                  height: 25,
+                  width: 25,
+                  colorFilter: const ColorFilter.mode(
+                    Colors.white,
+                    BlendMode.srcIn,
+                  ),
+                ),
+                feedbackUrl: 'https://feedback.featurebase.app',
+                appName: 'Featurebase',
+                primaryColor: Theme.of(context).primaryColor,
+                textColor: Colors.white,
+                backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                defaultLocale: Locale('en'),
+                context: context,
+              );
+            },
+          ),
+        ],
       ),
     );
   }
