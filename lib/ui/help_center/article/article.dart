@@ -97,7 +97,7 @@ class _ArticleViewState extends ConsumerState<_ArticleView> {
                   html: articleBody ?? '',
                   locale: widget.locale,
                   textColor: widget.textColor,
-                  renderMode: RenderMode.column,
+                  renderMode: RenderMode.sliverList,
                   hideAuthors: widget.hideAuthors,
                 ),
               ),
