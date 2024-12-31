@@ -126,6 +126,7 @@ class _RenderHtmlWidget extends ConsumerWidget {
           // rgba(${color.r * 255}, ${color.g * 255}, ${color.b * 255}, 255)',
           return {
             'color': 'rgba(${color.red}, ${color.green}, ${color.blue}, 255)',
+            'text-decoration': 'none',
           };
         }
         return null;
