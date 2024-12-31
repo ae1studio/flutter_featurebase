@@ -55,7 +55,7 @@ openHelpCenter(
 
 Example:
 
-![Example Image](https://raw.githubusercontent.com/ae1dev/flutter_featurebase/refs/heads/main/docs/imgs/KnowledgeBaseExample.png)
+![Example Image](https://raw.githubusercontent.com/ae1dev/flutter_featurebase/refs/heads/main/docs/imgs/Featurebase_Help_Center_Example.png)
 
 ### Changelog Usage
 
@@ -79,6 +79,10 @@ openChangelog(
     context: context,
 );
 ```
+
+Example:
+
+![Example Image](https://raw.githubusercontent.com/ae1dev/flutter_featurebase/refs/heads/main/docs/imgs/Featurebase_Changelog_Example.png)
 
 ## Localization
 
