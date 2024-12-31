@@ -35,6 +35,25 @@ class _ChangelogCard extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 10),
+          // Featured image
+          if (changelog.featuredImage != null)
+            Container(
+              margin: const EdgeInsets.only(bottom: 10),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: _SafeCachedNetworkImage(
+                  imageUrl: changelog.featuredImage!,
+                  placeholder: (context, url) => Padding(
+                    padding: const EdgeInsets.all(12),
+                    child: Center(
+                      child: CircularProgressIndicator(
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
           Text(
             changelog.title,
             style: TextStyle(
