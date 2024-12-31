@@ -48,7 +48,7 @@ class _ChangelogCard extends StatelessWidget {
           // Featured image
           if (changelog.featuredImage != null)
             Container(
-              margin: const EdgeInsets.only(bottom: 10),
+              margin: const EdgeInsets.only(bottom: 10, top: 5),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8),
                 child: _SafeCachedNetworkImage(
