@@ -1,6 +1,8 @@
 ## 0.6.0
 
 - Added support for viewing Changelogs with the `openChangelog` function.
+- Added mp4 video and iframe support for articles and changelogs.
+- Improved HTML styling
 
 ## 0.5.1
 
