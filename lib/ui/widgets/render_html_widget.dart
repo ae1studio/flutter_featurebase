@@ -93,14 +93,37 @@ class _RenderHtmlWidget extends ConsumerWidget {
           );
         }
 
+        // Divider
+        if (element.outerHtml.contains('<hr>')) {
+          return Divider(
+            color: textColor.withOpacity(0.2),
+          );
+        }
+
         return null;
       },
       customStylesBuilder: (element) {
+        if (element.outerHtml.contains('<p>')) {
+          Color color = textColor;
+          return {
+            'color': 'rgba(${color.red}, ${color.green}, ${color.blue}, 255)',
+            'opacity': '0.7',
+            'font-weight': '500',
+          };
+        }
+
+        if (element.outerHtml.contains('<h1>')) {
+          Color color = textColor;
+          return {
+            'color': 'rgba(${color.red}, ${color.green}, ${color.blue}, 255)',
+            'font-weight': '700',
+            'font-size': '22px',
+          };
+        }
+
         if (element.classes.contains('link')) {
           Color color = Theme.of(context).primaryColor;
-
           // rgba(${color.r * 255}, ${color.g * 255}, ${color.b * 255}, 255)',
-
           return {
             'color': 'rgba(${color.red}, ${color.green}, ${color.blue}, 255)',
           };
@@ -111,6 +134,7 @@ class _RenderHtmlWidget extends ConsumerWidget {
         fontSize: 15,
         fontFamily: 'Inter',
         color: textColor,
+        fontWeight: FontWeight.w500,
       ),
       renderMode: renderMode,
     );
