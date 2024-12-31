@@ -104,10 +104,9 @@ class _RenderHtmlWidget extends ConsumerWidget {
       },
       customStylesBuilder: (element) {
         if (element.outerHtml.contains('<p>')) {
-          Color color = textColor;
+          Color color = _darkenColor(textColor, amount: 0.15);
           return {
-            'color': 'rgba(${color.red}, ${color.green}, ${color.blue}, 255)',
-            'opacity': '0.7',
+            'color': 'rgb(${color.red}, ${color.green}, ${color.blue})',
             'font-weight': '500',
           };
         }
@@ -115,7 +114,7 @@ class _RenderHtmlWidget extends ConsumerWidget {
         if (element.outerHtml.contains('<h1>')) {
           Color color = textColor;
           return {
-            'color': 'rgba(${color.red}, ${color.green}, ${color.blue}, 255)',
+            'color': 'rgb(${color.red}, ${color.green}, ${color.blue})',
             'font-weight': '700',
             'font-size': '22px',
           };
@@ -125,7 +124,7 @@ class _RenderHtmlWidget extends ConsumerWidget {
           Color color = Theme.of(context).primaryColor;
           // rgba(${color.r * 255}, ${color.g * 255}, ${color.b * 255}, 255)',
           return {
-            'color': 'rgba(${color.red}, ${color.green}, ${color.blue}, 255)',
+            'color': 'rgb(${color.red}, ${color.green}, ${color.blue})',
             'text-decoration': 'none',
           };
         }
