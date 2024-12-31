@@ -47,6 +47,49 @@ void openHelpCenter({
   );
 }
 
+/// Open the Changelog
+void openChangelog({
+  /// Logo centered in the Appbar
+  required Widget logo,
+
+  /// Featurebase url (example: https://feedback.featurebase.app)
+  required String feedbackUrl,
+
+  /// App Name
+  required String appName,
+
+  /// Primary color used
+  required Color primaryColor,
+
+  /// Text Color
+  Color textColor = Colors.black,
+
+  /// Background color
+  Color? backgroundColor,
+
+  /// Default Locale (default: en)
+  Locale defaultLocale = const Locale('en'),
+
+  /// BuildContext
+  required BuildContext context,
+}) {
+  Navigator.of(context).push(
+    MaterialPageRoute<void>(
+      builder: (BuildContext context) => ProviderScope(
+        child: ChangelogView(
+          logo: logo,
+          url: feedbackUrl,
+          primaryColor: primaryColor,
+          textColor: textColor,
+          backgroundColor: backgroundColor,
+          defaultLocale: defaultLocale,
+          appName: appName,
+        ),
+      ),
+    ),
+  );
+}
+
 /// Open the Knowledge Base
 @Deprecated('Use openHelpCenter instead')
 void openKnowledgeBase({

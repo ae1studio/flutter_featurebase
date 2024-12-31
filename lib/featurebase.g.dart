@@ -475,5 +475,305 @@ class _GetHelpCenterArticleBodyProviderElement
   @override
   String get locale => (origin as GetHelpCenterArticleBodyProvider).locale;
 }
+
+String _$changelogInfoHash() => r'c82cb0ad154071647c6ed0b9da4bb540e96d44f3';
+
+/// See also [changelogInfo].
+@ProviderFor(changelogInfo)
+const changelogInfoProvider = ChangelogInfoFamily();
+
+/// See also [changelogInfo].
+class ChangelogInfoFamily
+    extends Family<AsyncValue<fb.ResultsPagination<fb.Changelog>>> {
+  /// See also [changelogInfo].
+  const ChangelogInfoFamily();
+
+  /// See also [changelogInfo].
+  ChangelogInfoProvider call(
+    String locale, {
+    int page = 1,
+  }) {
+    return ChangelogInfoProvider(
+      locale,
+      page: page,
+    );
+  }
+
+  @override
+  ChangelogInfoProvider getProviderOverride(
+    covariant ChangelogInfoProvider provider,
+  ) {
+    return call(
+      provider.locale,
+      page: provider.page,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'changelogInfoProvider';
+}
+
+/// See also [changelogInfo].
+class ChangelogInfoProvider
+    extends AutoDisposeFutureProvider<fb.ResultsPagination<fb.Changelog>> {
+  /// See also [changelogInfo].
+  ChangelogInfoProvider(
+    String locale, {
+    int page = 1,
+  }) : this._internal(
+          (ref) => changelogInfo(
+            ref as ChangelogInfoRef,
+            locale,
+            page: page,
+          ),
+          from: changelogInfoProvider,
+          name: r'changelogInfoProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$changelogInfoHash,
+          dependencies: ChangelogInfoFamily._dependencies,
+          allTransitiveDependencies:
+              ChangelogInfoFamily._allTransitiveDependencies,
+          locale: locale,
+          page: page,
+        );
+
+  ChangelogInfoProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.locale,
+    required this.page,
+  }) : super.internal();
+
+  final String locale;
+  final int page;
+
+  @override
+  Override overrideWith(
+    FutureOr<fb.ResultsPagination<fb.Changelog>> Function(
+            ChangelogInfoRef provider)
+        create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: ChangelogInfoProvider._internal(
+        (ref) => create(ref as ChangelogInfoRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        locale: locale,
+        page: page,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<fb.ResultsPagination<fb.Changelog>>
+      createElement() {
+    return _ChangelogInfoProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is ChangelogInfoProvider &&
+        other.locale == locale &&
+        other.page == page;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, locale.hashCode);
+    hash = _SystemHash.combine(hash, page.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+mixin ChangelogInfoRef
+    on AutoDisposeFutureProviderRef<fb.ResultsPagination<fb.Changelog>> {
+  /// The parameter `locale` of this provider.
+  String get locale;
+
+  /// The parameter `page` of this provider.
+  int get page;
+}
+
+class _ChangelogInfoProviderElement
+    extends AutoDisposeFutureProviderElement<fb.ResultsPagination<fb.Changelog>>
+    with ChangelogInfoRef {
+  _ChangelogInfoProviderElement(super.provider);
+
+  @override
+  String get locale => (origin as ChangelogInfoProvider).locale;
+  @override
+  int get page => (origin as ChangelogInfoProvider).page;
+}
+
+String _$changelogsListHash() => r'ebb3089e6ab34433f57e5dfa17066a273233ce70';
+
+abstract class _$ChangelogsList
+    extends BuildlessAutoDisposeNotifier<fb.ResultsPagination<fb.Changelog>> {
+  late final String locale;
+
+  fb.ResultsPagination<fb.Changelog> build(
+    String locale,
+  );
+}
+
+/// See also [ChangelogsList].
+@ProviderFor(ChangelogsList)
+const changelogsListProvider = ChangelogsListFamily();
+
+/// See also [ChangelogsList].
+class ChangelogsListFamily extends Family<fb.ResultsPagination<fb.Changelog>> {
+  /// See also [ChangelogsList].
+  const ChangelogsListFamily();
+
+  /// See also [ChangelogsList].
+  ChangelogsListProvider call(
+    String locale,
+  ) {
+    return ChangelogsListProvider(
+      locale,
+    );
+  }
+
+  @override
+  ChangelogsListProvider getProviderOverride(
+    covariant ChangelogsListProvider provider,
+  ) {
+    return call(
+      provider.locale,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'changelogsListProvider';
+}
+
+/// See also [ChangelogsList].
+class ChangelogsListProvider extends AutoDisposeNotifierProviderImpl<
+    ChangelogsList, fb.ResultsPagination<fb.Changelog>> {
+  /// See also [ChangelogsList].
+  ChangelogsListProvider(
+    String locale,
+  ) : this._internal(
+          () => ChangelogsList()..locale = locale,
+          from: changelogsListProvider,
+          name: r'changelogsListProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$changelogsListHash,
+          dependencies: ChangelogsListFamily._dependencies,
+          allTransitiveDependencies:
+              ChangelogsListFamily._allTransitiveDependencies,
+          locale: locale,
+        );
+
+  ChangelogsListProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.locale,
+  }) : super.internal();
+
+  final String locale;
+
+  @override
+  fb.ResultsPagination<fb.Changelog> runNotifierBuild(
+    covariant ChangelogsList notifier,
+  ) {
+    return notifier.build(
+      locale,
+    );
+  }
+
+  @override
+  Override overrideWith(ChangelogsList Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: ChangelogsListProvider._internal(
+        () => create()..locale = locale,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        locale: locale,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeNotifierProviderElement<ChangelogsList,
+      fb.ResultsPagination<fb.Changelog>> createElement() {
+    return _ChangelogsListProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is ChangelogsListProvider && other.locale == locale;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, locale.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+mixin ChangelogsListRef
+    on AutoDisposeNotifierProviderRef<fb.ResultsPagination<fb.Changelog>> {
+  /// The parameter `locale` of this provider.
+  String get locale;
+}
+
+class _ChangelogsListProviderElement extends AutoDisposeNotifierProviderElement<
+    ChangelogsList, fb.ResultsPagination<fb.Changelog>> with ChangelogsListRef {
+  _ChangelogsListProviderElement(super.provider);
+
+  @override
+  String get locale => (origin as ChangelogsListProvider).locale;
+}
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
