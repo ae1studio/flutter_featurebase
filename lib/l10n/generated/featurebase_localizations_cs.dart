@@ -32,4 +32,18 @@ class FeaturebaseLocalizationsCs extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => 'Nebyly nalezeny žádné výsledky';
+
+  @override
+  String get changelog => 'Seznam změn';
+
+  @override
+  String changelogDescription(String appName) {
+    return 'Nové aktualizace a vylepšení aplikace $appName.';
+  }
+
+  @override
+  String get noChangelogsFound => 'Nebyly nalezeny žádné změny';
+
+  @override
+  String get noMoreChangelogs => 'Žádné další změny';
 }

@@ -29,5 +29,26 @@
   "noResultsFound": "검색 결과가 없습니다",
   "@noResultsFound": {
     "description": "This is the message that is displayed when no results are found in search."
+  },
+  "changelog": "변경 이력",
+  "@changelog": {
+    "description": "This is the title of the changelog page."
+  },
+  "changelogDescription": "{appName}의 새로운 업데이트 및 개선 사항",
+  "@changelogDescription": {
+    "placeholders": {
+      "appName": {
+        "type": "String",
+        "example": "Featurebase"
+      }
+    }
+  },
+  "noChangelogsFound": "변경 이력이 없습니다",
+  "@noChangelogsFound": {
+    "description": "This is the message that is displayed when no changelogs are found."
+  },
+  "noMoreChangelogs": "더 이상의 변경 이력이 없습니다",
+  "@noMoreChangelogs": {
+    "description": "This is the message that is displayed when there are no more changelogs."
   }
 }

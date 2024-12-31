@@ -32,4 +32,18 @@ class FeaturebaseLocalizationsId extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => 'Tidak ada hasil';
+
+  @override
+  String get changelog => 'Riwayat Perubahan';
+
+  @override
+  String changelogDescription(String appName) {
+    return 'Pembaruan dan peningkatan terbaru untuk $appName.';
+  }
+
+  @override
+  String get noChangelogsFound => 'Tidak ada riwayat perubahan';
+
+  @override
+  String get noMoreChangelogs => 'Tidak ada riwayat perubahan lainnya';
 }

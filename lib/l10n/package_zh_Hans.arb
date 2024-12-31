@@ -29,5 +29,26 @@
   "noResultsFound": "没有找到结果",
   "@noResultsFound": {
     "description": "This is the message that is displayed when no results are found in search."
+  },
+  "changelog": "更新日志",
+  "@changelog": {
+    "description": "This is the title of the changelog page."
+  },
+  "changelogDescription": "{appName}的新更新和改进。",
+  "@changelogDescription": {
+    "placeholders": {
+      "appName": {
+        "type": "String",
+        "example": "Featurebase"
+      }
+    }
+  },
+  "noChangelogsFound": "未找到更新日志",
+  "@noChangelogsFound": {
+    "description": "This is the message that is displayed when no changelogs are found."
+  },
+  "noMoreChangelogs": "没有更多更新日志",
+  "@noMoreChangelogs": {
+    "description": "This is the message that is displayed when there are no more changelogs."
   }
 }

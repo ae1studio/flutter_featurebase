@@ -29,5 +29,26 @@
   "noResultsFound": "Ni najdenih rezultatov",
   "@noResultsFound": {
     "description": "This is the message that is displayed when no results are found in search."
+  },
+  "changelog": "Dnevnik sprememb",
+  "@changelog": {
+    "description": "This is the title of the changelog page."
+  },
+  "changelogDescription": "Nove posodobitve in izboljšave za {appName}.",
+  "@changelogDescription": {
+    "placeholders": {
+      "appName": {
+        "type": "String",
+        "example": "Featurebase"
+      }
+    }
+  },
+  "noChangelogsFound": "Ni najdenih dnevnikov sprememb",
+  "@noChangelogsFound": {
+    "description": "This is the message that is displayed when no changelogs are found."
+  },
+  "noMoreChangelogs": "Ni več dnevnikov sprememb",
+  "@noMoreChangelogs": {
+    "description": "This is the message that is displayed when there are no more changelogs."
   }
 }

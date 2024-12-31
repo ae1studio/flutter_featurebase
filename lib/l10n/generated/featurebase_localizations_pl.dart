@@ -34,4 +34,18 @@ class FeaturebaseLocalizationsPl extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => 'Nie znaleziono wyników';
+
+  @override
+  String get changelog => 'Historia zmian';
+
+  @override
+  String changelogDescription(String appName) {
+    return 'Nowe aktualizacje i usprawnienia w $appName.';
+  }
+
+  @override
+  String get noChangelogsFound => 'Nie znaleziono historii zmian';
+
+  @override
+  String get noMoreChangelogs => 'Brak kolejnych zmian';
 }

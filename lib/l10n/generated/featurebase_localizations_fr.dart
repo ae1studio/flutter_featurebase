@@ -32,4 +32,18 @@ class FeaturebaseLocalizationsFr extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => 'Aucun résultat trouvé';
+
+  @override
+  String get changelog => 'Journal des modifications';
+
+  @override
+  String changelogDescription(String appName) {
+    return 'Nouvelles mises à jour et améliorations de $appName.';
+  }
+
+  @override
+  String get noChangelogsFound => 'Aucun journal des modifications trouvé';
+
+  @override
+  String get noMoreChangelogs => 'Plus de journaux des modifications';
 }

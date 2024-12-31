@@ -29,5 +29,26 @@
   "noResultsFound": "Нічого не знайдено",
   "@noResultsFound": {
     "description": "This is the message that is displayed when no results are found in search."
+  },
+  "changelog": "Історія змін",
+  "@changelog": {
+    "description": "This is the title of the changelog page."
+  },
+  "changelogDescription": "Нові оновлення та покращення {appName}.",
+  "@changelogDescription": {
+    "placeholders": {
+      "appName": {
+        "type": "String",
+        "example": "Featurebase"
+      }
+    }
+  },
+  "noChangelogsFound": "Історію змін не знайдено",
+  "@noChangelogsFound": {
+    "description": "This is the message that is displayed when no changelogs are found."
+  },
+  "noMoreChangelogs": "Більше змін немає",
+  "@noMoreChangelogs": {
+    "description": "This is the message that is displayed when there are no more changelogs."
   }
 }

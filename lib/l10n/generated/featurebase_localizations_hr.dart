@@ -32,4 +32,18 @@ class FeaturebaseLocalizationsHr extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => 'Nije pronađeno';
+
+  @override
+  String get changelog => 'Povijest promjena';
+
+  @override
+  String changelogDescription(String appName) {
+    return 'Nova ažuriranja i poboljšanja za $appName.';
+  }
+
+  @override
+  String get noChangelogsFound => 'Nema pronađenih promjena';
+
+  @override
+  String get noMoreChangelogs => 'Nema više promjena';
 }

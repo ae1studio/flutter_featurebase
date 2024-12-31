@@ -33,4 +33,18 @@ class FeaturebaseLocalizationsSk extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => 'Žiadne výsledky';
+
+  @override
+  String get changelog => 'História zmien';
+
+  @override
+  String changelogDescription(String appName) {
+    return 'Nové aktualizácie a vylepšenia aplikácie $appName.';
+  }
+
+  @override
+  String get noChangelogsFound => 'Neboli nájdené žiadne zmeny';
+
+  @override
+  String get noMoreChangelogs => 'Žiadne ďalšie zmeny';
 }

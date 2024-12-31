@@ -32,4 +32,18 @@ class FeaturebaseLocalizationsEl extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => 'Δεν βρέθηκαν αποτελέσματα';
+
+  @override
+  String get changelog => 'Ιστορικό αλλαγών';
+
+  @override
+  String changelogDescription(String appName) {
+    return 'Νέες ενημερώσεις και βελτιώσεις στο $appName.';
+  }
+
+  @override
+  String get noChangelogsFound => 'Δεν βρέθηκαν αλλαγές';
+
+  @override
+  String get noMoreChangelogs => 'Δεν υπάρχουν άλλες αλλαγές';
 }

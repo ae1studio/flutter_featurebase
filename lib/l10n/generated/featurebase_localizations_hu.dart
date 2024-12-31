@@ -32,4 +32,18 @@ class FeaturebaseLocalizationsHu extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => 'Nem található';
+
+  @override
+  String get changelog => 'Változásnapló';
+
+  @override
+  String changelogDescription(String appName) {
+    return 'Új frissítések és fejlesztések a(z) $appName alkalmazásban.';
+  }
+
+  @override
+  String get noChangelogsFound => 'Nem található változásnapló';
+
+  @override
+  String get noMoreChangelogs => 'Nincs több változásnapló';
 }

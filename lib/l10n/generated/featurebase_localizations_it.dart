@@ -32,4 +32,18 @@ class FeaturebaseLocalizationsIt extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => 'Nessun risultato trovato';
+
+  @override
+  String get changelog => 'Registro modifiche';
+
+  @override
+  String changelogDescription(String appName) {
+    return 'Nuovi aggiornamenti e miglioramenti di $appName.';
+  }
+
+  @override
+  String get noChangelogsFound => 'Nessun registro modifiche trovato';
+
+  @override
+  String get noMoreChangelogs => 'Non ci sono altri registri modifiche';
 }

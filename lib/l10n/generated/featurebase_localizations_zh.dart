@@ -32,6 +32,20 @@ class FeaturebaseLocalizationsZh extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => '沒有找到結果';
+
+  @override
+  String get changelog => '更新日誌';
+
+  @override
+  String changelogDescription(String appName) {
+    return '$appName 的最新更新和改進';
+  }
+
+  @override
+  String get noChangelogsFound => '找不到更新日誌';
+
+  @override
+  String get noMoreChangelogs => '沒有更多更新日誌';
 }
 
 /// The translations for Chinese, using the Han script (`zh_Hans`).
@@ -62,6 +76,20 @@ class FeaturebaseLocalizationsZhHans extends FeaturebaseLocalizationsZh {
 
   @override
   String get noResultsFound => '没有找到结果';
+
+  @override
+  String get changelog => '更新日志';
+
+  @override
+  String changelogDescription(String appName) {
+    return '$appName的新更新和改进。';
+  }
+
+  @override
+  String get noChangelogsFound => '未找到更新日志';
+
+  @override
+  String get noMoreChangelogs => '没有更多更新日志';
 }
 
 /// The translations for Chinese, using the Han script (`zh_Hant`).
@@ -92,6 +120,20 @@ class FeaturebaseLocalizationsZhHant extends FeaturebaseLocalizationsZh {
 
   @override
   String get noResultsFound => '沒有找到結果';
+
+  @override
+  String get changelog => '更新日誌';
+
+  @override
+  String changelogDescription(String appName) {
+    return '$appName 的最新更新和改進。';
+  }
+
+  @override
+  String get noChangelogsFound => '找不到更新日誌';
+
+  @override
+  String get noMoreChangelogs => '沒有更多更新日誌';
 }
 
 /// The translations for Chinese, as used in Taiwan (`zh_TW`).
@@ -122,4 +164,18 @@ class FeaturebaseLocalizationsZhTw extends FeaturebaseLocalizationsZh {
 
   @override
   String get noResultsFound => '沒有找到結果';
+
+  @override
+  String get changelog => '更新日誌';
+
+  @override
+  String changelogDescription(String appName) {
+    return '$appName 的最新更新和改進。';
+  }
+
+  @override
+  String get noChangelogsFound => '找不到更新日誌';
+
+  @override
+  String get noMoreChangelogs => '沒有更多更新日誌';
 }

@@ -32,4 +32,18 @@ class FeaturebaseLocalizationsFa extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => 'نتیجه‌ای یافت نشد';
+
+  @override
+  String get changelog => 'تغییرات';
+
+  @override
+  String changelogDescription(String appName) {
+    return 'به‌روزرسانی‌ها و بهبودهای جدید $appName';
+  }
+
+  @override
+  String get noChangelogsFound => 'تغییراتی یافت نشد';
+
+  @override
+  String get noMoreChangelogs => 'تغییرات بیشتری وجود ندارد';
 }

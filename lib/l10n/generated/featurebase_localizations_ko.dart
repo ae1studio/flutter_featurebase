@@ -32,4 +32,18 @@ class FeaturebaseLocalizationsKo extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => '검색 결과가 없습니다';
+
+  @override
+  String get changelog => '변경 이력';
+
+  @override
+  String changelogDescription(String appName) {
+    return '$appName의 새로운 업데이트 및 개선 사항';
+  }
+
+  @override
+  String get noChangelogsFound => '변경 이력이 없습니다';
+
+  @override
+  String get noMoreChangelogs => '더 이상의 변경 이력이 없습니다';
 }

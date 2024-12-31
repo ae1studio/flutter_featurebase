@@ -32,4 +32,18 @@ class FeaturebaseLocalizationsIs extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => 'Engin niðurstöður fundust';
+
+  @override
+  String get changelog => 'Breytingaskrá';
+
+  @override
+  String changelogDescription(String appName) {
+    return 'Nýjar uppfærslur og endurbætur á $appName.';
+  }
+
+  @override
+  String get noChangelogsFound => 'Engar breytingaskrár fundust';
+
+  @override
+  String get noMoreChangelogs => 'Engar fleiri breytingaskrár';
 }

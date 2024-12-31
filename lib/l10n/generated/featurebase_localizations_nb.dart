@@ -32,4 +32,18 @@ class FeaturebaseLocalizationsNb extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => 'Ingen resultater funnet';
+
+  @override
+  String get changelog => 'Endringslogg';
+
+  @override
+  String changelogDescription(String appName) {
+    return 'Nye oppdateringer og forbedringer i $appName.';
+  }
+
+  @override
+  String get noChangelogsFound => 'Ingen endringslogger funnet';
+
+  @override
+  String get noMoreChangelogs => 'Ingen flere endringslogger';
 }

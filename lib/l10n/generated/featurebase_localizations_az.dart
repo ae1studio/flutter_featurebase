@@ -32,4 +32,18 @@ class FeaturebaseLocalizationsAz extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => 'Nəticə tapılmadı';
+
+  @override
+  String get changelog => 'Dəyişikliklər tarixi';
+
+  @override
+  String changelogDescription(String appName) {
+    return '$appName üçün yeni yeniləmələr və təkmilləşdirmələr.';
+  }
+
+  @override
+  String get noChangelogsFound => 'Dəyişikliklər tarixi tapılmadı';
+
+  @override
+  String get noMoreChangelogs => 'Başqa dəyişikliklər tarixi yoxdur';
 }

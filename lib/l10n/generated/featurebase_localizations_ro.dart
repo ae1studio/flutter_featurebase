@@ -32,4 +32,18 @@ class FeaturebaseLocalizationsRo extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => 'Nu s-au găsit rezultate';
+
+  @override
+  String get changelog => 'Jurnal de modificări';
+
+  @override
+  String changelogDescription(String appName) {
+    return 'Actualizări și îmbunătățiri noi pentru $appName.';
+  }
+
+  @override
+  String get noChangelogsFound => 'Nu s-au găsit jurnale de modificări';
+
+  @override
+  String get noMoreChangelogs => 'Nu mai există jurnale de modificări';
 }

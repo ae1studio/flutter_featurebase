@@ -32,4 +32,18 @@ class FeaturebaseLocalizationsCa extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => 'No s\'ha trobat cap resultat';
+
+  @override
+  String get changelog => 'Registre de canvis';
+
+  @override
+  String changelogDescription(String appName) {
+    return 'Noves actualitzacions i millores de $appName.';
+  }
+
+  @override
+  String get noChangelogsFound => 'No s\'ha trobat cap registre de canvis';
+
+  @override
+  String get noMoreChangelogs => 'No hi ha més registres de canvis';
 }

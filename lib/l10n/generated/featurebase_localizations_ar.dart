@@ -32,4 +32,18 @@ class FeaturebaseLocalizationsAr extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => 'لا يوجد نتائج';
+
+  @override
+  String get changelog => 'سجل التغييرات';
+
+  @override
+  String changelogDescription(String appName) {
+    return 'التحديثات والتحسينات الجديدة في $appName';
+  }
+
+  @override
+  String get noChangelogsFound => 'لم يتم العثور على سجلات تغيير';
+
+  @override
+  String get noMoreChangelogs => 'لا توجد المزيد من سجلات التغيير';
 }

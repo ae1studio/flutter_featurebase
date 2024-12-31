@@ -218,6 +218,30 @@ abstract class FeaturebaseLocalizations {
   /// In en, this message translates to:
   /// **'No results found'**
   String get noResultsFound;
+
+  /// This is the title of the changelog page.
+  ///
+  /// In en, this message translates to:
+  /// **'Changelog'**
+  String get changelog;
+
+  /// No description provided for @changelogDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'New updates and improvements to {appName}.'**
+  String changelogDescription(String appName);
+
+  /// This is the message that is displayed when no changelogs are found.
+  ///
+  /// In en, this message translates to:
+  /// **'No changelogs found'**
+  String get noChangelogsFound;
+
+  /// This is the message that is displayed when there are no more changelogs.
+  ///
+  /// In en, this message translates to:
+  /// **'No more changelogs'**
+  String get noMoreChangelogs;
 }
 
 class _FeaturebaseLocalizationsDelegate

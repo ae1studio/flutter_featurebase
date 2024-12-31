@@ -34,4 +34,18 @@ class FeaturebaseLocalizationsUk extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => 'Нічого не знайдено';
+
+  @override
+  String get changelog => 'Історія змін';
+
+  @override
+  String changelogDescription(String appName) {
+    return 'Нові оновлення та покращення $appName.';
+  }
+
+  @override
+  String get noChangelogsFound => 'Історію змін не знайдено';
+
+  @override
+  String get noMoreChangelogs => 'Більше змін немає';
 }

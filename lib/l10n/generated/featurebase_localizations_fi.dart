@@ -32,4 +32,18 @@ class FeaturebaseLocalizationsFi extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => 'Ei tuloksia';
+
+  @override
+  String get changelog => 'Muutosloki';
+
+  @override
+  String changelogDescription(String appName) {
+    return 'Uudet päivitykset ja parannukset sovellukseen $appName.';
+  }
+
+  @override
+  String get noChangelogsFound => 'Muutoslokeja ei löytynyt';
+
+  @override
+  String get noMoreChangelogs => 'Ei enempää muutoslokeja';
 }

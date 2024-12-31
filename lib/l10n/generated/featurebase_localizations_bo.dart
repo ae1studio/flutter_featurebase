@@ -33,4 +33,18 @@ class FeaturebaseLocalizationsBo extends FeaturebaseLocalizations {
   @override
   String get noResultsFound =>
       'རིམ་པ་སྤྱི་འགྲེལ་འབུམ་མི་མཐུན་བསྐྱར་ཚོད་ལྟ་བྱོས།';
+
+  @override
+  String get changelog => 'འགྱུར་བཅོས་ཐོ།';
+
+  @override
+  String changelogDescription(String appName) {
+    return '$appName ནང་གི་གསར་སྣོན་དང་ལེགས་སྒྲིག';
+  }
+
+  @override
+  String get noChangelogsFound => 'འགྱུར་བཅོས་ཐོ་གང་ཡང་མ་རྙེད།';
+
+  @override
+  String get noMoreChangelogs => 'འགྱུར་བཅོས་ཐོ་གཞན་མེད།';
 }

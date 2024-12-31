@@ -32,6 +32,20 @@ class FeaturebaseLocalizationsDe extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => 'Keine Ergebnisse gefunden';
+
+  @override
+  String get changelog => 'Änderungsprotokoll';
+
+  @override
+  String changelogDescription(String appName) {
+    return 'Neue Updates und Verbesserungen für $appName.';
+  }
+
+  @override
+  String get noChangelogsFound => 'Keine Änderungsprotokolle gefunden';
+
+  @override
+  String get noMoreChangelogs => 'Keine weiteren Änderungsprotokolle';
 }
 
 /// The translations for German, as used in Switzerland (`de_CH`).
@@ -62,4 +76,18 @@ class FeaturebaseLocalizationsDeCh extends FeaturebaseLocalizationsDe {
 
   @override
   String get noResultsFound => 'Keine Ergebnisse gefunden';
+
+  @override
+  String get changelog => 'Änderungsprotokoll';
+
+  @override
+  String changelogDescription(String appName) {
+    return 'Neue Updates und Verbesserungen für $appName.';
+  }
+
+  @override
+  String get noChangelogsFound => 'Keine Änderungsprotokolle gefunden';
+
+  @override
+  String get noMoreChangelogs => 'Keine weiteren Änderungsprotokolle';
 }

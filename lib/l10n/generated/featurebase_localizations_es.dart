@@ -32,6 +32,20 @@ class FeaturebaseLocalizationsEs extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => 'No se encontraron resultados';
+
+  @override
+  String get changelog => 'Registro de cambios';
+
+  @override
+  String changelogDescription(String appName) {
+    return 'Nuevas actualizaciones y mejoras de $appName.';
+  }
+
+  @override
+  String get noChangelogsFound => 'No se encontraron registros de cambios';
+
+  @override
+  String get noMoreChangelogs => 'No hay más registros de cambios';
 }
 
 /// The translations for Spanish Castilian, as used in Latin America and the Caribbean (`es_419`).
@@ -62,4 +76,18 @@ class FeaturebaseLocalizationsEs419 extends FeaturebaseLocalizationsEs {
 
   @override
   String get noResultsFound => 'No se encontraron resultados';
+
+  @override
+  String get changelog => 'Registro de cambios';
+
+  @override
+  String changelogDescription(String appName) {
+    return 'Nuevas actualizaciones y mejoras de $appName.';
+  }
+
+  @override
+  String get noChangelogsFound => 'No se encontraron registros de cambios';
+
+  @override
+  String get noMoreChangelogs => 'No hay más registros de cambios';
 }

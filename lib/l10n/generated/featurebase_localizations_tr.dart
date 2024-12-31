@@ -32,4 +32,18 @@ class FeaturebaseLocalizationsTr extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => 'Sonuç bulunamadı';
+
+  @override
+  String get changelog => 'Değişiklik günlüğü';
+
+  @override
+  String changelogDescription(String appName) {
+    return '$appName için yeni güncellemeler ve iyileştirmeler.';
+  }
+
+  @override
+  String get noChangelogsFound => 'Değişiklik günlüğü bulunamadı';
+
+  @override
+  String get noMoreChangelogs => 'Başka değişiklik günlüğü yok';
 }

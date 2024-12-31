@@ -32,4 +32,18 @@ class FeaturebaseLocalizationsTh extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => 'ไม่พบผลลัพธ์';
+
+  @override
+  String get changelog => 'บันทึกการเปลี่ยนแปลง';
+
+  @override
+  String changelogDescription(String appName) {
+    return 'การอัปเดตและการปรับปรุงใหม่สำหรับ $appName';
+  }
+
+  @override
+  String get noChangelogsFound => 'ไม่พบบันทึกการเปลี่ยนแปลง';
+
+  @override
+  String get noMoreChangelogs => 'ไม่มีบันทึกการเปลี่ยนแปลงเพิ่มเติม';
 }

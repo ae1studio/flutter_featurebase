@@ -32,4 +32,18 @@ class FeaturebaseLocalizationsLt extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => 'Nėra rezultatų';
+
+  @override
+  String get changelog => 'Pakeitimų žurnalas';
+
+  @override
+  String changelogDescription(String appName) {
+    return 'Nauji $appName atnaujinimai ir patobulinimai.';
+  }
+
+  @override
+  String get noChangelogsFound => 'Pakeitimų žurnalas tuščias';
+
+  @override
+  String get noMoreChangelogs => 'Daugiau pakeitimų nėra';
 }

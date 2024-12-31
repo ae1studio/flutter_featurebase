@@ -33,4 +33,18 @@ class FeaturebaseLocalizationsLv extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => 'Neviens rezultāts nav atrasts';
+
+  @override
+  String get changelog => 'Izmaiņu vēsture';
+
+  @override
+  String changelogDescription(String appName) {
+    return 'Jaunākie atjauninājumi un uzlabojumi lietotnē $appName.';
+  }
+
+  @override
+  String get noChangelogsFound => 'Nav atrasta izmaiņu vēsture';
+
+  @override
+  String get noMoreChangelogs => 'Vairāk izmaiņu nav';
 }

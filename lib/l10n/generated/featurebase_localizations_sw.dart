@@ -32,4 +32,18 @@ class FeaturebaseLocalizationsSw extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => 'Hakujulikani';
+
+  @override
+  String get changelog => 'Historia ya mabadiliko';
+
+  @override
+  String changelogDescription(String appName) {
+    return 'Masasisho mapya na maboresho ya $appName.';
+  }
+
+  @override
+  String get noChangelogsFound => 'Hakuna historia ya mabadiliko';
+
+  @override
+  String get noMoreChangelogs => 'Hakuna historia zaidi ya mabadiliko';
 }

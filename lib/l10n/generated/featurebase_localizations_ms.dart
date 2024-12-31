@@ -32,4 +32,18 @@ class FeaturebaseLocalizationsMs extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => 'Tidak ada hasil';
+
+  @override
+  String get changelog => 'Log perubahan';
+
+  @override
+  String changelogDescription(String appName) {
+    return 'Kemaskini dan penambahbaikan terbaru untuk $appName.';
+  }
+
+  @override
+  String get noChangelogsFound => 'Tiada log perubahan dijumpai';
+
+  @override
+  String get noMoreChangelogs => 'Tiada lagi log perubahan';
 }

@@ -32,6 +32,20 @@ class FeaturebaseLocalizationsPt extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => 'Nenhum resultado encontrado';
+
+  @override
+  String get changelog => 'Histórico de alterações';
+
+  @override
+  String changelogDescription(String appName) {
+    return 'Novas atualizações e melhorias do $appName.';
+  }
+
+  @override
+  String get noChangelogsFound => 'Nenhum histórico de alterações encontrado';
+
+  @override
+  String get noMoreChangelogs => 'Não há mais históricos de alterações';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -62,4 +76,18 @@ class FeaturebaseLocalizationsPtBr extends FeaturebaseLocalizationsPt {
 
   @override
   String get noResultsFound => 'Nenhum resultado encontrado';
+
+  @override
+  String get changelog => 'Histórico de alterações';
+
+  @override
+  String changelogDescription(String appName) {
+    return 'Novas atualizações e melhorias do $appName.';
+  }
+
+  @override
+  String get noChangelogsFound => 'Nenhum histórico encontrado';
+
+  @override
+  String get noMoreChangelogs => 'Não há mais históricos';
 }

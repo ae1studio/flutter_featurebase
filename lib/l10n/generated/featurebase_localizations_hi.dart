@@ -32,4 +32,18 @@ class FeaturebaseLocalizationsHi extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => 'कोई परिणाम नहीं मिला';
+
+  @override
+  String get changelog => 'बदलाव सूची';
+
+  @override
+  String changelogDescription(String appName) {
+    return '$appName में नए अपडेट और सुधार।';
+  }
+
+  @override
+  String get noChangelogsFound => 'कोई बदलाव सूची नहीं मिली';
+
+  @override
+  String get noMoreChangelogs => 'और कोई बदलाव सूची नहीं है';
 }

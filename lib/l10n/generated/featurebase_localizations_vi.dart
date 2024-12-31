@@ -32,4 +32,18 @@ class FeaturebaseLocalizationsVi extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => 'Không tìm thấy kết quả';
+
+  @override
+  String get changelog => 'Nhật ký thay đổi';
+
+  @override
+  String changelogDescription(String appName) {
+    return 'Cập nhật và cải tiến mới cho $appName.';
+  }
+
+  @override
+  String get noChangelogsFound => 'Không tìm thấy nhật ký thay đổi';
+
+  @override
+  String get noMoreChangelogs => 'Không còn nhật ký thay đổi';
 }

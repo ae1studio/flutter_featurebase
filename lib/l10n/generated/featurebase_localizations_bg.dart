@@ -32,4 +32,18 @@ class FeaturebaseLocalizationsBg extends FeaturebaseLocalizations {
 
   @override
   String get noResultsFound => 'Няма резултати';
+
+  @override
+  String get changelog => 'История на промените';
+
+  @override
+  String changelogDescription(String appName) {
+    return 'Нови актуализации и подобрения в $appName.';
+  }
+
+  @override
+  String get noChangelogsFound => 'Няма намерени промени';
+
+  @override
+  String get noMoreChangelogs => 'Няма повече промени';
 }
