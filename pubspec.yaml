@@ -1,6 +1,6 @@
 name: featurebase
 description: "Featurebase Unofficial Flutter SDK"
-version: 0.6.0
+version: 0.6.1
 homepage: https://github.com/ae1dev/flutter_featurebase
 
 platforms:
