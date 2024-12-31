@@ -94,7 +94,7 @@ class _ChangelogViewState extends ConsumerState<ChangelogView> {
                   child: Column(
                     children: [
                       Text(
-                        'Changelog',
+                        FeaturebaseLocalizations.of(context).changelog,
                         style: TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.w700,
@@ -104,7 +104,8 @@ class _ChangelogViewState extends ConsumerState<ChangelogView> {
                         textAlign: TextAlign.center,
                       ),
                       Text(
-                        'New updates and improvements to ${widget.appName}.',
+                        FeaturebaseLocalizations.of(context)
+                            .changelogDescription(widget.appName),
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
                           color: widget.textColor.withOpacity(0.7),
@@ -147,12 +148,13 @@ class _ChangelogViewState extends ConsumerState<ChangelogView> {
                           Icon(
                             Icons.info_rounded,
                             color: widget.textColor,
-                            size: 55,
+                            size: 45,
                           ),
                           const SizedBox(height: 15),
                           Center(
                             child: Text(
-                              'No changelogs found',
+                              FeaturebaseLocalizations.of(context)
+                                  .noChangelogsFound,
                               style: TextStyle(
                                 color: widget.textColor,
                                 fontSize: 25,
@@ -180,7 +182,8 @@ class _ChangelogViewState extends ConsumerState<ChangelogView> {
                         ),
                         Center(
                           child: Text(
-                            'No more changelogs',
+                            FeaturebaseLocalizations.of(context)
+                                .noMoreChangelogs,
                             style: TextStyle(
                               color: widget.textColor.withOpacity(0.7),
                               fontSize: 16,
