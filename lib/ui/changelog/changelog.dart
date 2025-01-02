@@ -85,6 +85,7 @@ class _ChangelogViewState extends ConsumerState<ChangelogView> {
           elevation: 0,
         ),
         backgroundColor: widget.backgroundColor,
+        resizeToAvoidBottomInset: false,
         body: Scrollbar(
           child: CustomScrollView(
             slivers: [
