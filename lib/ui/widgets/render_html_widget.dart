@@ -120,6 +120,24 @@ class _RenderHtmlWidget extends ConsumerWidget {
           };
         }
 
+        if (element.outerHtml.contains('<h2>')) {
+          Color color = textColor;
+          return {
+            'color': 'rgb(${color.red}, ${color.green}, ${color.blue})',
+            'font-weight': '600',
+            'font-size': '18px',
+          };
+        }
+
+        if (element.outerHtml.contains('<h3>')) {
+          Color color = textColor;
+          return {
+            'color': 'rgb(${color.red}, ${color.green}, ${color.blue})',
+            'font-weight': '600',
+            'font-size': '17px',
+          };
+        }
+
         if (element.classes.contains('link')) {
           Color color = Theme.of(context).primaryColor;
           // rgba(${color.r * 255}, ${color.g * 255}, ${color.b * 255}, 255)',
