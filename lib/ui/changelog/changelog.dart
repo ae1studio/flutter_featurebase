@@ -19,6 +19,9 @@ class ChangelogView extends ConsumerStatefulWidget {
   /// Background color
   final Color? backgroundColor;
 
+  /// Enable Haptic Feedback
+  final bool enableHapticFeedback;
+
   /// Default Locale (default: en)
   final Locale defaultLocale;
 
@@ -31,6 +34,7 @@ class ChangelogView extends ConsumerStatefulWidget {
     this.textColor = Colors.black,
     this.backgroundColor,
     this.defaultLocale = const Locale('en'),
+    this.enableHapticFeedback = true,
   });
 
   @override
@@ -49,7 +53,7 @@ class _ChangelogViewState extends ConsumerState<ChangelogView> {
     super.initState();
     currentLocale = widget.defaultLocale;
     initializeDateFormatting(currentLocale.languageCode);
-    _fbSerivce.setup(widget.url);
+    _fbService.setup(widget.url, widget.enableHapticFeedback);
   }
 
   @override
@@ -70,6 +74,7 @@ class _ChangelogViewState extends ConsumerState<ChangelogView> {
         appBar: AppBar(
           leading: IconButton(
             onPressed: () {
+              _callHaptic();
               Navigator.pop(context);
             },
             icon: Icon(

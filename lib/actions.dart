@@ -26,6 +26,9 @@ void openHelpCenter({
   /// Show Search Bar
   bool showSearchBar = true,
 
+  /// Enable Haptic Feedback
+  bool enableHapticFeedback = true,
+
   /// Default Locale (default: en)
   Locale defaultLocale = const Locale('en'),
 
@@ -45,6 +48,7 @@ void openHelpCenter({
           searchFillColor: searchFillColor,
           defaultLocale: defaultLocale,
           showSearchBar: showSearchBar,
+          enableHapticFeedback: enableHapticFeedback,
         ),
       ),
     ),
@@ -71,6 +75,9 @@ void openChangelog({
   /// Background color
   Color? backgroundColor,
 
+  /// Enable Haptic Feedback
+  bool enableHapticFeedback = true,
+
   /// Default Locale (default: en)
   Locale defaultLocale = const Locale('en'),
 
@@ -88,6 +95,7 @@ void openChangelog({
           backgroundColor: backgroundColor,
           defaultLocale: defaultLocale,
           appName: appName,
+          enableHapticFeedback: enableHapticFeedback,
         ),
       ),
     ),

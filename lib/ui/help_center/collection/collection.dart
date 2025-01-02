@@ -136,6 +136,7 @@ class _CollectionViewState extends State<_CollectionView> {
                       child: InkWell(
                         borderRadius: borderRadius,
                         onTap: () {
+                          _callHaptic();
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -261,6 +262,7 @@ class _CollectionViewState extends State<_CollectionView> {
                                               )
                                             : null,
                                     onTap: () {
+                                      _callHaptic();
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(

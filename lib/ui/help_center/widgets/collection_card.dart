@@ -18,6 +18,7 @@ class _CollectionCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        _callHaptic();
         Navigator.push(
           context,
           MaterialPageRoute(

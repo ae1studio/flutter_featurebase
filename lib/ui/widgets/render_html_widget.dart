@@ -20,8 +20,9 @@ class _RenderHtmlWidget extends ConsumerWidget {
     return HtmlWidget(
       html,
       onTapUrl: (url) async {
-        if (url.contains(_fbSerivce.api.baseApiUrl) &&
+        if (url.contains(_fbService.api.baseApiUrl) &&
             url.contains('/articles/')) {
+          _callHaptic();
           // Extract the article ID from the URL
           final articleId = url.split('/articles/')[1].split('-')[0];
 
@@ -47,6 +48,7 @@ class _RenderHtmlWidget extends ConsumerWidget {
         }
 
         if (await canLaunchUrlString(url)) {
+          _callHaptic();
           launchUrlString(url);
           return true;
         }

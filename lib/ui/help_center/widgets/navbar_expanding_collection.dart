@@ -35,6 +35,7 @@ class _NavbarExpandingCollectionState
           InkWell(
             borderRadius: BorderRadius.circular(8),
             onTap: () {
+              _callHaptic();
               setState(() {
                 isExpanded = !isExpanded;
               });
@@ -82,6 +83,7 @@ class _NavbarExpandingCollectionState
                             return InkWell(
                               borderRadius: BorderRadius.circular(8),
                               onTap: () {
+                                _callHaptic();
                                 Navigator.pop(context);
                                 Navigator.push(
                                   widget.helpCenterContext,
@@ -140,6 +142,7 @@ class _NavbarExpandingCollectionState
                             return InkWell(
                               borderRadius: BorderRadius.circular(8),
                               onTap: () {
+                                _callHaptic();
                                 Navigator.pop(context);
                                 Navigator.push(
                                   widget.helpCenterContext,

@@ -3,7 +3,7 @@ part of featurebase;
 @riverpod
 Future<fb.ResultsPagination<fb.Changelog>> changelogInfo(Ref ref, String locale,
     {int page = 1}) async {
-  return _fbSerivce.api.changelog.get(
+  return _fbService.api.changelog.get(
     locale: locale,
     page: page,
   );

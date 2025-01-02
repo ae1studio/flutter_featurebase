@@ -25,6 +25,9 @@ class HelpCenterView extends ConsumerStatefulWidget {
   /// Show Search Bar
   final bool showSearchBar;
 
+  /// Enable Haptic Feedback
+  final bool enableHapticFeedback;
+
   /// Default Locale (default: en)
   final Locale defaultLocale;
 
@@ -39,6 +42,7 @@ class HelpCenterView extends ConsumerStatefulWidget {
     this.defaultLocale = const Locale('en'),
     this.showSearchBar = true,
     this.searchFillColor,
+    this.enableHapticFeedback = true,
   });
 
   @override
@@ -63,7 +67,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
   @override
   void initState() {
     currentLocale = widget.defaultLocale;
-    _fbSerivce.setup(widget.url);
+    _fbService.setup(widget.url, widget.enableHapticFeedback);
     super.initState();
   }
 
@@ -80,6 +84,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
   }
 
   void _handleBackPress() {
+    _callHaptic();
     if (_helpCenterNavigatorKey.currentState?.canPop() == true) {
       _helpCenterNavigatorKey.currentState?.pop();
       return;
@@ -88,6 +93,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
   }
 
   void _navigateToHome() {
+    _callHaptic();
     _helpCenterNavigatorKey.currentState?.popUntil((route) => route.isFirst);
   }
 
@@ -167,6 +173,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
               data: (data) {
                 return IconButton(
                   onPressed: () async {
+                    _callHaptic();
                     setState(() {
                       navBarOpen = true;
                     });
@@ -317,6 +324,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                               onSuggestionTap: (p0) {
                                 if (p0.item == null) return;
                                 _searchController.clear();
+                                _callHaptic();
                                 Navigator.push(
                                   _helpCenterNavigatorKey.currentContext!,
                                   MaterialPageRoute(

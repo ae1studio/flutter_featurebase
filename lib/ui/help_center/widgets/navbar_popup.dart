@@ -29,7 +29,10 @@ class _NavbarPopupWidget extends ConsumerWidget {
           automaticallyImplyLeading: false,
           actions: [
             IconButton(
-              onPressed: () => Navigator.pop(context),
+              onPressed: () {
+                _callHaptic();
+                Navigator.pop(context);
+              },
               icon: Icon(
                 Icons.close_rounded,
                 color: _calculateTextColor(primaryColor),
@@ -76,6 +79,7 @@ class _NavbarPopupWidget extends ConsumerWidget {
                     child: InkWell(
                       borderRadius: BorderRadius.circular(8),
                       onTap: () {
+                        _callHaptic();
                         launchUrlString(
                           helpCenter.navItems[index].url,
                           mode: LaunchMode.externalApplication,

@@ -68,6 +68,7 @@ class _LanguagePickerWidget extends StatelessWidget {
       dropdownColor: Theme.of(context).cardColor,
       onChanged: (newLocale) {
         if (newLocale != null) {
+          _callHaptic();
           Navigator.pop(context);
           onLocaleChange(newLocale);
         }

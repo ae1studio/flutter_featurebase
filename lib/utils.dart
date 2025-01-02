@@ -170,3 +170,11 @@ Color _darkenColor(Color color, {double amount = .1}) {
   final darkened = hsl.withLightness((hsl.lightness - amount).clamp(0.0, 1.0));
   return darkened.toColor();
 }
+
+_callHaptic() {
+  if (!kIsWeb && _fbService.isHapticEnabled) {
+    if (Platform.isAndroid || Platform.isIOS) {
+      HapticFeedback.lightImpact();
+    }
+  }
+}

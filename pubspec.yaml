@@ -36,6 +36,7 @@ dependencies:
   styled_text: ^9.0.0-beta-4
   searchfield: ^1.2.2
   easy_infinite_pagination: ^0.0.6
+  universal_io: ^2.2.2
 
 dev_dependencies:
   flutter_test:
