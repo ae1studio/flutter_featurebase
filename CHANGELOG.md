@@ -1,7 +1,7 @@
 ## 0.7.0
 
 - Added haptic feedback support to buttons.
-- Added support for custom search fill color in the Help Center panel.
+- Added support for custom search fill color in the Help Center panel with `searchFillColor`.
 - **BREAKING**: Removed the deprecated `openKnowledgeBase` function, use `openHelpCenter` instead.
 
 ## 0.6.1
