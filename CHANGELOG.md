@@ -1,6 +1,6 @@
 ## 0.6.1
 
-- Added platforms to `pubspec` to show the correct supported platforms list on pub.dev.
+- Added platforms to `pubspec` to show the correct supported platforms.
 
 ## 0.6.0
 
