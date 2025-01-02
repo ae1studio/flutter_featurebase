@@ -234,6 +234,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                 home: Scrollbar(
                   child: CustomScrollView(
                     slivers: [
+                      // Header
                       SliverToBoxAdapter(
                         child: Container(
                           margin: const EdgeInsets.symmetric(
@@ -264,6 +265,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                           ),
                         ),
                       ),
+                      // Search Bar
                       if (widget.showSearchBar)
                         SliverToBoxAdapter(
                           child: Padding(
@@ -361,6 +363,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                             ),
                           ),
                         ),
+                      // Collections
                       SliverList.builder(
                         itemCount: data.structure?.length ?? 0,
                         itemBuilder: (context, index) {
