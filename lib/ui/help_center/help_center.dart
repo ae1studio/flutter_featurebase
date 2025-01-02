@@ -50,7 +50,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
 
   Locale currentLocale = Locale('en');
 
-  TextEditingController _searchController = TextEditingController();
+  final TextEditingController _searchController = TextEditingController();
 
   late final _navigatorObserver = NavigationStateObserver(
       navigatorKey: _helpCenterNavigatorKey,
