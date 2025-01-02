@@ -1,8 +1,8 @@
 part of featurebase;
 
-_FBSerivce _fbSerivce = _FBSerivce();
+_FBService _fbService = _FBService();
 
-class _FBSerivce {
+class _FBService {
   late fb.FeaturebaseApi api;
 
   bool isHapticEnabled = false;
