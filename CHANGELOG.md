@@ -1,3 +1,8 @@
+## 0.7.0
+
+- Added support for custom search fill color in the Help Center panel.
+- **BREAKING**: Removed the deprecated `openKnowledgeBase` function, use `openHelpCenter` instead.
+
 ## 0.6.1
 
 - Added platforms to `pubspec` to show the correct supported platforms.
