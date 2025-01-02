@@ -16,6 +16,9 @@ class HelpCenterView extends ConsumerStatefulWidget {
   /// Background color
   final Color? backgroundColor;
 
+  /// Search fill color
+  final Color? searchFillColor;
+
   /// Hide Authors
   final bool hideAuthors;
 
@@ -35,6 +38,7 @@ class HelpCenterView extends ConsumerStatefulWidget {
     this.hideAuthors = false,
     this.defaultLocale = const Locale('en'),
     this.showSearchBar = true,
+    this.searchFillColor,
   });
 
   @override
@@ -140,7 +144,8 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
         scaffoldBackgroundColor: widget.backgroundColor,
         primaryColor: widget.primaryColor,
         inputDecorationTheme: InputDecorationTheme(
-          fillColor: widget.textColor.withOpacity(0.5),
+          fillColor:
+              widget.searchFillColor ?? widget.textColor.withOpacity(0.5),
           filled: true,
         ),
       ),

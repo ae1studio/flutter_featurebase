@@ -17,6 +17,9 @@ void openHelpCenter({
   /// Background color
   Color? backgroundColor,
 
+  /// Search fill color
+  Color? searchFillColor,
+
   /// Hide Authors
   bool hideAuthors = false,
 
@@ -39,6 +42,7 @@ void openHelpCenter({
           textColor: textColor,
           backgroundColor: backgroundColor,
           hideAuthors: hideAuthors,
+          searchFillColor: searchFillColor,
           defaultLocale: defaultLocale,
           showSearchBar: showSearchBar,
         ),
