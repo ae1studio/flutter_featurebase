@@ -219,6 +219,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
           elevation: 0,
         ),
         backgroundColor: widget.backgroundColor,
+        resizeToAvoidBottomInset: false,
         body: helpCenterAsync.when(
           data: (data) {
             return PopScope(
