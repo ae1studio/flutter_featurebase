@@ -29,5 +29,26 @@
   "noResultsFound": "Geen resultaten gevonden",
   "@noResultsFound": {
     "description": "This is the message that is displayed when no results are found in search."
+  },
+  "changelog": "Wijzigingslogboek",
+  "@changelog": {
+    "description": "This is the title of the changelog page."
+  },
+  "changelogDescription": "Nieuwe updates en verbeteringen voor {appName}.",
+  "@changelogDescription": {
+    "placeholders": {
+      "appName": {
+        "type": "String",
+        "example": "Featurebase"
+      }
+    }
+  },
+  "noChangelogsFound": "Geen wijzigingslogboeken gevonden",
+  "@noChangelogsFound": {
+    "description": "This is the message that is displayed when no changelogs are found."
+  },
+  "noMoreChangelogs": "Geen wijzigingslogboeken meer",
+  "@noMoreChangelogs": {
+    "description": "This is the message that is displayed when there are no more changelogs."
   }
 }

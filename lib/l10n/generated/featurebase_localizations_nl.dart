@@ -34,16 +34,16 @@ class FeaturebaseLocalizationsNl extends FeaturebaseLocalizations {
   String get noResultsFound => 'Geen resultaten gevonden';
 
   @override
-  String get changelog => 'Changelog';
+  String get changelog => 'Wijzigingslogboek';
 
   @override
   String changelogDescription(String appName) {
-    return 'New updates and improvements to $appName.';
+    return 'Nieuwe updates en verbeteringen voor $appName.';
   }
 
   @override
-  String get noChangelogsFound => 'No changelogs found';
+  String get noChangelogsFound => 'Geen wijzigingslogboeken gevonden';
 
   @override
-  String get noMoreChangelogs => 'No more changelogs';
+  String get noMoreChangelogs => 'Geen wijzigingslogboeken meer';
 }
