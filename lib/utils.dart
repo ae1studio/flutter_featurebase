@@ -174,7 +174,7 @@ Color _darkenColor(Color color, {double amount = .1}) {
 _callHaptic() {
   if (!kIsWeb && _fbService.isHapticEnabled) {
     if (Platform.isAndroid || Platform.isIOS) {
-      HapticFeedback.lightImpact();
+      HapticFeedback.selectionClick();
     }
   }
 }
