@@ -3,14 +3,17 @@ part of featurebase;
 _FBService _fbService = _FBService();
 
 class _FBService {
+  /// Featurebase API
   late fb.FeaturebaseApi api;
 
-  bool isHapticEnabled = false;
+  /// Haptic Feedback Enabled value
+  bool isHapticEnabled = true;
 
-  void setup(String url, bool isHapticEnabled) {
+  /// Setup the Featurebase API
+  void setup(String url, bool hapticEnabled) {
     api = fb.FeaturebaseApi.from(
       baseUrl: url,
     );
-    isHapticEnabled = isHapticEnabled;
+    isHapticEnabled = hapticEnabled;
   }
 }
