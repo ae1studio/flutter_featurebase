@@ -79,7 +79,7 @@ class _RenderHtmlWidget extends ConsumerWidget {
             margin: const EdgeInsets.only(bottom: 8, top: 5),
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: _getCalloutColor(
+              color: _fbColorStringToColor(
                   element.attributes['color'] ?? 'None', context),
               borderRadius: BorderRadius.circular(8),
             ),
@@ -88,7 +88,7 @@ class _RenderHtmlWidget extends ConsumerWidget {
               style: TextStyle(
                 fontSize: 15,
                 fontFamily: 'Inter',
-                color: _calculateTextColor(_getCalloutColor(
+                color: _calculateTextColor(_fbColorStringToColor(
                     element.attributes['color'] ?? 'None', context)),
               ),
             ),

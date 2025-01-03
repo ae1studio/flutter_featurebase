@@ -38,7 +38,7 @@ Color _calculateTextColor(Color background) {
       : Colors.white;
 }
 
-Color _getCalloutColor(String color, BuildContext context) {
+Color _fbColorStringToColor(String color, BuildContext context) {
   switch (color) {
     case 'Accent':
       return Theme.of(context).primaryColor;

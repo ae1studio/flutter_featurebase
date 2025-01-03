@@ -90,7 +90,7 @@ class _ChangelogCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 4),
       decoration: BoxDecoration(
-        color: _getCalloutColor(category.color, context).withOpacity(0.2),
+        color: _fbColorStringToColor(category.color, context).withOpacity(0.2),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Text(
@@ -98,7 +98,7 @@ class _ChangelogCard extends StatelessWidget {
         style: TextStyle(
           fontSize: 12,
           fontWeight: FontWeight.w600,
-          color: _getCalloutColor(category.color, context),
+          color: _fbColorStringToColor(category.color, context),
         ),
       ),
     );
