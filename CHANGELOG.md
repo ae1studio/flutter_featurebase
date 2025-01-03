@@ -1,3 +1,7 @@
+## 0.7.1
+
+- Updated Dutch translations.
+
 ## 0.7.0
 
 - Added haptic feedback support to buttons.
