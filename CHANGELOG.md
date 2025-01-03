@@ -1,3 +1,7 @@
+## 0.7.2
+
+- Switched haptic feedback to use `selectionClick` instead of `lightImpact`.
+
 ## 0.7.1
 
 - Updated Dutch translations.
