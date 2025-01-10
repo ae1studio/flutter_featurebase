@@ -63,6 +63,13 @@ class _FBIconWidget extends StatelessWidget {
               iconColor,
               BlendMode.srcIn,
             ),
+            errorBuilder: (context, error, stackTrace) {
+              return Icon(
+                Icons.article_rounded,
+                color: iconColor,
+                size: size,
+              );
+            },
           ),
         );
       }
@@ -75,6 +82,13 @@ class _FBIconWidget extends StatelessWidget {
             imageUrl: icon!.value,
             height: size / 1.3,
             width: size / 1.3,
+            errorWidget: (context, url, error) {
+              return Icon(
+                Icons.article_rounded,
+                color: iconColor,
+                size: size,
+              );
+            },
           ),
         );
       }
