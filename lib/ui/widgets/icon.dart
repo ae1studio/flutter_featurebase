@@ -18,7 +18,8 @@ class _FBIconWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color color = primaryColor ?? Theme.of(context).primaryColor;
+    Color primeColor = primaryColor ?? Theme.of(context).primaryColor;
+    Color iconColor = isDark ? primeColor.withOpacity(0.8) : primeColor;
 
     //Predefined icon
     if (icon?.type == 'predefined') {
@@ -27,7 +28,7 @@ class _FBIconWidget extends StatelessWidget {
         height: size,
         width: size,
         colorFilter: ColorFilter.mode(
-          isDark ? color.withOpacity(0.8) : color,
+          iconColor,
           BlendMode.srcIn,
         ),
       );
@@ -42,7 +43,7 @@ class _FBIconWidget extends StatelessWidget {
           icon!.value,
           style: TextStyle(
             fontSize: size / 1.2,
-            color: isDark ? color.withOpacity(0.8) : textColor,
+            color: iconColor,
           ),
         ),
       );
@@ -59,7 +60,7 @@ class _FBIconWidget extends StatelessWidget {
             height: size / 1.3,
             width: size / 1.3,
             colorFilter: ColorFilter.mode(
-              isDark ? color.withOpacity(0.8) : color,
+              iconColor,
               BlendMode.srcIn,
             ),
           ),
@@ -81,7 +82,7 @@ class _FBIconWidget extends StatelessWidget {
 
     return Icon(
       Icons.article_rounded,
-      color: color.withOpacity(0.8),
+      color: iconColor,
       size: size,
     );
   }
