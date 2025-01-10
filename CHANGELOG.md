@@ -1,3 +1,7 @@
+## 0.7.3
+
+- Added image error icon for external icons that fail to load.
+
 ## 0.7.2
 
 - Switched haptic feedback to use `selectionClick` instead of `lightImpact`.
