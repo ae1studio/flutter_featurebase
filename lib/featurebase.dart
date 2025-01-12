@@ -28,6 +28,7 @@ part 'api/featurebase.dart';
 part 'api/endpoint_base.dart';
 part 'api/endpoints/help_center.dart';
 part 'api/endpoints/changelog.dart';
+part 'api/endpoints/organization.dart';
 
 //UI
 part 'ui/help_center/help_center.dart';

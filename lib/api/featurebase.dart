@@ -24,6 +24,9 @@ abstract class _FeaturebaseApiBase {
   late _ChangelogEnd _changelog;
   _ChangelogEnd get changelog => _changelog;
 
+  late _OrganizationEnd _organization;
+  _OrganizationEnd get organization => _organization;
+
   _FeaturebaseApiBase.from({
     String baseUrl = "https://help.featurebase.app",
   }) {
@@ -32,5 +35,6 @@ abstract class _FeaturebaseApiBase {
 
     _helpCenter = _HelpCenterEnd(this);
     _changelog = _ChangelogEnd(this);
+    _organization = _OrganizationEnd(this);
   }
 }
