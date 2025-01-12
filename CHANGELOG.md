@@ -1,3 +1,7 @@
+## 0.8.0
+
+- **BREAKING**: Replaced providing the feedback and help urls with just providing the `organizationName`.
+
 ## 0.7.3
 
 - Added image error icon for external icons that fail to load.
