@@ -4,8 +4,8 @@ class HelpCenterView extends ConsumerStatefulWidget {
   /// Logo centered in the Appbar
   final Widget logo;
 
-  /// Featurebase url (example: https://help.featurebase.app)
-  final String url;
+  /// Featurebase organization name (example: featurebase)
+  final String organizationName;
 
   /// Primary color used
   final Color primaryColor;
@@ -34,7 +34,7 @@ class HelpCenterView extends ConsumerStatefulWidget {
   const HelpCenterView({
     super.key,
     required this.logo,
-    required this.url,
+    required this.organizationName,
     required this.primaryColor,
     this.textColor = Colors.black,
     this.backgroundColor,
@@ -67,7 +67,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
   @override
   void initState() {
     currentLocale = widget.defaultLocale;
-    _fbService.setup(widget.url, widget.enableHapticFeedback);
+    _fbService.setup(widget.organizationName, widget.enableHapticFeedback);
     super.initState();
   }
 

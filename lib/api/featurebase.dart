@@ -3,13 +3,13 @@ part of featurebase;
 class _FeaturebaseApi extends _FeaturebaseApiBase {
   _FeaturebaseApi.from({
     // ignore: unused_element
-    super.baseUrl,
+    super.organizationName,
   }) : super.from();
 }
 
 abstract class _FeaturebaseApiBase {
-  static String _baseUrl = "https://help.featurebase.app";
-  String get baseApiUrl => _baseUrl;
+  static String _organizationName = "featurebase";
+  String get organizationName => _organizationName;
 
   final Dio _dio = Dio(
     BaseOptions(
@@ -28,10 +28,10 @@ abstract class _FeaturebaseApiBase {
   _OrganizationEnd get organization => _organization;
 
   _FeaturebaseApiBase.from({
-    String baseUrl = "https://help.featurebase.app",
+    String organizationName = "featurebase",
   }) {
-    _baseUrl = baseUrl;
-    _dio.options.baseUrl = '$_baseUrl/api/v1';
+    _organizationName = organizationName;
+    _dio.options.baseUrl = 'https://$organizationName.featurebase.app/api/v1';
 
     _helpCenter = _HelpCenterEnd(this);
     _changelog = _ChangelogEnd(this);

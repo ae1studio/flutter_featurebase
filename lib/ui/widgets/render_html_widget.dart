@@ -20,7 +20,8 @@ class _RenderHtmlWidget extends ConsumerWidget {
     return HtmlWidget(
       html,
       onTapUrl: (url) async {
-        if (url.contains(_fbService.api.baseApiUrl) &&
+        if (url.contains(
+                'https://${_fbService.api.organizationName}.featurebase.app') &&
             url.contains('/articles/')) {
           _callHaptic();
           // Extract the article ID from the URL

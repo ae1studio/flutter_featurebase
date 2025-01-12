@@ -10,9 +10,9 @@ class _FBService {
   bool isHapticEnabled = true;
 
   /// Setup the Featurebase API
-  void setup(String url, bool hapticEnabled) {
+  void setup(String organizationName, bool hapticEnabled) {
     api = _FeaturebaseApi.from(
-      baseUrl: url,
+      organizationName: organizationName,
     );
     isHapticEnabled = hapticEnabled;
   }

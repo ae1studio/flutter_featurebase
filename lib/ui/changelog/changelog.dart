@@ -4,8 +4,8 @@ class ChangelogView extends ConsumerStatefulWidget {
   /// Logo centered in the Appbar
   final Widget logo;
 
-  /// Featurebase Feedback Url (example: https://feedback.featurebase.app)
-  final String url;
+  /// Featurebase organization name (example: featurebase)
+  final String organizationName;
 
   /// App Name
   final String appName;
@@ -28,7 +28,7 @@ class ChangelogView extends ConsumerStatefulWidget {
   const ChangelogView({
     super.key,
     required this.logo,
-    required this.url,
+    required this.organizationName,
     required this.primaryColor,
     required this.appName,
     this.textColor = Colors.black,
@@ -53,7 +53,7 @@ class _ChangelogViewState extends ConsumerState<ChangelogView> {
     super.initState();
     currentLocale = widget.defaultLocale;
     initializeDateFormatting(currentLocale.languageCode);
-    _fbService.setup(widget.url, widget.enableHapticFeedback);
+    _fbService.setup(widget.organizationName, widget.enableHapticFeedback);
   }
 
   @override

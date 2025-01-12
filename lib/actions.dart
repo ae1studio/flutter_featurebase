@@ -5,8 +5,8 @@ void openHelpCenter({
   /// Logo centered in the Appbar
   required Widget logo,
 
-  /// Featurebase url (example: https://help.featurebase.app)
-  required String helpCenterUrl,
+  /// Featurebase organization name (example: featurebase)
+  required String organizationName,
 
   /// Primary color used
   required Color primaryColor,
@@ -40,7 +40,7 @@ void openHelpCenter({
       builder: (BuildContext context) => ProviderScope(
         child: HelpCenterView(
           logo: logo,
-          url: helpCenterUrl,
+          organizationName: organizationName,
           primaryColor: primaryColor,
           textColor: textColor,
           backgroundColor: backgroundColor,
@@ -60,8 +60,8 @@ void openChangelog({
   /// Logo centered in the Appbar
   required Widget logo,
 
-  /// Featurebase url (example: https://feedback.featurebase.app)
-  required String feedbackUrl,
+  /// Featurebase organization name (example: featurebase)
+  required String organizationName,
 
   /// App Name
   required String appName,
@@ -89,7 +89,7 @@ void openChangelog({
       builder: (BuildContext context) => ProviderScope(
         child: ChangelogView(
           logo: logo,
-          url: feedbackUrl,
+          organizationName: organizationName,
           primaryColor: primaryColor,
           textColor: textColor,
           backgroundColor: backgroundColor,
