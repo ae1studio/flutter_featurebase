@@ -3950,3 +3950,222 @@ abstract class _NavItem implements NavItem {
   _$$NavItemImplCopyWith<_$NavItemImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+Organization _$OrganizationFromJson(Map<String, dynamic> json) {
+  return _Organization.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Organization {
+  /// The display name of the organization
+  @JsonKey(name: 'displayName', required: true)
+  String get displayName => throw _privateConstructorUsedError;
+
+  /// Color hash code
+  @JsonKey(name: 'color', required: true)
+  String get color => throw _privateConstructorUsedError;
+
+  /// SSO Url
+  @JsonKey(name: 'ssoUrl')
+  String? get ssoUrl => throw _privateConstructorUsedError;
+
+  /// Serializes this Organization to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of Organization
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $OrganizationCopyWith<Organization> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $OrganizationCopyWith<$Res> {
+  factory $OrganizationCopyWith(
+          Organization value, $Res Function(Organization) then) =
+      _$OrganizationCopyWithImpl<$Res, Organization>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'displayName', required: true) String displayName,
+      @JsonKey(name: 'color', required: true) String color,
+      @JsonKey(name: 'ssoUrl') String? ssoUrl});
+}
+
+/// @nodoc
+class _$OrganizationCopyWithImpl<$Res, $Val extends Organization>
+    implements $OrganizationCopyWith<$Res> {
+  _$OrganizationCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of Organization
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? displayName = null,
+    Object? color = null,
+    Object? ssoUrl = freezed,
+  }) {
+    return _then(_value.copyWith(
+      displayName: null == displayName
+          ? _value.displayName
+          : displayName // ignore: cast_nullable_to_non_nullable
+              as String,
+      color: null == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as String,
+      ssoUrl: freezed == ssoUrl
+          ? _value.ssoUrl
+          : ssoUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$OrganizationImplCopyWith<$Res>
+    implements $OrganizationCopyWith<$Res> {
+  factory _$$OrganizationImplCopyWith(
+          _$OrganizationImpl value, $Res Function(_$OrganizationImpl) then) =
+      __$$OrganizationImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'displayName', required: true) String displayName,
+      @JsonKey(name: 'color', required: true) String color,
+      @JsonKey(name: 'ssoUrl') String? ssoUrl});
+}
+
+/// @nodoc
+class __$$OrganizationImplCopyWithImpl<$Res>
+    extends _$OrganizationCopyWithImpl<$Res, _$OrganizationImpl>
+    implements _$$OrganizationImplCopyWith<$Res> {
+  __$$OrganizationImplCopyWithImpl(
+      _$OrganizationImpl _value, $Res Function(_$OrganizationImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of Organization
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? displayName = null,
+    Object? color = null,
+    Object? ssoUrl = freezed,
+  }) {
+    return _then(_$OrganizationImpl(
+      displayName: null == displayName
+          ? _value.displayName
+          : displayName // ignore: cast_nullable_to_non_nullable
+              as String,
+      color: null == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as String,
+      ssoUrl: freezed == ssoUrl
+          ? _value.ssoUrl
+          : ssoUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$OrganizationImpl implements _Organization {
+  const _$OrganizationImpl(
+      {@JsonKey(name: 'displayName', required: true) required this.displayName,
+      @JsonKey(name: 'color', required: true) required this.color,
+      @JsonKey(name: 'ssoUrl') this.ssoUrl});
+
+  factory _$OrganizationImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OrganizationImplFromJson(json);
+
+  /// The display name of the organization
+  @override
+  @JsonKey(name: 'displayName', required: true)
+  final String displayName;
+
+  /// Color hash code
+  @override
+  @JsonKey(name: 'color', required: true)
+  final String color;
+
+  /// SSO Url
+  @override
+  @JsonKey(name: 'ssoUrl')
+  final String? ssoUrl;
+
+  @override
+  String toString() {
+    return 'Organization(displayName: $displayName, color: $color, ssoUrl: $ssoUrl)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OrganizationImpl &&
+            (identical(other.displayName, displayName) ||
+                other.displayName == displayName) &&
+            (identical(other.color, color) || other.color == color) &&
+            (identical(other.ssoUrl, ssoUrl) || other.ssoUrl == ssoUrl));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, displayName, color, ssoUrl);
+
+  /// Create a copy of Organization
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OrganizationImplCopyWith<_$OrganizationImpl> get copyWith =>
+      __$$OrganizationImplCopyWithImpl<_$OrganizationImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$OrganizationImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Organization implements Organization {
+  const factory _Organization(
+      {@JsonKey(name: 'displayName', required: true)
+      required final String displayName,
+      @JsonKey(name: 'color', required: true) required final String color,
+      @JsonKey(name: 'ssoUrl') final String? ssoUrl}) = _$OrganizationImpl;
+
+  factory _Organization.fromJson(Map<String, dynamic> json) =
+      _$OrganizationImpl.fromJson;
+
+  /// The display name of the organization
+  @override
+  @JsonKey(name: 'displayName', required: true)
+  String get displayName;
+
+  /// Color hash code
+  @override
+  @JsonKey(name: 'color', required: true)
+  String get color;
+
+  /// SSO Url
+  @override
+  @JsonKey(name: 'ssoUrl')
+  String? get ssoUrl;
+
+  /// Create a copy of Organization
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$OrganizationImplCopyWith<_$OrganizationImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

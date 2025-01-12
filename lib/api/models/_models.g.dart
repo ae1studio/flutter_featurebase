@@ -317,6 +317,25 @@ Map<String, dynamic> _$$NavItemImplToJson(_$NavItemImpl instance) =>
       'icon': instance.icon,
     };
 
+_$OrganizationImpl _$$OrganizationImplFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    requiredKeys: const ['displayName', 'color'],
+  );
+  return _$OrganizationImpl(
+    displayName: json['displayName'] as String,
+    color: json['color'] as String,
+    ssoUrl: json['ssoUrl'] as String?,
+  );
+}
+
+Map<String, dynamic> _$$OrganizationImplToJson(_$OrganizationImpl instance) =>
+    <String, dynamic>{
+      'displayName': instance.displayName,
+      'color': instance.color,
+      'ssoUrl': instance.ssoUrl,
+    };
+
 ResultsPagination<T> _$ResultsPaginationFromJson<T>(
   Map<String, dynamic> json,
   T Function(Object? json) fromJsonT,
