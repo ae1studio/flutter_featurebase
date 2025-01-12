@@ -45,7 +45,7 @@ openHelpCenter(
             BlendMode.srcIn,
         ),
     ),
-    helpCenterUrl: 'https://help.featurebase.app', // Use your featurebase url
+    organizationName: 'feedback', // This is the Featurebase organization name
     primaryColor: Theme.of(context).primaryColor,
     textColor: Colors.white,
     backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -72,7 +72,7 @@ openChangelog(
             BlendMode.srcIn,
         ),
     ),
-    feedbackUrl: 'https://feedback.featurebase.app', // Use your featurebase url
+    organizationName: 'feedback', // This is the Featurebase organization name
     primaryColor: Theme.of(context).primaryColor,
     textColor: Colors.white,
     backgroundColor: Theme.of(context).scaffoldBackgroundColor,
