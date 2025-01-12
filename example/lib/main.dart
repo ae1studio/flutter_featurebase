@@ -93,7 +93,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     BlendMode.srcIn,
                   ),
                 ),
-                organizationName: 'feedback', // This is the Featurebase org
+                organizationName:
+                    'feedback', // This is the Featurebase organization name
                 primaryColor: Theme.of(context).primaryColor,
                 textColor: Colors.white,
                 backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -129,7 +130,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     BlendMode.srcIn,
                   ),
                 ),
-                organizationName: 'feedback', // This is the Featurebase org
+                organizationName:
+                    'feedback', // This is the Featurebase organization name
                 appName: 'Featurebase',
                 primaryColor: Theme.of(context).primaryColor,
                 textColor: Colors.white,
