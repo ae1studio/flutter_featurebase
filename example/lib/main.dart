@@ -93,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     BlendMode.srcIn,
                   ),
                 ),
-                helpCenterUrl: 'https://help.featurebase.app',
+                organizationName: 'feedback', // This is the Featurebase org
                 primaryColor: Theme.of(context).primaryColor,
                 textColor: Colors.white,
                 backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -129,7 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     BlendMode.srcIn,
                   ),
                 ),
-                feedbackUrl: 'https://feedback.featurebase.app',
+                organizationName: 'feedback', // This is the Featurebase org
                 appName: 'Featurebase',
                 primaryColor: Theme.of(context).primaryColor,
                 textColor: Colors.white,
