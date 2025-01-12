@@ -6,7 +6,7 @@ part of 'featurebase.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$helpCenterInfoHash() => r'8643af459878f187e9b9e28d230f4ad9f31ce273';
+String _$helpCenterInfoHash() => r'543b41a14be94bb62056a1a835d1c77531e03eb4';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -159,7 +159,7 @@ class _HelpCenterInfoProviderElement
 }
 
 String _$getHelpCenterArticleHash() =>
-    r'f2ce4b83b4b01cfb9f27307afc5061123f66f790';
+    r'c380d204bea1e7cb0ce1728894b1780ce0876273';
 
 /// See also [getHelpCenterArticle].
 @ProviderFor(getHelpCenterArticle)
@@ -309,7 +309,7 @@ class _GetHelpCenterArticleProviderElement
 }
 
 String _$getHelpCenterArticleBodyHash() =>
-    r'a047ce78265d01d2480763616b8a5e1b903361ab';
+    r'54f41989d0e9d83ec4862292c4113c05ae6c71de';
 
 /// See also [getHelpCenterArticleBody].
 @ProviderFor(getHelpCenterArticleBody)
@@ -476,7 +476,7 @@ class _GetHelpCenterArticleBodyProviderElement
   String get locale => (origin as GetHelpCenterArticleBodyProvider).locale;
 }
 
-String _$changelogInfoHash() => r'c82cb0ad154071647c6ed0b9da4bb540e96d44f3';
+String _$changelogInfoHash() => r'65c61f3d98128583a5c9dee45275e3196a522e05';
 
 /// See also [changelogInfo].
 @ProviderFor(changelogInfo)
@@ -630,7 +630,7 @@ class _ChangelogInfoProviderElement
   int get page => (origin as ChangelogInfoProvider).page;
 }
 
-String _$changelogsListHash() => r'ebb3089e6ab34433f57e5dfa17066a273233ce70';
+String _$changelogsListHash() => r'e5e6c8ed9a521445f46025f1c1301359c2439001';
 
 abstract class _$ChangelogsList
     extends BuildlessAutoDisposeNotifier<fb.ResultsPagination<fb.Changelog>> {
