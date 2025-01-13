@@ -12,3 +12,5 @@ part 'help_center.dart';
 part 'icon.dart';
 part 'nav_item.dart';
 part 'organization.dart';
+part 'post.dart';
+part 'user.dart';

@@ -4169,3 +4169,1225 @@ abstract class _Organization implements Organization {
   _$$OrganizationImplCopyWith<_$OrganizationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+Post _$PostFromJson(Map<String, dynamic> json) {
+  return _Post.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Post {
+  /// The id of the post
+  @JsonKey(name: 'id', required: true)
+  String get id => throw _privateConstructorUsedError;
+
+  /// The title of the post
+  @JsonKey(name: 'title', required: true)
+  String get title => throw _privateConstructorUsedError;
+
+  /// The content of the post
+  @JsonKey(name: 'content', required: true)
+  String get content => throw _privateConstructorUsedError;
+
+  /// The user who created the post
+  @JsonKey(name: 'user', required: true)
+  UserSimple get user => throw _privateConstructorUsedError;
+
+  /// The status of the post
+  @JsonKey(name: 'postStatus', required: true)
+  PostStatus get status => throw _privateConstructorUsedError;
+
+  /// Post upvotes
+  @JsonKey(name: 'upvotes', defaultValue: 0)
+  int get upvotes => throw _privateConstructorUsedError;
+
+  /// Post comment count
+  @JsonKey(name: 'commentCount', defaultValue: 0)
+  int get commentCount => throw _privateConstructorUsedError;
+
+  /// Whether the user has upvoted the post (false by default)
+  @JsonKey(name: 'upvoted', defaultValue: false)
+  bool get upvoted => throw _privateConstructorUsedError;
+
+  /// Whether the user has downvoted the post (false by default)
+  @JsonKey(name: 'downvoted', defaultValue: false)
+  bool get downvoted => throw _privateConstructorUsedError;
+
+  /// Whether the post is pinned (false by default)
+  @JsonKey(name: 'pinned', defaultValue: false)
+  bool get pinned => throw _privateConstructorUsedError;
+
+  /// Date the post was created
+  @JsonKey(name: 'date', required: true)
+  DateTime get date => throw _privateConstructorUsedError;
+
+  /// Date the post was last updated
+  @JsonKey(name: 'lastModified', required: true)
+  DateTime get lastModified => throw _privateConstructorUsedError;
+
+  /// The category of the post
+  @JsonKey(name: 'postCategory', required: true)
+  PostCategory get postCategory => throw _privateConstructorUsedError;
+
+  /// Serializes this Post to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of Post
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $PostCopyWith<Post> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PostCopyWith<$Res> {
+  factory $PostCopyWith(Post value, $Res Function(Post) then) =
+      _$PostCopyWithImpl<$Res, Post>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'id', required: true) String id,
+      @JsonKey(name: 'title', required: true) String title,
+      @JsonKey(name: 'content', required: true) String content,
+      @JsonKey(name: 'user', required: true) UserSimple user,
+      @JsonKey(name: 'postStatus', required: true) PostStatus status,
+      @JsonKey(name: 'upvotes', defaultValue: 0) int upvotes,
+      @JsonKey(name: 'commentCount', defaultValue: 0) int commentCount,
+      @JsonKey(name: 'upvoted', defaultValue: false) bool upvoted,
+      @JsonKey(name: 'downvoted', defaultValue: false) bool downvoted,
+      @JsonKey(name: 'pinned', defaultValue: false) bool pinned,
+      @JsonKey(name: 'date', required: true) DateTime date,
+      @JsonKey(name: 'lastModified', required: true) DateTime lastModified,
+      @JsonKey(name: 'postCategory', required: true)
+      PostCategory postCategory});
+
+  $UserSimpleCopyWith<$Res> get user;
+  $PostStatusCopyWith<$Res> get status;
+  $PostCategoryCopyWith<$Res> get postCategory;
+}
+
+/// @nodoc
+class _$PostCopyWithImpl<$Res, $Val extends Post>
+    implements $PostCopyWith<$Res> {
+  _$PostCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of Post
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? title = null,
+    Object? content = null,
+    Object? user = null,
+    Object? status = null,
+    Object? upvotes = null,
+    Object? commentCount = null,
+    Object? upvoted = null,
+    Object? downvoted = null,
+    Object? pinned = null,
+    Object? date = null,
+    Object? lastModified = null,
+    Object? postCategory = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      content: null == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String,
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserSimple,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as PostStatus,
+      upvotes: null == upvotes
+          ? _value.upvotes
+          : upvotes // ignore: cast_nullable_to_non_nullable
+              as int,
+      commentCount: null == commentCount
+          ? _value.commentCount
+          : commentCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      upvoted: null == upvoted
+          ? _value.upvoted
+          : upvoted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      downvoted: null == downvoted
+          ? _value.downvoted
+          : downvoted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      pinned: null == pinned
+          ? _value.pinned
+          : pinned // ignore: cast_nullable_to_non_nullable
+              as bool,
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      lastModified: null == lastModified
+          ? _value.lastModified
+          : lastModified // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      postCategory: null == postCategory
+          ? _value.postCategory
+          : postCategory // ignore: cast_nullable_to_non_nullable
+              as PostCategory,
+    ) as $Val);
+  }
+
+  /// Create a copy of Post
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $UserSimpleCopyWith<$Res> get user {
+    return $UserSimpleCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value) as $Val);
+    });
+  }
+
+  /// Create a copy of Post
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PostStatusCopyWith<$Res> get status {
+    return $PostStatusCopyWith<$Res>(_value.status, (value) {
+      return _then(_value.copyWith(status: value) as $Val);
+    });
+  }
+
+  /// Create a copy of Post
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $PostCategoryCopyWith<$Res> get postCategory {
+    return $PostCategoryCopyWith<$Res>(_value.postCategory, (value) {
+      return _then(_value.copyWith(postCategory: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$PostImplCopyWith<$Res> implements $PostCopyWith<$Res> {
+  factory _$$PostImplCopyWith(
+          _$PostImpl value, $Res Function(_$PostImpl) then) =
+      __$$PostImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'id', required: true) String id,
+      @JsonKey(name: 'title', required: true) String title,
+      @JsonKey(name: 'content', required: true) String content,
+      @JsonKey(name: 'user', required: true) UserSimple user,
+      @JsonKey(name: 'postStatus', required: true) PostStatus status,
+      @JsonKey(name: 'upvotes', defaultValue: 0) int upvotes,
+      @JsonKey(name: 'commentCount', defaultValue: 0) int commentCount,
+      @JsonKey(name: 'upvoted', defaultValue: false) bool upvoted,
+      @JsonKey(name: 'downvoted', defaultValue: false) bool downvoted,
+      @JsonKey(name: 'pinned', defaultValue: false) bool pinned,
+      @JsonKey(name: 'date', required: true) DateTime date,
+      @JsonKey(name: 'lastModified', required: true) DateTime lastModified,
+      @JsonKey(name: 'postCategory', required: true)
+      PostCategory postCategory});
+
+  @override
+  $UserSimpleCopyWith<$Res> get user;
+  @override
+  $PostStatusCopyWith<$Res> get status;
+  @override
+  $PostCategoryCopyWith<$Res> get postCategory;
+}
+
+/// @nodoc
+class __$$PostImplCopyWithImpl<$Res>
+    extends _$PostCopyWithImpl<$Res, _$PostImpl>
+    implements _$$PostImplCopyWith<$Res> {
+  __$$PostImplCopyWithImpl(_$PostImpl _value, $Res Function(_$PostImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of Post
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? title = null,
+    Object? content = null,
+    Object? user = null,
+    Object? status = null,
+    Object? upvotes = null,
+    Object? commentCount = null,
+    Object? upvoted = null,
+    Object? downvoted = null,
+    Object? pinned = null,
+    Object? date = null,
+    Object? lastModified = null,
+    Object? postCategory = null,
+  }) {
+    return _then(_$PostImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      content: null == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String,
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserSimple,
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as PostStatus,
+      upvotes: null == upvotes
+          ? _value.upvotes
+          : upvotes // ignore: cast_nullable_to_non_nullable
+              as int,
+      commentCount: null == commentCount
+          ? _value.commentCount
+          : commentCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      upvoted: null == upvoted
+          ? _value.upvoted
+          : upvoted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      downvoted: null == downvoted
+          ? _value.downvoted
+          : downvoted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      pinned: null == pinned
+          ? _value.pinned
+          : pinned // ignore: cast_nullable_to_non_nullable
+              as bool,
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      lastModified: null == lastModified
+          ? _value.lastModified
+          : lastModified // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      postCategory: null == postCategory
+          ? _value.postCategory
+          : postCategory // ignore: cast_nullable_to_non_nullable
+              as PostCategory,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$PostImpl implements _Post {
+  const _$PostImpl(
+      {@JsonKey(name: 'id', required: true) required this.id,
+      @JsonKey(name: 'title', required: true) required this.title,
+      @JsonKey(name: 'content', required: true) required this.content,
+      @JsonKey(name: 'user', required: true) required this.user,
+      @JsonKey(name: 'postStatus', required: true) required this.status,
+      @JsonKey(name: 'upvotes', defaultValue: 0) this.upvotes = 0,
+      @JsonKey(name: 'commentCount', defaultValue: 0) this.commentCount = 0,
+      @JsonKey(name: 'upvoted', defaultValue: false) this.upvoted = false,
+      @JsonKey(name: 'downvoted', defaultValue: false) this.downvoted = false,
+      @JsonKey(name: 'pinned', defaultValue: false) this.pinned = false,
+      @JsonKey(name: 'date', required: true) required this.date,
+      @JsonKey(name: 'lastModified', required: true) required this.lastModified,
+      @JsonKey(name: 'postCategory', required: true)
+      required this.postCategory});
+
+  factory _$PostImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PostImplFromJson(json);
+
+  /// The id of the post
+  @override
+  @JsonKey(name: 'id', required: true)
+  final String id;
+
+  /// The title of the post
+  @override
+  @JsonKey(name: 'title', required: true)
+  final String title;
+
+  /// The content of the post
+  @override
+  @JsonKey(name: 'content', required: true)
+  final String content;
+
+  /// The user who created the post
+  @override
+  @JsonKey(name: 'user', required: true)
+  final UserSimple user;
+
+  /// The status of the post
+  @override
+  @JsonKey(name: 'postStatus', required: true)
+  final PostStatus status;
+
+  /// Post upvotes
+  @override
+  @JsonKey(name: 'upvotes', defaultValue: 0)
+  final int upvotes;
+
+  /// Post comment count
+  @override
+  @JsonKey(name: 'commentCount', defaultValue: 0)
+  final int commentCount;
+
+  /// Whether the user has upvoted the post (false by default)
+  @override
+  @JsonKey(name: 'upvoted', defaultValue: false)
+  final bool upvoted;
+
+  /// Whether the user has downvoted the post (false by default)
+  @override
+  @JsonKey(name: 'downvoted', defaultValue: false)
+  final bool downvoted;
+
+  /// Whether the post is pinned (false by default)
+  @override
+  @JsonKey(name: 'pinned', defaultValue: false)
+  final bool pinned;
+
+  /// Date the post was created
+  @override
+  @JsonKey(name: 'date', required: true)
+  final DateTime date;
+
+  /// Date the post was last updated
+  @override
+  @JsonKey(name: 'lastModified', required: true)
+  final DateTime lastModified;
+
+  /// The category of the post
+  @override
+  @JsonKey(name: 'postCategory', required: true)
+  final PostCategory postCategory;
+
+  @override
+  String toString() {
+    return 'Post(id: $id, title: $title, content: $content, user: $user, status: $status, upvotes: $upvotes, commentCount: $commentCount, upvoted: $upvoted, downvoted: $downvoted, pinned: $pinned, date: $date, lastModified: $lastModified, postCategory: $postCategory)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PostImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.content, content) || other.content == content) &&
+            (identical(other.user, user) || other.user == user) &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.upvotes, upvotes) || other.upvotes == upvotes) &&
+            (identical(other.commentCount, commentCount) ||
+                other.commentCount == commentCount) &&
+            (identical(other.upvoted, upvoted) || other.upvoted == upvoted) &&
+            (identical(other.downvoted, downvoted) ||
+                other.downvoted == downvoted) &&
+            (identical(other.pinned, pinned) || other.pinned == pinned) &&
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.lastModified, lastModified) ||
+                other.lastModified == lastModified) &&
+            (identical(other.postCategory, postCategory) ||
+                other.postCategory == postCategory));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      title,
+      content,
+      user,
+      status,
+      upvotes,
+      commentCount,
+      upvoted,
+      downvoted,
+      pinned,
+      date,
+      lastModified,
+      postCategory);
+
+  /// Create a copy of Post
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PostImplCopyWith<_$PostImpl> get copyWith =>
+      __$$PostImplCopyWithImpl<_$PostImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PostImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Post implements Post {
+  const factory _Post(
+      {@JsonKey(name: 'id', required: true) required final String id,
+      @JsonKey(name: 'title', required: true) required final String title,
+      @JsonKey(name: 'content', required: true) required final String content,
+      @JsonKey(name: 'user', required: true) required final UserSimple user,
+      @JsonKey(name: 'postStatus', required: true)
+      required final PostStatus status,
+      @JsonKey(name: 'upvotes', defaultValue: 0) final int upvotes,
+      @JsonKey(name: 'commentCount', defaultValue: 0) final int commentCount,
+      @JsonKey(name: 'upvoted', defaultValue: false) final bool upvoted,
+      @JsonKey(name: 'downvoted', defaultValue: false) final bool downvoted,
+      @JsonKey(name: 'pinned', defaultValue: false) final bool pinned,
+      @JsonKey(name: 'date', required: true) required final DateTime date,
+      @JsonKey(name: 'lastModified', required: true)
+      required final DateTime lastModified,
+      @JsonKey(name: 'postCategory', required: true)
+      required final PostCategory postCategory}) = _$PostImpl;
+
+  factory _Post.fromJson(Map<String, dynamic> json) = _$PostImpl.fromJson;
+
+  /// The id of the post
+  @override
+  @JsonKey(name: 'id', required: true)
+  String get id;
+
+  /// The title of the post
+  @override
+  @JsonKey(name: 'title', required: true)
+  String get title;
+
+  /// The content of the post
+  @override
+  @JsonKey(name: 'content', required: true)
+  String get content;
+
+  /// The user who created the post
+  @override
+  @JsonKey(name: 'user', required: true)
+  UserSimple get user;
+
+  /// The status of the post
+  @override
+  @JsonKey(name: 'postStatus', required: true)
+  PostStatus get status;
+
+  /// Post upvotes
+  @override
+  @JsonKey(name: 'upvotes', defaultValue: 0)
+  int get upvotes;
+
+  /// Post comment count
+  @override
+  @JsonKey(name: 'commentCount', defaultValue: 0)
+  int get commentCount;
+
+  /// Whether the user has upvoted the post (false by default)
+  @override
+  @JsonKey(name: 'upvoted', defaultValue: false)
+  bool get upvoted;
+
+  /// Whether the user has downvoted the post (false by default)
+  @override
+  @JsonKey(name: 'downvoted', defaultValue: false)
+  bool get downvoted;
+
+  /// Whether the post is pinned (false by default)
+  @override
+  @JsonKey(name: 'pinned', defaultValue: false)
+  bool get pinned;
+
+  /// Date the post was created
+  @override
+  @JsonKey(name: 'date', required: true)
+  DateTime get date;
+
+  /// Date the post was last updated
+  @override
+  @JsonKey(name: 'lastModified', required: true)
+  DateTime get lastModified;
+
+  /// The category of the post
+  @override
+  @JsonKey(name: 'postCategory', required: true)
+  PostCategory get postCategory;
+
+  /// Create a copy of Post
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PostImplCopyWith<_$PostImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+PostCategory _$PostCategoryFromJson(Map<String, dynamic> json) {
+  return _PostCategory.fromJson(json);
+}
+
+/// @nodoc
+mixin _$PostCategory {
+  /// The category name
+  @JsonKey(name: 'category', required: true)
+  String get category => throw _privateConstructorUsedError;
+
+  /// Whether the category is private (false by default)
+  @JsonKey(name: 'private', defaultValue: false)
+  bool get private => throw _privateConstructorUsedError;
+
+  /// Serializes this PostCategory to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of PostCategory
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $PostCategoryCopyWith<PostCategory> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PostCategoryCopyWith<$Res> {
+  factory $PostCategoryCopyWith(
+          PostCategory value, $Res Function(PostCategory) then) =
+      _$PostCategoryCopyWithImpl<$Res, PostCategory>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'category', required: true) String category,
+      @JsonKey(name: 'private', defaultValue: false) bool private});
+}
+
+/// @nodoc
+class _$PostCategoryCopyWithImpl<$Res, $Val extends PostCategory>
+    implements $PostCategoryCopyWith<$Res> {
+  _$PostCategoryCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of PostCategory
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? category = null,
+    Object? private = null,
+  }) {
+    return _then(_value.copyWith(
+      category: null == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String,
+      private: null == private
+          ? _value.private
+          : private // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$PostCategoryImplCopyWith<$Res>
+    implements $PostCategoryCopyWith<$Res> {
+  factory _$$PostCategoryImplCopyWith(
+          _$PostCategoryImpl value, $Res Function(_$PostCategoryImpl) then) =
+      __$$PostCategoryImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'category', required: true) String category,
+      @JsonKey(name: 'private', defaultValue: false) bool private});
+}
+
+/// @nodoc
+class __$$PostCategoryImplCopyWithImpl<$Res>
+    extends _$PostCategoryCopyWithImpl<$Res, _$PostCategoryImpl>
+    implements _$$PostCategoryImplCopyWith<$Res> {
+  __$$PostCategoryImplCopyWithImpl(
+      _$PostCategoryImpl _value, $Res Function(_$PostCategoryImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of PostCategory
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? category = null,
+    Object? private = null,
+  }) {
+    return _then(_$PostCategoryImpl(
+      category: null == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String,
+      private: null == private
+          ? _value.private
+          : private // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$PostCategoryImpl implements _PostCategory {
+  const _$PostCategoryImpl(
+      {@JsonKey(name: 'category', required: true) required this.category,
+      @JsonKey(name: 'private', defaultValue: false) required this.private});
+
+  factory _$PostCategoryImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PostCategoryImplFromJson(json);
+
+  /// The category name
+  @override
+  @JsonKey(name: 'category', required: true)
+  final String category;
+
+  /// Whether the category is private (false by default)
+  @override
+  @JsonKey(name: 'private', defaultValue: false)
+  final bool private;
+
+  @override
+  String toString() {
+    return 'PostCategory(category: $category, private: $private)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PostCategoryImpl &&
+            (identical(other.category, category) ||
+                other.category == category) &&
+            (identical(other.private, private) || other.private == private));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, category, private);
+
+  /// Create a copy of PostCategory
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PostCategoryImplCopyWith<_$PostCategoryImpl> get copyWith =>
+      __$$PostCategoryImplCopyWithImpl<_$PostCategoryImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PostCategoryImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _PostCategory implements PostCategory {
+  const factory _PostCategory(
+      {@JsonKey(name: 'category', required: true)
+      required final String category,
+      @JsonKey(name: 'private', defaultValue: false)
+      required final bool private}) = _$PostCategoryImpl;
+
+  factory _PostCategory.fromJson(Map<String, dynamic> json) =
+      _$PostCategoryImpl.fromJson;
+
+  /// The category name
+  @override
+  @JsonKey(name: 'category', required: true)
+  String get category;
+
+  /// Whether the category is private (false by default)
+  @override
+  @JsonKey(name: 'private', defaultValue: false)
+  bool get private;
+
+  /// Create a copy of PostCategory
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PostCategoryImplCopyWith<_$PostCategoryImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+PostStatus _$PostStatusFromJson(Map<String, dynamic> json) {
+  return _PostStatus.fromJson(json);
+}
+
+/// @nodoc
+mixin _$PostStatus {
+  /// The status name
+  @JsonKey(name: 'name', required: true)
+  String get name => throw _privateConstructorUsedError;
+
+  /// The status color
+  @JsonKey(name: 'color', required: true)
+  String get color => throw _privateConstructorUsedError;
+
+  /// The status type
+  @JsonKey(name: 'type', required: true)
+  String get type => throw _privateConstructorUsedError;
+
+  /// Serializes this PostStatus to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of PostStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $PostStatusCopyWith<PostStatus> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PostStatusCopyWith<$Res> {
+  factory $PostStatusCopyWith(
+          PostStatus value, $Res Function(PostStatus) then) =
+      _$PostStatusCopyWithImpl<$Res, PostStatus>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'name', required: true) String name,
+      @JsonKey(name: 'color', required: true) String color,
+      @JsonKey(name: 'type', required: true) String type});
+}
+
+/// @nodoc
+class _$PostStatusCopyWithImpl<$Res, $Val extends PostStatus>
+    implements $PostStatusCopyWith<$Res> {
+  _$PostStatusCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of PostStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? color = null,
+    Object? type = null,
+  }) {
+    return _then(_value.copyWith(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      color: null == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$PostStatusImplCopyWith<$Res>
+    implements $PostStatusCopyWith<$Res> {
+  factory _$$PostStatusImplCopyWith(
+          _$PostStatusImpl value, $Res Function(_$PostStatusImpl) then) =
+      __$$PostStatusImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'name', required: true) String name,
+      @JsonKey(name: 'color', required: true) String color,
+      @JsonKey(name: 'type', required: true) String type});
+}
+
+/// @nodoc
+class __$$PostStatusImplCopyWithImpl<$Res>
+    extends _$PostStatusCopyWithImpl<$Res, _$PostStatusImpl>
+    implements _$$PostStatusImplCopyWith<$Res> {
+  __$$PostStatusImplCopyWithImpl(
+      _$PostStatusImpl _value, $Res Function(_$PostStatusImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of PostStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+    Object? color = null,
+    Object? type = null,
+  }) {
+    return _then(_$PostStatusImpl(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      color: null == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$PostStatusImpl implements _PostStatus {
+  const _$PostStatusImpl(
+      {@JsonKey(name: 'name', required: true) required this.name,
+      @JsonKey(name: 'color', required: true) required this.color,
+      @JsonKey(name: 'type', required: true) required this.type});
+
+  factory _$PostStatusImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PostStatusImplFromJson(json);
+
+  /// The status name
+  @override
+  @JsonKey(name: 'name', required: true)
+  final String name;
+
+  /// The status color
+  @override
+  @JsonKey(name: 'color', required: true)
+  final String color;
+
+  /// The status type
+  @override
+  @JsonKey(name: 'type', required: true)
+  final String type;
+
+  @override
+  String toString() {
+    return 'PostStatus(name: $name, color: $color, type: $type)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PostStatusImpl &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.color, color) || other.color == color) &&
+            (identical(other.type, type) || other.type == type));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, name, color, type);
+
+  /// Create a copy of PostStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PostStatusImplCopyWith<_$PostStatusImpl> get copyWith =>
+      __$$PostStatusImplCopyWithImpl<_$PostStatusImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PostStatusImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _PostStatus implements PostStatus {
+  const factory _PostStatus(
+          {@JsonKey(name: 'name', required: true) required final String name,
+          @JsonKey(name: 'color', required: true) required final String color,
+          @JsonKey(name: 'type', required: true) required final String type}) =
+      _$PostStatusImpl;
+
+  factory _PostStatus.fromJson(Map<String, dynamic> json) =
+      _$PostStatusImpl.fromJson;
+
+  /// The status name
+  @override
+  @JsonKey(name: 'name', required: true)
+  String get name;
+
+  /// The status color
+  @override
+  @JsonKey(name: 'color', required: true)
+  String get color;
+
+  /// The status type
+  @override
+  @JsonKey(name: 'type', required: true)
+  String get type;
+
+  /// Create a copy of PostStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PostStatusImplCopyWith<_$PostStatusImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+UserSimple _$UserSimpleFromJson(Map<String, dynamic> json) {
+  return _UserSimple.fromJson(json);
+}
+
+/// @nodoc
+mixin _$UserSimple {
+  /// The id of the user
+  @JsonKey(name: '_id', required: true)
+  String get id => throw _privateConstructorUsedError;
+
+  /// The type of the user
+  @JsonKey(name: 'type', required: true)
+  String get type => throw _privateConstructorUsedError;
+
+  /// The name of the user
+  @JsonKey(name: 'name', required: true)
+  String get name => throw _privateConstructorUsedError;
+
+  /// The users picture
+  @JsonKey(name: 'picture')
+  String? get picture => throw _privateConstructorUsedError;
+
+  /// Serializes this UserSimple to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of UserSimple
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $UserSimpleCopyWith<UserSimple> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UserSimpleCopyWith<$Res> {
+  factory $UserSimpleCopyWith(
+          UserSimple value, $Res Function(UserSimple) then) =
+      _$UserSimpleCopyWithImpl<$Res, UserSimple>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: '_id', required: true) String id,
+      @JsonKey(name: 'type', required: true) String type,
+      @JsonKey(name: 'name', required: true) String name,
+      @JsonKey(name: 'picture') String? picture});
+}
+
+/// @nodoc
+class _$UserSimpleCopyWithImpl<$Res, $Val extends UserSimple>
+    implements $UserSimpleCopyWith<$Res> {
+  _$UserSimpleCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of UserSimple
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? type = null,
+    Object? name = null,
+    Object? picture = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      picture: freezed == picture
+          ? _value.picture
+          : picture // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$UserSimpleImplCopyWith<$Res>
+    implements $UserSimpleCopyWith<$Res> {
+  factory _$$UserSimpleImplCopyWith(
+          _$UserSimpleImpl value, $Res Function(_$UserSimpleImpl) then) =
+      __$$UserSimpleImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: '_id', required: true) String id,
+      @JsonKey(name: 'type', required: true) String type,
+      @JsonKey(name: 'name', required: true) String name,
+      @JsonKey(name: 'picture') String? picture});
+}
+
+/// @nodoc
+class __$$UserSimpleImplCopyWithImpl<$Res>
+    extends _$UserSimpleCopyWithImpl<$Res, _$UserSimpleImpl>
+    implements _$$UserSimpleImplCopyWith<$Res> {
+  __$$UserSimpleImplCopyWithImpl(
+      _$UserSimpleImpl _value, $Res Function(_$UserSimpleImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserSimple
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? type = null,
+    Object? name = null,
+    Object? picture = freezed,
+  }) {
+    return _then(_$UserSimpleImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      picture: freezed == picture
+          ? _value.picture
+          : picture // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$UserSimpleImpl implements _UserSimple {
+  const _$UserSimpleImpl(
+      {@JsonKey(name: '_id', required: true) required this.id,
+      @JsonKey(name: 'type', required: true) required this.type,
+      @JsonKey(name: 'name', required: true) required this.name,
+      @JsonKey(name: 'picture') this.picture});
+
+  factory _$UserSimpleImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserSimpleImplFromJson(json);
+
+  /// The id of the user
+  @override
+  @JsonKey(name: '_id', required: true)
+  final String id;
+
+  /// The type of the user
+  @override
+  @JsonKey(name: 'type', required: true)
+  final String type;
+
+  /// The name of the user
+  @override
+  @JsonKey(name: 'name', required: true)
+  final String name;
+
+  /// The users picture
+  @override
+  @JsonKey(name: 'picture')
+  final String? picture;
+
+  @override
+  String toString() {
+    return 'UserSimple(id: $id, type: $type, name: $name, picture: $picture)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UserSimpleImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.picture, picture) || other.picture == picture));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, type, name, picture);
+
+  /// Create a copy of UserSimple
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UserSimpleImplCopyWith<_$UserSimpleImpl> get copyWith =>
+      __$$UserSimpleImplCopyWithImpl<_$UserSimpleImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$UserSimpleImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _UserSimple implements UserSimple {
+  const factory _UserSimple(
+      {@JsonKey(name: '_id', required: true) required final String id,
+      @JsonKey(name: 'type', required: true) required final String type,
+      @JsonKey(name: 'name', required: true) required final String name,
+      @JsonKey(name: 'picture') final String? picture}) = _$UserSimpleImpl;
+
+  factory _UserSimple.fromJson(Map<String, dynamic> json) =
+      _$UserSimpleImpl.fromJson;
+
+  /// The id of the user
+  @override
+  @JsonKey(name: '_id', required: true)
+  String get id;
+
+  /// The type of the user
+  @override
+  @JsonKey(name: 'type', required: true)
+  String get type;
+
+  /// The name of the user
+  @override
+  @JsonKey(name: 'name', required: true)
+  String get name;
+
+  /// The users picture
+  @override
+  @JsonKey(name: 'picture')
+  String? get picture;
+
+  /// Create a copy of UserSimple
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UserSimpleImplCopyWith<_$UserSimpleImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

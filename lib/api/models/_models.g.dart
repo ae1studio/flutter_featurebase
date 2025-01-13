@@ -336,6 +336,112 @@ Map<String, dynamic> _$$OrganizationImplToJson(_$OrganizationImpl instance) =>
       'ssoUrl': instance.ssoUrl,
     };
 
+_$PostImpl _$$PostImplFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    requiredKeys: const [
+      'id',
+      'title',
+      'content',
+      'user',
+      'postStatus',
+      'date',
+      'lastModified',
+      'postCategory'
+    ],
+  );
+  return _$PostImpl(
+    id: json['id'] as String,
+    title: json['title'] as String,
+    content: json['content'] as String,
+    user: UserSimple.fromJson(json['user'] as Map<String, dynamic>),
+    status: PostStatus.fromJson(json['postStatus'] as Map<String, dynamic>),
+    upvotes: (json['upvotes'] as num?)?.toInt() ?? 0,
+    commentCount: (json['commentCount'] as num?)?.toInt() ?? 0,
+    upvoted: json['upvoted'] as bool? ?? false,
+    downvoted: json['downvoted'] as bool? ?? false,
+    pinned: json['pinned'] as bool? ?? false,
+    date: DateTime.parse(json['date'] as String),
+    lastModified: DateTime.parse(json['lastModified'] as String),
+    postCategory:
+        PostCategory.fromJson(json['postCategory'] as Map<String, dynamic>),
+  );
+}
+
+Map<String, dynamic> _$$PostImplToJson(_$PostImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'title': instance.title,
+      'content': instance.content,
+      'user': instance.user,
+      'postStatus': instance.status,
+      'upvotes': instance.upvotes,
+      'commentCount': instance.commentCount,
+      'upvoted': instance.upvoted,
+      'downvoted': instance.downvoted,
+      'pinned': instance.pinned,
+      'date': instance.date.toIso8601String(),
+      'lastModified': instance.lastModified.toIso8601String(),
+      'postCategory': instance.postCategory,
+    };
+
+_$PostCategoryImpl _$$PostCategoryImplFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    requiredKeys: const ['category'],
+  );
+  return _$PostCategoryImpl(
+    category: json['category'] as String,
+    private: json['private'] as bool? ?? false,
+  );
+}
+
+Map<String, dynamic> _$$PostCategoryImplToJson(_$PostCategoryImpl instance) =>
+    <String, dynamic>{
+      'category': instance.category,
+      'private': instance.private,
+    };
+
+_$PostStatusImpl _$$PostStatusImplFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    requiredKeys: const ['name', 'color', 'type'],
+  );
+  return _$PostStatusImpl(
+    name: json['name'] as String,
+    color: json['color'] as String,
+    type: json['type'] as String,
+  );
+}
+
+Map<String, dynamic> _$$PostStatusImplToJson(_$PostStatusImpl instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'color': instance.color,
+      'type': instance.type,
+    };
+
+_$UserSimpleImpl _$$UserSimpleImplFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    requiredKeys: const ['_id', 'type', 'name'],
+  );
+  return _$UserSimpleImpl(
+    id: json['_id'] as String,
+    type: json['type'] as String,
+    name: json['name'] as String,
+    picture: json['picture'] as String?,
+  );
+}
+
+Map<String, dynamic> _$$UserSimpleImplToJson(_$UserSimpleImpl instance) =>
+    <String, dynamic>{
+      '_id': instance.id,
+      'type': instance.type,
+      'name': instance.name,
+      'picture': instance.picture,
+    };
+
 ResultsPagination<T> _$ResultsPaginationFromJson<T>(
   Map<String, dynamic> json,
   T Function(Object? json) fromJsonT,
