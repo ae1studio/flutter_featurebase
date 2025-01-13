@@ -630,6 +630,24 @@ class _ChangelogInfoProviderElement
   int get page => (origin as ChangelogInfoProvider).page;
 }
 
+String _$getOrganizationHash() => r'82c852bc980afa88b63a80aebf45d8cc6bdf227a';
+
+/// See also [getOrganization].
+@ProviderFor(getOrganization)
+final getOrganizationProvider =
+    AutoDisposeFutureProvider<fb.Organization>.internal(
+  getOrganization,
+  name: r'getOrganizationProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$getOrganizationHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef GetOrganizationRef = AutoDisposeFutureProviderRef<fb.Organization>;
 String _$changelogsListHash() => r'e5e6c8ed9a521445f46025f1c1301359c2439001';
 
 abstract class _$ChangelogsList

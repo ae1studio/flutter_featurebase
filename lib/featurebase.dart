@@ -51,6 +51,7 @@ part 'providers/service.dart';
 part 'providers/icons.dart';
 part 'providers/help_center.dart';
 part 'providers/changelog.dart';
+part 'providers/organization.dart';
 
 //Other
 part 'actions.dart';
