@@ -3969,6 +3969,14 @@ mixin _$Organization {
   @JsonKey(name: 'ssoUrl')
   String? get ssoUrl => throw _privateConstructorUsedError;
 
+  /// The widgets of the organization
+  @JsonKey(name: 'widget')
+  AIOWidget? get widgets => throw _privateConstructorUsedError;
+
+  /// Picture url
+  @JsonKey(name: 'picture')
+  String? get picture => throw _privateConstructorUsedError;
+
   /// Serializes this Organization to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
@@ -3988,7 +3996,11 @@ abstract class $OrganizationCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'displayName', required: true) String displayName,
       @JsonKey(name: 'color', required: true) String color,
-      @JsonKey(name: 'ssoUrl') String? ssoUrl});
+      @JsonKey(name: 'ssoUrl') String? ssoUrl,
+      @JsonKey(name: 'widget') AIOWidget? widgets,
+      @JsonKey(name: 'picture') String? picture});
+
+  $AIOWidgetCopyWith<$Res>? get widgets;
 }
 
 /// @nodoc
@@ -4009,6 +4021,8 @@ class _$OrganizationCopyWithImpl<$Res, $Val extends Organization>
     Object? displayName = null,
     Object? color = null,
     Object? ssoUrl = freezed,
+    Object? widgets = freezed,
+    Object? picture = freezed,
   }) {
     return _then(_value.copyWith(
       displayName: null == displayName
@@ -4023,7 +4037,29 @@ class _$OrganizationCopyWithImpl<$Res, $Val extends Organization>
           ? _value.ssoUrl
           : ssoUrl // ignore: cast_nullable_to_non_nullable
               as String?,
+      widgets: freezed == widgets
+          ? _value.widgets
+          : widgets // ignore: cast_nullable_to_non_nullable
+              as AIOWidget?,
+      picture: freezed == picture
+          ? _value.picture
+          : picture // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
+  }
+
+  /// Create a copy of Organization
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $AIOWidgetCopyWith<$Res>? get widgets {
+    if (_value.widgets == null) {
+      return null;
+    }
+
+    return $AIOWidgetCopyWith<$Res>(_value.widgets!, (value) {
+      return _then(_value.copyWith(widgets: value) as $Val);
+    });
   }
 }
 
@@ -4038,7 +4074,12 @@ abstract class _$$OrganizationImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: 'displayName', required: true) String displayName,
       @JsonKey(name: 'color', required: true) String color,
-      @JsonKey(name: 'ssoUrl') String? ssoUrl});
+      @JsonKey(name: 'ssoUrl') String? ssoUrl,
+      @JsonKey(name: 'widget') AIOWidget? widgets,
+      @JsonKey(name: 'picture') String? picture});
+
+  @override
+  $AIOWidgetCopyWith<$Res>? get widgets;
 }
 
 /// @nodoc
@@ -4057,6 +4098,8 @@ class __$$OrganizationImplCopyWithImpl<$Res>
     Object? displayName = null,
     Object? color = null,
     Object? ssoUrl = freezed,
+    Object? widgets = freezed,
+    Object? picture = freezed,
   }) {
     return _then(_$OrganizationImpl(
       displayName: null == displayName
@@ -4071,6 +4114,14 @@ class __$$OrganizationImplCopyWithImpl<$Res>
           ? _value.ssoUrl
           : ssoUrl // ignore: cast_nullable_to_non_nullable
               as String?,
+      widgets: freezed == widgets
+          ? _value.widgets
+          : widgets // ignore: cast_nullable_to_non_nullable
+              as AIOWidget?,
+      picture: freezed == picture
+          ? _value.picture
+          : picture // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -4081,7 +4132,9 @@ class _$OrganizationImpl implements _Organization {
   const _$OrganizationImpl(
       {@JsonKey(name: 'displayName', required: true) required this.displayName,
       @JsonKey(name: 'color', required: true) required this.color,
-      @JsonKey(name: 'ssoUrl') this.ssoUrl});
+      @JsonKey(name: 'ssoUrl') this.ssoUrl,
+      @JsonKey(name: 'widget') this.widgets,
+      @JsonKey(name: 'picture') this.picture});
 
   factory _$OrganizationImpl.fromJson(Map<String, dynamic> json) =>
       _$$OrganizationImplFromJson(json);
@@ -4101,9 +4154,19 @@ class _$OrganizationImpl implements _Organization {
   @JsonKey(name: 'ssoUrl')
   final String? ssoUrl;
 
+  /// The widgets of the organization
+  @override
+  @JsonKey(name: 'widget')
+  final AIOWidget? widgets;
+
+  /// Picture url
+  @override
+  @JsonKey(name: 'picture')
+  final String? picture;
+
   @override
   String toString() {
-    return 'Organization(displayName: $displayName, color: $color, ssoUrl: $ssoUrl)';
+    return 'Organization(displayName: $displayName, color: $color, ssoUrl: $ssoUrl, widgets: $widgets, picture: $picture)';
   }
 
   @override
@@ -4114,12 +4177,15 @@ class _$OrganizationImpl implements _Organization {
             (identical(other.displayName, displayName) ||
                 other.displayName == displayName) &&
             (identical(other.color, color) || other.color == color) &&
-            (identical(other.ssoUrl, ssoUrl) || other.ssoUrl == ssoUrl));
+            (identical(other.ssoUrl, ssoUrl) || other.ssoUrl == ssoUrl) &&
+            (identical(other.widgets, widgets) || other.widgets == widgets) &&
+            (identical(other.picture, picture) || other.picture == picture));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, displayName, color, ssoUrl);
+  int get hashCode =>
+      Object.hash(runtimeType, displayName, color, ssoUrl, widgets, picture);
 
   /// Create a copy of Organization
   /// with the given fields replaced by the non-null parameter values.
@@ -4142,7 +4208,9 @@ abstract class _Organization implements Organization {
       {@JsonKey(name: 'displayName', required: true)
       required final String displayName,
       @JsonKey(name: 'color', required: true) required final String color,
-      @JsonKey(name: 'ssoUrl') final String? ssoUrl}) = _$OrganizationImpl;
+      @JsonKey(name: 'ssoUrl') final String? ssoUrl,
+      @JsonKey(name: 'widget') final AIOWidget? widgets,
+      @JsonKey(name: 'picture') final String? picture}) = _$OrganizationImpl;
 
   factory _Organization.fromJson(Map<String, dynamic> json) =
       _$OrganizationImpl.fromJson;
@@ -4162,11 +4230,467 @@ abstract class _Organization implements Organization {
   @JsonKey(name: 'ssoUrl')
   String? get ssoUrl;
 
+  /// The widgets of the organization
+  @override
+  @JsonKey(name: 'widget')
+  AIOWidget? get widgets;
+
+  /// Picture url
+  @override
+  @JsonKey(name: 'picture')
+  String? get picture;
+
   /// Create a copy of Organization
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$OrganizationImplCopyWith<_$OrganizationImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+AIOWidget _$AIOWidgetFromJson(Map<String, dynamic> json) {
+  return _AIOWidget.fromJson(json);
+}
+
+/// @nodoc
+mixin _$AIOWidget {
+  /// The title of the widget
+  @JsonKey(name: 'title', required: true)
+  String get title => throw _privateConstructorUsedError;
+
+  /// The description of the widget
+  @JsonKey(name: 'description', required: true)
+  String get description => throw _privateConstructorUsedError;
+
+  /// The cards of the widget
+  @JsonKey(name: 'cards', required: true)
+  List<AIOCard> get cards => throw _privateConstructorUsedError;
+
+  /// Serializes this AIOWidget to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of AIOWidget
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $AIOWidgetCopyWith<AIOWidget> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AIOWidgetCopyWith<$Res> {
+  factory $AIOWidgetCopyWith(AIOWidget value, $Res Function(AIOWidget) then) =
+      _$AIOWidgetCopyWithImpl<$Res, AIOWidget>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'title', required: true) String title,
+      @JsonKey(name: 'description', required: true) String description,
+      @JsonKey(name: 'cards', required: true) List<AIOCard> cards});
+}
+
+/// @nodoc
+class _$AIOWidgetCopyWithImpl<$Res, $Val extends AIOWidget>
+    implements $AIOWidgetCopyWith<$Res> {
+  _$AIOWidgetCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of AIOWidget
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? title = null,
+    Object? description = null,
+    Object? cards = null,
+  }) {
+    return _then(_value.copyWith(
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      cards: null == cards
+          ? _value.cards
+          : cards // ignore: cast_nullable_to_non_nullable
+              as List<AIOCard>,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$AIOWidgetImplCopyWith<$Res>
+    implements $AIOWidgetCopyWith<$Res> {
+  factory _$$AIOWidgetImplCopyWith(
+          _$AIOWidgetImpl value, $Res Function(_$AIOWidgetImpl) then) =
+      __$$AIOWidgetImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'title', required: true) String title,
+      @JsonKey(name: 'description', required: true) String description,
+      @JsonKey(name: 'cards', required: true) List<AIOCard> cards});
+}
+
+/// @nodoc
+class __$$AIOWidgetImplCopyWithImpl<$Res>
+    extends _$AIOWidgetCopyWithImpl<$Res, _$AIOWidgetImpl>
+    implements _$$AIOWidgetImplCopyWith<$Res> {
+  __$$AIOWidgetImplCopyWithImpl(
+      _$AIOWidgetImpl _value, $Res Function(_$AIOWidgetImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AIOWidget
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? title = null,
+    Object? description = null,
+    Object? cards = null,
+  }) {
+    return _then(_$AIOWidgetImpl(
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      cards: null == cards
+          ? _value._cards
+          : cards // ignore: cast_nullable_to_non_nullable
+              as List<AIOCard>,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$AIOWidgetImpl implements _AIOWidget {
+  const _$AIOWidgetImpl(
+      {@JsonKey(name: 'title', required: true) required this.title,
+      @JsonKey(name: 'description', required: true) required this.description,
+      @JsonKey(name: 'cards', required: true)
+      required final List<AIOCard> cards})
+      : _cards = cards;
+
+  factory _$AIOWidgetImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AIOWidgetImplFromJson(json);
+
+  /// The title of the widget
+  @override
+  @JsonKey(name: 'title', required: true)
+  final String title;
+
+  /// The description of the widget
+  @override
+  @JsonKey(name: 'description', required: true)
+  final String description;
+
+  /// The cards of the widget
+  final List<AIOCard> _cards;
+
+  /// The cards of the widget
+  @override
+  @JsonKey(name: 'cards', required: true)
+  List<AIOCard> get cards {
+    if (_cards is EqualUnmodifiableListView) return _cards;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_cards);
+  }
+
+  @override
+  String toString() {
+    return 'AIOWidget(title: $title, description: $description, cards: $cards)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AIOWidgetImpl &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            const DeepCollectionEquality().equals(other._cards, _cards));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, title, description,
+      const DeepCollectionEquality().hash(_cards));
+
+  /// Create a copy of AIOWidget
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AIOWidgetImplCopyWith<_$AIOWidgetImpl> get copyWith =>
+      __$$AIOWidgetImplCopyWithImpl<_$AIOWidgetImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$AIOWidgetImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _AIOWidget implements AIOWidget {
+  const factory _AIOWidget(
+      {@JsonKey(name: 'title', required: true) required final String title,
+      @JsonKey(name: 'description', required: true)
+      required final String description,
+      @JsonKey(name: 'cards', required: true)
+      required final List<AIOCard> cards}) = _$AIOWidgetImpl;
+
+  factory _AIOWidget.fromJson(Map<String, dynamic> json) =
+      _$AIOWidgetImpl.fromJson;
+
+  /// The title of the widget
+  @override
+  @JsonKey(name: 'title', required: true)
+  String get title;
+
+  /// The description of the widget
+  @override
+  @JsonKey(name: 'description', required: true)
+  String get description;
+
+  /// The cards of the widget
+  @override
+  @JsonKey(name: 'cards', required: true)
+  List<AIOCard> get cards;
+
+  /// Create a copy of AIOWidget
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AIOWidgetImplCopyWith<_$AIOWidgetImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+AIOCard _$AIOCardFromJson(Map<String, dynamic> json) {
+  return _AIOCard.fromJson(json);
+}
+
+/// @nodoc
+mixin _$AIOCard {
+  /// The title of the card
+  @JsonKey(name: 'title', required: true)
+  String get title => throw _privateConstructorUsedError;
+
+  /// The description of the card
+  @JsonKey(name: 'description', required: true)
+  String get description => throw _privateConstructorUsedError;
+
+  /// The category of the card
+  @JsonKey(name: 'category', required: true)
+  String get category => throw _privateConstructorUsedError;
+
+  /// Serializes this AIOCard to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of AIOCard
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $AIOCardCopyWith<AIOCard> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AIOCardCopyWith<$Res> {
+  factory $AIOCardCopyWith(AIOCard value, $Res Function(AIOCard) then) =
+      _$AIOCardCopyWithImpl<$Res, AIOCard>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'title', required: true) String title,
+      @JsonKey(name: 'description', required: true) String description,
+      @JsonKey(name: 'category', required: true) String category});
+}
+
+/// @nodoc
+class _$AIOCardCopyWithImpl<$Res, $Val extends AIOCard>
+    implements $AIOCardCopyWith<$Res> {
+  _$AIOCardCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of AIOCard
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? title = null,
+    Object? description = null,
+    Object? category = null,
+  }) {
+    return _then(_value.copyWith(
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      category: null == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$AIOCardImplCopyWith<$Res> implements $AIOCardCopyWith<$Res> {
+  factory _$$AIOCardImplCopyWith(
+          _$AIOCardImpl value, $Res Function(_$AIOCardImpl) then) =
+      __$$AIOCardImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'title', required: true) String title,
+      @JsonKey(name: 'description', required: true) String description,
+      @JsonKey(name: 'category', required: true) String category});
+}
+
+/// @nodoc
+class __$$AIOCardImplCopyWithImpl<$Res>
+    extends _$AIOCardCopyWithImpl<$Res, _$AIOCardImpl>
+    implements _$$AIOCardImplCopyWith<$Res> {
+  __$$AIOCardImplCopyWithImpl(
+      _$AIOCardImpl _value, $Res Function(_$AIOCardImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AIOCard
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? title = null,
+    Object? description = null,
+    Object? category = null,
+  }) {
+    return _then(_$AIOCardImpl(
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      category: null == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$AIOCardImpl implements _AIOCard {
+  const _$AIOCardImpl(
+      {@JsonKey(name: 'title', required: true) required this.title,
+      @JsonKey(name: 'description', required: true) required this.description,
+      @JsonKey(name: 'category', required: true) required this.category});
+
+  factory _$AIOCardImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AIOCardImplFromJson(json);
+
+  /// The title of the card
+  @override
+  @JsonKey(name: 'title', required: true)
+  final String title;
+
+  /// The description of the card
+  @override
+  @JsonKey(name: 'description', required: true)
+  final String description;
+
+  /// The category of the card
+  @override
+  @JsonKey(name: 'category', required: true)
+  final String category;
+
+  @override
+  String toString() {
+    return 'AIOCard(title: $title, description: $description, category: $category)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AIOCardImpl &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.category, category) ||
+                other.category == category));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, title, description, category);
+
+  /// Create a copy of AIOCard
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AIOCardImplCopyWith<_$AIOCardImpl> get copyWith =>
+      __$$AIOCardImplCopyWithImpl<_$AIOCardImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$AIOCardImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _AIOCard implements AIOCard {
+  const factory _AIOCard(
+      {@JsonKey(name: 'title', required: true) required final String title,
+      @JsonKey(name: 'description', required: true)
+      required final String description,
+      @JsonKey(name: 'category', required: true)
+      required final String category}) = _$AIOCardImpl;
+
+  factory _AIOCard.fromJson(Map<String, dynamic> json) = _$AIOCardImpl.fromJson;
+
+  /// The title of the card
+  @override
+  @JsonKey(name: 'title', required: true)
+  String get title;
+
+  /// The description of the card
+  @override
+  @JsonKey(name: 'description', required: true)
+  String get description;
+
+  /// The category of the card
+  @override
+  @JsonKey(name: 'category', required: true)
+  String get category;
+
+  /// Create a copy of AIOCard
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AIOCardImplCopyWith<_$AIOCardImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

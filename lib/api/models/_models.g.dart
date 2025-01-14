@@ -326,6 +326,10 @@ _$OrganizationImpl _$$OrganizationImplFromJson(Map<String, dynamic> json) {
     displayName: json['displayName'] as String,
     color: json['color'] as String,
     ssoUrl: json['ssoUrl'] as String?,
+    widgets: json['widget'] == null
+        ? null
+        : AIOWidget.fromJson(json['widget'] as Map<String, dynamic>),
+    picture: json['picture'] as String?,
   );
 }
 
@@ -334,6 +338,48 @@ Map<String, dynamic> _$$OrganizationImplToJson(_$OrganizationImpl instance) =>
       'displayName': instance.displayName,
       'color': instance.color,
       'ssoUrl': instance.ssoUrl,
+      'widget': instance.widgets,
+      'picture': instance.picture,
+    };
+
+_$AIOWidgetImpl _$$AIOWidgetImplFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    requiredKeys: const ['title', 'description', 'cards'],
+  );
+  return _$AIOWidgetImpl(
+    title: json['title'] as String,
+    description: json['description'] as String,
+    cards: (json['cards'] as List<dynamic>)
+        .map((e) => AIOCard.fromJson(e as Map<String, dynamic>))
+        .toList(),
+  );
+}
+
+Map<String, dynamic> _$$AIOWidgetImplToJson(_$AIOWidgetImpl instance) =>
+    <String, dynamic>{
+      'title': instance.title,
+      'description': instance.description,
+      'cards': instance.cards,
+    };
+
+_$AIOCardImpl _$$AIOCardImplFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    requiredKeys: const ['title', 'description', 'category'],
+  );
+  return _$AIOCardImpl(
+    title: json['title'] as String,
+    description: json['description'] as String,
+    category: json['category'] as String,
+  );
+}
+
+Map<String, dynamic> _$$AIOCardImplToJson(_$AIOCardImpl instance) =>
+    <String, dynamic>{
+      'title': instance.title,
+      'description': instance.description,
+      'category': instance.category,
     };
 
 _$PostImpl _$$PostImplFromJson(Map<String, dynamic> json) {
