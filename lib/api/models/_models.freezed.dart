@@ -3971,7 +3971,7 @@ mixin _$Organization {
 
   /// The widgets of the organization
   @JsonKey(name: 'widget')
-  AIOWidget? get widgets => throw _privateConstructorUsedError;
+  AIOWidget? get widget => throw _privateConstructorUsedError;
 
   /// Picture url
   @JsonKey(name: 'picture')
@@ -3997,10 +3997,10 @@ abstract class $OrganizationCopyWith<$Res> {
       {@JsonKey(name: 'displayName', required: true) String displayName,
       @JsonKey(name: 'color', required: true) String color,
       @JsonKey(name: 'ssoUrl') String? ssoUrl,
-      @JsonKey(name: 'widget') AIOWidget? widgets,
+      @JsonKey(name: 'widget') AIOWidget? widget,
       @JsonKey(name: 'picture') String? picture});
 
-  $AIOWidgetCopyWith<$Res>? get widgets;
+  $AIOWidgetCopyWith<$Res>? get widget;
 }
 
 /// @nodoc
@@ -4021,7 +4021,7 @@ class _$OrganizationCopyWithImpl<$Res, $Val extends Organization>
     Object? displayName = null,
     Object? color = null,
     Object? ssoUrl = freezed,
-    Object? widgets = freezed,
+    Object? widget = freezed,
     Object? picture = freezed,
   }) {
     return _then(_value.copyWith(
@@ -4037,9 +4037,9 @@ class _$OrganizationCopyWithImpl<$Res, $Val extends Organization>
           ? _value.ssoUrl
           : ssoUrl // ignore: cast_nullable_to_non_nullable
               as String?,
-      widgets: freezed == widgets
-          ? _value.widgets
-          : widgets // ignore: cast_nullable_to_non_nullable
+      widget: freezed == widget
+          ? _value.widget
+          : widget // ignore: cast_nullable_to_non_nullable
               as AIOWidget?,
       picture: freezed == picture
           ? _value.picture
@@ -4052,13 +4052,13 @@ class _$OrganizationCopyWithImpl<$Res, $Val extends Organization>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $AIOWidgetCopyWith<$Res>? get widgets {
-    if (_value.widgets == null) {
+  $AIOWidgetCopyWith<$Res>? get widget {
+    if (_value.widget == null) {
       return null;
     }
 
-    return $AIOWidgetCopyWith<$Res>(_value.widgets!, (value) {
-      return _then(_value.copyWith(widgets: value) as $Val);
+    return $AIOWidgetCopyWith<$Res>(_value.widget!, (value) {
+      return _then(_value.copyWith(widget: value) as $Val);
     });
   }
 }
@@ -4075,11 +4075,11 @@ abstract class _$$OrganizationImplCopyWith<$Res>
       {@JsonKey(name: 'displayName', required: true) String displayName,
       @JsonKey(name: 'color', required: true) String color,
       @JsonKey(name: 'ssoUrl') String? ssoUrl,
-      @JsonKey(name: 'widget') AIOWidget? widgets,
+      @JsonKey(name: 'widget') AIOWidget? widget,
       @JsonKey(name: 'picture') String? picture});
 
   @override
-  $AIOWidgetCopyWith<$Res>? get widgets;
+  $AIOWidgetCopyWith<$Res>? get widget;
 }
 
 /// @nodoc
@@ -4098,7 +4098,7 @@ class __$$OrganizationImplCopyWithImpl<$Res>
     Object? displayName = null,
     Object? color = null,
     Object? ssoUrl = freezed,
-    Object? widgets = freezed,
+    Object? widget = freezed,
     Object? picture = freezed,
   }) {
     return _then(_$OrganizationImpl(
@@ -4114,9 +4114,9 @@ class __$$OrganizationImplCopyWithImpl<$Res>
           ? _value.ssoUrl
           : ssoUrl // ignore: cast_nullable_to_non_nullable
               as String?,
-      widgets: freezed == widgets
-          ? _value.widgets
-          : widgets // ignore: cast_nullable_to_non_nullable
+      widget: freezed == widget
+          ? _value.widget
+          : widget // ignore: cast_nullable_to_non_nullable
               as AIOWidget?,
       picture: freezed == picture
           ? _value.picture
@@ -4133,7 +4133,7 @@ class _$OrganizationImpl implements _Organization {
       {@JsonKey(name: 'displayName', required: true) required this.displayName,
       @JsonKey(name: 'color', required: true) required this.color,
       @JsonKey(name: 'ssoUrl') this.ssoUrl,
-      @JsonKey(name: 'widget') this.widgets,
+      @JsonKey(name: 'widget') this.widget,
       @JsonKey(name: 'picture') this.picture});
 
   factory _$OrganizationImpl.fromJson(Map<String, dynamic> json) =>
@@ -4157,7 +4157,7 @@ class _$OrganizationImpl implements _Organization {
   /// The widgets of the organization
   @override
   @JsonKey(name: 'widget')
-  final AIOWidget? widgets;
+  final AIOWidget? widget;
 
   /// Picture url
   @override
@@ -4166,7 +4166,7 @@ class _$OrganizationImpl implements _Organization {
 
   @override
   String toString() {
-    return 'Organization(displayName: $displayName, color: $color, ssoUrl: $ssoUrl, widgets: $widgets, picture: $picture)';
+    return 'Organization(displayName: $displayName, color: $color, ssoUrl: $ssoUrl, widget: $widget, picture: $picture)';
   }
 
   @override
@@ -4178,14 +4178,14 @@ class _$OrganizationImpl implements _Organization {
                 other.displayName == displayName) &&
             (identical(other.color, color) || other.color == color) &&
             (identical(other.ssoUrl, ssoUrl) || other.ssoUrl == ssoUrl) &&
-            (identical(other.widgets, widgets) || other.widgets == widgets) &&
+            (identical(other.widget, widget) || other.widget == widget) &&
             (identical(other.picture, picture) || other.picture == picture));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, displayName, color, ssoUrl, widgets, picture);
+      Object.hash(runtimeType, displayName, color, ssoUrl, widget, picture);
 
   /// Create a copy of Organization
   /// with the given fields replaced by the non-null parameter values.
@@ -4209,7 +4209,7 @@ abstract class _Organization implements Organization {
       required final String displayName,
       @JsonKey(name: 'color', required: true) required final String color,
       @JsonKey(name: 'ssoUrl') final String? ssoUrl,
-      @JsonKey(name: 'widget') final AIOWidget? widgets,
+      @JsonKey(name: 'widget') final AIOWidget? widget,
       @JsonKey(name: 'picture') final String? picture}) = _$OrganizationImpl;
 
   factory _Organization.fromJson(Map<String, dynamic> json) =
@@ -4233,7 +4233,7 @@ abstract class _Organization implements Organization {
   /// The widgets of the organization
   @override
   @JsonKey(name: 'widget')
-  AIOWidget? get widgets;
+  AIOWidget? get widget;
 
   /// Picture url
   @override

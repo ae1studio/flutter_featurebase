@@ -326,7 +326,7 @@ _$OrganizationImpl _$$OrganizationImplFromJson(Map<String, dynamic> json) {
     displayName: json['displayName'] as String,
     color: json['color'] as String,
     ssoUrl: json['ssoUrl'] as String?,
-    widgets: json['widget'] == null
+    widget: json['widget'] == null
         ? null
         : AIOWidget.fromJson(json['widget'] as Map<String, dynamic>),
     picture: json['picture'] as String?,
@@ -338,7 +338,7 @@ Map<String, dynamic> _$$OrganizationImplToJson(_$OrganizationImpl instance) =>
       'displayName': instance.displayName,
       'color': instance.color,
       'ssoUrl': instance.ssoUrl,
-      'widget': instance.widgets,
+      'widget': instance.widget,
       'picture': instance.picture,
     };
 

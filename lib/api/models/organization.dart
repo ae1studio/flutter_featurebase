@@ -13,7 +13,7 @@ class Organization with _$Organization {
     @JsonKey(name: 'ssoUrl') String? ssoUrl,
 
     /// The widgets of the organization
-    @JsonKey(name: 'widget') AIOWidget? widgets,
+    @JsonKey(name: 'widget') AIOWidget? widget,
 
     /// Picture url
     @JsonKey(name: 'picture') String? picture,
