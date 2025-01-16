@@ -407,6 +407,7 @@ _$PostImpl _$$PostImplFromJson(Map<String, dynamic> json) {
     upvoted: json['upvoted'] as bool? ?? false,
     downvoted: json['downvoted'] as bool? ?? false,
     pinned: json['pinned'] as bool? ?? false,
+    isSubscribed: json['isSubscribed'] as bool? ?? false,
     date: DateTime.parse(json['date'] as String),
     lastModified: DateTime.parse(json['lastModified'] as String),
     postCategory:
@@ -426,6 +427,7 @@ Map<String, dynamic> _$$PostImplToJson(_$PostImpl instance) =>
       'upvoted': instance.upvoted,
       'downvoted': instance.downvoted,
       'pinned': instance.pinned,
+      'isSubscribed': instance.isSubscribed,
       'date': instance.date.toIso8601String(),
       'lastModified': instance.lastModified.toIso8601String(),
       'postCategory': instance.postCategory,
@@ -457,6 +459,7 @@ _$PostStatusImpl _$$PostStatusImplFromJson(Map<String, dynamic> json) {
     name: json['name'] as String,
     color: json['color'] as String,
     type: json['type'] as String,
+    isDefault: json['isDefault'] as bool? ?? false,
   );
 }
 
@@ -465,6 +468,7 @@ Map<String, dynamic> _$$PostStatusImplToJson(_$PostStatusImpl instance) =>
       'name': instance.name,
       'color': instance.color,
       'type': instance.type,
+      'isDefault': instance.isDefault,
     };
 
 _$UserSimpleImpl _$$UserSimpleImplFromJson(Map<String, dynamic> json) {

@@ -4740,6 +4740,10 @@ mixin _$Post {
   @JsonKey(name: 'pinned', defaultValue: false)
   bool get pinned => throw _privateConstructorUsedError;
 
+  /// Whether the user is subscribed to the post (false by default)
+  @JsonKey(name: 'isSubscribed', defaultValue: false)
+  bool get isSubscribed => throw _privateConstructorUsedError;
+
   /// Date the post was created
   @JsonKey(name: 'date', required: true)
   DateTime get date => throw _privateConstructorUsedError;
@@ -4777,6 +4781,7 @@ abstract class $PostCopyWith<$Res> {
       @JsonKey(name: 'upvoted', defaultValue: false) bool upvoted,
       @JsonKey(name: 'downvoted', defaultValue: false) bool downvoted,
       @JsonKey(name: 'pinned', defaultValue: false) bool pinned,
+      @JsonKey(name: 'isSubscribed', defaultValue: false) bool isSubscribed,
       @JsonKey(name: 'date', required: true) DateTime date,
       @JsonKey(name: 'lastModified', required: true) DateTime lastModified,
       @JsonKey(name: 'postCategory', required: true)
@@ -4812,6 +4817,7 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
     Object? upvoted = null,
     Object? downvoted = null,
     Object? pinned = null,
+    Object? isSubscribed = null,
     Object? date = null,
     Object? lastModified = null,
     Object? postCategory = null,
@@ -4856,6 +4862,10 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
       pinned: null == pinned
           ? _value.pinned
           : pinned // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSubscribed: null == isSubscribed
+          ? _value.isSubscribed
+          : isSubscribed // ignore: cast_nullable_to_non_nullable
               as bool,
       date: null == date
           ? _value.date
@@ -4921,6 +4931,7 @@ abstract class _$$PostImplCopyWith<$Res> implements $PostCopyWith<$Res> {
       @JsonKey(name: 'upvoted', defaultValue: false) bool upvoted,
       @JsonKey(name: 'downvoted', defaultValue: false) bool downvoted,
       @JsonKey(name: 'pinned', defaultValue: false) bool pinned,
+      @JsonKey(name: 'isSubscribed', defaultValue: false) bool isSubscribed,
       @JsonKey(name: 'date', required: true) DateTime date,
       @JsonKey(name: 'lastModified', required: true) DateTime lastModified,
       @JsonKey(name: 'postCategory', required: true)
@@ -4956,6 +4967,7 @@ class __$$PostImplCopyWithImpl<$Res>
     Object? upvoted = null,
     Object? downvoted = null,
     Object? pinned = null,
+    Object? isSubscribed = null,
     Object? date = null,
     Object? lastModified = null,
     Object? postCategory = null,
@@ -5001,6 +5013,10 @@ class __$$PostImplCopyWithImpl<$Res>
           ? _value.pinned
           : pinned // ignore: cast_nullable_to_non_nullable
               as bool,
+      isSubscribed: null == isSubscribed
+          ? _value.isSubscribed
+          : isSubscribed // ignore: cast_nullable_to_non_nullable
+              as bool,
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -5031,6 +5047,8 @@ class _$PostImpl implements _Post {
       @JsonKey(name: 'upvoted', defaultValue: false) this.upvoted = false,
       @JsonKey(name: 'downvoted', defaultValue: false) this.downvoted = false,
       @JsonKey(name: 'pinned', defaultValue: false) this.pinned = false,
+      @JsonKey(name: 'isSubscribed', defaultValue: false)
+      this.isSubscribed = false,
       @JsonKey(name: 'date', required: true) required this.date,
       @JsonKey(name: 'lastModified', required: true) required this.lastModified,
       @JsonKey(name: 'postCategory', required: true)
@@ -5089,6 +5107,11 @@ class _$PostImpl implements _Post {
   @JsonKey(name: 'pinned', defaultValue: false)
   final bool pinned;
 
+  /// Whether the user is subscribed to the post (false by default)
+  @override
+  @JsonKey(name: 'isSubscribed', defaultValue: false)
+  final bool isSubscribed;
+
   /// Date the post was created
   @override
   @JsonKey(name: 'date', required: true)
@@ -5106,7 +5129,7 @@ class _$PostImpl implements _Post {
 
   @override
   String toString() {
-    return 'Post(id: $id, title: $title, content: $content, user: $user, status: $status, upvotes: $upvotes, commentCount: $commentCount, upvoted: $upvoted, downvoted: $downvoted, pinned: $pinned, date: $date, lastModified: $lastModified, postCategory: $postCategory)';
+    return 'Post(id: $id, title: $title, content: $content, user: $user, status: $status, upvotes: $upvotes, commentCount: $commentCount, upvoted: $upvoted, downvoted: $downvoted, pinned: $pinned, isSubscribed: $isSubscribed, date: $date, lastModified: $lastModified, postCategory: $postCategory)';
   }
 
   @override
@@ -5126,6 +5149,8 @@ class _$PostImpl implements _Post {
             (identical(other.downvoted, downvoted) ||
                 other.downvoted == downvoted) &&
             (identical(other.pinned, pinned) || other.pinned == pinned) &&
+            (identical(other.isSubscribed, isSubscribed) ||
+                other.isSubscribed == isSubscribed) &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.lastModified, lastModified) ||
                 other.lastModified == lastModified) &&
@@ -5147,6 +5172,7 @@ class _$PostImpl implements _Post {
       upvoted,
       downvoted,
       pinned,
+      isSubscribed,
       date,
       lastModified,
       postCategory);
@@ -5180,6 +5206,8 @@ abstract class _Post implements Post {
       @JsonKey(name: 'upvoted', defaultValue: false) final bool upvoted,
       @JsonKey(name: 'downvoted', defaultValue: false) final bool downvoted,
       @JsonKey(name: 'pinned', defaultValue: false) final bool pinned,
+      @JsonKey(name: 'isSubscribed', defaultValue: false)
+      final bool isSubscribed,
       @JsonKey(name: 'date', required: true) required final DateTime date,
       @JsonKey(name: 'lastModified', required: true)
       required final DateTime lastModified,
@@ -5237,6 +5265,11 @@ abstract class _Post implements Post {
   @override
   @JsonKey(name: 'pinned', defaultValue: false)
   bool get pinned;
+
+  /// Whether the user is subscribed to the post (false by default)
+  @override
+  @JsonKey(name: 'isSubscribed', defaultValue: false)
+  bool get isSubscribed;
 
   /// Date the post was created
   @override
@@ -5470,6 +5503,10 @@ mixin _$PostStatus {
   @JsonKey(name: 'type', required: true)
   String get type => throw _privateConstructorUsedError;
 
+  /// If the status is the default status
+  @JsonKey(name: 'isDefault', defaultValue: false)
+  bool get isDefault => throw _privateConstructorUsedError;
+
   /// Serializes this PostStatus to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
@@ -5489,7 +5526,8 @@ abstract class $PostStatusCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'name', required: true) String name,
       @JsonKey(name: 'color', required: true) String color,
-      @JsonKey(name: 'type', required: true) String type});
+      @JsonKey(name: 'type', required: true) String type,
+      @JsonKey(name: 'isDefault', defaultValue: false) bool isDefault});
 }
 
 /// @nodoc
@@ -5510,6 +5548,7 @@ class _$PostStatusCopyWithImpl<$Res, $Val extends PostStatus>
     Object? name = null,
     Object? color = null,
     Object? type = null,
+    Object? isDefault = null,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -5524,6 +5563,10 @@ class _$PostStatusCopyWithImpl<$Res, $Val extends PostStatus>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
+      isDefault: null == isDefault
+          ? _value.isDefault
+          : isDefault // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -5539,7 +5582,8 @@ abstract class _$$PostStatusImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: 'name', required: true) String name,
       @JsonKey(name: 'color', required: true) String color,
-      @JsonKey(name: 'type', required: true) String type});
+      @JsonKey(name: 'type', required: true) String type,
+      @JsonKey(name: 'isDefault', defaultValue: false) bool isDefault});
 }
 
 /// @nodoc
@@ -5558,6 +5602,7 @@ class __$$PostStatusImplCopyWithImpl<$Res>
     Object? name = null,
     Object? color = null,
     Object? type = null,
+    Object? isDefault = null,
   }) {
     return _then(_$PostStatusImpl(
       name: null == name
@@ -5572,6 +5617,10 @@ class __$$PostStatusImplCopyWithImpl<$Res>
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
+      isDefault: null == isDefault
+          ? _value.isDefault
+          : isDefault // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -5582,7 +5631,8 @@ class _$PostStatusImpl implements _PostStatus {
   const _$PostStatusImpl(
       {@JsonKey(name: 'name', required: true) required this.name,
       @JsonKey(name: 'color', required: true) required this.color,
-      @JsonKey(name: 'type', required: true) required this.type});
+      @JsonKey(name: 'type', required: true) required this.type,
+      @JsonKey(name: 'isDefault', defaultValue: false) this.isDefault = false});
 
   factory _$PostStatusImpl.fromJson(Map<String, dynamic> json) =>
       _$$PostStatusImplFromJson(json);
@@ -5602,9 +5652,14 @@ class _$PostStatusImpl implements _PostStatus {
   @JsonKey(name: 'type', required: true)
   final String type;
 
+  /// If the status is the default status
+  @override
+  @JsonKey(name: 'isDefault', defaultValue: false)
+  final bool isDefault;
+
   @override
   String toString() {
-    return 'PostStatus(name: $name, color: $color, type: $type)';
+    return 'PostStatus(name: $name, color: $color, type: $type, isDefault: $isDefault)';
   }
 
   @override
@@ -5614,12 +5669,14 @@ class _$PostStatusImpl implements _PostStatus {
             other is _$PostStatusImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.color, color) || other.color == color) &&
-            (identical(other.type, type) || other.type == type));
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.isDefault, isDefault) ||
+                other.isDefault == isDefault));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, name, color, type);
+  int get hashCode => Object.hash(runtimeType, name, color, type, isDefault);
 
   /// Create a copy of PostStatus
   /// with the given fields replaced by the non-null parameter values.
@@ -5639,10 +5696,11 @@ class _$PostStatusImpl implements _PostStatus {
 
 abstract class _PostStatus implements PostStatus {
   const factory _PostStatus(
-          {@JsonKey(name: 'name', required: true) required final String name,
-          @JsonKey(name: 'color', required: true) required final String color,
-          @JsonKey(name: 'type', required: true) required final String type}) =
-      _$PostStatusImpl;
+      {@JsonKey(name: 'name', required: true) required final String name,
+      @JsonKey(name: 'color', required: true) required final String color,
+      @JsonKey(name: 'type', required: true) required final String type,
+      @JsonKey(name: 'isDefault', defaultValue: false)
+      final bool isDefault}) = _$PostStatusImpl;
 
   factory _PostStatus.fromJson(Map<String, dynamic> json) =
       _$PostStatusImpl.fromJson;
@@ -5661,6 +5719,11 @@ abstract class _PostStatus implements PostStatus {
   @override
   @JsonKey(name: 'type', required: true)
   String get type;
+
+  /// If the status is the default status
+  @override
+  @JsonKey(name: 'isDefault', defaultValue: false)
+  bool get isDefault;
 
   /// Create a copy of PostStatus
   /// with the given fields replaced by the non-null parameter values.

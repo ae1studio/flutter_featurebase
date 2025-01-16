@@ -37,6 +37,11 @@ class Post with _$Post {
     /// Whether the post is pinned (false by default)
     @JsonKey(name: 'pinned', defaultValue: false) @Default(false) bool pinned,
 
+    /// Whether the user is subscribed to the post (false by default)
+    @JsonKey(name: 'isSubscribed', defaultValue: false)
+    @Default(false)
+    bool isSubscribed,
+
     /// Date the post was created
     @JsonKey(name: 'date', required: true) required DateTime date,
 
@@ -77,6 +82,11 @@ class PostStatus with _$PostStatus {
 
     /// The status type
     @JsonKey(name: 'type', required: true) required String type,
+
+    /// If the status is the default status
+    @JsonKey(name: 'isDefault', defaultValue: false)
+    @Default(false)
+    bool isDefault,
   }) = _PostStatus;
 
   factory PostStatus.fromJson(Map<String, Object?> json) =>
