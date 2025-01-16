@@ -4,7 +4,7 @@ Featurebase is a Feedback, Help center, Changelog and Survey hub. Learn more at 
 
 ## Features
 
-- [ ] Feedback
+- [X] Feedback - ⚠️ Only for users using SSO login ⚠️
 - [X] Help center
 - [X] Changelog
 - [ ] Surveys
@@ -29,6 +29,14 @@ localizationsDelegates: [
     //Any other delegates
 ],
 ```
+
+### Feedback Usage
+
+To use the feedback page you must be using an SSO login for your Featurebase organization.
+
+#### Setup Auth
+
+When launching the page you will need to provide an Bearer authoration token that works on your endpoint and an endpoint url.
 
 ### Help Center Usage
 
