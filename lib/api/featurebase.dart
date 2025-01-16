@@ -27,6 +27,9 @@ abstract class _FeaturebaseApiBase {
   late _OrganizationEnd _organization;
   _OrganizationEnd get organization => _organization;
 
+  late _FeedbackEnd _feedback;
+  _FeedbackEnd get feedback => _feedback;
+
   _FeaturebaseApiBase.from({
     String organizationName = "featurebase",
   }) {
@@ -36,5 +39,24 @@ abstract class _FeaturebaseApiBase {
     _helpCenter = _HelpCenterEnd(this);
     _changelog = _ChangelogEnd(this);
     _organization = _OrganizationEnd(this);
+    _feedback = _FeedbackEnd(this);
+
+    dio.interceptors.add(
+      InterceptorsWrapper(
+        onError: (options, handler) {
+          print('Request: ${options.response?.data}');
+          return handler.next(options);
+        },
+        onRequest: (options, handler) {
+          print('Request: ${options.path} ${options.queryParameters}');
+          return handler.next(options);
+        },
+      ),
+    );
+  }
+
+  /// Set the access token for the posts API requests
+  void setAccessToken(String accessToken) {
+    _dio.options.headers['x-access-token'] = accessToken;
   }
 }

@@ -178,3 +178,42 @@ _callHaptic() {
     }
   }
 }
+
+String _stripHtmlTags(String htmlString) {
+  return htmlString.replaceAll(RegExp(r'<[^>]*>'), '');
+}
+
+String _daysAgo(DateTime date) {
+  final now = DateTime.now();
+  final difference = now.difference(date);
+  if (difference.inDays == 0) {
+    return '${difference.inHours} hours ago';
+  }
+  return '${difference.inDays} days ago';
+}
+
+String _orderByLabel(String orderBy) {
+  switch (orderBy) {
+    case 'date':
+      return 'Recent posts';
+    case 'upvotes':
+      return 'Top upvoted';
+    case 'trending':
+      return 'Trending posts';
+    default:
+      return 'Unknown';
+  }
+}
+
+String _orderByIcon(String orderBy) {
+  switch (orderBy) {
+    case 'date':
+      return 'IconClock';
+    case 'upvotes':
+      return 'IconTrendingUp';
+    case 'trending':
+      return 'IconFire';
+    default:
+      return 'Unknown';
+  }
+}
