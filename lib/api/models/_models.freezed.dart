@@ -3973,6 +3973,10 @@ mixin _$Organization {
   @JsonKey(name: 'widget')
   AIOWidget? get widget => throw _privateConstructorUsedError;
 
+  /// The settings of the organization
+  @JsonKey(name: 'settings', required: true)
+  OrganizationSettings get settings => throw _privateConstructorUsedError;
+
   /// Picture url
   @JsonKey(name: 'picture')
   String? get picture => throw _privateConstructorUsedError;
@@ -3998,9 +4002,11 @@ abstract class $OrganizationCopyWith<$Res> {
       @JsonKey(name: 'color', required: true) String color,
       @JsonKey(name: 'ssoUrl') String? ssoUrl,
       @JsonKey(name: 'widget') AIOWidget? widget,
+      @JsonKey(name: 'settings', required: true) OrganizationSettings settings,
       @JsonKey(name: 'picture') String? picture});
 
   $AIOWidgetCopyWith<$Res>? get widget;
+  $OrganizationSettingsCopyWith<$Res> get settings;
 }
 
 /// @nodoc
@@ -4022,6 +4028,7 @@ class _$OrganizationCopyWithImpl<$Res, $Val extends Organization>
     Object? color = null,
     Object? ssoUrl = freezed,
     Object? widget = freezed,
+    Object? settings = null,
     Object? picture = freezed,
   }) {
     return _then(_value.copyWith(
@@ -4041,6 +4048,10 @@ class _$OrganizationCopyWithImpl<$Res, $Val extends Organization>
           ? _value.widget
           : widget // ignore: cast_nullable_to_non_nullable
               as AIOWidget?,
+      settings: null == settings
+          ? _value.settings
+          : settings // ignore: cast_nullable_to_non_nullable
+              as OrganizationSettings,
       picture: freezed == picture
           ? _value.picture
           : picture // ignore: cast_nullable_to_non_nullable
@@ -4061,6 +4072,16 @@ class _$OrganizationCopyWithImpl<$Res, $Val extends Organization>
       return _then(_value.copyWith(widget: value) as $Val);
     });
   }
+
+  /// Create a copy of Organization
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $OrganizationSettingsCopyWith<$Res> get settings {
+    return $OrganizationSettingsCopyWith<$Res>(_value.settings, (value) {
+      return _then(_value.copyWith(settings: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -4076,10 +4097,13 @@ abstract class _$$OrganizationImplCopyWith<$Res>
       @JsonKey(name: 'color', required: true) String color,
       @JsonKey(name: 'ssoUrl') String? ssoUrl,
       @JsonKey(name: 'widget') AIOWidget? widget,
+      @JsonKey(name: 'settings', required: true) OrganizationSettings settings,
       @JsonKey(name: 'picture') String? picture});
 
   @override
   $AIOWidgetCopyWith<$Res>? get widget;
+  @override
+  $OrganizationSettingsCopyWith<$Res> get settings;
 }
 
 /// @nodoc
@@ -4099,6 +4123,7 @@ class __$$OrganizationImplCopyWithImpl<$Res>
     Object? color = null,
     Object? ssoUrl = freezed,
     Object? widget = freezed,
+    Object? settings = null,
     Object? picture = freezed,
   }) {
     return _then(_$OrganizationImpl(
@@ -4118,6 +4143,10 @@ class __$$OrganizationImplCopyWithImpl<$Res>
           ? _value.widget
           : widget // ignore: cast_nullable_to_non_nullable
               as AIOWidget?,
+      settings: null == settings
+          ? _value.settings
+          : settings // ignore: cast_nullable_to_non_nullable
+              as OrganizationSettings,
       picture: freezed == picture
           ? _value.picture
           : picture // ignore: cast_nullable_to_non_nullable
@@ -4134,6 +4163,7 @@ class _$OrganizationImpl implements _Organization {
       @JsonKey(name: 'color', required: true) required this.color,
       @JsonKey(name: 'ssoUrl') this.ssoUrl,
       @JsonKey(name: 'widget') this.widget,
+      @JsonKey(name: 'settings', required: true) required this.settings,
       @JsonKey(name: 'picture') this.picture});
 
   factory _$OrganizationImpl.fromJson(Map<String, dynamic> json) =>
@@ -4159,6 +4189,11 @@ class _$OrganizationImpl implements _Organization {
   @JsonKey(name: 'widget')
   final AIOWidget? widget;
 
+  /// The settings of the organization
+  @override
+  @JsonKey(name: 'settings', required: true)
+  final OrganizationSettings settings;
+
   /// Picture url
   @override
   @JsonKey(name: 'picture')
@@ -4166,7 +4201,7 @@ class _$OrganizationImpl implements _Organization {
 
   @override
   String toString() {
-    return 'Organization(displayName: $displayName, color: $color, ssoUrl: $ssoUrl, widget: $widget, picture: $picture)';
+    return 'Organization(displayName: $displayName, color: $color, ssoUrl: $ssoUrl, widget: $widget, settings: $settings, picture: $picture)';
   }
 
   @override
@@ -4179,13 +4214,15 @@ class _$OrganizationImpl implements _Organization {
             (identical(other.color, color) || other.color == color) &&
             (identical(other.ssoUrl, ssoUrl) || other.ssoUrl == ssoUrl) &&
             (identical(other.widget, widget) || other.widget == widget) &&
+            (identical(other.settings, settings) ||
+                other.settings == settings) &&
             (identical(other.picture, picture) || other.picture == picture));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, displayName, color, ssoUrl, widget, picture);
+  int get hashCode => Object.hash(
+      runtimeType, displayName, color, ssoUrl, widget, settings, picture);
 
   /// Create a copy of Organization
   /// with the given fields replaced by the non-null parameter values.
@@ -4210,6 +4247,8 @@ abstract class _Organization implements Organization {
       @JsonKey(name: 'color', required: true) required final String color,
       @JsonKey(name: 'ssoUrl') final String? ssoUrl,
       @JsonKey(name: 'widget') final AIOWidget? widget,
+      @JsonKey(name: 'settings', required: true)
+      required final OrganizationSettings settings,
       @JsonKey(name: 'picture') final String? picture}) = _$OrganizationImpl;
 
   factory _Organization.fromJson(Map<String, dynamic> json) =
@@ -4234,6 +4273,11 @@ abstract class _Organization implements Organization {
   @override
   @JsonKey(name: 'widget')
   AIOWidget? get widget;
+
+  /// The settings of the organization
+  @override
+  @JsonKey(name: 'settings', required: true)
+  OrganizationSettings get settings;
 
   /// Picture url
   @override
@@ -4692,6 +4736,244 @@ abstract class _AIOCard implements AIOCard {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AIOCardImplCopyWith<_$AIOCardImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+OrganizationSettings _$OrganizationSettingsFromJson(Map<String, dynamic> json) {
+  return _OrganizationSettings.fromJson(json);
+}
+
+/// @nodoc
+mixin _$OrganizationSettings {
+  /// Downvotes feature enabled
+  @JsonKey(name: 'downvotesEnabled', defaultValue: false)
+  bool get downvotesEnabled => throw _privateConstructorUsedError;
+
+  /// Default sorting order of posts
+  @JsonKey(name: 'defaultSortingOrder', required: true)
+  String get defaultSortingOrder => throw _privateConstructorUsedError;
+
+  /// Hide vote counts until voted
+  @JsonKey(name: 'hideVoteCountUntilVoted', defaultValue: false)
+  bool get hideVoteCountUntilVoted => throw _privateConstructorUsedError;
+
+  /// Serializes this OrganizationSettings to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of OrganizationSettings
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $OrganizationSettingsCopyWith<OrganizationSettings> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $OrganizationSettingsCopyWith<$Res> {
+  factory $OrganizationSettingsCopyWith(OrganizationSettings value,
+          $Res Function(OrganizationSettings) then) =
+      _$OrganizationSettingsCopyWithImpl<$Res, OrganizationSettings>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'downvotesEnabled', defaultValue: false)
+      bool downvotesEnabled,
+      @JsonKey(name: 'defaultSortingOrder', required: true)
+      String defaultSortingOrder,
+      @JsonKey(name: 'hideVoteCountUntilVoted', defaultValue: false)
+      bool hideVoteCountUntilVoted});
+}
+
+/// @nodoc
+class _$OrganizationSettingsCopyWithImpl<$Res,
+        $Val extends OrganizationSettings>
+    implements $OrganizationSettingsCopyWith<$Res> {
+  _$OrganizationSettingsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of OrganizationSettings
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? downvotesEnabled = null,
+    Object? defaultSortingOrder = null,
+    Object? hideVoteCountUntilVoted = null,
+  }) {
+    return _then(_value.copyWith(
+      downvotesEnabled: null == downvotesEnabled
+          ? _value.downvotesEnabled
+          : downvotesEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      defaultSortingOrder: null == defaultSortingOrder
+          ? _value.defaultSortingOrder
+          : defaultSortingOrder // ignore: cast_nullable_to_non_nullable
+              as String,
+      hideVoteCountUntilVoted: null == hideVoteCountUntilVoted
+          ? _value.hideVoteCountUntilVoted
+          : hideVoteCountUntilVoted // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$OrganizationSettingsImplCopyWith<$Res>
+    implements $OrganizationSettingsCopyWith<$Res> {
+  factory _$$OrganizationSettingsImplCopyWith(_$OrganizationSettingsImpl value,
+          $Res Function(_$OrganizationSettingsImpl) then) =
+      __$$OrganizationSettingsImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'downvotesEnabled', defaultValue: false)
+      bool downvotesEnabled,
+      @JsonKey(name: 'defaultSortingOrder', required: true)
+      String defaultSortingOrder,
+      @JsonKey(name: 'hideVoteCountUntilVoted', defaultValue: false)
+      bool hideVoteCountUntilVoted});
+}
+
+/// @nodoc
+class __$$OrganizationSettingsImplCopyWithImpl<$Res>
+    extends _$OrganizationSettingsCopyWithImpl<$Res, _$OrganizationSettingsImpl>
+    implements _$$OrganizationSettingsImplCopyWith<$Res> {
+  __$$OrganizationSettingsImplCopyWithImpl(_$OrganizationSettingsImpl _value,
+      $Res Function(_$OrganizationSettingsImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of OrganizationSettings
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? downvotesEnabled = null,
+    Object? defaultSortingOrder = null,
+    Object? hideVoteCountUntilVoted = null,
+  }) {
+    return _then(_$OrganizationSettingsImpl(
+      downvotesEnabled: null == downvotesEnabled
+          ? _value.downvotesEnabled
+          : downvotesEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      defaultSortingOrder: null == defaultSortingOrder
+          ? _value.defaultSortingOrder
+          : defaultSortingOrder // ignore: cast_nullable_to_non_nullable
+              as String,
+      hideVoteCountUntilVoted: null == hideVoteCountUntilVoted
+          ? _value.hideVoteCountUntilVoted
+          : hideVoteCountUntilVoted // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$OrganizationSettingsImpl implements _OrganizationSettings {
+  const _$OrganizationSettingsImpl(
+      {@JsonKey(name: 'downvotesEnabled', defaultValue: false)
+      required this.downvotesEnabled = false,
+      @JsonKey(name: 'defaultSortingOrder', required: true)
+      required this.defaultSortingOrder,
+      @JsonKey(name: 'hideVoteCountUntilVoted', defaultValue: false)
+      required this.hideVoteCountUntilVoted = false});
+
+  factory _$OrganizationSettingsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OrganizationSettingsImplFromJson(json);
+
+  /// Downvotes feature enabled
+  @override
+  @JsonKey(name: 'downvotesEnabled', defaultValue: false)
+  final bool downvotesEnabled;
+
+  /// Default sorting order of posts
+  @override
+  @JsonKey(name: 'defaultSortingOrder', required: true)
+  final String defaultSortingOrder;
+
+  /// Hide vote counts until voted
+  @override
+  @JsonKey(name: 'hideVoteCountUntilVoted', defaultValue: false)
+  final bool hideVoteCountUntilVoted;
+
+  @override
+  String toString() {
+    return 'OrganizationSettings(downvotesEnabled: $downvotesEnabled, defaultSortingOrder: $defaultSortingOrder, hideVoteCountUntilVoted: $hideVoteCountUntilVoted)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OrganizationSettingsImpl &&
+            (identical(other.downvotesEnabled, downvotesEnabled) ||
+                other.downvotesEnabled == downvotesEnabled) &&
+            (identical(other.defaultSortingOrder, defaultSortingOrder) ||
+                other.defaultSortingOrder == defaultSortingOrder) &&
+            (identical(
+                    other.hideVoteCountUntilVoted, hideVoteCountUntilVoted) ||
+                other.hideVoteCountUntilVoted == hideVoteCountUntilVoted));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, downvotesEnabled,
+      defaultSortingOrder, hideVoteCountUntilVoted);
+
+  /// Create a copy of OrganizationSettings
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OrganizationSettingsImplCopyWith<_$OrganizationSettingsImpl>
+      get copyWith =>
+          __$$OrganizationSettingsImplCopyWithImpl<_$OrganizationSettingsImpl>(
+              this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$OrganizationSettingsImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _OrganizationSettings implements OrganizationSettings {
+  const factory _OrganizationSettings(
+          {@JsonKey(name: 'downvotesEnabled', defaultValue: false)
+          required final bool downvotesEnabled,
+          @JsonKey(name: 'defaultSortingOrder', required: true)
+          required final String defaultSortingOrder,
+          @JsonKey(name: 'hideVoteCountUntilVoted', defaultValue: false)
+          required final bool hideVoteCountUntilVoted}) =
+      _$OrganizationSettingsImpl;
+
+  factory _OrganizationSettings.fromJson(Map<String, dynamic> json) =
+      _$OrganizationSettingsImpl.fromJson;
+
+  /// Downvotes feature enabled
+  @override
+  @JsonKey(name: 'downvotesEnabled', defaultValue: false)
+  bool get downvotesEnabled;
+
+  /// Default sorting order of posts
+  @override
+  @JsonKey(name: 'defaultSortingOrder', required: true)
+  String get defaultSortingOrder;
+
+  /// Hide vote counts until voted
+  @override
+  @JsonKey(name: 'hideVoteCountUntilVoted', defaultValue: false)
+  bool get hideVoteCountUntilVoted;
+
+  /// Create a copy of OrganizationSettings
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$OrganizationSettingsImplCopyWith<_$OrganizationSettingsImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 Post _$PostFromJson(Map<String, dynamic> json) {

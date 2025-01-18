@@ -15,6 +15,10 @@ class Organization with _$Organization {
     /// The widgets of the organization
     @JsonKey(name: 'widget') AIOWidget? widget,
 
+    /// The settings of the organization
+    @JsonKey(name: 'settings', required: true)
+    required OrganizationSettings settings,
+
     /// Picture url
     @JsonKey(name: 'picture') String? picture,
   }) = _Organization;
@@ -55,4 +59,26 @@ class AIOCard with _$AIOCard {
 
   factory AIOCard.fromJson(Map<String, Object?> json) =>
       _$AIOCardFromJson(json);
+}
+
+@freezed
+class OrganizationSettings with _$OrganizationSettings {
+  const factory OrganizationSettings({
+    /// Downvotes feature enabled
+    @JsonKey(name: 'downvotesEnabled', defaultValue: false)
+    @Default(false)
+    required bool downvotesEnabled,
+
+    /// Default sorting order of posts
+    @JsonKey(name: 'defaultSortingOrder', required: true)
+    required String defaultSortingOrder,
+
+    /// Hide vote counts until voted
+    @JsonKey(name: 'hideVoteCountUntilVoted', defaultValue: false)
+    @Default(false)
+    required bool hideVoteCountUntilVoted,
+  }) = _OrganizationSettings;
+
+  factory OrganizationSettings.fromJson(Map<String, Object?> json) =>
+      _$OrganizationSettingsFromJson(json);
 }

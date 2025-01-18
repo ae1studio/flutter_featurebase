@@ -320,7 +320,7 @@ Map<String, dynamic> _$$NavItemImplToJson(_$NavItemImpl instance) =>
 _$OrganizationImpl _$$OrganizationImplFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
-    requiredKeys: const ['displayName', 'color'],
+    requiredKeys: const ['displayName', 'color', 'settings'],
   );
   return _$OrganizationImpl(
     displayName: json['displayName'] as String,
@@ -329,6 +329,8 @@ _$OrganizationImpl _$$OrganizationImplFromJson(Map<String, dynamic> json) {
     widget: json['widget'] == null
         ? null
         : AIOWidget.fromJson(json['widget'] as Map<String, dynamic>),
+    settings:
+        OrganizationSettings.fromJson(json['settings'] as Map<String, dynamic>),
     picture: json['picture'] as String?,
   );
 }
@@ -339,6 +341,7 @@ Map<String, dynamic> _$$OrganizationImplToJson(_$OrganizationImpl instance) =>
       'color': instance.color,
       'ssoUrl': instance.ssoUrl,
       'widget': instance.widget,
+      'settings': instance.settings,
       'picture': instance.picture,
     };
 
@@ -380,6 +383,27 @@ Map<String, dynamic> _$$AIOCardImplToJson(_$AIOCardImpl instance) =>
       'title': instance.title,
       'description': instance.description,
       'category': instance.category,
+    };
+
+_$OrganizationSettingsImpl _$$OrganizationSettingsImplFromJson(
+    Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    requiredKeys: const ['defaultSortingOrder'],
+  );
+  return _$OrganizationSettingsImpl(
+    downvotesEnabled: json['downvotesEnabled'] as bool? ?? false,
+    defaultSortingOrder: json['defaultSortingOrder'] as String,
+    hideVoteCountUntilVoted: json['hideVoteCountUntilVoted'] as bool? ?? false,
+  );
+}
+
+Map<String, dynamic> _$$OrganizationSettingsImplToJson(
+        _$OrganizationSettingsImpl instance) =>
+    <String, dynamic>{
+      'downvotesEnabled': instance.downvotesEnabled,
+      'defaultSortingOrder': instance.defaultSortingOrder,
+      'hideVoteCountUntilVoted': instance.hideVoteCountUntilVoted,
     };
 
 _$PostImpl _$$PostImplFromJson(Map<String, dynamic> json) {
