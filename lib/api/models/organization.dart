@@ -67,7 +67,7 @@ class OrganizationSettings with _$OrganizationSettings {
     /// Downvotes feature enabled
     @JsonKey(name: 'downvotesEnabled', defaultValue: false)
     @Default(false)
-    required bool downvotesEnabled,
+    bool downvotesEnabled,
 
     /// Default sorting order of posts
     @JsonKey(name: 'defaultSortingOrder', required: true)
@@ -76,7 +76,7 @@ class OrganizationSettings with _$OrganizationSettings {
     /// Hide vote counts until voted
     @JsonKey(name: 'hideVoteCountUntilVoted', defaultValue: false)
     @Default(false)
-    required bool hideVoteCountUntilVoted,
+    bool hideVoteCountUntilVoted,
   }) = _OrganizationSettings;
 
   factory OrganizationSettings.fromJson(Map<String, Object?> json) =>

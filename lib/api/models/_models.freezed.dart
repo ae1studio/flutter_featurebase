@@ -4874,11 +4874,11 @@ class __$$OrganizationSettingsImplCopyWithImpl<$Res>
 class _$OrganizationSettingsImpl implements _OrganizationSettings {
   const _$OrganizationSettingsImpl(
       {@JsonKey(name: 'downvotesEnabled', defaultValue: false)
-      required this.downvotesEnabled = false,
+      this.downvotesEnabled = false,
       @JsonKey(name: 'defaultSortingOrder', required: true)
       required this.defaultSortingOrder,
       @JsonKey(name: 'hideVoteCountUntilVoted', defaultValue: false)
-      required this.hideVoteCountUntilVoted = false});
+      this.hideVoteCountUntilVoted = false});
 
   factory _$OrganizationSettingsImpl.fromJson(Map<String, dynamic> json) =>
       _$$OrganizationSettingsImplFromJson(json);
@@ -4942,13 +4942,12 @@ class _$OrganizationSettingsImpl implements _OrganizationSettings {
 
 abstract class _OrganizationSettings implements OrganizationSettings {
   const factory _OrganizationSettings(
-          {@JsonKey(name: 'downvotesEnabled', defaultValue: false)
-          required final bool downvotesEnabled,
-          @JsonKey(name: 'defaultSortingOrder', required: true)
-          required final String defaultSortingOrder,
-          @JsonKey(name: 'hideVoteCountUntilVoted', defaultValue: false)
-          required final bool hideVoteCountUntilVoted}) =
-      _$OrganizationSettingsImpl;
+      {@JsonKey(name: 'downvotesEnabled', defaultValue: false)
+      final bool downvotesEnabled,
+      @JsonKey(name: 'defaultSortingOrder', required: true)
+      required final String defaultSortingOrder,
+      @JsonKey(name: 'hideVoteCountUntilVoted', defaultValue: false)
+      final bool hideVoteCountUntilVoted}) = _$OrganizationSettingsImpl;
 
   factory _OrganizationSettings.fromJson(Map<String, dynamic> json) =
       _$OrganizationSettingsImpl.fromJson;
