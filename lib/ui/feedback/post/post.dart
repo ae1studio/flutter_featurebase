@@ -15,6 +15,14 @@ class _PostView extends ConsumerStatefulWidget {
 }
 
 class _PostViewState extends ConsumerState<_PostView> {
+  late fb.Post post;
+
+  @override
+  void initState() {
+    post = widget.post;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,7 +101,7 @@ class _PostViewState extends ConsumerState<_PostView> {
                       children: [
                         Container(
                           padding: const EdgeInsets.symmetric(
-                            horizontal: 8,
+                            horizontal: 6,
                             vertical: 4,
                           ),
                           decoration: BoxDecoration(
@@ -102,7 +110,71 @@ class _PostViewState extends ConsumerState<_PostView> {
                           ),
                           child: Row(
                             children: [
+                              Padding(
+                                padding: const EdgeInsets.all(3),
+                                child: _FBIconWidget(
+                                  icon: const fb.FBIcon(
+                                    type: 'predefined',
+                                    value: 'IconChat',
+                                  ),
+                                  isDark: false,
+                                  textColor: Theme.of(context)
+                                      .textTheme
+                                      .displayLarge!
+                                      .color!,
+                                  size: 16,
+                                  primaryColor: Theme.of(context)
+                                      .textTheme
+                                      .displayLarge!
+                                      .color!
+                                      .withOpacity(0.4),
+                                ),
+                              ),
+                              Text(
+                                '${widget.post.commentCount}',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .displayLarge!
+                                    .copyWith(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w600,
+                                      color: Theme.of(context)
+                                          .textTheme
+                                          .displayLarge!
+                                          .color!
+                                          .withOpacity(0.7),
+                                    ),
+                              ),
                               const SizedBox(width: 3),
+                            ],
+                          ),
+                        ),
+                        const Spacer(),
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 4,
+                            vertical: 4,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).cardColor,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Row(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(3),
+                                child: Icon(
+                                  Icons.keyboard_arrow_up_rounded,
+                                  size: 21,
+                                  color: post.upvoted
+                                      ? Colors.green
+                                      : Theme.of(context)
+                                          .textTheme
+                                          .displayLarge!
+                                          .color!
+                                          .withOpacity(0.7),
+                                ),
+                              ),
                               Text(
                                 '${widget.post.upvotes}',
                                 style: Theme.of(context)
@@ -118,20 +190,21 @@ class _PostViewState extends ConsumerState<_PostView> {
                                           .withOpacity(0.7),
                                     ),
                               ),
-                              Padding(
-                                padding: const EdgeInsets.all(3),
-                                child: Icon(
-                                  Icons.keyboard_arrow_up_rounded,
-                                  size: 21,
-                                  color: widget.post.upvoted
-                                      ? Colors.green
-                                      : Theme.of(context)
-                                          .textTheme
-                                          .displayLarge!
-                                          .color!
-                                          .withOpacity(0.7),
+                              if (widget.organization.settings.downvotesEnabled)
+                                Padding(
+                                  padding: const EdgeInsets.all(3),
+                                  child: Icon(
+                                    Icons.keyboard_arrow_down_rounded,
+                                    size: 21,
+                                    color: post.downvoted
+                                        ? Colors.red
+                                        : Theme.of(context)
+                                            .textTheme
+                                            .displayLarge!
+                                            .color!
+                                            .withOpacity(0.7),
+                                  ),
                                 ),
-                              ),
                             ],
                           ),
                         ),
