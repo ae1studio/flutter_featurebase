@@ -3,6 +3,7 @@ library featurebase;
 
 import 'dart:ui' as ui;
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:collection/collection.dart';
 import 'package:custom_top_navigator_plus/custom_navigation.dart';
 import 'package:dio/dio.dart';
 import 'package:easy_infinite_pagination/easy_infinite_pagination.dart';
@@ -34,6 +35,7 @@ part 'api/endpoints/feedback.dart';
 part 'ui/changelog/changelog.dart';
 part 'ui/changelog/widgets/changelog_card.dart';
 part 'ui/feedback/feedback.dart';
+part 'ui/feedback/post/post.dart';
 part 'ui/help_center/help_center.dart';
 part 'ui/help_center/collection/collection.dart';
 part 'ui/help_center/article/article.dart';

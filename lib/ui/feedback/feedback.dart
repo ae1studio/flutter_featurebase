@@ -126,9 +126,9 @@ class _FeedbackViewState extends ConsumerState<FeedbackView> {
 
   @override
   Widget build(BuildContext context) {
-    // AsyncValue<fb.Organization> organizationAsync = ref.watch(
-    //   getOrganizationProvider,
-    // );
+    AsyncValue<fb.Organization> organizationAsync = ref.watch(
+      getOrganizationProvider,
+    );
 
     fb.ResultsPagination<fb.Post> posts = ref.watch(
       feedbackSubmissionsListProvider,
@@ -314,121 +314,133 @@ class _FeedbackViewState extends ConsumerState<FeedbackView> {
                             ),
                           ),
                         ),
-                        SliverInfiniteListView(
-                          delegate: PaginationDelegate(
-                            isLoading: loading,
-                            hasError: error != null,
-                            hasReachedMax: noMoreItems,
-                            invisibleItemsThreshold: 5,
-                            firstPageErrorBuilder: (context, onRetry) {
-                              return _ErrorLoadingWidget(
-                                textColor: widget.textColor,
-                              );
-                            },
-                            loadMoreErrorBuilder: (context, onRetry) {
-                              return _ErrorLoadingWidget(
-                                textColor: widget.textColor,
-                              );
-                            },
-                            firstPageLoadingBuilder: (context) {
-                              return Center(
-                                child: CircularProgressIndicator(
-                                  color: Theme.of(context).primaryColor,
-                                ),
-                              );
-                            },
-                            firstPageNoItemsBuilder: (context) {
-                              return Center(
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
+                        organizationAsync.when(
+                          data: (organization) => SliverInfiniteListView(
+                            delegate: PaginationDelegate(
+                              isLoading: loading,
+                              hasError: error != null,
+                              hasReachedMax: noMoreItems,
+                              invisibleItemsThreshold: 5,
+                              firstPageErrorBuilder: (context, onRetry) {
+                                return _ErrorLoadingWidget(
+                                  textColor: widget.textColor,
+                                );
+                              },
+                              loadMoreErrorBuilder: (context, onRetry) {
+                                return _ErrorLoadingWidget(
+                                  textColor: widget.textColor,
+                                );
+                              },
+                              firstPageLoadingBuilder: (context) {
+                                return Center(
+                                  child: CircularProgressIndicator(
+                                    color: Theme.of(context).primaryColor,
+                                  ),
+                                );
+                              },
+                              firstPageNoItemsBuilder: (context) {
+                                return Center(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Icon(
+                                        Icons.info_rounded,
+                                        color: widget.textColor,
+                                        size: 45,
+                                      ),
+                                      const SizedBox(height: 15),
+                                      Center(
+                                        child: Text(
+                                          'No posts found',
+                                          style: TextStyle(
+                                            color: widget.textColor,
+                                            fontSize: 25,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                              loadMoreNoMoreItemsBuilder: (context) {
+                                return Column(
                                   children: [
-                                    Icon(
-                                      Icons.info_rounded,
-                                      color: widget.textColor,
-                                      size: 45,
-                                    ),
-                                    const SizedBox(height: 15),
+                                    const SizedBox(height: 20),
                                     Center(
                                       child: Text(
-                                        'No posts found',
+                                        '-',
                                         style: TextStyle(
-                                          color: widget.textColor,
-                                          fontSize: 25,
+                                          color:
+                                              widget.textColor.withOpacity(0.7),
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ),
+                                    Center(
+                                      child: Text(
+                                        'No more posts',
+                                        style: TextStyle(
+                                          color:
+                                              widget.textColor.withOpacity(0.7),
+                                          fontSize: 16,
                                           fontWeight: FontWeight.w500,
                                         ),
                                       ),
                                     ),
                                   ],
-                                ),
-                              );
-                            },
-                            loadMoreNoMoreItemsBuilder: (context) {
-                              return Column(
-                                children: [
-                                  const SizedBox(height: 20),
-                                  Center(
-                                    child: Text(
-                                      '-',
-                                      style: TextStyle(
-                                        color:
-                                            widget.textColor.withOpacity(0.7),
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ),
-                                  Center(
-                                    child: Text(
-                                      'No more posts',
-                                      style: TextStyle(
-                                        color:
-                                            widget.textColor.withOpacity(0.7),
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              );
-                            },
-                            itemCount: posts.results.length,
-                            itemBuilder: (context, index) {
-                              return _PostCard(
-                                post: posts.results[index],
-                                textColor: widget.textColor,
-                                locale: currentLocale,
-                              );
-                            },
-                            onFetchData: () async {
-                              try {
-                                fb.ResultsPagination<fb.Post> added = await ref
-                                    .read(feedbackSubmissionsListProvider
-                                        .notifier)
-                                    .loadMore(orderBy, direction);
-                                // If 10 new items are not added there is no more
-                                if (added.page == added.totalPages) {
-                                  noMoreItems = true;
-                                  if (!loading) {
+                                );
+                              },
+                              itemCount: posts.results.length,
+                              itemBuilder: (context, index) {
+                                return _PostCard(
+                                  post: posts.results[index],
+                                  textColor: widget.textColor,
+                                  locale: currentLocale,
+                                  organization: organization,
+                                );
+                              },
+                              onFetchData: () async {
+                                try {
+                                  fb.ResultsPagination<fb.Post> added =
+                                      await ref
+                                          .read(feedbackSubmissionsListProvider
+                                              .notifier)
+                                          .loadMore(orderBy, direction);
+                                  // If 10 new items are not added there is no more
+                                  if (added.page == added.totalPages) {
+                                    noMoreItems = true;
+                                    if (!loading) {
+                                      if (mounted) setState(() {});
+                                    }
+                                  }
+                                  //Done with first load
+                                  if (loading ||
+                                      added.page != added.totalPages) {
+                                    loading = false;
                                     if (mounted) setState(() {});
                                   }
+                                } catch (e) {
+                                  error = e;
+                                  if (mounted) {
+                                    setState(() {});
+                                  }
                                 }
-                                //Done with first load
-                                if (loading || added.page != added.totalPages) {
-                                  loading = false;
-                                  if (mounted) setState(() {});
-                                }
-                              } catch (e) {
-                                error = e;
-                                if (mounted) {
-                                  setState(() {});
-                                }
-                              }
-                            },
+                              },
+                            ),
                           ),
-                        ),
-                        SliverToBoxAdapter(
-                          child: const SizedBox(
-                            height: 80,
+                          error: (error, stackTrace) => SliverToBoxAdapter(
+                            child: _ErrorLoadingWidget(
+                              textColor: widget.textColor,
+                            ),
+                          ),
+                          loading: () => SliverToBoxAdapter(
+                            child: Center(
+                              child: CircularProgressIndicator(
+                                color: Theme.of(context).primaryColor,
+                              ),
+                            ),
                           ),
                         ),
                       ],

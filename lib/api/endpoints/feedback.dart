@@ -31,4 +31,65 @@ class _FeedbackEnd extends _EndpointBase {
       (json) => fb.Post.fromJson(json as Map<String, dynamic>),
     );
   }
+
+  /// Submit a post
+  Future<fb.Post> submit({
+    required String title,
+    required String content,
+    required String categoryId,
+    required String authorId,
+  }) async {
+    final Map<String, Object?> map = (await dio.post(_path, data: {
+      "title": title,
+      "content": content,
+      "categoryId": categoryId,
+      "authorId": authorId,
+    }))
+        .data;
+    return fb.Post.fromJson(map);
+  }
+
+  /// Update a post
+  Future<fb.Post> updatePost({
+    required String title,
+    required String content,
+    required String categoryId,
+    required String postId,
+  }) async {
+    final Map<String, Object?> map = (await dio.post(_path, data: {
+      "title": title,
+      "content": content,
+      "categoryId": categoryId,
+      "submissionId": postId,
+    }))
+        .data;
+    return fb.Post.fromJson(map);
+  }
+
+  /// Delete a post
+  Future<void> deletePost({
+    required String postId,
+  }) async {
+    await dio.delete(_path, data: {
+      "submissionId": postId,
+    });
+  }
+
+  /// Upvote a post
+  Future<void> upvotePost({
+    required String postId,
+  }) async {
+    await dio.post('$_path/upvote', data: {
+      "submissionId": postId,
+    });
+  }
+
+  /// Downvote a post
+  Future<void> downvotePost({
+    required String postId,
+  }) async {
+    await dio.post('$_path/downvote', data: {
+      "submissionId": postId,
+    });
+  }
 }

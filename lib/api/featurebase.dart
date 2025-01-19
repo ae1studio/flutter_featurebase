@@ -59,4 +59,9 @@ abstract class _FeaturebaseApiBase {
   void setAccessToken(String accessToken) {
     _dio.options.headers['x-access-token'] = accessToken;
   }
+
+  /// Set the CSRF token for the posts API requests
+  void setCsrfToken(String csrfToken) {
+    _dio.options.headers['x-csrf-token'] = csrfToken;
+  }
 }

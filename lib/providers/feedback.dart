@@ -67,4 +67,14 @@ class FeedbackSubmissionsList extends _$FeedbackSubmissionsList {
     ref.notifyListeners();
     return;
   }
+
+  /// Update a post
+  void updatePost(fb.Post post) {
+    int temp = state.results.indexWhere((element) => element.id == post.id);
+    if (temp != -1) {
+      state.results.removeAt(temp);
+      state.results.insert(temp, post);
+      ref.notifyListeners();
+    }
+  }
 }

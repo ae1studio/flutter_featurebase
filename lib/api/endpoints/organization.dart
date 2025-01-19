@@ -9,6 +9,8 @@ class _OrganizationEnd extends _EndpointBase {
   /// Get the organization details
   Future<fb.Organization> get() async {
     final Map<String, Object?> map = (await dio.get(_path)).data;
+    // Set the CSRF token
+    _api.setCsrfToken(map['csrfToken'] as String);
     return fb.Organization.fromJson(map);
   }
 }
