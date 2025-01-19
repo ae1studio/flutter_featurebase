@@ -49,6 +49,7 @@ part 'ui/widgets/language_picker.dart';
 part 'ui/widgets/error_loading_widget.dart';
 part 'ui/widgets/render_html_widget.dart';
 part 'ui/widgets/post_card.dart';
+part 'ui/widgets/post_status_badge.dart';
 part 'ui/widgets/fade_tap_widget.dart';
 //Providers
 part 'providers/feedback.dart';

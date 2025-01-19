@@ -137,6 +137,11 @@ class _PostCardState extends ConsumerState<_PostCard> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    if (!post.status.isDefault)
+                      _PostStatusBadge(
+                        margin: const EdgeInsets.only(bottom: 6),
+                        post: post,
+                      ),
                     Text(
                       widget.post.title,
                       style: Theme.of(context).textTheme.displayLarge!.copyWith(
