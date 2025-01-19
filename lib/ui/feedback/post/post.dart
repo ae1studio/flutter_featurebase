@@ -99,6 +99,10 @@ class _PostViewState extends ConsumerState<_PostView> {
                     const SizedBox(height: 8),
                     Row(
                       children: [
+                        _PostStatusBadge(
+                          margin: const EdgeInsets.only(right: 6),
+                          post: post,
+                        ),
                         Container(
                           padding: const EdgeInsets.symmetric(
                             horizontal: 6,
