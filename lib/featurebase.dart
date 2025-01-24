@@ -31,6 +31,7 @@ part 'api/endpoints/help_center.dart';
 part 'api/endpoints/changelog.dart';
 part 'api/endpoints/organization.dart';
 part 'api/endpoints/feedback.dart';
+part 'api/endpoints/user.dart';
 //UI
 part 'ui/changelog/changelog.dart';
 part 'ui/changelog/widgets/changelog_card.dart';

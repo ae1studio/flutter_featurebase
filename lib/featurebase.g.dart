@@ -820,7 +820,7 @@ final getOrganizationProvider =
 // ignore: unused_element
 typedef GetOrganizationRef = AutoDisposeFutureProviderRef<fb.Organization>;
 String _$feedbackSubmissionsListHash() =>
-    r'cf267f68b5ddf578e26d03d47b66741456a8102d';
+    r'e3987b8381b10d54e1344d6f1eeb686676682bec';
 
 /// See also [FeedbackSubmissionsList].
 @ProviderFor(FeedbackSubmissionsList)

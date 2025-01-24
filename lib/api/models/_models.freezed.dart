@@ -6259,3 +6259,335 @@ abstract class _UserSimple implements UserSimple {
   _$$UserSimpleImplCopyWith<_$UserSimpleImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+User _$UserFromJson(Map<String, dynamic> json) {
+  return _User.fromJson(json);
+}
+
+/// @nodoc
+mixin _$User {
+  /// The featurebase id for the user
+  @JsonKey(name: 'id', required: true)
+  String get id => throw _privateConstructorUsedError;
+
+  /// The platforms user id
+  @JsonKey(name: 'userId', required: true)
+  String get userId => throw _privateConstructorUsedError;
+
+  /// The name of the user
+  @JsonKey(name: 'name', required: true)
+  String get name => throw _privateConstructorUsedError;
+
+  /// The users picture
+  @JsonKey(name: 'profilePicture')
+  String? get picture => throw _privateConstructorUsedError;
+
+  /// The amount of comments the user has created
+  @JsonKey(name: 'commentsCreated')
+  int get commentsCreated => throw _privateConstructorUsedError;
+
+  /// The amount of posts the user has created
+  @JsonKey(name: 'postsCreated')
+  int get postsCreated => throw _privateConstructorUsedError;
+
+  /// The type of the user
+  @JsonKey(name: 'type', required: true)
+  String get type => throw _privateConstructorUsedError;
+
+  /// Serializes this User to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of User
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UserCopyWith<$Res> {
+  factory $UserCopyWith(User value, $Res Function(User) then) =
+      _$UserCopyWithImpl<$Res, User>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'id', required: true) String id,
+      @JsonKey(name: 'userId', required: true) String userId,
+      @JsonKey(name: 'name', required: true) String name,
+      @JsonKey(name: 'profilePicture') String? picture,
+      @JsonKey(name: 'commentsCreated') int commentsCreated,
+      @JsonKey(name: 'postsCreated') int postsCreated,
+      @JsonKey(name: 'type', required: true) String type});
+}
+
+/// @nodoc
+class _$UserCopyWithImpl<$Res, $Val extends User>
+    implements $UserCopyWith<$Res> {
+  _$UserCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of User
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? userId = null,
+    Object? name = null,
+    Object? picture = freezed,
+    Object? commentsCreated = null,
+    Object? postsCreated = null,
+    Object? type = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      picture: freezed == picture
+          ? _value.picture
+          : picture // ignore: cast_nullable_to_non_nullable
+              as String?,
+      commentsCreated: null == commentsCreated
+          ? _value.commentsCreated
+          : commentsCreated // ignore: cast_nullable_to_non_nullable
+              as int,
+      postsCreated: null == postsCreated
+          ? _value.postsCreated
+          : postsCreated // ignore: cast_nullable_to_non_nullable
+              as int,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
+  factory _$$UserImplCopyWith(
+          _$UserImpl value, $Res Function(_$UserImpl) then) =
+      __$$UserImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'id', required: true) String id,
+      @JsonKey(name: 'userId', required: true) String userId,
+      @JsonKey(name: 'name', required: true) String name,
+      @JsonKey(name: 'profilePicture') String? picture,
+      @JsonKey(name: 'commentsCreated') int commentsCreated,
+      @JsonKey(name: 'postsCreated') int postsCreated,
+      @JsonKey(name: 'type', required: true) String type});
+}
+
+/// @nodoc
+class __$$UserImplCopyWithImpl<$Res>
+    extends _$UserCopyWithImpl<$Res, _$UserImpl>
+    implements _$$UserImplCopyWith<$Res> {
+  __$$UserImplCopyWithImpl(_$UserImpl _value, $Res Function(_$UserImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of User
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? userId = null,
+    Object? name = null,
+    Object? picture = freezed,
+    Object? commentsCreated = null,
+    Object? postsCreated = null,
+    Object? type = null,
+  }) {
+    return _then(_$UserImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      picture: freezed == picture
+          ? _value.picture
+          : picture // ignore: cast_nullable_to_non_nullable
+              as String?,
+      commentsCreated: null == commentsCreated
+          ? _value.commentsCreated
+          : commentsCreated // ignore: cast_nullable_to_non_nullable
+              as int,
+      postsCreated: null == postsCreated
+          ? _value.postsCreated
+          : postsCreated // ignore: cast_nullable_to_non_nullable
+              as int,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$UserImpl implements _User {
+  const _$UserImpl(
+      {@JsonKey(name: 'id', required: true) required this.id,
+      @JsonKey(name: 'userId', required: true) required this.userId,
+      @JsonKey(name: 'name', required: true) required this.name,
+      @JsonKey(name: 'profilePicture') this.picture,
+      @JsonKey(name: 'commentsCreated') this.commentsCreated = 0,
+      @JsonKey(name: 'postsCreated') this.postsCreated = 0,
+      @JsonKey(name: 'type', required: true) required this.type});
+
+  factory _$UserImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserImplFromJson(json);
+
+  /// The featurebase id for the user
+  @override
+  @JsonKey(name: 'id', required: true)
+  final String id;
+
+  /// The platforms user id
+  @override
+  @JsonKey(name: 'userId', required: true)
+  final String userId;
+
+  /// The name of the user
+  @override
+  @JsonKey(name: 'name', required: true)
+  final String name;
+
+  /// The users picture
+  @override
+  @JsonKey(name: 'profilePicture')
+  final String? picture;
+
+  /// The amount of comments the user has created
+  @override
+  @JsonKey(name: 'commentsCreated')
+  final int commentsCreated;
+
+  /// The amount of posts the user has created
+  @override
+  @JsonKey(name: 'postsCreated')
+  final int postsCreated;
+
+  /// The type of the user
+  @override
+  @JsonKey(name: 'type', required: true)
+  final String type;
+
+  @override
+  String toString() {
+    return 'User(id: $id, userId: $userId, name: $name, picture: $picture, commentsCreated: $commentsCreated, postsCreated: $postsCreated, type: $type)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UserImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.picture, picture) || other.picture == picture) &&
+            (identical(other.commentsCreated, commentsCreated) ||
+                other.commentsCreated == commentsCreated) &&
+            (identical(other.postsCreated, postsCreated) ||
+                other.postsCreated == postsCreated) &&
+            (identical(other.type, type) || other.type == type));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, userId, name, picture,
+      commentsCreated, postsCreated, type);
+
+  /// Create a copy of User
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UserImplCopyWith<_$UserImpl> get copyWith =>
+      __$$UserImplCopyWithImpl<_$UserImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$UserImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _User implements User {
+  const factory _User(
+          {@JsonKey(name: 'id', required: true) required final String id,
+          @JsonKey(name: 'userId', required: true) required final String userId,
+          @JsonKey(name: 'name', required: true) required final String name,
+          @JsonKey(name: 'profilePicture') final String? picture,
+          @JsonKey(name: 'commentsCreated') final int commentsCreated,
+          @JsonKey(name: 'postsCreated') final int postsCreated,
+          @JsonKey(name: 'type', required: true) required final String type}) =
+      _$UserImpl;
+
+  factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
+
+  /// The featurebase id for the user
+  @override
+  @JsonKey(name: 'id', required: true)
+  String get id;
+
+  /// The platforms user id
+  @override
+  @JsonKey(name: 'userId', required: true)
+  String get userId;
+
+  /// The name of the user
+  @override
+  @JsonKey(name: 'name', required: true)
+  String get name;
+
+  /// The users picture
+  @override
+  @JsonKey(name: 'profilePicture')
+  String? get picture;
+
+  /// The amount of comments the user has created
+  @override
+  @JsonKey(name: 'commentsCreated')
+  int get commentsCreated;
+
+  /// The amount of posts the user has created
+  @override
+  @JsonKey(name: 'postsCreated')
+  int get postsCreated;
+
+  /// The type of the user
+  @override
+  @JsonKey(name: 'type', required: true)
+  String get type;
+
+  /// Create a copy of User
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UserImplCopyWith<_$UserImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

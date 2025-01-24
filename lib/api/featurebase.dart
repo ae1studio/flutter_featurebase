@@ -30,6 +30,9 @@ abstract class _FeaturebaseApiBase {
   late _FeedbackEnd _feedback;
   _FeedbackEnd get feedback => _feedback;
 
+  late _UserEnd _user;
+  _UserEnd get user => _user;
+
   _FeaturebaseApiBase.from({
     String organizationName = "featurebase",
   }) {
@@ -40,19 +43,20 @@ abstract class _FeaturebaseApiBase {
     _changelog = _ChangelogEnd(this);
     _organization = _OrganizationEnd(this);
     _feedback = _FeedbackEnd(this);
+    _user = _UserEnd(this);
 
-    dio.interceptors.add(
-      InterceptorsWrapper(
-        onError: (options, handler) {
-          print('Request: ${options.response?.data}');
-          return handler.next(options);
-        },
-        onRequest: (options, handler) {
-          print('Request: ${options.path} ${options.queryParameters}');
-          return handler.next(options);
-        },
-      ),
-    );
+    // dio.interceptors.add(
+    //   InterceptorsWrapper(
+    //     onError: (options, handler) {
+    //       print('Request: ${options.response?.data}');
+    //       return handler.next(options);
+    //     },
+    //     onRequest: (options, handler) {
+    //       print('Request: ${options.path} ${options.queryParameters}');
+    //       return handler.next(options);
+    //     },
+    //   ),
+    // );
   }
 
   /// Set the access token for the posts API requests

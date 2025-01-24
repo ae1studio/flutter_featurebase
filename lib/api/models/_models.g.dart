@@ -516,6 +516,33 @@ Map<String, dynamic> _$$UserSimpleImplToJson(_$UserSimpleImpl instance) =>
       'picture': instance.picture,
     };
 
+_$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    requiredKeys: const ['id', 'userId', 'name', 'type'],
+  );
+  return _$UserImpl(
+    id: json['id'] as String,
+    userId: json['userId'] as String,
+    name: json['name'] as String,
+    picture: json['profilePicture'] as String?,
+    commentsCreated: (json['commentsCreated'] as num?)?.toInt() ?? 0,
+    postsCreated: (json['postsCreated'] as num?)?.toInt() ?? 0,
+    type: json['type'] as String,
+  );
+}
+
+Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'userId': instance.userId,
+      'name': instance.name,
+      'profilePicture': instance.picture,
+      'commentsCreated': instance.commentsCreated,
+      'postsCreated': instance.postsCreated,
+      'type': instance.type,
+    };
+
 ResultsPagination<T> _$ResultsPaginationFromJson<T>(
   Map<String, dynamic> json,
   T Function(Object? json) fromJsonT,
