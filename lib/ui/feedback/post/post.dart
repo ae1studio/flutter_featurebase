@@ -23,6 +23,16 @@ class _PostViewState extends ConsumerState<_PostView> {
     super.initState();
   }
 
+  Color _voteButtonBackgroundColor(BuildContext context) {
+    if (post.upvoted) {
+      return Colors.green.withOpacity(0.1);
+    }
+    if (post.downvoted) {
+      return Colors.red.withOpacity(0.1);
+    }
+    return Theme.of(context).cardColor;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -160,7 +170,7 @@ class _PostViewState extends ConsumerState<_PostView> {
                             vertical: 4,
                           ),
                           decoration: BoxDecoration(
-                            color: Theme.of(context).cardColor,
+                            color: _voteButtonBackgroundColor(context),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Row(
