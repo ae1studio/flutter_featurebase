@@ -40,6 +40,7 @@ dependencies:
   easy_infinite_pagination: ^0.0.6
   universal_io: ^2.2.2
   collection: ^1.18.0
+  copy_with_extension: ^6.0.0
 
 dev_dependencies:
   flutter_test:
@@ -53,6 +54,7 @@ dev_dependencies:
   source_gen: ^1.5.0
   json_serializable: ^6.8.0
   flutter_gen: ^5.8.0
+  copy_with_extension_gen: ^6.0.0
 
 flutter:
   uses-material-design: true
