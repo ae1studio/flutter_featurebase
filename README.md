@@ -40,9 +40,18 @@ To use the feedback page you must be using an SSO login for your Featurebase org
 
 For the SSO auth you will need to create a GET endpoint that the SDK can call out to to get the JWT for Featurebase. You can read this [read this article](https://help.featurebase.app/articles/5257986-creating-and-signing-a-jwt-for-single-sign-on) on how to create a JWT token for Featurebase.
 
-When launching the feedback page you will need to provide an Bearer authoration token that works on your endpoint and an endpoint url.
+When launching the feedback page you will need to provide an authoration token (that will be passed in the `Authorization` header field) that works on your endpoint and an endpoint url.
 
-The GET endpoint should return the date formated like:
+```dart
+openFeedbackPage(
+  //...
+  ssoAuthToken: "Bearer mytoken123",
+  ssoTokenUrl: "https://api.example.com/v1/auth/featurebase/token",
+  //...
+);
+```
+
+The GET endpoint that you setup should return the date formated like the example bellow for the SDK to read.
 
 ```json
 {
