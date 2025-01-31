@@ -32,17 +32,17 @@ localizationsDelegates: [
 
 Then you can use one of the supported modules.
 
-### 💬 Feedback
+## 💬 Feedback
 
 To use the feedback page you must be using an SSO login for your Featurebase organization.
 
-#### Setup Auth
+### Setup Auth
 
 When launching the page you will need to provide an Bearer authoration token that works on your endpoint and an endpoint url.
 
 More Feedback info coming soon
 
-### 📖 Help Center
+## 📖 Help Center
 
 Call the openHelpCenter function to open the help center panel.
 
@@ -69,7 +69,7 @@ Example:
 
 ![Example Image](https://raw.githubusercontent.com/ae1dev/flutter_featurebase/refs/heads/main/docs/imgs/Featurebase_Help_Center_Example.png)
 
-### 📣 Changelog
+## 📣 Changelog
 
 Call the openChangelog function to open the changelog page.
 
