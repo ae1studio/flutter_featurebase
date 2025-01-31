@@ -17,7 +17,7 @@ Featurebase is a Feedback, Help center, Changelog and Survey hub. Learn more at 
 
 Some CORS issues cause it not to load on web (looking into a fix) *
 
-## Get started
+## 🚀 Get started
 
 First you need to add the package to your `pubspec.yaml` file.
 
@@ -30,7 +30,9 @@ localizationsDelegates: [
 ],
 ```
 
-### Feedback Usage
+Then you can use one of the supported modules.
+
+### 💬 Feedback
 
 To use the feedback page you must be using an SSO login for your Featurebase organization.
 
@@ -38,7 +40,9 @@ To use the feedback page you must be using an SSO login for your Featurebase org
 
 When launching the page you will need to provide an Bearer authoration token that works on your endpoint and an endpoint url.
 
-### Help Center Usage
+More Feedback info coming soon
+
+### 📖 Help Center
 
 Call the openHelpCenter function to open the help center panel.
 
@@ -65,7 +69,7 @@ Example:
 
 ![Example Image](https://raw.githubusercontent.com/ae1dev/flutter_featurebase/refs/heads/main/docs/imgs/Featurebase_Help_Center_Example.png)
 
-### Changelog Usage
+### 📣 Changelog
 
 Call the openChangelog function to open the changelog page.
 
@@ -92,7 +96,7 @@ Example:
 
 ![Example Image](https://raw.githubusercontent.com/ae1dev/flutter_featurebase/refs/heads/main/docs/imgs/Featurebase_Changelog_Example.png)
 
-## Localization
+## 🌐 Localization
 
 Supported languages:
 
@@ -144,6 +148,6 @@ Supported languages:
 - Chinese (Traditional)
 - Chinese (Traditional - Taiwan)
 
-## Contribution
+## 👨‍💻 Contribution
 
 Please file an issue if you find an issue or you can make a pull request.
