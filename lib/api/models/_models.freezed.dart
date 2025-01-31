@@ -3977,6 +3977,10 @@ mixin _$Organization {
   @JsonKey(name: 'settings', required: true)
   OrganizationSettings get settings => throw _privateConstructorUsedError;
 
+  /// The post categories of the organization
+  @JsonKey(name: 'postCategories', required: true)
+  List<PostCategory> get postCategories => throw _privateConstructorUsedError;
+
   /// Picture url
   @JsonKey(name: 'picture')
   String? get picture => throw _privateConstructorUsedError;
@@ -4003,6 +4007,8 @@ abstract class $OrganizationCopyWith<$Res> {
       @JsonKey(name: 'ssoUrl') String? ssoUrl,
       @JsonKey(name: 'widget') AIOWidget? widget,
       @JsonKey(name: 'settings', required: true) OrganizationSettings settings,
+      @JsonKey(name: 'postCategories', required: true)
+      List<PostCategory> postCategories,
       @JsonKey(name: 'picture') String? picture});
 
   $AIOWidgetCopyWith<$Res>? get widget;
@@ -4029,6 +4035,7 @@ class _$OrganizationCopyWithImpl<$Res, $Val extends Organization>
     Object? ssoUrl = freezed,
     Object? widget = freezed,
     Object? settings = null,
+    Object? postCategories = null,
     Object? picture = freezed,
   }) {
     return _then(_value.copyWith(
@@ -4052,6 +4059,10 @@ class _$OrganizationCopyWithImpl<$Res, $Val extends Organization>
           ? _value.settings
           : settings // ignore: cast_nullable_to_non_nullable
               as OrganizationSettings,
+      postCategories: null == postCategories
+          ? _value.postCategories
+          : postCategories // ignore: cast_nullable_to_non_nullable
+              as List<PostCategory>,
       picture: freezed == picture
           ? _value.picture
           : picture // ignore: cast_nullable_to_non_nullable
@@ -4098,6 +4109,8 @@ abstract class _$$OrganizationImplCopyWith<$Res>
       @JsonKey(name: 'ssoUrl') String? ssoUrl,
       @JsonKey(name: 'widget') AIOWidget? widget,
       @JsonKey(name: 'settings', required: true) OrganizationSettings settings,
+      @JsonKey(name: 'postCategories', required: true)
+      List<PostCategory> postCategories,
       @JsonKey(name: 'picture') String? picture});
 
   @override
@@ -4124,6 +4137,7 @@ class __$$OrganizationImplCopyWithImpl<$Res>
     Object? ssoUrl = freezed,
     Object? widget = freezed,
     Object? settings = null,
+    Object? postCategories = null,
     Object? picture = freezed,
   }) {
     return _then(_$OrganizationImpl(
@@ -4147,6 +4161,10 @@ class __$$OrganizationImplCopyWithImpl<$Res>
           ? _value.settings
           : settings // ignore: cast_nullable_to_non_nullable
               as OrganizationSettings,
+      postCategories: null == postCategories
+          ? _value._postCategories
+          : postCategories // ignore: cast_nullable_to_non_nullable
+              as List<PostCategory>,
       picture: freezed == picture
           ? _value.picture
           : picture // ignore: cast_nullable_to_non_nullable
@@ -4164,7 +4182,10 @@ class _$OrganizationImpl implements _Organization {
       @JsonKey(name: 'ssoUrl') this.ssoUrl,
       @JsonKey(name: 'widget') this.widget,
       @JsonKey(name: 'settings', required: true) required this.settings,
-      @JsonKey(name: 'picture') this.picture});
+      @JsonKey(name: 'postCategories', required: true)
+      required final List<PostCategory> postCategories,
+      @JsonKey(name: 'picture') this.picture})
+      : _postCategories = postCategories;
 
   factory _$OrganizationImpl.fromJson(Map<String, dynamic> json) =>
       _$$OrganizationImplFromJson(json);
@@ -4194,6 +4215,18 @@ class _$OrganizationImpl implements _Organization {
   @JsonKey(name: 'settings', required: true)
   final OrganizationSettings settings;
 
+  /// The post categories of the organization
+  final List<PostCategory> _postCategories;
+
+  /// The post categories of the organization
+  @override
+  @JsonKey(name: 'postCategories', required: true)
+  List<PostCategory> get postCategories {
+    if (_postCategories is EqualUnmodifiableListView) return _postCategories;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_postCategories);
+  }
+
   /// Picture url
   @override
   @JsonKey(name: 'picture')
@@ -4201,7 +4234,7 @@ class _$OrganizationImpl implements _Organization {
 
   @override
   String toString() {
-    return 'Organization(displayName: $displayName, color: $color, ssoUrl: $ssoUrl, widget: $widget, settings: $settings, picture: $picture)';
+    return 'Organization(displayName: $displayName, color: $color, ssoUrl: $ssoUrl, widget: $widget, settings: $settings, postCategories: $postCategories, picture: $picture)';
   }
 
   @override
@@ -4216,13 +4249,22 @@ class _$OrganizationImpl implements _Organization {
             (identical(other.widget, widget) || other.widget == widget) &&
             (identical(other.settings, settings) ||
                 other.settings == settings) &&
+            const DeepCollectionEquality()
+                .equals(other._postCategories, _postCategories) &&
             (identical(other.picture, picture) || other.picture == picture));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, displayName, color, ssoUrl, widget, settings, picture);
+      runtimeType,
+      displayName,
+      color,
+      ssoUrl,
+      widget,
+      settings,
+      const DeepCollectionEquality().hash(_postCategories),
+      picture);
 
   /// Create a copy of Organization
   /// with the given fields replaced by the non-null parameter values.
@@ -4249,6 +4291,8 @@ abstract class _Organization implements Organization {
       @JsonKey(name: 'widget') final AIOWidget? widget,
       @JsonKey(name: 'settings', required: true)
       required final OrganizationSettings settings,
+      @JsonKey(name: 'postCategories', required: true)
+      required final List<PostCategory> postCategories,
       @JsonKey(name: 'picture') final String? picture}) = _$OrganizationImpl;
 
   factory _Organization.fromJson(Map<String, dynamic> json) =
@@ -4278,6 +4322,11 @@ abstract class _Organization implements Organization {
   @override
   @JsonKey(name: 'settings', required: true)
   OrganizationSettings get settings;
+
+  /// The post categories of the organization
+  @override
+  @JsonKey(name: 'postCategories', required: true)
+  List<PostCategory> get postCategories;
 
   /// Picture url
   @override

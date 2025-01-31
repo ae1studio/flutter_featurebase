@@ -19,6 +19,10 @@ class Organization with _$Organization {
     @JsonKey(name: 'settings', required: true)
     required OrganizationSettings settings,
 
+    /// The post categories of the organization
+    @JsonKey(name: 'postCategories', required: true)
+    required List<PostCategory> postCategories,
+
     /// Picture url
     @JsonKey(name: 'picture') String? picture,
   }) = _Organization;

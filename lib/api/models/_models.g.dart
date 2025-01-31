@@ -320,7 +320,7 @@ Map<String, dynamic> _$$NavItemImplToJson(_$NavItemImpl instance) =>
 _$OrganizationImpl _$$OrganizationImplFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
-    requiredKeys: const ['displayName', 'color', 'settings'],
+    requiredKeys: const ['displayName', 'color', 'settings', 'postCategories'],
   );
   return _$OrganizationImpl(
     displayName: json['displayName'] as String,
@@ -331,6 +331,9 @@ _$OrganizationImpl _$$OrganizationImplFromJson(Map<String, dynamic> json) {
         : AIOWidget.fromJson(json['widget'] as Map<String, dynamic>),
     settings:
         OrganizationSettings.fromJson(json['settings'] as Map<String, dynamic>),
+    postCategories: (json['postCategories'] as List<dynamic>)
+        .map((e) => PostCategory.fromJson(e as Map<String, dynamic>))
+        .toList(),
     picture: json['picture'] as String?,
   );
 }
@@ -342,6 +345,7 @@ Map<String, dynamic> _$$OrganizationImplToJson(_$OrganizationImpl instance) =>
       'ssoUrl': instance.ssoUrl,
       'widget': instance.widget,
       'settings': instance.settings,
+      'postCategories': instance.postCategories,
       'picture': instance.picture,
     };
 
