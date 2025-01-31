@@ -36,11 +36,22 @@ Then you can use one of the supported modules.
 
 To use the feedback page you must be using an SSO login for your Featurebase organization.
 
-### Setup Auth
+### Setup SSO Auth
 
-When launching the page you will need to provide an Bearer authoration token that works on your endpoint and an endpoint url.
+For the SSO auth you will need to create a GET endpoint that the SDK can call out to to get the JWT for Featurebase. You can read this [read this article](https://help.featurebase.app/articles/5257986-creating-and-signing-a-jwt-for-single-sign-on) on how to create a JWT token for Featurebase.
 
-More Feedback info coming soon
+When launching the feedback page you will need to provide an Bearer authoration token that works on your endpoint and an endpoint url.
+
+The GET endpoint should return the date formated like:
+
+```json
+{
+    "data": {
+        "token": "the-jwt-token-string"
+    }
+}
+
+```
 
 ## 📖 Help Center
 
