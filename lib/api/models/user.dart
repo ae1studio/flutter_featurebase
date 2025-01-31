@@ -21,7 +21,7 @@ class UserSimple with _$UserSimple {
 }
 
 @freezed
-class User with _$UserSimple {
+class User with _$User {
   const factory User({
     /// The featurebase id for the user
     @JsonKey(name: 'id', required: true) required String id,
