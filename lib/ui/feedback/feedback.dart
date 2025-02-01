@@ -153,6 +153,14 @@ class _FeedbackViewState extends ConsumerState<FeedbackView> {
           filled: true,
         ),
         dividerColor: widget.textColor.withOpacity(0.3),
+        textTheme: TextTheme(
+          displayLarge: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.w700,
+            color: widget.textColor,
+            fontFamily: 'Inter',
+          ),
+        ),
       ),
       child: Scaffold(
         appBar: AppBar(
