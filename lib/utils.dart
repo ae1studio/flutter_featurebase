@@ -171,6 +171,10 @@ Color _darkenColor(Color color, {double amount = .1}) {
   return darkened.toColor();
 }
 
+Color _mutedColor(BuildContext context) {
+  return Theme.of(context).textTheme.displayLarge!.color!.withOpacity(0.7);
+}
+
 _callHaptic() {
   if (!kIsWeb && _fbService.isHapticEnabled) {
     if (Platform.isAndroid || Platform.isIOS) {
@@ -216,4 +220,19 @@ String _orderByIcon(String orderBy) {
     default:
       return 'Unknown';
   }
+}
+
+void _showCreatePostPopup(BuildContext context, fb.Organization organization) {
+  showModalBottomSheet(
+    context: context,
+    backgroundColor: Theme.of(context).cardColor,
+    builder: (context) => SafeArea(
+      child: Container(
+        margin: const EdgeInsets.all(12),
+        child: _PostPopup(
+          organization: organization,
+        ),
+      ),
+    ),
+  );
 }

@@ -81,14 +81,19 @@ class _FeedbackViewState extends ConsumerState<FeedbackView> {
   @override
   void initState() {
     currentLocale = widget.defaultLocale;
-    _fbService.setup(widget.organizationName, widget.enableHapticFeedback);
+    _fbService.setup(
+      widget.organizationName,
+      widget.enableHapticFeedback,
+      ssoTokenUrl: widget.ssoTokenUrl,
+      ssoAuthToken: widget.ssoAuthToken,
+    );
     init();
     super.initState();
   }
 
   init() async {
     try {
-      await _fbService.setupAuth(widget.ssoTokenUrl, widget.ssoAuthToken);
+      await _fbService.setupAuth();
       hasAuth = _fbService.hasAuth;
     } catch (e) {
       failedAuth = true;
@@ -130,6 +135,10 @@ class _FeedbackViewState extends ConsumerState<FeedbackView> {
       getOrganizationProvider,
     );
 
+    AsyncValue<fb.User> userAsync = ref.watch(
+      getCurrentUserProvider,
+    );
+
     fb.ResultsPagination<fb.Post> posts = ref.watch(
       feedbackSubmissionsListProvider,
     );
@@ -157,7 +166,60 @@ class _FeedbackViewState extends ConsumerState<FeedbackView> {
             onTap: _navigateToHome,
             child: widget.logo,
           ),
-          actions: [],
+          actions: [
+            userAsync.when(
+              data: (user) => IconButton(
+                onPressed: () {
+                  _callHaptic();
+
+                  Navigator.push(
+                    _feedbackNavigatorKey.currentContext!,
+                    MaterialPageRoute(
+                      builder: (context) => _ProfileView(user: user),
+                    ),
+                  );
+                },
+                icon: Container(
+                  width: 30,
+                  height: 30,
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).cardColor,
+                    borderRadius: BorderRadius.circular(30),
+                    border: Border.all(
+                      color: Theme.of(context).cardColor,
+                      width: 2,
+                    ),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(30),
+                    child: _SafeCachedNetworkImage(
+                      imageUrl: user.picture,
+                      fit: BoxFit.cover,
+                      placeholder: (context, url) => Icon(
+                        Icons.person_rounded,
+                        size: 19,
+                        color: _calculateTextColor(Theme.of(context).cardColor),
+                      ),
+                      errorWidget: (context, url, error) => Icon(
+                        Icons.person_rounded,
+                        size: 19,
+                        color: _calculateTextColor(Theme.of(context).cardColor),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              error: (error, stackTrace) => SizedBox(),
+              loading: () => IconButton(
+                onPressed: null,
+                icon: Icon(
+                  Icons.person_rounded,
+                  size: 19,
+                  color: _calculateTextColor(Theme.of(context).cardColor),
+                ),
+              ),
+            ),
+          ],
           centerTitle: true,
           backgroundColor: widget.primaryColor,
           surfaceTintColor: widget.primaryColor,
@@ -175,275 +237,310 @@ class _FeedbackViewState extends ConsumerState<FeedbackView> {
           child: CustomTopNavigator(
             navigatorKey: _feedbackNavigatorKey,
             home: hasAuth
-                ? Scrollbar(
-                    child: CustomScrollView(
-                      slivers: [
-                        //Header
-                        SliverToBoxAdapter(
-                          child: Container(
-                            margin: const EdgeInsets.symmetric(
-                              vertical: 15,
-                              horizontal: 14,
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Feedback',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .titleLarge!
-                                      .copyWith(
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 24,
-                                      ),
-                                ),
-                                const SizedBox(height: 5),
-                                Text(
-                                  'Let us know how we can improve ${widget.appName} and upvote existing ideas.',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .titleLarge!
-                                      .copyWith(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 16,
-                                        color:
-                                            widget.textColor.withOpacity(0.7),
-                                      ),
-                                ),
-                              ],
-                            ),
-                          ),
+                ? Scaffold(
+                    floatingActionButton: organizationAsync.when(
+                      data: (organization) => FloatingActionButton(
+                        onPressed: () {
+                          _callHaptic();
+
+                          _showCreatePostPopup(
+                              _feedbackNavigatorKey.currentContext!,
+                              organization);
+                        },
+                        backgroundColor: Theme.of(context).primaryColor,
+                        child: Icon(
+                          Icons.add_rounded,
+                          color: _calculateTextColor(
+                              Theme.of(context).primaryColor),
                         ),
-                        SliverToBoxAdapter(
-                          child: Container(
-                            margin: const EdgeInsets.symmetric(
-                              vertical: 5,
-                              horizontal: 10,
-                            ),
-                            padding: const EdgeInsets.only(bottom: 8),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                  child: Text(
-                                    'Latest posts',
+                      ),
+                      error: (error, stackTrace) => null,
+                      loading: () => null,
+                    ),
+                    body: Scrollbar(
+                      child: CustomScrollView(
+                        slivers: [
+                          //Header
+                          SliverToBoxAdapter(
+                            child: Container(
+                              margin: const EdgeInsets.symmetric(
+                                vertical: 15,
+                                horizontal: 14,
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Feedback',
                                     style: Theme.of(context)
                                         .textTheme
-                                        .titleLarge!
+                                        .displayLarge!
                                         .copyWith(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 20,
+                                          fontSize: 24,
                                         ),
                                   ),
-                                ),
-                                Container(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 6,
-                                    vertical: 4,
+                                  const SizedBox(height: 5),
+                                  Text(
+                                    'Let us know how we can improve ${widget.appName} and upvote existing ideas.',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .displayLarge!
+                                        .copyWith(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 16,
+                                          color:
+                                              widget.textColor.withOpacity(0.7),
+                                        ),
                                   ),
-                                  decoration: BoxDecoration(
-                                    color: Theme.of(context).cardColor,
-                                    borderRadius: BorderRadius.circular(8),
-                                    border: Border.all(
-                                      color: widget.textColor.withOpacity(0.1),
-                                      width: 1,
-                                    ),
-                                  ),
-                                  child: DropdownButton<String>(
-                                    value: orderBy,
-                                    items: ['date', 'upvotes', 'trending']
-                                        .map(
-                                          (e) => DropdownMenuItem<String>(
-                                            value: e,
-                                            child: Row(
-                                              children: [
-                                                const SizedBox(width: 2),
-                                                _FBIconWidget(
-                                                  icon: fb.FBIcon(
-                                                    type: 'predefined',
-                                                    value: _orderByIcon(e),
-                                                  ),
-                                                  isDark: false,
-                                                  textColor: widget.textColor,
-                                                  size: 18,
-                                                  primaryColor: widget.textColor
-                                                      .withOpacity(0.7),
-                                                ),
-                                                const SizedBox(width: 3),
-                                                Text(
-                                                  _orderByLabel(e),
-                                                  style: Theme.of(context)
-                                                      .textTheme
-                                                      .titleLarge!
-                                                      .copyWith(
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        fontSize: 16,
-                                                        color: widget.textColor
-                                                            .withOpacity(0.7),
-                                                      ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        )
-                                        .toList(),
-                                    onChanged: (value) async {
-                                      loading = true;
-                                      noMoreItems = false;
-                                      error = null;
-                                      setState(() {});
-                                      await ref
-                                          .read(feedbackSubmissionsListProvider
-                                              .notifier)
-                                          .changeOrder(value!, direction);
-                                      setState(() {
-                                        orderBy = value;
-                                        loading = false;
-                                      });
-                                    },
-                                    isDense: true,
-                                    padding: EdgeInsets.zero,
-                                    underline: const SizedBox(),
-                                    dropdownColor: Theme.of(context).cardColor,
-                                    borderRadius: BorderRadius.circular(8),
-                                  ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                        organizationAsync.when(
-                          data: (organization) => SliverInfiniteListView(
-                            delegate: PaginationDelegate(
-                              isLoading: loading,
-                              hasError: error != null,
-                              hasReachedMax: noMoreItems,
-                              invisibleItemsThreshold: 5,
-                              firstPageErrorBuilder: (context, onRetry) {
-                                return _ErrorLoadingWidget(
-                                  textColor: widget.textColor,
-                                );
-                              },
-                              loadMoreErrorBuilder: (context, onRetry) {
-                                return _ErrorLoadingWidget(
-                                  textColor: widget.textColor,
-                                );
-                              },
-                              firstPageLoadingBuilder: (context) {
-                                return Center(
-                                  child: CircularProgressIndicator(
-                                    color: Theme.of(context).primaryColor,
+                          SliverToBoxAdapter(
+                            child: Container(
+                              margin: const EdgeInsets.symmetric(
+                                vertical: 5,
+                                horizontal: 10,
+                              ),
+                              padding: const EdgeInsets.only(bottom: 8),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Expanded(
+                                    child: Text(
+                                      'Latest posts',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .displayLarge!
+                                          .copyWith(
+                                            fontWeight: FontWeight.w700,
+                                            fontSize: 20,
+                                          ),
+                                    ),
                                   ),
-                                );
-                              },
-                              firstPageNoItemsBuilder: (context) {
-                                return Center(
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Icon(
-                                        Icons.info_rounded,
-                                        color: widget.textColor,
-                                        size: 45,
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 6,
+                                      vertical: 4,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: Theme.of(context).cardColor,
+                                      borderRadius: BorderRadius.circular(8),
+                                      border: Border.all(
+                                        color:
+                                            widget.textColor.withOpacity(0.1),
+                                        width: 1,
                                       ),
-                                      const SizedBox(height: 15),
+                                    ),
+                                    child: DropdownButton<String>(
+                                      value: orderBy,
+                                      items: ['date', 'upvotes', 'trending']
+                                          .map(
+                                            (e) => DropdownMenuItem<String>(
+                                              value: e,
+                                              child: Row(
+                                                children: [
+                                                  const SizedBox(width: 2),
+                                                  _FBIconWidget(
+                                                    icon: fb.FBIcon(
+                                                      type: 'predefined',
+                                                      value: _orderByIcon(e),
+                                                    ),
+                                                    isDark: false,
+                                                    textColor: widget.textColor,
+                                                    size: 18,
+                                                    primaryColor: widget
+                                                        .textColor
+                                                        .withOpacity(0.7),
+                                                  ),
+                                                  const SizedBox(width: 3),
+                                                  Text(
+                                                    _orderByLabel(e),
+                                                    style: Theme.of(context)
+                                                        .textTheme
+                                                        .displayLarge!
+                                                        .copyWith(
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                          fontSize: 16,
+                                                          color: widget
+                                                              .textColor
+                                                              .withOpacity(0.7),
+                                                        ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          )
+                                          .toList(),
+                                      onChanged: (value) async {
+                                        loading = true;
+                                        noMoreItems = false;
+                                        error = null;
+                                        setState(() {});
+                                        await ref
+                                            .read(
+                                                feedbackSubmissionsListProvider
+                                                    .notifier)
+                                            .changeOrder(value!, direction);
+                                        setState(() {
+                                          orderBy = value;
+                                          loading = false;
+                                        });
+                                      },
+                                      isDense: true,
+                                      padding: EdgeInsets.zero,
+                                      underline: const SizedBox(),
+                                      dropdownColor:
+                                          Theme.of(context).cardColor,
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          organizationAsync.when(
+                            data: (organization) => SliverInfiniteListView(
+                              delegate: PaginationDelegate(
+                                isLoading: loading,
+                                hasError: error != null,
+                                hasReachedMax: noMoreItems,
+                                invisibleItemsThreshold: 5,
+                                firstPageErrorBuilder: (context, onRetry) {
+                                  return _ErrorLoadingWidget(
+                                    textColor: widget.textColor,
+                                  );
+                                },
+                                loadMoreErrorBuilder: (context, onRetry) {
+                                  return _ErrorLoadingWidget(
+                                    textColor: widget.textColor,
+                                  );
+                                },
+                                firstPageLoadingBuilder: (context) {
+                                  return Center(
+                                    child: CircularProgressIndicator(
+                                      color: Theme.of(context).primaryColor,
+                                    ),
+                                  );
+                                },
+                                firstPageNoItemsBuilder: (context) {
+                                  return Center(
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        _FBIconWidget(
+                                          icon: fb.FBIcon(
+                                            type: 'predefined',
+                                            value: 'IconCollection',
+                                          ),
+                                          textColor: widget.textColor,
+                                          primaryColor: _mutedColor(context),
+                                          size: 42,
+                                          isDark: false,
+                                        ),
+                                        const SizedBox(height: 10),
+                                        Center(
+                                          child: Text(
+                                            'No posts found',
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .displayLarge!
+                                                .copyWith(
+                                                  color: _mutedColor(context),
+                                                  fontSize: 22,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                },
+                                loadMoreNoMoreItemsBuilder: (context) {
+                                  return Column(
+                                    children: [
+                                      const SizedBox(height: 20),
                                       Center(
                                         child: Text(
-                                          'No posts found',
+                                          '-',
                                           style: TextStyle(
-                                            color: widget.textColor,
-                                            fontSize: 25,
+                                            color: widget.textColor
+                                                .withOpacity(0.7),
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                      ),
+                                      Center(
+                                        child: Text(
+                                          'No more posts',
+                                          style: TextStyle(
+                                            color: widget.textColor
+                                                .withOpacity(0.7),
+                                            fontSize: 16,
                                             fontWeight: FontWeight.w500,
                                           ),
                                         ),
                                       ),
                                     ],
-                                  ),
-                                );
-                              },
-                              loadMoreNoMoreItemsBuilder: (context) {
-                                return Column(
-                                  children: [
-                                    const SizedBox(height: 20),
-                                    Center(
-                                      child: Text(
-                                        '-',
-                                        style: TextStyle(
-                                          color:
-                                              widget.textColor.withOpacity(0.7),
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      ),
-                                    ),
-                                    Center(
-                                      child: Text(
-                                        'No more posts',
-                                        style: TextStyle(
-                                          color:
-                                              widget.textColor.withOpacity(0.7),
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                );
-                              },
-                              itemCount: posts.results.length,
-                              itemBuilder: (context, index) {
-                                return _PostCard(
-                                  post: posts.results[index],
-                                  textColor: widget.textColor,
-                                  locale: currentLocale,
-                                  organization: organization,
-                                );
-                              },
-                              onFetchData: () async {
-                                try {
-                                  fb.ResultsPagination<fb.Post> added =
-                                      await ref
-                                          .read(feedbackSubmissionsListProvider
-                                              .notifier)
-                                          .loadMore(orderBy, direction);
-                                  // If 10 new items are not added there is no more
-                                  if (added.page == added.totalPages) {
-                                    noMoreItems = true;
-                                    if (!loading) {
+                                  );
+                                },
+                                itemCount: posts.results.length,
+                                itemBuilder: (context, index) {
+                                  return _PostCard(
+                                    post: posts.results[index],
+                                    textColor: widget.textColor,
+                                    locale: currentLocale,
+                                    organization: organization,
+                                  );
+                                },
+                                onFetchData: () async {
+                                  try {
+                                    fb.ResultsPagination<fb.Post> added =
+                                        await ref
+                                            .read(
+                                                feedbackSubmissionsListProvider
+                                                    .notifier)
+                                            .loadMore(orderBy, direction);
+                                    // If 10 new items are not added there is no more
+                                    if (added.page == added.totalPages) {
+                                      noMoreItems = true;
+                                      if (!loading) {
+                                        if (mounted) setState(() {});
+                                      }
+                                    }
+                                    //Done with first load
+                                    if (loading ||
+                                        added.page != added.totalPages) {
+                                      loading = false;
                                       if (mounted) setState(() {});
                                     }
+                                  } catch (e) {
+                                    error = e;
+                                    if (mounted) {
+                                      setState(() {});
+                                    }
                                   }
-                                  //Done with first load
-                                  if (loading ||
-                                      added.page != added.totalPages) {
-                                    loading = false;
-                                    if (mounted) setState(() {});
-                                  }
-                                } catch (e) {
-                                  error = e;
-                                  if (mounted) {
-                                    setState(() {});
-                                  }
-                                }
-                              },
+                                },
+                              ),
                             ),
-                          ),
-                          error: (error, stackTrace) => SliverToBoxAdapter(
-                            child: _ErrorLoadingWidget(
-                              textColor: widget.textColor,
+                            error: (error, stackTrace) => SliverToBoxAdapter(
+                              child: _ErrorLoadingWidget(
+                                textColor: widget.textColor,
+                              ),
                             ),
-                          ),
-                          loading: () => SliverToBoxAdapter(
-                            child: Center(
-                              child: CircularProgressIndicator(
-                                color: Theme.of(context).primaryColor,
+                            loading: () => SliverToBoxAdapter(
+                              child: Center(
+                                child: CircularProgressIndicator(
+                                  color: Theme.of(context).primaryColor,
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   )
                 : Center(

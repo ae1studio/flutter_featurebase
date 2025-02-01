@@ -46,7 +46,7 @@ class _FeedbackEnd extends _EndpointBase {
       "authorId": authorId,
     }))
         .data;
-    return fb.Post.fromJson(map);
+    return fb.Post.fromJson(map['submission'] as Map<String, Object?>);
   }
 
   /// Update a post

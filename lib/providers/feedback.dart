@@ -77,4 +77,10 @@ class FeedbackSubmissionsList extends _$FeedbackSubmissionsList {
       ref.notifyListeners();
     }
   }
+
+  /// Add a post
+  void addPost(fb.Post post) {
+    state.results.insert(0, post);
+    ref.notifyListeners();
+  }
 }

@@ -47,12 +47,13 @@ abstract class _FeaturebaseApiBase {
 
     // dio.interceptors.add(
     //   InterceptorsWrapper(
+    //     // onError: (options, handler) {
+    //     //   print('Request: ${options.response?.data}');
+    //     //   return handler.next(options);
+    //     // },
     //     onError: (options, handler) {
-    //       print('Request: ${options.response?.data}');
-    //       return handler.next(options);
-    //     },
-    //     onRequest: (options, handler) {
-    //       print('Request: ${options.path} ${options.queryParameters}');
+    //       print(
+    //           'Request error: ${options.response?.realUri} ${options.response?.data}');
     //       return handler.next(options);
     //     },
     //   ),
@@ -67,5 +68,9 @@ abstract class _FeaturebaseApiBase {
   /// Set the CSRF token for the posts API requests
   void setCsrfToken(String csrfToken) {
     _dio.options.headers['x-csrf-token'] = csrfToken;
+  }
+
+  bool isTokenSet() {
+    return _dio.options.headers['x-access-token'] != null;
   }
 }

@@ -3,7 +3,6 @@ library featurebase;
 
 import 'dart:ui' as ui;
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:collection/collection.dart';
 import 'package:custom_top_navigator_plus/custom_navigation.dart';
 import 'package:dio/dio.dart';
 import 'package:easy_infinite_pagination/easy_infinite_pagination.dart';
@@ -32,7 +31,9 @@ part 'api/endpoints/changelog.dart';
 part 'api/endpoints/organization.dart';
 part 'api/endpoints/feedback.dart';
 part 'api/endpoints/user.dart';
+
 //UI
+part 'ui/profile/profile.dart';
 part 'ui/changelog/changelog.dart';
 part 'ui/changelog/widgets/changelog_card.dart';
 part 'ui/feedback/feedback.dart';
@@ -52,6 +53,8 @@ part 'ui/widgets/render_html_widget.dart';
 part 'ui/widgets/post_card.dart';
 part 'ui/widgets/post_status_badge.dart';
 part 'ui/widgets/fade_tap_widget.dart';
+part 'ui/widgets/post_popup.dart';
+
 //Providers
 part 'providers/feedback.dart';
 part 'providers/service.dart';
@@ -59,7 +62,7 @@ part 'providers/icons.dart';
 part 'providers/help_center.dart';
 part 'providers/changelog.dart';
 part 'providers/organization.dart';
-
+part 'providers/user.dart';
 //Other
 part 'actions.dart';
 part 'utils.dart';

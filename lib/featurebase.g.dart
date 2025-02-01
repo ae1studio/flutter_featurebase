@@ -819,6 +819,23 @@ final getOrganizationProvider =
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef GetOrganizationRef = AutoDisposeFutureProviderRef<fb.Organization>;
+String _$getCurrentUserHash() => r'495d0500a191ee002228987b62f7987bcf4cb888';
+
+/// See also [getCurrentUser].
+@ProviderFor(getCurrentUser)
+final getCurrentUserProvider = AutoDisposeFutureProvider<fb.User>.internal(
+  getCurrentUser,
+  name: r'getCurrentUserProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$getCurrentUserHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef GetCurrentUserRef = AutoDisposeFutureProviderRef<fb.User>;
 String _$feedbackSubmissionsListHash() =>
     r'e3987b8381b10d54e1344d6f1eeb686676682bec';
 

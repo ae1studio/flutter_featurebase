@@ -92,7 +92,7 @@ class _PostViewState extends ConsumerState<_PostView> {
                     const SizedBox(height: 6),
                     SelectableText(
                       widget.post.title,
-                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      style: Theme.of(context).textTheme.displayLarge!.copyWith(
                             fontWeight: FontWeight.w700,
                             fontSize: 20,
                           ),
