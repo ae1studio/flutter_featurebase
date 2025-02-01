@@ -5631,6 +5631,10 @@ PostCategory _$PostCategoryFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$PostCategory {
   /// The category name
+  @JsonKey(name: 'id', required: true)
+  String get id => throw _privateConstructorUsedError;
+
+  /// The category name
   @JsonKey(name: 'category', required: true)
   String get category => throw _privateConstructorUsedError;
 
@@ -5655,7 +5659,8 @@ abstract class $PostCategoryCopyWith<$Res> {
       _$PostCategoryCopyWithImpl<$Res, PostCategory>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'category', required: true) String category,
+      {@JsonKey(name: 'id', required: true) String id,
+      @JsonKey(name: 'category', required: true) String category,
       @JsonKey(name: 'private', defaultValue: false) bool private});
 }
 
@@ -5674,10 +5679,15 @@ class _$PostCategoryCopyWithImpl<$Res, $Val extends PostCategory>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? category = null,
     Object? private = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       category: null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -5699,7 +5709,8 @@ abstract class _$$PostCategoryImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'category', required: true) String category,
+      {@JsonKey(name: 'id', required: true) String id,
+      @JsonKey(name: 'category', required: true) String category,
       @JsonKey(name: 'private', defaultValue: false) bool private});
 }
 
@@ -5716,10 +5727,15 @@ class __$$PostCategoryImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? category = null,
     Object? private = null,
   }) {
     return _then(_$PostCategoryImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       category: null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -5736,11 +5752,17 @@ class __$$PostCategoryImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PostCategoryImpl implements _PostCategory {
   const _$PostCategoryImpl(
-      {@JsonKey(name: 'category', required: true) required this.category,
+      {@JsonKey(name: 'id', required: true) required this.id,
+      @JsonKey(name: 'category', required: true) required this.category,
       @JsonKey(name: 'private', defaultValue: false) required this.private});
 
   factory _$PostCategoryImpl.fromJson(Map<String, dynamic> json) =>
       _$$PostCategoryImplFromJson(json);
+
+  /// The category name
+  @override
+  @JsonKey(name: 'id', required: true)
+  final String id;
 
   /// The category name
   @override
@@ -5754,7 +5776,7 @@ class _$PostCategoryImpl implements _PostCategory {
 
   @override
   String toString() {
-    return 'PostCategory(category: $category, private: $private)';
+    return 'PostCategory(id: $id, category: $category, private: $private)';
   }
 
   @override
@@ -5762,6 +5784,7 @@ class _$PostCategoryImpl implements _PostCategory {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PostCategoryImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.category, category) ||
                 other.category == category) &&
             (identical(other.private, private) || other.private == private));
@@ -5769,7 +5792,7 @@ class _$PostCategoryImpl implements _PostCategory {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, category, private);
+  int get hashCode => Object.hash(runtimeType, id, category, private);
 
   /// Create a copy of PostCategory
   /// with the given fields replaced by the non-null parameter values.
@@ -5789,13 +5812,18 @@ class _$PostCategoryImpl implements _PostCategory {
 
 abstract class _PostCategory implements PostCategory {
   const factory _PostCategory(
-      {@JsonKey(name: 'category', required: true)
-      required final String category,
+      {@JsonKey(name: 'id', required: true) required final String id,
+      @JsonKey(name: 'category', required: true) required final String category,
       @JsonKey(name: 'private', defaultValue: false)
       required final bool private}) = _$PostCategoryImpl;
 
   factory _PostCategory.fromJson(Map<String, dynamic> json) =
       _$PostCategoryImpl.fromJson;
+
+  /// The category name
+  @override
+  @JsonKey(name: 'id', required: true)
+  String get id;
 
   /// The category name
   @override

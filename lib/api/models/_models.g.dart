@@ -464,9 +464,10 @@ Map<String, dynamic> _$$PostImplToJson(_$PostImpl instance) =>
 _$PostCategoryImpl _$$PostCategoryImplFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
-    requiredKeys: const ['category'],
+    requiredKeys: const ['id', 'category'],
   );
   return _$PostCategoryImpl(
+    id: json['id'] as String,
     category: json['category'] as String,
     private: json['private'] as bool? ?? false,
   );
@@ -474,6 +475,7 @@ _$PostCategoryImpl _$$PostCategoryImplFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$$PostCategoryImplToJson(_$PostCategoryImpl instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'category': instance.category,
       'private': instance.private,
     };

@@ -61,6 +61,9 @@ class Post with _$Post {
 class PostCategory with _$PostCategory {
   const factory PostCategory({
     /// The category name
+    @JsonKey(name: 'id', required: true) required String id,
+
+    /// The category name
     @JsonKey(name: 'category', required: true) required String category,
 
     /// Whether the category is private (false by default)
