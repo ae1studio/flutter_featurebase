@@ -425,6 +425,7 @@ _$PostImpl _$$PostImplFromJson(Map<String, dynamic> json) {
     json,
     requiredKeys: const [
       'id',
+      'slug',
       'title',
       'content',
       'user',
@@ -436,6 +437,7 @@ _$PostImpl _$$PostImplFromJson(Map<String, dynamic> json) {
   );
   return _$PostImpl(
     id: json['id'] as String,
+    slug: json['slug'] as String,
     title: json['title'] as String,
     content: json['content'] as String,
     user: UserSimple.fromJson(json['user'] as Map<String, dynamic>),
@@ -456,6 +458,7 @@ _$PostImpl _$$PostImplFromJson(Map<String, dynamic> json) {
 Map<String, dynamic> _$$PostImplToJson(_$PostImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
+      'slug': instance.slug,
       'title': instance.title,
       'content': instance.content,
       'user': instance.user,

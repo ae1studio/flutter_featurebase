@@ -5095,6 +5095,10 @@ mixin _$Post {
   @JsonKey(name: 'id', required: true)
   String get id => throw _privateConstructorUsedError;
 
+  /// The slug of the post
+  @JsonKey(name: 'slug', required: true)
+  String get slug => throw _privateConstructorUsedError;
+
   /// The title of the post
   @JsonKey(name: 'title', required: true)
   String get title => throw _privateConstructorUsedError;
@@ -5163,6 +5167,7 @@ abstract class $PostCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'id', required: true) String id,
+      @JsonKey(name: 'slug', required: true) String slug,
       @JsonKey(name: 'title', required: true) String title,
       @JsonKey(name: 'content', required: true) String content,
       @JsonKey(name: 'user', required: true) UserSimple user,
@@ -5199,6 +5204,7 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
   @override
   $Res call({
     Object? id = null,
+    Object? slug = null,
     Object? title = null,
     Object? content = null,
     Object? user = null,
@@ -5217,6 +5223,10 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      slug: null == slug
+          ? _value.slug
+          : slug // ignore: cast_nullable_to_non_nullable
               as String,
       title: null == title
           ? _value.title
@@ -5313,6 +5323,7 @@ abstract class _$$PostImplCopyWith<$Res> implements $PostCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'id', required: true) String id,
+      @JsonKey(name: 'slug', required: true) String slug,
       @JsonKey(name: 'title', required: true) String title,
       @JsonKey(name: 'content', required: true) String content,
       @JsonKey(name: 'user', required: true) UserSimple user,
@@ -5349,6 +5360,7 @@ class __$$PostImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? slug = null,
     Object? title = null,
     Object? content = null,
     Object? user = null,
@@ -5367,6 +5379,10 @@ class __$$PostImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      slug: null == slug
+          ? _value.slug
+          : slug // ignore: cast_nullable_to_non_nullable
               as String,
       title: null == title
           ? _value.title
@@ -5429,6 +5445,7 @@ class __$$PostImplCopyWithImpl<$Res>
 class _$PostImpl implements _Post {
   const _$PostImpl(
       {@JsonKey(name: 'id', required: true) required this.id,
+      @JsonKey(name: 'slug', required: true) required this.slug,
       @JsonKey(name: 'title', required: true) required this.title,
       @JsonKey(name: 'content', required: true) required this.content,
       @JsonKey(name: 'user', required: true) required this.user,
@@ -5452,6 +5469,11 @@ class _$PostImpl implements _Post {
   @override
   @JsonKey(name: 'id', required: true)
   final String id;
+
+  /// The slug of the post
+  @override
+  @JsonKey(name: 'slug', required: true)
+  final String slug;
 
   /// The title of the post
   @override
@@ -5520,7 +5542,7 @@ class _$PostImpl implements _Post {
 
   @override
   String toString() {
-    return 'Post(id: $id, title: $title, content: $content, user: $user, status: $status, upvotes: $upvotes, commentCount: $commentCount, upvoted: $upvoted, downvoted: $downvoted, pinned: $pinned, isSubscribed: $isSubscribed, date: $date, lastModified: $lastModified, postCategory: $postCategory)';
+    return 'Post(id: $id, slug: $slug, title: $title, content: $content, user: $user, status: $status, upvotes: $upvotes, commentCount: $commentCount, upvoted: $upvoted, downvoted: $downvoted, pinned: $pinned, isSubscribed: $isSubscribed, date: $date, lastModified: $lastModified, postCategory: $postCategory)';
   }
 
   @override
@@ -5529,6 +5551,7 @@ class _$PostImpl implements _Post {
         (other.runtimeType == runtimeType &&
             other is _$PostImpl &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.slug, slug) || other.slug == slug) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.content, content) || other.content == content) &&
             (identical(other.user, user) || other.user == user) &&
@@ -5554,6 +5577,7 @@ class _$PostImpl implements _Post {
   int get hashCode => Object.hash(
       runtimeType,
       id,
+      slug,
       title,
       content,
       user,
@@ -5587,6 +5611,7 @@ class _$PostImpl implements _Post {
 abstract class _Post implements Post {
   const factory _Post(
       {@JsonKey(name: 'id', required: true) required final String id,
+      @JsonKey(name: 'slug', required: true) required final String slug,
       @JsonKey(name: 'title', required: true) required final String title,
       @JsonKey(name: 'content', required: true) required final String content,
       @JsonKey(name: 'user', required: true) required final UserSimple user,
@@ -5611,6 +5636,11 @@ abstract class _Post implements Post {
   @override
   @JsonKey(name: 'id', required: true)
   String get id;
+
+  /// The slug of the post
+  @override
+  @JsonKey(name: 'slug', required: true)
+  String get slug;
 
   /// The title of the post
   @override
