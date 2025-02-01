@@ -219,6 +219,9 @@ class _PostViewState extends ConsumerState<_PostView> {
                                             .withOpacity(0.7),
                                   ),
                                 ),
+                              if (!widget
+                                  .organization.settings.downvotesEnabled)
+                                const SizedBox(width: 10),
                             ],
                           ),
                         ),
