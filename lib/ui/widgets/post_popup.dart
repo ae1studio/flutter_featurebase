@@ -41,7 +41,9 @@ class _PostPopupState extends ConsumerState<_PostPopup> {
     //TODO: Add error catch
     fb.Post post = await _fbService.api.feedback.submit(
       title: _titleController.text,
-      content: '<p>${_descriptionController.text}</p>',
+      content: _descriptionController.text.trim().isNotEmpty
+          ? '<p>${_descriptionController.text}</p>'
+          : '',
       categoryId: selectedCategory.id,
       authorId: _fbService.user!.id,
     );
