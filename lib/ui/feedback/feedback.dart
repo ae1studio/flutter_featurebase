@@ -539,6 +539,10 @@ class _FeedbackViewState extends ConsumerState<FeedbackView> {
                               ),
                             ),
                           ),
+                          //Bottom Spacer
+                          SliverToBoxAdapter(
+                            child: const SizedBox(height: 100),
+                          ),
                         ],
                       ),
                     ),
