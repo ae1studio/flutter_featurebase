@@ -51,7 +51,7 @@ openFeedbackPage(
 );
 ```
 
-The GET endpoint that you setup should return the data formated like the example bellow for the SDK to read.
+The GET endpoint that you setup should return the data formated like the example below for the SDK to read.
 
 ```json
 {
