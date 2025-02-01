@@ -371,7 +371,7 @@ class _FeedbackViewState extends ConsumerState<FeedbackView> {
                                                         .displayLarge!
                                                         .copyWith(
                                                           fontWeight:
-                                                              FontWeight.w500,
+                                                              FontWeight.w600,
                                                           fontSize: 16,
                                                           color: widget
                                                               .textColor
