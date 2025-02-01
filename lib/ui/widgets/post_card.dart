@@ -146,6 +146,7 @@ class _PostCardState extends ConsumerState<_PostCard> {
                       widget.post.title,
                       style: Theme.of(context).textTheme.displayLarge!.copyWith(
                             fontSize: 17,
+                            fontWeight: FontWeight.w600,
                           ),
                       maxLines:
                           _stripHtmlTags(widget.post.content).trimLeft().isEmpty
