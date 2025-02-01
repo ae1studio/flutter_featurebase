@@ -3957,6 +3957,10 @@ Organization _$OrganizationFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Organization {
+  /// The name of the organization
+  @JsonKey(name: 'name', required: true)
+  String get name => throw _privateConstructorUsedError;
+
   /// The display name of the organization
   @JsonKey(name: 'displayName', required: true)
   String get displayName => throw _privateConstructorUsedError;
@@ -4006,7 +4010,8 @@ abstract class $OrganizationCopyWith<$Res> {
       _$OrganizationCopyWithImpl<$Res, Organization>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'displayName', required: true) String displayName,
+      {@JsonKey(name: 'name', required: true) String name,
+      @JsonKey(name: 'displayName', required: true) String displayName,
       @JsonKey(name: 'color', required: true) String color,
       @JsonKey(name: 'ssoUrl') String? ssoUrl,
       @JsonKey(name: 'customDomain') String? customDomain,
@@ -4035,6 +4040,7 @@ class _$OrganizationCopyWithImpl<$Res, $Val extends Organization>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? name = null,
     Object? displayName = null,
     Object? color = null,
     Object? ssoUrl = freezed,
@@ -4045,6 +4051,10 @@ class _$OrganizationCopyWithImpl<$Res, $Val extends Organization>
     Object? picture = freezed,
   }) {
     return _then(_value.copyWith(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       displayName: null == displayName
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
@@ -4114,7 +4124,8 @@ abstract class _$$OrganizationImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'displayName', required: true) String displayName,
+      {@JsonKey(name: 'name', required: true) String name,
+      @JsonKey(name: 'displayName', required: true) String displayName,
       @JsonKey(name: 'color', required: true) String color,
       @JsonKey(name: 'ssoUrl') String? ssoUrl,
       @JsonKey(name: 'customDomain') String? customDomain,
@@ -4143,6 +4154,7 @@ class __$$OrganizationImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? name = null,
     Object? displayName = null,
     Object? color = null,
     Object? ssoUrl = freezed,
@@ -4153,6 +4165,10 @@ class __$$OrganizationImplCopyWithImpl<$Res>
     Object? picture = freezed,
   }) {
     return _then(_$OrganizationImpl(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       displayName: null == displayName
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
@@ -4193,7 +4209,8 @@ class __$$OrganizationImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$OrganizationImpl implements _Organization {
   const _$OrganizationImpl(
-      {@JsonKey(name: 'displayName', required: true) required this.displayName,
+      {@JsonKey(name: 'name', required: true) required this.name,
+      @JsonKey(name: 'displayName', required: true) required this.displayName,
       @JsonKey(name: 'color', required: true) required this.color,
       @JsonKey(name: 'ssoUrl') this.ssoUrl,
       @JsonKey(name: 'customDomain') this.customDomain,
@@ -4206,6 +4223,11 @@ class _$OrganizationImpl implements _Organization {
 
   factory _$OrganizationImpl.fromJson(Map<String, dynamic> json) =>
       _$$OrganizationImplFromJson(json);
+
+  /// The name of the organization
+  @override
+  @JsonKey(name: 'name', required: true)
+  final String name;
 
   /// The display name of the organization
   @override
@@ -4256,7 +4278,7 @@ class _$OrganizationImpl implements _Organization {
 
   @override
   String toString() {
-    return 'Organization(displayName: $displayName, color: $color, ssoUrl: $ssoUrl, customDomain: $customDomain, widget: $widget, settings: $settings, postCategories: $postCategories, picture: $picture)';
+    return 'Organization(name: $name, displayName: $displayName, color: $color, ssoUrl: $ssoUrl, customDomain: $customDomain, widget: $widget, settings: $settings, postCategories: $postCategories, picture: $picture)';
   }
 
   @override
@@ -4264,6 +4286,7 @@ class _$OrganizationImpl implements _Organization {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$OrganizationImpl &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.displayName, displayName) ||
                 other.displayName == displayName) &&
             (identical(other.color, color) || other.color == color) &&
@@ -4282,6 +4305,7 @@ class _$OrganizationImpl implements _Organization {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      name,
       displayName,
       color,
       ssoUrl,
@@ -4309,7 +4333,8 @@ class _$OrganizationImpl implements _Organization {
 
 abstract class _Organization implements Organization {
   const factory _Organization(
-      {@JsonKey(name: 'displayName', required: true)
+      {@JsonKey(name: 'name', required: true) required final String name,
+      @JsonKey(name: 'displayName', required: true)
       required final String displayName,
       @JsonKey(name: 'color', required: true) required final String color,
       @JsonKey(name: 'ssoUrl') final String? ssoUrl,
@@ -4323,6 +4348,11 @@ abstract class _Organization implements Organization {
 
   factory _Organization.fromJson(Map<String, dynamic> json) =
       _$OrganizationImpl.fromJson;
+
+  /// The name of the organization
+  @override
+  @JsonKey(name: 'name', required: true)
+  String get name;
 
   /// The display name of the organization
   @override

@@ -320,9 +320,16 @@ Map<String, dynamic> _$$NavItemImplToJson(_$NavItemImpl instance) =>
 _$OrganizationImpl _$$OrganizationImplFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
-    requiredKeys: const ['displayName', 'color', 'settings', 'postCategories'],
+    requiredKeys: const [
+      'name',
+      'displayName',
+      'color',
+      'settings',
+      'postCategories'
+    ],
   );
   return _$OrganizationImpl(
+    name: json['name'] as String,
     displayName: json['displayName'] as String,
     color: json['color'] as String,
     ssoUrl: json['ssoUrl'] as String?,
@@ -341,6 +348,7 @@ _$OrganizationImpl _$$OrganizationImplFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$$OrganizationImplToJson(_$OrganizationImpl instance) =>
     <String, dynamic>{
+      'name': instance.name,
       'displayName': instance.displayName,
       'color': instance.color,
       'ssoUrl': instance.ssoUrl,

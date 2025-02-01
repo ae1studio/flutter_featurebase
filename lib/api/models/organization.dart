@@ -3,6 +3,9 @@ part of featurebase.models;
 @freezed
 class Organization with _$Organization {
   const factory Organization({
+    /// The name of the organization
+    @JsonKey(name: 'name', required: true) required String name,
+
     /// The display name of the organization
     @JsonKey(name: 'displayName', required: true) required String displayName,
 
