@@ -34,7 +34,7 @@ Then you can use one of the supported modules.
 
 ## 💬 Feedback
 
-To use the feedback page you must be using an SSO login for your Featurebase organization.
+To use the feedback page, you must be using SSO login for your Featurebase organization.
 
 ### Setup SSO Auth
 
