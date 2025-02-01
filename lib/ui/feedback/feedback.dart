@@ -499,6 +499,8 @@ class _FeedbackViewState extends ConsumerState<FeedbackView> {
                                 itemCount: posts.results.length,
                                 itemBuilder: (context, index) {
                                   return _PostCard(
+                                    key: Key(
+                                        'post_card_${posts.results[index].id}'),
                                     post: posts.results[index],
                                     textColor: widget.textColor,
                                     locale: currentLocale,

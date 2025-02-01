@@ -6,6 +6,7 @@ class _PostCard extends ConsumerStatefulWidget {
   final Locale locale;
   final fb.Organization organization;
   const _PostCard({
+    super.key,
     required this.post,
     required this.textColor,
     required this.locale,
