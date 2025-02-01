@@ -180,6 +180,7 @@ class _PostPopupState extends ConsumerState<_PostPopup> {
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
                 ),
+            maxLines: null,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(

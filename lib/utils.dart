@@ -229,6 +229,7 @@ void _showCreatePostPopup(BuildContext context, fb.Organization organization) {
   showModalBottomSheet(
     context: context,
     backgroundColor: Theme.of(context).cardColor,
+    isScrollControlled: true,
     builder: (context) => SafeArea(
       child: _PostPopup(
         organization: organization,
