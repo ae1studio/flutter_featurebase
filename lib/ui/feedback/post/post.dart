@@ -72,20 +72,109 @@ class _PostViewState extends ConsumerState<_PostView> {
                               ),
                         ),
                         const SizedBox(width: 6),
-                        Text(
-                          _daysAgo(widget.post.date.toLocal()),
-                          style: Theme.of(context)
-                              .textTheme
-                              .displayLarge!
-                              .copyWith(
-                                fontSize: 14,
-                                color: Theme.of(context)
-                                    .textTheme
-                                    .displayLarge!
-                                    .color!
-                                    .withOpacity(0.5),
-                                fontWeight: FontWeight.w600,
+                        Expanded(
+                          child: Text(
+                            _daysAgo(widget.post.date.toLocal()),
+                            style: Theme.of(context)
+                                .textTheme
+                                .displayLarge!
+                                .copyWith(
+                                  fontSize: 14,
+                                  color: Theme.of(context)
+                                      .textTheme
+                                      .displayLarge!
+                                      .color!
+                                      .withOpacity(0.5),
+                                  fontWeight: FontWeight.w600,
+                                ),
+                          ),
+                        ),
+                        PopupMenuButton<int>(
+                          icon: Icon(
+                            Platform.isIOS ? Icons.more_horiz : Icons.more_vert,
+                            color:
+                                Theme.of(context).textTheme.displayLarge!.color,
+                          ),
+                          color: Theme.of(context).cardColor,
+                          onOpened: () {
+                            _callHaptic();
+                          },
+                          itemBuilder: (BuildContext context) {
+                            return [
+                              PopupMenuItem<int>(
+                                onTap: () async {
+                                  _callHaptic();
+                                  await Share.share(
+                                    _generateUrl(
+                                        widget.post, widget.organization),
+                                  );
+                                },
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Icon(
+                                      Platform.isIOS
+                                          ? Icons.share_rounded
+                                          : Icons.ios_share_rounded,
+                                      color: Theme.of(context).iconTheme.color,
+                                    ),
+                                    const SizedBox(width: 6),
+                                    Text(
+                                      'Share',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .displayLarge!
+                                          .copyWith(fontSize: 16),
+                                    ),
+                                  ],
+                                ),
                               ),
+                              PopupMenuDivider(),
+                              if (widget.post.user.id == _fbService.user?.id)
+                                PopupMenuItem<int>(
+                                  onTap: () {},
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Icon(
+                                        Icons.edit_rounded,
+                                        color:
+                                            Theme.of(context).iconTheme.color,
+                                      ),
+                                      const SizedBox(width: 6),
+                                      Text(
+                                        'Edit',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .displayLarge!
+                                            .copyWith(fontSize: 16),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              if (widget.post.user.id == _fbService.user?.id)
+                                PopupMenuItem<int>(
+                                  onTap: () {},
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      const Icon(
+                                        Icons.delete_rounded,
+                                        color: Colors.red,
+                                      ),
+                                      const SizedBox(width: 6),
+                                      Text(
+                                        'Remove',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .displayLarge!
+                                            .copyWith(fontSize: 16),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                            ];
+                          },
                         ),
                       ],
                     ),

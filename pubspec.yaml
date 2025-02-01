@@ -41,6 +41,7 @@ dependencies:
   universal_io: ^2.2.2
   collection: ^1.18.0
   copy_with_extension: ^6.0.0
+  share_plus: ^10.1.4
 
 dev_dependencies:
   flutter_test:

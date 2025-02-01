@@ -237,3 +237,19 @@ void _showCreatePostPopup(BuildContext context, fb.Organization organization) {
     ),
   );
 }
+
+String _generateUrl(dynamic item, fb.Organization organization) {
+  String baseUrl = 'https://${organization.name}.featurebase.app';
+
+  // If the organization has a custom domain, use it
+  if (organization.customDomain != null) {
+    baseUrl = 'https://${organization.customDomain}';
+  }
+
+  switch (item) {
+    case fb.Post _:
+      return '$baseUrl/p/${item.slug}';
+    default:
+      return baseUrl;
+  }
+}
