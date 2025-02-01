@@ -152,6 +152,7 @@ class _FeedbackViewState extends ConsumerState<FeedbackView> {
               widget.searchFillColor ?? widget.textColor.withOpacity(0.5),
           filled: true,
         ),
+        dividerColor: widget.textColor.withOpacity(0.3),
       ),
       child: Scaffold(
         appBar: AppBar(

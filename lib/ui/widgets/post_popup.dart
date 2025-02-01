@@ -58,69 +58,76 @@ class _PostPopupState extends ConsumerState<_PostPopup> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 6,
-                  vertical: 4,
-                ),
-                decoration: BoxDecoration(
-                  color: Theme.of(context).cardColor,
-                  borderRadius: BorderRadius.circular(8),
-                  border: Border.all(
-                    color: Theme.of(context)
-                        .textTheme
-                        .displayLarge!
-                        .color!
-                        .withOpacity(0.1),
-                    width: 1,
+          Container(
+            margin: const EdgeInsets.only(
+              left: 15,
+              right: 5,
+              top: 12,
+            ),
+            child: Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 6,
+                    vertical: 4,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).cardColor,
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(
+                      color: Theme.of(context)
+                          .textTheme
+                          .displayLarge!
+                          .color!
+                          .withOpacity(0.1),
+                      width: 1,
+                    ),
+                  ),
+                  child: DropdownButton<fb.PostCategory>(
+                    value: selectedCategory,
+                    items: widget.organization.postCategories
+                        .map(
+                          (e) => DropdownMenuItem<fb.PostCategory>(
+                            value: e,
+                            child: Row(
+                              children: [
+                                Text(
+                                  e.category,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .displayLarge!
+                                      .copyWith(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 16,
+                                        color: _mutedColor(context),
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        )
+                        .toList(),
+                    onChanged: (value) async {
+                      selectedCategory = value!;
+                      setState(() {});
+                    },
+                    isDense: true,
+                    padding: EdgeInsets.zero,
+                    underline: const SizedBox(),
+                    dropdownColor: Theme.of(context).cardColor,
+                    borderRadius: BorderRadius.circular(8),
                   ),
                 ),
-                child: DropdownButton<fb.PostCategory>(
-                  value: selectedCategory,
-                  items: widget.organization.postCategories
-                      .map(
-                        (e) => DropdownMenuItem<fb.PostCategory>(
-                          value: e,
-                          child: Row(
-                            children: [
-                              Text(
-                                e.category,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .displayLarge!
-                                    .copyWith(
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 16,
-                                      color: _mutedColor(context),
-                                    ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      )
-                      .toList(),
-                  onChanged: (value) async {
-                    selectedCategory = value!;
-                    setState(() {});
+                const Spacer(),
+                IconButton(
+                  onPressed: () {
+                    _callHaptic();
+                    Navigator.pop(context);
                   },
-                  isDense: true,
-                  padding: EdgeInsets.zero,
-                  underline: const SizedBox(),
-                  dropdownColor: Theme.of(context).cardColor,
-                  borderRadius: BorderRadius.circular(8),
+                  icon: const Icon(Icons.close_rounded),
                 ),
-              ),
-              const Spacer(),
-              IconButton(
-                onPressed: () {
-                  _callHaptic();
-                  Navigator.pop(context);
-                },
-                icon: const Icon(Icons.close_rounded),
-              ),
-            ],
+              ],
+            ),
           ),
           const SizedBox(height: 10),
           TextFormField(
@@ -174,34 +181,47 @@ class _PostPopupState extends ConsumerState<_PostPopup> {
                   fontWeight: FontWeight.w500,
                 ),
           ),
-          const Divider(height: 10),
-          Row(
-            children: [
-              const Spacer(),
-              MaterialButton(
-                color: Theme.of(context).primaryColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                onPressed: () {
-                  _callHaptic();
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 12,
+            ),
+            child: Divider(
+              height: 10,
+              color: Theme.of(context).dividerColor,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 12,
+            ),
+            child: Row(
+              children: [
+                const Spacer(),
+                MaterialButton(
+                  color: Theme.of(context).primaryColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  onPressed: () {
+                    _callHaptic();
 
-                  if (_postFormKey.currentState!.validate()) {
-                    submitPost();
-                  }
-                },
-                child: Text(
-                  'Submit post',
-                  style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                        color:
-                            _calculateTextColor(Theme.of(context).primaryColor),
-                        fontSize: 15,
-                        fontWeight: FontWeight.w500,
-                      ),
+                    if (_postFormKey.currentState!.validate()) {
+                      submitPost();
+                    }
+                  },
+                  child: Text(
+                    'Submit post',
+                    style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                          color: _calculateTextColor(
+                              Theme.of(context).primaryColor),
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500,
+                        ),
+                  ),
                 ),
-              ),
-            ],
-          )
+              ],
+            ),
+          ),
         ],
       ),
     );

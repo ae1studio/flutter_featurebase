@@ -230,11 +230,8 @@ void _showCreatePostPopup(BuildContext context, fb.Organization organization) {
     context: context,
     backgroundColor: Theme.of(context).cardColor,
     builder: (context) => SafeArea(
-      child: Container(
-        margin: const EdgeInsets.all(12),
-        child: _PostPopup(
-          organization: organization,
-        ),
+      child: _PostPopup(
+        organization: organization,
       ),
     ),
   );
