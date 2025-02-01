@@ -3969,6 +3969,10 @@ mixin _$Organization {
   @JsonKey(name: 'ssoUrl')
   String? get ssoUrl => throw _privateConstructorUsedError;
 
+  /// Custom domain
+  @JsonKey(name: 'customDomain')
+  String? get customDomain => throw _privateConstructorUsedError;
+
   /// The widgets of the organization
   @JsonKey(name: 'widget')
   AIOWidget? get widget => throw _privateConstructorUsedError;
@@ -4005,6 +4009,7 @@ abstract class $OrganizationCopyWith<$Res> {
       {@JsonKey(name: 'displayName', required: true) String displayName,
       @JsonKey(name: 'color', required: true) String color,
       @JsonKey(name: 'ssoUrl') String? ssoUrl,
+      @JsonKey(name: 'customDomain') String? customDomain,
       @JsonKey(name: 'widget') AIOWidget? widget,
       @JsonKey(name: 'settings', required: true) OrganizationSettings settings,
       @JsonKey(name: 'postCategories', required: true)
@@ -4033,6 +4038,7 @@ class _$OrganizationCopyWithImpl<$Res, $Val extends Organization>
     Object? displayName = null,
     Object? color = null,
     Object? ssoUrl = freezed,
+    Object? customDomain = freezed,
     Object? widget = freezed,
     Object? settings = null,
     Object? postCategories = null,
@@ -4050,6 +4056,10 @@ class _$OrganizationCopyWithImpl<$Res, $Val extends Organization>
       ssoUrl: freezed == ssoUrl
           ? _value.ssoUrl
           : ssoUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      customDomain: freezed == customDomain
+          ? _value.customDomain
+          : customDomain // ignore: cast_nullable_to_non_nullable
               as String?,
       widget: freezed == widget
           ? _value.widget
@@ -4107,6 +4117,7 @@ abstract class _$$OrganizationImplCopyWith<$Res>
       {@JsonKey(name: 'displayName', required: true) String displayName,
       @JsonKey(name: 'color', required: true) String color,
       @JsonKey(name: 'ssoUrl') String? ssoUrl,
+      @JsonKey(name: 'customDomain') String? customDomain,
       @JsonKey(name: 'widget') AIOWidget? widget,
       @JsonKey(name: 'settings', required: true) OrganizationSettings settings,
       @JsonKey(name: 'postCategories', required: true)
@@ -4135,6 +4146,7 @@ class __$$OrganizationImplCopyWithImpl<$Res>
     Object? displayName = null,
     Object? color = null,
     Object? ssoUrl = freezed,
+    Object? customDomain = freezed,
     Object? widget = freezed,
     Object? settings = null,
     Object? postCategories = null,
@@ -4152,6 +4164,10 @@ class __$$OrganizationImplCopyWithImpl<$Res>
       ssoUrl: freezed == ssoUrl
           ? _value.ssoUrl
           : ssoUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      customDomain: freezed == customDomain
+          ? _value.customDomain
+          : customDomain // ignore: cast_nullable_to_non_nullable
               as String?,
       widget: freezed == widget
           ? _value.widget
@@ -4180,6 +4196,7 @@ class _$OrganizationImpl implements _Organization {
       {@JsonKey(name: 'displayName', required: true) required this.displayName,
       @JsonKey(name: 'color', required: true) required this.color,
       @JsonKey(name: 'ssoUrl') this.ssoUrl,
+      @JsonKey(name: 'customDomain') this.customDomain,
       @JsonKey(name: 'widget') this.widget,
       @JsonKey(name: 'settings', required: true) required this.settings,
       @JsonKey(name: 'postCategories', required: true)
@@ -4204,6 +4221,11 @@ class _$OrganizationImpl implements _Organization {
   @override
   @JsonKey(name: 'ssoUrl')
   final String? ssoUrl;
+
+  /// Custom domain
+  @override
+  @JsonKey(name: 'customDomain')
+  final String? customDomain;
 
   /// The widgets of the organization
   @override
@@ -4234,7 +4256,7 @@ class _$OrganizationImpl implements _Organization {
 
   @override
   String toString() {
-    return 'Organization(displayName: $displayName, color: $color, ssoUrl: $ssoUrl, widget: $widget, settings: $settings, postCategories: $postCategories, picture: $picture)';
+    return 'Organization(displayName: $displayName, color: $color, ssoUrl: $ssoUrl, customDomain: $customDomain, widget: $widget, settings: $settings, postCategories: $postCategories, picture: $picture)';
   }
 
   @override
@@ -4246,6 +4268,8 @@ class _$OrganizationImpl implements _Organization {
                 other.displayName == displayName) &&
             (identical(other.color, color) || other.color == color) &&
             (identical(other.ssoUrl, ssoUrl) || other.ssoUrl == ssoUrl) &&
+            (identical(other.customDomain, customDomain) ||
+                other.customDomain == customDomain) &&
             (identical(other.widget, widget) || other.widget == widget) &&
             (identical(other.settings, settings) ||
                 other.settings == settings) &&
@@ -4261,6 +4285,7 @@ class _$OrganizationImpl implements _Organization {
       displayName,
       color,
       ssoUrl,
+      customDomain,
       widget,
       settings,
       const DeepCollectionEquality().hash(_postCategories),
@@ -4288,6 +4313,7 @@ abstract class _Organization implements Organization {
       required final String displayName,
       @JsonKey(name: 'color', required: true) required final String color,
       @JsonKey(name: 'ssoUrl') final String? ssoUrl,
+      @JsonKey(name: 'customDomain') final String? customDomain,
       @JsonKey(name: 'widget') final AIOWidget? widget,
       @JsonKey(name: 'settings', required: true)
       required final OrganizationSettings settings,
@@ -4312,6 +4338,11 @@ abstract class _Organization implements Organization {
   @override
   @JsonKey(name: 'ssoUrl')
   String? get ssoUrl;
+
+  /// Custom domain
+  @override
+  @JsonKey(name: 'customDomain')
+  String? get customDomain;
 
   /// The widgets of the organization
   @override

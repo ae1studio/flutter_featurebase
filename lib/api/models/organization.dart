@@ -12,6 +12,9 @@ class Organization with _$Organization {
     /// SSO Url
     @JsonKey(name: 'ssoUrl') String? ssoUrl,
 
+    /// Custom domain
+    @JsonKey(name: 'customDomain') String? customDomain,
+
     /// The widgets of the organization
     @JsonKey(name: 'widget') AIOWidget? widget,
 
