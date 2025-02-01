@@ -190,6 +190,9 @@ String _stripHtmlTags(String htmlString) {
 String _daysAgo(DateTime date) {
   final now = DateTime.now();
   final difference = now.difference(date);
+  if (difference.inHours == 0) {
+    return '${difference.inMinutes} minutes ago';
+  }
   if (difference.inDays == 0) {
     return '${difference.inHours} hours ago';
   }
