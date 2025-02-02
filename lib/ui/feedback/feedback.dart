@@ -182,7 +182,7 @@ class _FeedbackViewState extends ConsumerState<FeedbackView> {
                   _callHaptic();
 
                   Navigator.push(
-                    _feedbackNavigatorKey.currentContext!,
+                    context,
                     MaterialPageRoute(
                       builder: (context) => _ProfileView(user: user),
                     ),

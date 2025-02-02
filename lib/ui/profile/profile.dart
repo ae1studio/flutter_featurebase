@@ -16,6 +16,32 @@ class _ProfileViewState extends ConsumerState<_ProfileView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            _callHaptic();
+            Navigator.pop(context);
+          },
+          icon: Icon(
+            Icons.arrow_back_ios_new_rounded,
+            color: _calculateTextColor(Theme.of(context).primaryColor),
+          ),
+        ),
+        title: Text(
+          'Profile',
+          style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                fontSize: 19,
+                fontWeight: FontWeight.w600,
+              ),
+        ),
+        actions: [],
+        centerTitle: true,
+        backgroundColor: Theme.of(context).primaryColor,
+        surfaceTintColor: Theme.of(context).primaryColor,
+        elevation: 0,
+      ),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      resizeToAvoidBottomInset: false,
       body: Column(
         children: [
           Container(
@@ -51,6 +77,7 @@ class _ProfileViewState extends ConsumerState<_ProfileView> {
                         style:
                             Theme.of(context).textTheme.displayLarge!.copyWith(
                                   fontSize: 19,
+                                  fontWeight: FontWeight.w600,
                                 ),
                       ),
                     ],
