@@ -33,6 +33,13 @@ class _PostViewState extends ConsumerState<_PostView> {
     return Theme.of(context).cardColor;
   }
 
+  void _handleDeletePost() async {
+    // TODO: Add error handling
+    await _fbService.api.feedback.deletePost(postId: post.id);
+    Navigator.pop(context);
+    ref.read(feedbackSubmissionsListProvider.notifier).deletePost(post.id);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -154,7 +161,73 @@ class _PostViewState extends ConsumerState<_PostView> {
                                 ),
                               if (widget.post.user.id == _fbService.user?.id)
                                 PopupMenuItem<int>(
-                                  onTap: () {},
+                                  onTap: () {
+                                    _callHaptic();
+
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) => AlertDialog(
+                                        backgroundColor:
+                                            Theme.of(context).cardColor,
+                                        title: Text(
+                                          'Remove post',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .displayLarge!
+                                              .copyWith(
+                                                fontSize: 17,
+                                                fontWeight: FontWeight.w700,
+                                              ),
+                                        ),
+                                        content: Text(
+                                          'Are you sure you want to remove this post?',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .displayLarge!
+                                              .copyWith(
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                        ),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () {
+                                              _callHaptic();
+                                              Navigator.pop(context);
+                                              _handleDeletePost();
+                                            },
+                                            child: Text(
+                                              'Remove',
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .displayLarge!
+                                                  .copyWith(
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.w600,
+                                                    color: Colors.red,
+                                                  ),
+                                            ),
+                                          ),
+                                          TextButton(
+                                            onPressed: () {
+                                              _callHaptic();
+                                              Navigator.pop(context);
+                                            },
+                                            child: Text(
+                                              'Cancel',
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .displayLarge!
+                                                  .copyWith(
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [

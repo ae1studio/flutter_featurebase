@@ -83,4 +83,10 @@ class FeedbackSubmissionsList extends _$FeedbackSubmissionsList {
     state.results.insert(0, post);
     ref.notifyListeners();
   }
+
+  /// Delete a post
+  void deletePost(String postId) {
+    state.results.removeWhere((element) => element.id == postId);
+    ref.notifyListeners();
+  }
 }
