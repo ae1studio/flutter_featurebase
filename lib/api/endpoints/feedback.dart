@@ -92,4 +92,15 @@ class _FeedbackEnd extends _EndpointBase {
       "submissionId": postId,
     });
   }
+
+  /// Subscribe to a post by email
+  Future<void> subscribeToPost({
+    required String postId,
+    required String email,
+  }) async {
+    await dio.post('$_path/subscribeWithEmail', data: {
+      "submissionId": postId,
+      "email": email,
+    });
+  }
 }
