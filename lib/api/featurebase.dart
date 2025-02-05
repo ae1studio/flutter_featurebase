@@ -37,8 +37,15 @@ abstract class _FeaturebaseApiBase {
     String organizationName = "featurebase",
   }) {
     _organizationName = organizationName;
+
+    //Setup the base url
     _dio.options.baseUrl = 'https://$organizationName.featurebase.app/api/v1';
 
+    // Add the Origin header to the request
+    _dio.options.headers['Origin'] =
+        'https://$organizationName.featurebase.app';
+
+    //Setup the endpoints
     _helpCenter = _HelpCenterEnd(this);
     _changelog = _ChangelogEnd(this);
     _organization = _OrganizationEnd(this);
