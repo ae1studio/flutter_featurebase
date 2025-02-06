@@ -819,6 +819,141 @@ final getOrganizationProvider =
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef GetOrganizationRef = AutoDisposeFutureProviderRef<fb.Organization>;
+String _$getUserActivitiesHash() => r'135e35b368c1927592123f24194ee1561019dd90';
+
+/// See also [getUserActivities].
+@ProviderFor(getUserActivities)
+const getUserActivitiesProvider = GetUserActivitiesFamily();
+
+/// See also [getUserActivities].
+class GetUserActivitiesFamily
+    extends Family<AsyncValue<List<fb.UserActivity>>> {
+  /// See also [getUserActivities].
+  const GetUserActivitiesFamily();
+
+  /// See also [getUserActivities].
+  GetUserActivitiesProvider call(
+    String id,
+  ) {
+    return GetUserActivitiesProvider(
+      id,
+    );
+  }
+
+  @override
+  GetUserActivitiesProvider getProviderOverride(
+    covariant GetUserActivitiesProvider provider,
+  ) {
+    return call(
+      provider.id,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'getUserActivitiesProvider';
+}
+
+/// See also [getUserActivities].
+class GetUserActivitiesProvider
+    extends AutoDisposeFutureProvider<List<fb.UserActivity>> {
+  /// See also [getUserActivities].
+  GetUserActivitiesProvider(
+    String id,
+  ) : this._internal(
+          (ref) => getUserActivities(
+            ref as GetUserActivitiesRef,
+            id,
+          ),
+          from: getUserActivitiesProvider,
+          name: r'getUserActivitiesProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$getUserActivitiesHash,
+          dependencies: GetUserActivitiesFamily._dependencies,
+          allTransitiveDependencies:
+              GetUserActivitiesFamily._allTransitiveDependencies,
+          id: id,
+        );
+
+  GetUserActivitiesProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.id,
+  }) : super.internal();
+
+  final String id;
+
+  @override
+  Override overrideWith(
+    FutureOr<List<fb.UserActivity>> Function(GetUserActivitiesRef provider)
+        create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: GetUserActivitiesProvider._internal(
+        (ref) => create(ref as GetUserActivitiesRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        id: id,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<List<fb.UserActivity>> createElement() {
+    return _GetUserActivitiesProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is GetUserActivitiesProvider && other.id == id;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+mixin GetUserActivitiesRef
+    on AutoDisposeFutureProviderRef<List<fb.UserActivity>> {
+  /// The parameter `id` of this provider.
+  String get id;
+}
+
+class _GetUserActivitiesProviderElement
+    extends AutoDisposeFutureProviderElement<List<fb.UserActivity>>
+    with GetUserActivitiesRef {
+  _GetUserActivitiesProviderElement(super.provider);
+
+  @override
+  String get id => (origin as GetUserActivitiesProvider).id;
+}
+
 String _$getCurrentUserHash() => r'495d0500a191ee002228987b62f7987bcf4cb888';
 
 /// See also [getCurrentUser].

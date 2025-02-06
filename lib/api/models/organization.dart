@@ -107,6 +107,9 @@ class UserActivity with _$UserActivity {
 
     /// The submission
     @JsonKey(name: 'submission') required UserActivitySubmission submission,
+
+    /// The comment
+    @JsonKey(name: 'comment') UserActivityComment? comment,
   }) = _UserActivity;
 
   factory UserActivity.fromJson(Map<String, Object?> json) =>
@@ -125,4 +128,15 @@ class UserActivitySubmission with _$UserActivitySubmission {
 
   factory UserActivitySubmission.fromJson(Map<String, Object?> json) =>
       _$UserActivitySubmissionFromJson(json);
+}
+
+@freezed
+class UserActivityComment with _$UserActivityComment {
+  const factory UserActivityComment({
+    /// The comment content
+    @JsonKey(name: 'content') required String content,
+  }) = _UserActivityComment;
+
+  factory UserActivityComment.fromJson(Map<String, Object?> json) =>
+      _$UserActivityCommentFromJson(json);
 }

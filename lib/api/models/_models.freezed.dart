@@ -5107,6 +5107,10 @@ mixin _$UserActivity {
   @JsonKey(name: 'submission')
   UserActivitySubmission get submission => throw _privateConstructorUsedError;
 
+  /// The comment
+  @JsonKey(name: 'comment')
+  UserActivityComment? get comment => throw _privateConstructorUsedError;
+
   /// Serializes this UserActivity to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
@@ -5127,9 +5131,11 @@ abstract class $UserActivityCopyWith<$Res> {
       {@JsonKey(name: 'type') String type,
       @JsonKey(name: 'submissionId') String submissionId,
       @JsonKey(name: 'createdAt') DateTime createdAt,
-      @JsonKey(name: 'submission') UserActivitySubmission submission});
+      @JsonKey(name: 'submission') UserActivitySubmission submission,
+      @JsonKey(name: 'comment') UserActivityComment? comment});
 
   $UserActivitySubmissionCopyWith<$Res> get submission;
+  $UserActivityCommentCopyWith<$Res>? get comment;
 }
 
 /// @nodoc
@@ -5151,6 +5157,7 @@ class _$UserActivityCopyWithImpl<$Res, $Val extends UserActivity>
     Object? submissionId = null,
     Object? createdAt = null,
     Object? submission = null,
+    Object? comment = freezed,
   }) {
     return _then(_value.copyWith(
       type: null == type
@@ -5169,6 +5176,10 @@ class _$UserActivityCopyWithImpl<$Res, $Val extends UserActivity>
           ? _value.submission
           : submission // ignore: cast_nullable_to_non_nullable
               as UserActivitySubmission,
+      comment: freezed == comment
+          ? _value.comment
+          : comment // ignore: cast_nullable_to_non_nullable
+              as UserActivityComment?,
     ) as $Val);
   }
 
@@ -5179,6 +5190,20 @@ class _$UserActivityCopyWithImpl<$Res, $Val extends UserActivity>
   $UserActivitySubmissionCopyWith<$Res> get submission {
     return $UserActivitySubmissionCopyWith<$Res>(_value.submission, (value) {
       return _then(_value.copyWith(submission: value) as $Val);
+    });
+  }
+
+  /// Create a copy of UserActivity
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $UserActivityCommentCopyWith<$Res>? get comment {
+    if (_value.comment == null) {
+      return null;
+    }
+
+    return $UserActivityCommentCopyWith<$Res>(_value.comment!, (value) {
+      return _then(_value.copyWith(comment: value) as $Val);
     });
   }
 }
@@ -5195,10 +5220,13 @@ abstract class _$$UserActivityImplCopyWith<$Res>
       {@JsonKey(name: 'type') String type,
       @JsonKey(name: 'submissionId') String submissionId,
       @JsonKey(name: 'createdAt') DateTime createdAt,
-      @JsonKey(name: 'submission') UserActivitySubmission submission});
+      @JsonKey(name: 'submission') UserActivitySubmission submission,
+      @JsonKey(name: 'comment') UserActivityComment? comment});
 
   @override
   $UserActivitySubmissionCopyWith<$Res> get submission;
+  @override
+  $UserActivityCommentCopyWith<$Res>? get comment;
 }
 
 /// @nodoc
@@ -5218,6 +5246,7 @@ class __$$UserActivityImplCopyWithImpl<$Res>
     Object? submissionId = null,
     Object? createdAt = null,
     Object? submission = null,
+    Object? comment = freezed,
   }) {
     return _then(_$UserActivityImpl(
       type: null == type
@@ -5236,6 +5265,10 @@ class __$$UserActivityImplCopyWithImpl<$Res>
           ? _value.submission
           : submission // ignore: cast_nullable_to_non_nullable
               as UserActivitySubmission,
+      comment: freezed == comment
+          ? _value.comment
+          : comment // ignore: cast_nullable_to_non_nullable
+              as UserActivityComment?,
     ));
   }
 }
@@ -5247,7 +5280,8 @@ class _$UserActivityImpl implements _UserActivity {
       {@JsonKey(name: 'type') required this.type,
       @JsonKey(name: 'submissionId') required this.submissionId,
       @JsonKey(name: 'createdAt') required this.createdAt,
-      @JsonKey(name: 'submission') required this.submission});
+      @JsonKey(name: 'submission') required this.submission,
+      @JsonKey(name: 'comment') this.comment});
 
   factory _$UserActivityImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserActivityImplFromJson(json);
@@ -5272,9 +5306,14 @@ class _$UserActivityImpl implements _UserActivity {
   @JsonKey(name: 'submission')
   final UserActivitySubmission submission;
 
+  /// The comment
+  @override
+  @JsonKey(name: 'comment')
+  final UserActivityComment? comment;
+
   @override
   String toString() {
-    return 'UserActivity(type: $type, submissionId: $submissionId, createdAt: $createdAt, submission: $submission)';
+    return 'UserActivity(type: $type, submissionId: $submissionId, createdAt: $createdAt, submission: $submission, comment: $comment)';
   }
 
   @override
@@ -5288,13 +5327,14 @@ class _$UserActivityImpl implements _UserActivity {
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.submission, submission) ||
-                other.submission == submission));
+                other.submission == submission) &&
+            (identical(other.comment, comment) || other.comment == comment));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, type, submissionId, createdAt, submission);
+  int get hashCode => Object.hash(
+      runtimeType, type, submissionId, createdAt, submission, comment);
 
   /// Create a copy of UserActivity
   /// with the given fields replaced by the non-null parameter values.
@@ -5314,11 +5354,13 @@ class _$UserActivityImpl implements _UserActivity {
 
 abstract class _UserActivity implements UserActivity {
   const factory _UserActivity(
-      {@JsonKey(name: 'type') required final String type,
-      @JsonKey(name: 'submissionId') required final String submissionId,
-      @JsonKey(name: 'createdAt') required final DateTime createdAt,
-      @JsonKey(name: 'submission')
-      required final UserActivitySubmission submission}) = _$UserActivityImpl;
+          {@JsonKey(name: 'type') required final String type,
+          @JsonKey(name: 'submissionId') required final String submissionId,
+          @JsonKey(name: 'createdAt') required final DateTime createdAt,
+          @JsonKey(name: 'submission')
+          required final UserActivitySubmission submission,
+          @JsonKey(name: 'comment') final UserActivityComment? comment}) =
+      _$UserActivityImpl;
 
   factory _UserActivity.fromJson(Map<String, dynamic> json) =
       _$UserActivityImpl.fromJson;
@@ -5342,6 +5384,11 @@ abstract class _UserActivity implements UserActivity {
   @override
   @JsonKey(name: 'submission')
   UserActivitySubmission get submission;
+
+  /// The comment
+  @override
+  @JsonKey(name: 'comment')
+  UserActivityComment? get comment;
 
   /// Create a copy of UserActivity
   /// with the given fields replaced by the non-null parameter values.
@@ -5544,6 +5591,165 @@ abstract class _UserActivitySubmission implements UserActivitySubmission {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UserActivitySubmissionImplCopyWith<_$UserActivitySubmissionImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+UserActivityComment _$UserActivityCommentFromJson(Map<String, dynamic> json) {
+  return _UserActivityComment.fromJson(json);
+}
+
+/// @nodoc
+mixin _$UserActivityComment {
+  /// The comment content
+  @JsonKey(name: 'content')
+  String get content => throw _privateConstructorUsedError;
+
+  /// Serializes this UserActivityComment to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of UserActivityComment
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $UserActivityCommentCopyWith<UserActivityComment> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UserActivityCommentCopyWith<$Res> {
+  factory $UserActivityCommentCopyWith(
+          UserActivityComment value, $Res Function(UserActivityComment) then) =
+      _$UserActivityCommentCopyWithImpl<$Res, UserActivityComment>;
+  @useResult
+  $Res call({@JsonKey(name: 'content') String content});
+}
+
+/// @nodoc
+class _$UserActivityCommentCopyWithImpl<$Res, $Val extends UserActivityComment>
+    implements $UserActivityCommentCopyWith<$Res> {
+  _$UserActivityCommentCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of UserActivityComment
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? content = null,
+  }) {
+    return _then(_value.copyWith(
+      content: null == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$UserActivityCommentImplCopyWith<$Res>
+    implements $UserActivityCommentCopyWith<$Res> {
+  factory _$$UserActivityCommentImplCopyWith(_$UserActivityCommentImpl value,
+          $Res Function(_$UserActivityCommentImpl) then) =
+      __$$UserActivityCommentImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({@JsonKey(name: 'content') String content});
+}
+
+/// @nodoc
+class __$$UserActivityCommentImplCopyWithImpl<$Res>
+    extends _$UserActivityCommentCopyWithImpl<$Res, _$UserActivityCommentImpl>
+    implements _$$UserActivityCommentImplCopyWith<$Res> {
+  __$$UserActivityCommentImplCopyWithImpl(_$UserActivityCommentImpl _value,
+      $Res Function(_$UserActivityCommentImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserActivityComment
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? content = null,
+  }) {
+    return _then(_$UserActivityCommentImpl(
+      content: null == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$UserActivityCommentImpl implements _UserActivityComment {
+  const _$UserActivityCommentImpl(
+      {@JsonKey(name: 'content') required this.content});
+
+  factory _$UserActivityCommentImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserActivityCommentImplFromJson(json);
+
+  /// The comment content
+  @override
+  @JsonKey(name: 'content')
+  final String content;
+
+  @override
+  String toString() {
+    return 'UserActivityComment(content: $content)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UserActivityCommentImpl &&
+            (identical(other.content, content) || other.content == content));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, content);
+
+  /// Create a copy of UserActivityComment
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UserActivityCommentImplCopyWith<_$UserActivityCommentImpl> get copyWith =>
+      __$$UserActivityCommentImplCopyWithImpl<_$UserActivityCommentImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$UserActivityCommentImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _UserActivityComment implements UserActivityComment {
+  const factory _UserActivityComment(
+          {@JsonKey(name: 'content') required final String content}) =
+      _$UserActivityCommentImpl;
+
+  factory _UserActivityComment.fromJson(Map<String, dynamic> json) =
+      _$UserActivityCommentImpl.fromJson;
+
+  /// The comment content
+  @override
+  @JsonKey(name: 'content')
+  String get content;
+
+  /// Create a copy of UserActivityComment
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UserActivityCommentImplCopyWith<_$UserActivityCommentImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 Post _$PostFromJson(Map<String, dynamic> json) {

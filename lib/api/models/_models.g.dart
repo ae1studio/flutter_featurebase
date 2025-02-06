@@ -427,6 +427,10 @@ _$UserActivityImpl _$$UserActivityImplFromJson(Map<String, dynamic> json) =>
       createdAt: DateTime.parse(json['createdAt'] as String),
       submission: UserActivitySubmission.fromJson(
           json['submission'] as Map<String, dynamic>),
+      comment: json['comment'] == null
+          ? null
+          : UserActivityComment.fromJson(
+              json['comment'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$UserActivityImplToJson(_$UserActivityImpl instance) =>
@@ -435,6 +439,7 @@ Map<String, dynamic> _$$UserActivityImplToJson(_$UserActivityImpl instance) =>
       'submissionId': instance.submissionId,
       'createdAt': instance.createdAt.toIso8601String(),
       'submission': instance.submission,
+      'comment': instance.comment,
     };
 
 _$UserActivitySubmissionImpl _$$UserActivitySubmissionImplFromJson(
@@ -448,6 +453,18 @@ Map<String, dynamic> _$$UserActivitySubmissionImplToJson(
         _$UserActivitySubmissionImpl instance) =>
     <String, dynamic>{
       'title': instance.title,
+      'content': instance.content,
+    };
+
+_$UserActivityCommentImpl _$$UserActivityCommentImplFromJson(
+        Map<String, dynamic> json) =>
+    _$UserActivityCommentImpl(
+      content: json['content'] as String,
+    );
+
+Map<String, dynamic> _$$UserActivityCommentImplToJson(
+        _$UserActivityCommentImpl instance) =>
+    <String, dynamic>{
       'content': instance.content,
     };
 
