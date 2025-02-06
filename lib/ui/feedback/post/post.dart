@@ -159,7 +159,8 @@ class _PostViewState extends ConsumerState<_PostView> {
                                     ],
                                   ),
                                 ),
-                              if (widget.post.user.id == _fbService.user?.id)
+                              if (_fbService.user?.type == 'admin' ||
+                                  _fbService.user?.type == 'manager')
                                 PopupMenuItem<int>(
                                   onTap: () {
                                     _callHaptic();
