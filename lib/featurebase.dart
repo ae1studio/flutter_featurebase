@@ -35,6 +35,7 @@ part 'api/endpoints/user.dart';
 
 //UI
 part 'ui/profile/profile.dart';
+part 'ui/profile/widgets/activity_item.dart';
 part 'ui/changelog/changelog.dart';
 part 'ui/changelog/widgets/changelog_card.dart';
 part 'ui/feedback/feedback.dart';

@@ -32,6 +32,20 @@ class _FeedbackEnd extends _EndpointBase {
     );
   }
 
+  /// Get a single post
+  Future<fb.Post?> getSinglePost({
+    required String postId,
+  }) async {
+    final Map<String, Object?> map = (await dio.get(_path, queryParameters: {
+      "id": postId,
+    }))
+        .data;
+    return fb.ResultsPagination<fb.Post>.fromJson(
+      map,
+      (json) => fb.Post.fromJson(json as Map<String, dynamic>),
+    ).results.firstOrNull;
+  }
+
   /// Submit a post
   Future<fb.Post> submit({
     required String title,

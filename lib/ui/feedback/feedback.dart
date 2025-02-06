@@ -184,7 +184,12 @@ class _FeedbackViewState extends ConsumerState<FeedbackView> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => _ProfileView(user: user),
+                      builder: (context) => ProviderScope(
+                        child: _ProfileView(
+                          user: user,
+                          organization: organizationAsync.value!,
+                        ),
+                      ),
                     ),
                   );
                 },
