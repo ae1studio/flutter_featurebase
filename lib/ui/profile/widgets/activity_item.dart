@@ -86,6 +86,51 @@ class _ActivityItemWidget extends StatelessWidget {
               ),
             ],
           ),
+          //Post
+          Container(
+            margin: const EdgeInsets.only(top: 10),
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: Theme.of(context).scaffoldBackgroundColor,
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(
+                color: _mutedColor(context).withAlpha(30),
+                width: 1,
+              ),
+            ),
+            width: double.infinity,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  activity.submission.title,
+                  style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w700,
+                        color: _mutedColor(context),
+                      ),
+                ),
+                if (_stripHtmlTags(activity.submission.content)
+                    .trim()
+                    .isNotEmpty)
+                  const SizedBox(height: 2),
+                if (_stripHtmlTags(activity.submission.content)
+                    .trim()
+                    .isNotEmpty)
+                  Text(
+                    _stripHtmlTags(activity.submission.content),
+                    style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w600,
+                          color: _mutedColor(context),
+                        ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    softWrap: false,
+                  ),
+              ],
+            ),
+          ),
           // Comment
           if (activity.comment != null)
             Padding(
