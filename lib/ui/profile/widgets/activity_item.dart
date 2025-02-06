@@ -25,7 +25,7 @@ class _ActivityItemWidget extends StatelessWidget {
   String icon() {
     switch (activity.type) {
       case 'comment':
-        return 'IconChatAlt2';
+        return 'IconChat';
       case 'createSubmission':
         return 'IconCollection';
       case 'upvote':
