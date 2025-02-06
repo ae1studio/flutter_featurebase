@@ -233,7 +233,7 @@ class _ProfileViewState extends ConsumerState<_ProfileView> {
                   _FBIconWidget(
                     icon: fb.FBIcon(
                       type: 'predefined',
-                      value: 'IconCollection',
+                      value: 'IconLightningBolt',
                     ),
                     textColor: _mutedColor(context),
                     primaryColor: _mutedColor(context),
