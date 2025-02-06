@@ -5085,6 +5085,467 @@ abstract class _OrganizationSettings implements OrganizationSettings {
       get copyWith => throw _privateConstructorUsedError;
 }
 
+UserActivity _$UserActivityFromJson(Map<String, dynamic> json) {
+  return _UserActivity.fromJson(json);
+}
+
+/// @nodoc
+mixin _$UserActivity {
+  /// The type of the user activity
+  @JsonKey(name: 'type')
+  String get type => throw _privateConstructorUsedError;
+
+  /// The submission id
+  @JsonKey(name: 'submissionId')
+  String get submissionId => throw _privateConstructorUsedError;
+
+  /// The created at date
+  @JsonKey(name: 'createdAt')
+  DateTime get createdAt => throw _privateConstructorUsedError;
+
+  /// The submission
+  @JsonKey(name: 'submission')
+  UserActivitySubmission get submission => throw _privateConstructorUsedError;
+
+  /// Serializes this UserActivity to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of UserActivity
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $UserActivityCopyWith<UserActivity> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UserActivityCopyWith<$Res> {
+  factory $UserActivityCopyWith(
+          UserActivity value, $Res Function(UserActivity) then) =
+      _$UserActivityCopyWithImpl<$Res, UserActivity>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'type') String type,
+      @JsonKey(name: 'submissionId') String submissionId,
+      @JsonKey(name: 'createdAt') DateTime createdAt,
+      @JsonKey(name: 'submission') UserActivitySubmission submission});
+
+  $UserActivitySubmissionCopyWith<$Res> get submission;
+}
+
+/// @nodoc
+class _$UserActivityCopyWithImpl<$Res, $Val extends UserActivity>
+    implements $UserActivityCopyWith<$Res> {
+  _$UserActivityCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of UserActivity
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+    Object? submissionId = null,
+    Object? createdAt = null,
+    Object? submission = null,
+  }) {
+    return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      submissionId: null == submissionId
+          ? _value.submissionId
+          : submissionId // ignore: cast_nullable_to_non_nullable
+              as String,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      submission: null == submission
+          ? _value.submission
+          : submission // ignore: cast_nullable_to_non_nullable
+              as UserActivitySubmission,
+    ) as $Val);
+  }
+
+  /// Create a copy of UserActivity
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $UserActivitySubmissionCopyWith<$Res> get submission {
+    return $UserActivitySubmissionCopyWith<$Res>(_value.submission, (value) {
+      return _then(_value.copyWith(submission: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$UserActivityImplCopyWith<$Res>
+    implements $UserActivityCopyWith<$Res> {
+  factory _$$UserActivityImplCopyWith(
+          _$UserActivityImpl value, $Res Function(_$UserActivityImpl) then) =
+      __$$UserActivityImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'type') String type,
+      @JsonKey(name: 'submissionId') String submissionId,
+      @JsonKey(name: 'createdAt') DateTime createdAt,
+      @JsonKey(name: 'submission') UserActivitySubmission submission});
+
+  @override
+  $UserActivitySubmissionCopyWith<$Res> get submission;
+}
+
+/// @nodoc
+class __$$UserActivityImplCopyWithImpl<$Res>
+    extends _$UserActivityCopyWithImpl<$Res, _$UserActivityImpl>
+    implements _$$UserActivityImplCopyWith<$Res> {
+  __$$UserActivityImplCopyWithImpl(
+      _$UserActivityImpl _value, $Res Function(_$UserActivityImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserActivity
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+    Object? submissionId = null,
+    Object? createdAt = null,
+    Object? submission = null,
+  }) {
+    return _then(_$UserActivityImpl(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      submissionId: null == submissionId
+          ? _value.submissionId
+          : submissionId // ignore: cast_nullable_to_non_nullable
+              as String,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      submission: null == submission
+          ? _value.submission
+          : submission // ignore: cast_nullable_to_non_nullable
+              as UserActivitySubmission,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$UserActivityImpl implements _UserActivity {
+  const _$UserActivityImpl(
+      {@JsonKey(name: 'type') required this.type,
+      @JsonKey(name: 'submissionId') required this.submissionId,
+      @JsonKey(name: 'createdAt') required this.createdAt,
+      @JsonKey(name: 'submission') required this.submission});
+
+  factory _$UserActivityImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserActivityImplFromJson(json);
+
+  /// The type of the user activity
+  @override
+  @JsonKey(name: 'type')
+  final String type;
+
+  /// The submission id
+  @override
+  @JsonKey(name: 'submissionId')
+  final String submissionId;
+
+  /// The created at date
+  @override
+  @JsonKey(name: 'createdAt')
+  final DateTime createdAt;
+
+  /// The submission
+  @override
+  @JsonKey(name: 'submission')
+  final UserActivitySubmission submission;
+
+  @override
+  String toString() {
+    return 'UserActivity(type: $type, submissionId: $submissionId, createdAt: $createdAt, submission: $submission)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UserActivityImpl &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.submissionId, submissionId) ||
+                other.submissionId == submissionId) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.submission, submission) ||
+                other.submission == submission));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, type, submissionId, createdAt, submission);
+
+  /// Create a copy of UserActivity
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UserActivityImplCopyWith<_$UserActivityImpl> get copyWith =>
+      __$$UserActivityImplCopyWithImpl<_$UserActivityImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$UserActivityImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _UserActivity implements UserActivity {
+  const factory _UserActivity(
+      {@JsonKey(name: 'type') required final String type,
+      @JsonKey(name: 'submissionId') required final String submissionId,
+      @JsonKey(name: 'createdAt') required final DateTime createdAt,
+      @JsonKey(name: 'submission')
+      required final UserActivitySubmission submission}) = _$UserActivityImpl;
+
+  factory _UserActivity.fromJson(Map<String, dynamic> json) =
+      _$UserActivityImpl.fromJson;
+
+  /// The type of the user activity
+  @override
+  @JsonKey(name: 'type')
+  String get type;
+
+  /// The submission id
+  @override
+  @JsonKey(name: 'submissionId')
+  String get submissionId;
+
+  /// The created at date
+  @override
+  @JsonKey(name: 'createdAt')
+  DateTime get createdAt;
+
+  /// The submission
+  @override
+  @JsonKey(name: 'submission')
+  UserActivitySubmission get submission;
+
+  /// Create a copy of UserActivity
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UserActivityImplCopyWith<_$UserActivityImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+UserActivitySubmission _$UserActivitySubmissionFromJson(
+    Map<String, dynamic> json) {
+  return _UserActivitySubmission.fromJson(json);
+}
+
+/// @nodoc
+mixin _$UserActivitySubmission {
+  /// The title of the submission
+  @JsonKey(name: 'title')
+  String get title => throw _privateConstructorUsedError;
+
+  /// The submission content
+  @JsonKey(name: 'content')
+  String get content => throw _privateConstructorUsedError;
+
+  /// Serializes this UserActivitySubmission to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of UserActivitySubmission
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $UserActivitySubmissionCopyWith<UserActivitySubmission> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UserActivitySubmissionCopyWith<$Res> {
+  factory $UserActivitySubmissionCopyWith(UserActivitySubmission value,
+          $Res Function(UserActivitySubmission) then) =
+      _$UserActivitySubmissionCopyWithImpl<$Res, UserActivitySubmission>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'title') String title,
+      @JsonKey(name: 'content') String content});
+}
+
+/// @nodoc
+class _$UserActivitySubmissionCopyWithImpl<$Res,
+        $Val extends UserActivitySubmission>
+    implements $UserActivitySubmissionCopyWith<$Res> {
+  _$UserActivitySubmissionCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of UserActivitySubmission
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? title = null,
+    Object? content = null,
+  }) {
+    return _then(_value.copyWith(
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      content: null == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$UserActivitySubmissionImplCopyWith<$Res>
+    implements $UserActivitySubmissionCopyWith<$Res> {
+  factory _$$UserActivitySubmissionImplCopyWith(
+          _$UserActivitySubmissionImpl value,
+          $Res Function(_$UserActivitySubmissionImpl) then) =
+      __$$UserActivitySubmissionImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'title') String title,
+      @JsonKey(name: 'content') String content});
+}
+
+/// @nodoc
+class __$$UserActivitySubmissionImplCopyWithImpl<$Res>
+    extends _$UserActivitySubmissionCopyWithImpl<$Res,
+        _$UserActivitySubmissionImpl>
+    implements _$$UserActivitySubmissionImplCopyWith<$Res> {
+  __$$UserActivitySubmissionImplCopyWithImpl(
+      _$UserActivitySubmissionImpl _value,
+      $Res Function(_$UserActivitySubmissionImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserActivitySubmission
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? title = null,
+    Object? content = null,
+  }) {
+    return _then(_$UserActivitySubmissionImpl(
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      content: null == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$UserActivitySubmissionImpl implements _UserActivitySubmission {
+  const _$UserActivitySubmissionImpl(
+      {@JsonKey(name: 'title') required this.title,
+      @JsonKey(name: 'content') required this.content});
+
+  factory _$UserActivitySubmissionImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserActivitySubmissionImplFromJson(json);
+
+  /// The title of the submission
+  @override
+  @JsonKey(name: 'title')
+  final String title;
+
+  /// The submission content
+  @override
+  @JsonKey(name: 'content')
+  final String content;
+
+  @override
+  String toString() {
+    return 'UserActivitySubmission(title: $title, content: $content)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UserActivitySubmissionImpl &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.content, content) || other.content == content));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, title, content);
+
+  /// Create a copy of UserActivitySubmission
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UserActivitySubmissionImplCopyWith<_$UserActivitySubmissionImpl>
+      get copyWith => __$$UserActivitySubmissionImplCopyWithImpl<
+          _$UserActivitySubmissionImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$UserActivitySubmissionImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _UserActivitySubmission implements UserActivitySubmission {
+  const factory _UserActivitySubmission(
+          {@JsonKey(name: 'title') required final String title,
+          @JsonKey(name: 'content') required final String content}) =
+      _$UserActivitySubmissionImpl;
+
+  factory _UserActivitySubmission.fromJson(Map<String, dynamic> json) =
+      _$UserActivitySubmissionImpl.fromJson;
+
+  /// The title of the submission
+  @override
+  @JsonKey(name: 'title')
+  String get title;
+
+  /// The submission content
+  @override
+  @JsonKey(name: 'content')
+  String get content;
+
+  /// Create a copy of UserActivitySubmission
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UserActivitySubmissionImplCopyWith<_$UserActivitySubmissionImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
 Post _$PostFromJson(Map<String, dynamic> json) {
   return _Post.fromJson(json);
 }

@@ -837,7 +837,7 @@ final getCurrentUserProvider = AutoDisposeFutureProvider<fb.User>.internal(
 // ignore: unused_element
 typedef GetCurrentUserRef = AutoDisposeFutureProviderRef<fb.User>;
 String _$feedbackSubmissionsListHash() =>
-    r'6b869a5910507365e36c5f52ef2539ef8d51c368';
+    r'c0d5b5613d814f518ec31e182e937a11050d77d9';
 
 /// See also [FeedbackSubmissionsList].
 @ProviderFor(FeedbackSubmissionsList)

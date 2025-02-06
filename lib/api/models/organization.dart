@@ -92,3 +92,37 @@ class OrganizationSettings with _$OrganizationSettings {
   factory OrganizationSettings.fromJson(Map<String, Object?> json) =>
       _$OrganizationSettingsFromJson(json);
 }
+
+@freezed
+class UserActivity with _$UserActivity {
+  const factory UserActivity({
+    /// The type of the user activity
+    @JsonKey(name: 'type') required String type,
+
+    /// The submission id
+    @JsonKey(name: 'submissionId') required String submissionId,
+
+    /// The created at date
+    @JsonKey(name: 'createdAt') required DateTime createdAt,
+
+    /// The submission
+    @JsonKey(name: 'submission') required UserActivitySubmission submission,
+  }) = _UserActivity;
+
+  factory UserActivity.fromJson(Map<String, Object?> json) =>
+      _$UserActivityFromJson(json);
+}
+
+@freezed
+class UserActivitySubmission with _$UserActivitySubmission {
+  const factory UserActivitySubmission({
+    /// The title of the submission
+    @JsonKey(name: 'title') required String title,
+
+    /// The submission content
+    @JsonKey(name: 'content') required String content,
+  }) = _UserActivitySubmission;
+
+  factory UserActivitySubmission.fromJson(Map<String, Object?> json) =>
+      _$UserActivitySubmissionFromJson(json);
+}
