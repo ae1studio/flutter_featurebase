@@ -42,6 +42,7 @@ dependencies:
   collection: ^1.18.0
   copy_with_extension: ^6.0.0
   share_plus: ^10.1.4
+  image_picker: ^1.1.2
 
 dev_dependencies:
   flutter_test:
