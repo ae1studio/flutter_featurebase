@@ -30,6 +30,9 @@ class Comment with _$Comment {
     /// Whether the comment is pinned
     @JsonKey(name: 'pinned') @Default(false) bool pinned,
 
+    /// Whether the comment is private
+    @JsonKey(name: 'isPrivate') @Default(false) bool isPrivate,
+
     /// The date the comment was created
     @JsonKey(name: 'createdAt', required: true) required DateTime createdAt,
   }) = _Comment;

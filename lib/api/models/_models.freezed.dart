@@ -7426,3 +7426,471 @@ abstract class _User implements User {
   _$$UserImplCopyWith<_$UserImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+Comment _$CommentFromJson(Map<String, dynamic> json) {
+  return _Comment.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Comment {
+  /// The comment id
+  @JsonKey(name: 'id', required: true)
+  String get id => throw _privateConstructorUsedError;
+
+  /// The user who created the comment
+  @JsonKey(name: 'user', required: true)
+  UserSimple get user => throw _privateConstructorUsedError;
+
+  /// The id of the user who created the comment
+  @JsonKey(name: 'createdBy', required: true)
+  String get createdBy => throw _privateConstructorUsedError;
+
+  /// The content of the comment
+  @JsonKey(name: 'content', required: true)
+  String get content => throw _privateConstructorUsedError;
+
+  /// The amount of upvotes the comment has
+  @JsonKey(name: 'upvotes')
+  int get upvotes => throw _privateConstructorUsedError;
+
+  /// The amount of downvotes the comment has
+  @JsonKey(name: 'downvotes')
+  int get downvotes => throw _privateConstructorUsedError;
+
+  /// Whether the user has upvoted the comment
+  @JsonKey(name: 'upvoted')
+  bool get upvoted => throw _privateConstructorUsedError;
+
+  /// Whether the user has downvoted the comment
+  @JsonKey(name: 'downvoted')
+  bool get downvoted => throw _privateConstructorUsedError;
+
+  /// Whether the comment is pinned
+  @JsonKey(name: 'pinned')
+  bool get pinned => throw _privateConstructorUsedError;
+
+  /// Whether the comment is private
+  @JsonKey(name: 'isPrivate')
+  bool get isPrivate => throw _privateConstructorUsedError;
+
+  /// The date the comment was created
+  @JsonKey(name: 'createdAt', required: true)
+  DateTime get createdAt => throw _privateConstructorUsedError;
+
+  /// Serializes this Comment to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of Comment
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $CommentCopyWith<Comment> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CommentCopyWith<$Res> {
+  factory $CommentCopyWith(Comment value, $Res Function(Comment) then) =
+      _$CommentCopyWithImpl<$Res, Comment>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'id', required: true) String id,
+      @JsonKey(name: 'user', required: true) UserSimple user,
+      @JsonKey(name: 'createdBy', required: true) String createdBy,
+      @JsonKey(name: 'content', required: true) String content,
+      @JsonKey(name: 'upvotes') int upvotes,
+      @JsonKey(name: 'downvotes') int downvotes,
+      @JsonKey(name: 'upvoted') bool upvoted,
+      @JsonKey(name: 'downvoted') bool downvoted,
+      @JsonKey(name: 'pinned') bool pinned,
+      @JsonKey(name: 'isPrivate') bool isPrivate,
+      @JsonKey(name: 'createdAt', required: true) DateTime createdAt});
+
+  $UserSimpleCopyWith<$Res> get user;
+}
+
+/// @nodoc
+class _$CommentCopyWithImpl<$Res, $Val extends Comment>
+    implements $CommentCopyWith<$Res> {
+  _$CommentCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of Comment
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? user = null,
+    Object? createdBy = null,
+    Object? content = null,
+    Object? upvotes = null,
+    Object? downvotes = null,
+    Object? upvoted = null,
+    Object? downvoted = null,
+    Object? pinned = null,
+    Object? isPrivate = null,
+    Object? createdAt = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserSimple,
+      createdBy: null == createdBy
+          ? _value.createdBy
+          : createdBy // ignore: cast_nullable_to_non_nullable
+              as String,
+      content: null == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String,
+      upvotes: null == upvotes
+          ? _value.upvotes
+          : upvotes // ignore: cast_nullable_to_non_nullable
+              as int,
+      downvotes: null == downvotes
+          ? _value.downvotes
+          : downvotes // ignore: cast_nullable_to_non_nullable
+              as int,
+      upvoted: null == upvoted
+          ? _value.upvoted
+          : upvoted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      downvoted: null == downvoted
+          ? _value.downvoted
+          : downvoted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      pinned: null == pinned
+          ? _value.pinned
+          : pinned // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isPrivate: null == isPrivate
+          ? _value.isPrivate
+          : isPrivate // ignore: cast_nullable_to_non_nullable
+              as bool,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ) as $Val);
+  }
+
+  /// Create a copy of Comment
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $UserSimpleCopyWith<$Res> get user {
+    return $UserSimpleCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$CommentImplCopyWith<$Res> implements $CommentCopyWith<$Res> {
+  factory _$$CommentImplCopyWith(
+          _$CommentImpl value, $Res Function(_$CommentImpl) then) =
+      __$$CommentImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'id', required: true) String id,
+      @JsonKey(name: 'user', required: true) UserSimple user,
+      @JsonKey(name: 'createdBy', required: true) String createdBy,
+      @JsonKey(name: 'content', required: true) String content,
+      @JsonKey(name: 'upvotes') int upvotes,
+      @JsonKey(name: 'downvotes') int downvotes,
+      @JsonKey(name: 'upvoted') bool upvoted,
+      @JsonKey(name: 'downvoted') bool downvoted,
+      @JsonKey(name: 'pinned') bool pinned,
+      @JsonKey(name: 'isPrivate') bool isPrivate,
+      @JsonKey(name: 'createdAt', required: true) DateTime createdAt});
+
+  @override
+  $UserSimpleCopyWith<$Res> get user;
+}
+
+/// @nodoc
+class __$$CommentImplCopyWithImpl<$Res>
+    extends _$CommentCopyWithImpl<$Res, _$CommentImpl>
+    implements _$$CommentImplCopyWith<$Res> {
+  __$$CommentImplCopyWithImpl(
+      _$CommentImpl _value, $Res Function(_$CommentImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of Comment
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? user = null,
+    Object? createdBy = null,
+    Object? content = null,
+    Object? upvotes = null,
+    Object? downvotes = null,
+    Object? upvoted = null,
+    Object? downvoted = null,
+    Object? pinned = null,
+    Object? isPrivate = null,
+    Object? createdAt = null,
+  }) {
+    return _then(_$CommentImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserSimple,
+      createdBy: null == createdBy
+          ? _value.createdBy
+          : createdBy // ignore: cast_nullable_to_non_nullable
+              as String,
+      content: null == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String,
+      upvotes: null == upvotes
+          ? _value.upvotes
+          : upvotes // ignore: cast_nullable_to_non_nullable
+              as int,
+      downvotes: null == downvotes
+          ? _value.downvotes
+          : downvotes // ignore: cast_nullable_to_non_nullable
+              as int,
+      upvoted: null == upvoted
+          ? _value.upvoted
+          : upvoted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      downvoted: null == downvoted
+          ? _value.downvoted
+          : downvoted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      pinned: null == pinned
+          ? _value.pinned
+          : pinned // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isPrivate: null == isPrivate
+          ? _value.isPrivate
+          : isPrivate // ignore: cast_nullable_to_non_nullable
+              as bool,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$CommentImpl implements _Comment {
+  const _$CommentImpl(
+      {@JsonKey(name: 'id', required: true) required this.id,
+      @JsonKey(name: 'user', required: true) required this.user,
+      @JsonKey(name: 'createdBy', required: true) required this.createdBy,
+      @JsonKey(name: 'content', required: true) required this.content,
+      @JsonKey(name: 'upvotes') this.upvotes = 0,
+      @JsonKey(name: 'downvotes') this.downvotes = 0,
+      @JsonKey(name: 'upvoted') this.upvoted = false,
+      @JsonKey(name: 'downvoted') this.downvoted = false,
+      @JsonKey(name: 'pinned') this.pinned = false,
+      @JsonKey(name: 'isPrivate') this.isPrivate = false,
+      @JsonKey(name: 'createdAt', required: true) required this.createdAt});
+
+  factory _$CommentImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CommentImplFromJson(json);
+
+  /// The comment id
+  @override
+  @JsonKey(name: 'id', required: true)
+  final String id;
+
+  /// The user who created the comment
+  @override
+  @JsonKey(name: 'user', required: true)
+  final UserSimple user;
+
+  /// The id of the user who created the comment
+  @override
+  @JsonKey(name: 'createdBy', required: true)
+  final String createdBy;
+
+  /// The content of the comment
+  @override
+  @JsonKey(name: 'content', required: true)
+  final String content;
+
+  /// The amount of upvotes the comment has
+  @override
+  @JsonKey(name: 'upvotes')
+  final int upvotes;
+
+  /// The amount of downvotes the comment has
+  @override
+  @JsonKey(name: 'downvotes')
+  final int downvotes;
+
+  /// Whether the user has upvoted the comment
+  @override
+  @JsonKey(name: 'upvoted')
+  final bool upvoted;
+
+  /// Whether the user has downvoted the comment
+  @override
+  @JsonKey(name: 'downvoted')
+  final bool downvoted;
+
+  /// Whether the comment is pinned
+  @override
+  @JsonKey(name: 'pinned')
+  final bool pinned;
+
+  /// Whether the comment is private
+  @override
+  @JsonKey(name: 'isPrivate')
+  final bool isPrivate;
+
+  /// The date the comment was created
+  @override
+  @JsonKey(name: 'createdAt', required: true)
+  final DateTime createdAt;
+
+  @override
+  String toString() {
+    return 'Comment(id: $id, user: $user, createdBy: $createdBy, content: $content, upvotes: $upvotes, downvotes: $downvotes, upvoted: $upvoted, downvoted: $downvoted, pinned: $pinned, isPrivate: $isPrivate, createdAt: $createdAt)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CommentImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.user, user) || other.user == user) &&
+            (identical(other.createdBy, createdBy) ||
+                other.createdBy == createdBy) &&
+            (identical(other.content, content) || other.content == content) &&
+            (identical(other.upvotes, upvotes) || other.upvotes == upvotes) &&
+            (identical(other.downvotes, downvotes) ||
+                other.downvotes == downvotes) &&
+            (identical(other.upvoted, upvoted) || other.upvoted == upvoted) &&
+            (identical(other.downvoted, downvoted) ||
+                other.downvoted == downvoted) &&
+            (identical(other.pinned, pinned) || other.pinned == pinned) &&
+            (identical(other.isPrivate, isPrivate) ||
+                other.isPrivate == isPrivate) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, user, createdBy, content,
+      upvotes, downvotes, upvoted, downvoted, pinned, isPrivate, createdAt);
+
+  /// Create a copy of Comment
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CommentImplCopyWith<_$CommentImpl> get copyWith =>
+      __$$CommentImplCopyWithImpl<_$CommentImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$CommentImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Comment implements Comment {
+  const factory _Comment(
+      {@JsonKey(name: 'id', required: true) required final String id,
+      @JsonKey(name: 'user', required: true) required final UserSimple user,
+      @JsonKey(name: 'createdBy', required: true)
+      required final String createdBy,
+      @JsonKey(name: 'content', required: true) required final String content,
+      @JsonKey(name: 'upvotes') final int upvotes,
+      @JsonKey(name: 'downvotes') final int downvotes,
+      @JsonKey(name: 'upvoted') final bool upvoted,
+      @JsonKey(name: 'downvoted') final bool downvoted,
+      @JsonKey(name: 'pinned') final bool pinned,
+      @JsonKey(name: 'isPrivate') final bool isPrivate,
+      @JsonKey(name: 'createdAt', required: true)
+      required final DateTime createdAt}) = _$CommentImpl;
+
+  factory _Comment.fromJson(Map<String, dynamic> json) = _$CommentImpl.fromJson;
+
+  /// The comment id
+  @override
+  @JsonKey(name: 'id', required: true)
+  String get id;
+
+  /// The user who created the comment
+  @override
+  @JsonKey(name: 'user', required: true)
+  UserSimple get user;
+
+  /// The id of the user who created the comment
+  @override
+  @JsonKey(name: 'createdBy', required: true)
+  String get createdBy;
+
+  /// The content of the comment
+  @override
+  @JsonKey(name: 'content', required: true)
+  String get content;
+
+  /// The amount of upvotes the comment has
+  @override
+  @JsonKey(name: 'upvotes')
+  int get upvotes;
+
+  /// The amount of downvotes the comment has
+  @override
+  @JsonKey(name: 'downvotes')
+  int get downvotes;
+
+  /// Whether the user has upvoted the comment
+  @override
+  @JsonKey(name: 'upvoted')
+  bool get upvoted;
+
+  /// Whether the user has downvoted the comment
+  @override
+  @JsonKey(name: 'downvoted')
+  bool get downvoted;
+
+  /// Whether the comment is pinned
+  @override
+  @JsonKey(name: 'pinned')
+  bool get pinned;
+
+  /// Whether the comment is private
+  @override
+  @JsonKey(name: 'isPrivate')
+  bool get isPrivate;
+
+  /// The date the comment was created
+  @override
+  @JsonKey(name: 'createdAt', required: true)
+  DateTime get createdAt;
+
+  /// Create a copy of Comment
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CommentImplCopyWith<_$CommentImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
