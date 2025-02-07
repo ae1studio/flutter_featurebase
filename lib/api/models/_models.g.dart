@@ -610,6 +610,39 @@ Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
       'type': instance.type,
     };
 
+_$CommentImpl _$$CommentImplFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    requiredKeys: const ['id', 'user', 'createdBy', 'content', 'createdAt'],
+  );
+  return _$CommentImpl(
+    id: json['id'] as String,
+    user: UserSimple.fromJson(json['user'] as Map<String, dynamic>),
+    createdBy: json['createdBy'] as String,
+    content: json['content'] as String,
+    upvotes: (json['upvotes'] as num?)?.toInt() ?? 0,
+    downvotes: (json['downvotes'] as num?)?.toInt() ?? 0,
+    upvoted: json['upvoted'] as bool? ?? false,
+    downvoted: json['downvoted'] as bool? ?? false,
+    pinned: json['pinned'] as bool? ?? false,
+    createdAt: DateTime.parse(json['createdAt'] as String),
+  );
+}
+
+Map<String, dynamic> _$$CommentImplToJson(_$CommentImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'user': instance.user,
+      'createdBy': instance.createdBy,
+      'content': instance.content,
+      'upvotes': instance.upvotes,
+      'downvotes': instance.downvotes,
+      'upvoted': instance.upvoted,
+      'downvoted': instance.downvoted,
+      'pinned': instance.pinned,
+      'createdAt': instance.createdAt.toIso8601String(),
+    };
+
 ResultsPagination<T> _$ResultsPaginationFromJson<T>(
   Map<String, dynamic> json,
   T Function(Object? json) fromJsonT,

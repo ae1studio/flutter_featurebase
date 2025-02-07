@@ -30,6 +30,9 @@ abstract class _FeaturebaseApiBase {
   late _FeedbackEnd _feedback;
   _FeedbackEnd get feedback => _feedback;
 
+  late _CommentEnd _comment;
+  _CommentEnd get comment => _comment;
+
   late _UserEnd _user;
   _UserEnd get user => _user;
 
@@ -50,6 +53,7 @@ abstract class _FeaturebaseApiBase {
     _changelog = _ChangelogEnd(this);
     _organization = _OrganizationEnd(this);
     _feedback = _FeedbackEnd(this);
+    _comment = _CommentEnd(this);
     _user = _UserEnd(this);
 
     // dio.interceptors.add(

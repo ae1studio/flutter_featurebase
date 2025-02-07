@@ -32,7 +32,7 @@ part 'api/endpoints/changelog.dart';
 part 'api/endpoints/organization.dart';
 part 'api/endpoints/feedback.dart';
 part 'api/endpoints/user.dart';
-
+part 'api/endpoints/comment.dart';
 //UI
 part 'ui/profile/profile.dart';
 part 'ui/profile/widgets/activity_item.dart';
