@@ -27,6 +27,9 @@ class Comment with _$Comment {
     /// Whether the user has downvoted the comment
     @JsonKey(name: 'downvoted') @Default(false) bool downvoted,
 
+    /// The replies to the comment
+    @JsonKey(name: 'replies') required List<Comment> replies,
+
     /// Whether the comment is pinned
     @JsonKey(name: 'pinned') @Default(false) bool pinned,
 

@@ -7465,6 +7465,10 @@ mixin _$Comment {
   @JsonKey(name: 'downvoted')
   bool get downvoted => throw _privateConstructorUsedError;
 
+  /// The replies to the comment
+  @JsonKey(name: 'replies')
+  List<Comment> get replies => throw _privateConstructorUsedError;
+
   /// Whether the comment is pinned
   @JsonKey(name: 'pinned')
   bool get pinned => throw _privateConstructorUsedError;
@@ -7500,6 +7504,7 @@ abstract class $CommentCopyWith<$Res> {
       @JsonKey(name: 'downvotes') int downvotes,
       @JsonKey(name: 'upvoted') bool upvoted,
       @JsonKey(name: 'downvoted') bool downvoted,
+      @JsonKey(name: 'replies') List<Comment> replies,
       @JsonKey(name: 'pinned') bool pinned,
       @JsonKey(name: 'isPrivate') bool isPrivate,
       @JsonKey(name: 'createdAt', required: true) DateTime createdAt});
@@ -7530,6 +7535,7 @@ class _$CommentCopyWithImpl<$Res, $Val extends Comment>
     Object? downvotes = null,
     Object? upvoted = null,
     Object? downvoted = null,
+    Object? replies = null,
     Object? pinned = null,
     Object? isPrivate = null,
     Object? createdAt = null,
@@ -7567,6 +7573,10 @@ class _$CommentCopyWithImpl<$Res, $Val extends Comment>
           ? _value.downvoted
           : downvoted // ignore: cast_nullable_to_non_nullable
               as bool,
+      replies: null == replies
+          ? _value.replies
+          : replies // ignore: cast_nullable_to_non_nullable
+              as List<Comment>,
       pinned: null == pinned
           ? _value.pinned
           : pinned // ignore: cast_nullable_to_non_nullable
@@ -7609,6 +7619,7 @@ abstract class _$$CommentImplCopyWith<$Res> implements $CommentCopyWith<$Res> {
       @JsonKey(name: 'downvotes') int downvotes,
       @JsonKey(name: 'upvoted') bool upvoted,
       @JsonKey(name: 'downvoted') bool downvoted,
+      @JsonKey(name: 'replies') List<Comment> replies,
       @JsonKey(name: 'pinned') bool pinned,
       @JsonKey(name: 'isPrivate') bool isPrivate,
       @JsonKey(name: 'createdAt', required: true) DateTime createdAt});
@@ -7638,6 +7649,7 @@ class __$$CommentImplCopyWithImpl<$Res>
     Object? downvotes = null,
     Object? upvoted = null,
     Object? downvoted = null,
+    Object? replies = null,
     Object? pinned = null,
     Object? isPrivate = null,
     Object? createdAt = null,
@@ -7675,6 +7687,10 @@ class __$$CommentImplCopyWithImpl<$Res>
           ? _value.downvoted
           : downvoted // ignore: cast_nullable_to_non_nullable
               as bool,
+      replies: null == replies
+          ? _value._replies
+          : replies // ignore: cast_nullable_to_non_nullable
+              as List<Comment>,
       pinned: null == pinned
           ? _value.pinned
           : pinned // ignore: cast_nullable_to_non_nullable
@@ -7703,9 +7719,11 @@ class _$CommentImpl implements _Comment {
       @JsonKey(name: 'downvotes') this.downvotes = 0,
       @JsonKey(name: 'upvoted') this.upvoted = false,
       @JsonKey(name: 'downvoted') this.downvoted = false,
+      @JsonKey(name: 'replies') required final List<Comment> replies,
       @JsonKey(name: 'pinned') this.pinned = false,
       @JsonKey(name: 'isPrivate') this.isPrivate = false,
-      @JsonKey(name: 'createdAt', required: true) required this.createdAt});
+      @JsonKey(name: 'createdAt', required: true) required this.createdAt})
+      : _replies = replies;
 
   factory _$CommentImpl.fromJson(Map<String, dynamic> json) =>
       _$$CommentImplFromJson(json);
@@ -7750,6 +7768,18 @@ class _$CommentImpl implements _Comment {
   @JsonKey(name: 'downvoted')
   final bool downvoted;
 
+  /// The replies to the comment
+  final List<Comment> _replies;
+
+  /// The replies to the comment
+  @override
+  @JsonKey(name: 'replies')
+  List<Comment> get replies {
+    if (_replies is EqualUnmodifiableListView) return _replies;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_replies);
+  }
+
   /// Whether the comment is pinned
   @override
   @JsonKey(name: 'pinned')
@@ -7767,7 +7797,7 @@ class _$CommentImpl implements _Comment {
 
   @override
   String toString() {
-    return 'Comment(id: $id, user: $user, createdBy: $createdBy, content: $content, upvotes: $upvotes, downvotes: $downvotes, upvoted: $upvoted, downvoted: $downvoted, pinned: $pinned, isPrivate: $isPrivate, createdAt: $createdAt)';
+    return 'Comment(id: $id, user: $user, createdBy: $createdBy, content: $content, upvotes: $upvotes, downvotes: $downvotes, upvoted: $upvoted, downvoted: $downvoted, replies: $replies, pinned: $pinned, isPrivate: $isPrivate, createdAt: $createdAt)';
   }
 
   @override
@@ -7786,6 +7816,7 @@ class _$CommentImpl implements _Comment {
             (identical(other.upvoted, upvoted) || other.upvoted == upvoted) &&
             (identical(other.downvoted, downvoted) ||
                 other.downvoted == downvoted) &&
+            const DeepCollectionEquality().equals(other._replies, _replies) &&
             (identical(other.pinned, pinned) || other.pinned == pinned) &&
             (identical(other.isPrivate, isPrivate) ||
                 other.isPrivate == isPrivate) &&
@@ -7795,8 +7826,20 @@ class _$CommentImpl implements _Comment {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, user, createdBy, content,
-      upvotes, downvotes, upvoted, downvoted, pinned, isPrivate, createdAt);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      user,
+      createdBy,
+      content,
+      upvotes,
+      downvotes,
+      upvoted,
+      downvoted,
+      const DeepCollectionEquality().hash(_replies),
+      pinned,
+      isPrivate,
+      createdAt);
 
   /// Create a copy of Comment
   /// with the given fields replaced by the non-null parameter values.
@@ -7825,6 +7868,7 @@ abstract class _Comment implements Comment {
       @JsonKey(name: 'downvotes') final int downvotes,
       @JsonKey(name: 'upvoted') final bool upvoted,
       @JsonKey(name: 'downvoted') final bool downvoted,
+      @JsonKey(name: 'replies') required final List<Comment> replies,
       @JsonKey(name: 'pinned') final bool pinned,
       @JsonKey(name: 'isPrivate') final bool isPrivate,
       @JsonKey(name: 'createdAt', required: true)
@@ -7871,6 +7915,11 @@ abstract class _Comment implements Comment {
   @override
   @JsonKey(name: 'downvoted')
   bool get downvoted;
+
+  /// The replies to the comment
+  @override
+  @JsonKey(name: 'replies')
+  List<Comment> get replies;
 
   /// Whether the comment is pinned
   @override

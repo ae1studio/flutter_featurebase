@@ -624,6 +624,9 @@ _$CommentImpl _$$CommentImplFromJson(Map<String, dynamic> json) {
     downvotes: (json['downvotes'] as num?)?.toInt() ?? 0,
     upvoted: json['upvoted'] as bool? ?? false,
     downvoted: json['downvoted'] as bool? ?? false,
+    replies: (json['replies'] as List<dynamic>)
+        .map((e) => Comment.fromJson(e as Map<String, dynamic>))
+        .toList(),
     pinned: json['pinned'] as bool? ?? false,
     isPrivate: json['isPrivate'] as bool? ?? false,
     createdAt: DateTime.parse(json['createdAt'] as String),
@@ -640,6 +643,7 @@ Map<String, dynamic> _$$CommentImplToJson(_$CommentImpl instance) =>
       'downvotes': instance.downvotes,
       'upvoted': instance.upvoted,
       'downvoted': instance.downvoted,
+      'replies': instance.replies,
       'pinned': instance.pinned,
       'isPrivate': instance.isPrivate,
       'createdAt': instance.createdAt.toIso8601String(),
