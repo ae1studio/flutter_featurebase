@@ -273,7 +273,6 @@ class _PostViewState extends ConsumerState<_PostView> {
                       textColor:
                           Theme.of(context).textTheme.displayLarge!.color!,
                       renderMode: RenderMode.column,
-                      hideAuthors: true,
                     ),
                     const SizedBox(height: 8),
                     Row(
