@@ -16,7 +16,6 @@ _$ArticleImpl _$$ArticleImplFromJson(Map<String, dynamic> json) {
       'locale',
       'slug',
       'featurebaseUrl',
-      'author',
       'availableLocales',
       'publishedLocales'
     ],
@@ -41,7 +40,9 @@ _$ArticleImpl _$$ArticleImplFromJson(Map<String, dynamic> json) {
     externalUrl: json['externalUrl'] as String?,
     isDraftDiffersFromLive: json['isDraftDiffersFromLive'] as bool? ?? false,
     isPublished: json['isPublished'] as bool? ?? true,
-    author: Author.fromJson(json['author'] as Map<String, dynamic>),
+    author: json['author'] == null
+        ? null
+        : Author.fromJson(json['author'] as Map<String, dynamic>),
     availableLocales: (json['availableLocales'] as List<dynamic>)
         .map((e) => e as String)
         .toList(),

@@ -68,8 +68,8 @@ mixin _$Article {
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   /// The date when the article was last updated.
-  DateTime get updatedAt =>
-      throw _privateConstructorUsedError; //TODO: add author
+  DateTime get updatedAt => throw _privateConstructorUsedError;
+
   /// The URL-friendly slug of the article.
   @JsonKey(name: 'slug', required: true)
   String get slug => throw _privateConstructorUsedError;
@@ -89,9 +89,9 @@ mixin _$Article {
   @JsonKey(name: 'isPublished', defaultValue: true)
   bool get isPublished => throw _privateConstructorUsedError;
 
-  /// Author of the article
-  @JsonKey(name: 'author', required: true)
-  Author get author => throw _privateConstructorUsedError;
+  /// Author of the article (will be null if hideAuthorInfo is true)
+  @JsonKey(name: 'author')
+  Author? get author => throw _privateConstructorUsedError;
 
   /// An array of available locales for the article.
   @JsonKey(name: 'availableLocales', required: true)
@@ -134,14 +134,14 @@ abstract class $ArticleCopyWith<$Res> {
       @JsonKey(name: 'isDraftDiffersFromLive', defaultValue: false)
       bool isDraftDiffersFromLive,
       @JsonKey(name: 'isPublished', defaultValue: true) bool isPublished,
-      @JsonKey(name: 'author', required: true) Author author,
+      @JsonKey(name: 'author') Author? author,
       @JsonKey(name: 'availableLocales', required: true)
       List<String> availableLocales,
       @JsonKey(name: 'publishedLocales', required: true)
       List<String> publishedLocales});
 
   $FBIconCopyWith<$Res>? get icon;
-  $AuthorCopyWith<$Res> get author;
+  $AuthorCopyWith<$Res>? get author;
 }
 
 /// @nodoc
@@ -176,7 +176,7 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
     Object? externalUrl = freezed,
     Object? isDraftDiffersFromLive = null,
     Object? isPublished = null,
-    Object? author = null,
+    Object? author = freezed,
     Object? availableLocales = null,
     Object? publishedLocales = null,
   }) {
@@ -249,10 +249,10 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
           ? _value.isPublished
           : isPublished // ignore: cast_nullable_to_non_nullable
               as bool,
-      author: null == author
+      author: freezed == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as Author,
+              as Author?,
       availableLocales: null == availableLocales
           ? _value.availableLocales
           : availableLocales // ignore: cast_nullable_to_non_nullable
@@ -282,8 +282,12 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $AuthorCopyWith<$Res> get author {
-    return $AuthorCopyWith<$Res>(_value.author, (value) {
+  $AuthorCopyWith<$Res>? get author {
+    if (_value.author == null) {
+      return null;
+    }
+
+    return $AuthorCopyWith<$Res>(_value.author!, (value) {
       return _then(_value.copyWith(author: value) as $Val);
     });
   }
@@ -315,7 +319,7 @@ abstract class _$$ArticleImplCopyWith<$Res> implements $ArticleCopyWith<$Res> {
       @JsonKey(name: 'isDraftDiffersFromLive', defaultValue: false)
       bool isDraftDiffersFromLive,
       @JsonKey(name: 'isPublished', defaultValue: true) bool isPublished,
-      @JsonKey(name: 'author', required: true) Author author,
+      @JsonKey(name: 'author') Author? author,
       @JsonKey(name: 'availableLocales', required: true)
       List<String> availableLocales,
       @JsonKey(name: 'publishedLocales', required: true)
@@ -324,7 +328,7 @@ abstract class _$$ArticleImplCopyWith<$Res> implements $ArticleCopyWith<$Res> {
   @override
   $FBIconCopyWith<$Res>? get icon;
   @override
-  $AuthorCopyWith<$Res> get author;
+  $AuthorCopyWith<$Res>? get author;
 }
 
 /// @nodoc
@@ -357,7 +361,7 @@ class __$$ArticleImplCopyWithImpl<$Res>
     Object? externalUrl = freezed,
     Object? isDraftDiffersFromLive = null,
     Object? isPublished = null,
-    Object? author = null,
+    Object? author = freezed,
     Object? availableLocales = null,
     Object? publishedLocales = null,
   }) {
@@ -430,10 +434,10 @@ class __$$ArticleImplCopyWithImpl<$Res>
           ? _value.isPublished
           : isPublished // ignore: cast_nullable_to_non_nullable
               as bool,
-      author: null == author
+      author: freezed == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as Author,
+              as Author?,
       availableLocales: null == availableLocales
           ? _value._availableLocales
           : availableLocales // ignore: cast_nullable_to_non_nullable
@@ -471,7 +475,7 @@ class _$ArticleImpl implements _Article {
       required this.isDraftDiffersFromLive,
       @JsonKey(name: 'isPublished', defaultValue: true)
       required this.isPublished,
-      @JsonKey(name: 'author', required: true) required this.author,
+      @JsonKey(name: 'author') this.author,
       @JsonKey(name: 'availableLocales', required: true)
       required final List<String> availableLocales,
       @JsonKey(name: 'publishedLocales', required: true)
@@ -543,7 +547,7 @@ class _$ArticleImpl implements _Article {
   /// The date when the article was last updated.
   @override
   final DateTime updatedAt;
-//TODO: add author
+
   /// The URL-friendly slug of the article.
   @override
   @JsonKey(name: 'slug', required: true)
@@ -568,10 +572,10 @@ class _$ArticleImpl implements _Article {
   @JsonKey(name: 'isPublished', defaultValue: true)
   final bool isPublished;
 
-  /// Author of the article
+  /// Author of the article (will be null if hideAuthorInfo is true)
   @override
-  @JsonKey(name: 'author', required: true)
-  final Author author;
+  @JsonKey(name: 'author')
+  final Author? author;
 
   /// An array of available locales for the article.
   final List<String> _availableLocales;
@@ -712,7 +716,7 @@ abstract class _Article implements Article {
       required final bool isDraftDiffersFromLive,
       @JsonKey(name: 'isPublished', defaultValue: true)
       required final bool isPublished,
-      @JsonKey(name: 'author', required: true) required final Author author,
+      @JsonKey(name: 'author') final Author? author,
       @JsonKey(name: 'availableLocales', required: true)
       required final List<String> availableLocales,
       @JsonKey(name: 'publishedLocales', required: true)
@@ -779,7 +783,8 @@ abstract class _Article implements Article {
 
   /// The date when the article was last updated.
   @override
-  DateTime get updatedAt; //TODO: add author
+  DateTime get updatedAt;
+
   /// The URL-friendly slug of the article.
   @override
   @JsonKey(name: 'slug', required: true)
@@ -804,10 +809,10 @@ abstract class _Article implements Article {
   @JsonKey(name: 'isPublished', defaultValue: true)
   bool get isPublished;
 
-  /// Author of the article
+  /// Author of the article (will be null if hideAuthorInfo is true)
   @override
-  @JsonKey(name: 'author', required: true)
-  Author get author;
+  @JsonKey(name: 'author')
+  Author? get author;
 
   /// An array of available locales for the article.
   @override

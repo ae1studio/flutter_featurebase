@@ -48,8 +48,6 @@ class Article with _$Article {
     /// The date when the article was last updated.
     required DateTime updatedAt,
 
-    //TODO: add author
-
     /// The URL-friendly slug of the article.
     @JsonKey(name: 'slug', required: true) required String slug,
 
@@ -67,8 +65,8 @@ class Article with _$Article {
     /// Indicates whether the article is published.
     @JsonKey(name: 'isPublished', defaultValue: true) required bool isPublished,
 
-    /// Author of the article
-    @JsonKey(name: 'author', required: true) required Author author,
+    /// Author of the article (will be null if hideAuthorInfo is true)
+    @JsonKey(name: 'author') Author? author,
 
     /// An array of available locales for the article.
     @JsonKey(name: 'availableLocales', required: true)

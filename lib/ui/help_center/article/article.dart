@@ -58,14 +58,15 @@ class _ArticleViewState extends ConsumerState<_ArticleView> {
                         ),
                         textAlign: TextAlign.start,
                       ),
-                    if (!widget.hideAuthors) const SizedBox(height: 15),
-                    if (!widget.hideAuthors)
+                    if (!widget.hideAuthors && widget.article.author != null)
+                      const SizedBox(height: 15),
+                    if (!widget.hideAuthors && widget.article.author != null)
                       Row(
                         children: [
                           ClipRRect(
                             borderRadius: BorderRadius.circular(40),
                             child: _SafeCachedNetworkImage(
-                              imageUrl: widget.article.author.avatarUrl,
+                              imageUrl: widget.article.author!.avatarUrl,
                               height: 40,
                               width: 40,
                             ),
@@ -74,7 +75,7 @@ class _ArticleViewState extends ConsumerState<_ArticleView> {
                           Expanded(
                             child: Text(
                               FeaturebaseLocalizations.of(context)
-                                  .writtenBy(widget.article.author.name),
+                                  .writtenBy(widget.article.author!.name),
                               style: TextStyle(
                                 fontSize: 14,
                                 fontFamily: 'Inter',
