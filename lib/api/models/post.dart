@@ -6,6 +6,9 @@ class Post with _$Post {
     /// The id of the post
     @JsonKey(name: 'id', required: true) required String id,
 
+    /// The slug of the post
+    @JsonKey(name: 'slug', required: true) required String slug,
+
     /// The title of the post
     @JsonKey(name: 'title', required: true) required String title,
 
@@ -60,6 +63,9 @@ class Post with _$Post {
 @freezed
 class PostCategory with _$PostCategory {
   const factory PostCategory({
+    /// The category name
+    @JsonKey(name: 'id', required: true) required String id,
+
     /// The category name
     @JsonKey(name: 'category', required: true) required String category,
 

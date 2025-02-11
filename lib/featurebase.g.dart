@@ -6,7 +6,8 @@ part of 'featurebase.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$helpCenterInfoHash() => r'543b41a14be94bb62056a1a835d1c77531e03eb4';
+String _$feedbackSubmissionsHash() =>
+    r'd680fecc2ea21f45bc96dfcf6ebfb0db9e6292e4';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -28,6 +29,176 @@ class _SystemHash {
     return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
   }
 }
+
+/// See also [feedbackSubmissions].
+@ProviderFor(feedbackSubmissions)
+const feedbackSubmissionsProvider = FeedbackSubmissionsFamily();
+
+/// See also [feedbackSubmissions].
+class FeedbackSubmissionsFamily
+    extends Family<AsyncValue<fb.ResultsPagination<fb.Post>>> {
+  /// See also [feedbackSubmissions].
+  const FeedbackSubmissionsFamily();
+
+  /// See also [feedbackSubmissions].
+  FeedbackSubmissionsProvider call({
+    int page = 1,
+    String orderBy = 'date',
+    String direction = 'desc',
+  }) {
+    return FeedbackSubmissionsProvider(
+      page: page,
+      orderBy: orderBy,
+      direction: direction,
+    );
+  }
+
+  @override
+  FeedbackSubmissionsProvider getProviderOverride(
+    covariant FeedbackSubmissionsProvider provider,
+  ) {
+    return call(
+      page: provider.page,
+      orderBy: provider.orderBy,
+      direction: provider.direction,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'feedbackSubmissionsProvider';
+}
+
+/// See also [feedbackSubmissions].
+class FeedbackSubmissionsProvider
+    extends AutoDisposeFutureProvider<fb.ResultsPagination<fb.Post>> {
+  /// See also [feedbackSubmissions].
+  FeedbackSubmissionsProvider({
+    int page = 1,
+    String orderBy = 'date',
+    String direction = 'desc',
+  }) : this._internal(
+          (ref) => feedbackSubmissions(
+            ref as FeedbackSubmissionsRef,
+            page: page,
+            orderBy: orderBy,
+            direction: direction,
+          ),
+          from: feedbackSubmissionsProvider,
+          name: r'feedbackSubmissionsProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$feedbackSubmissionsHash,
+          dependencies: FeedbackSubmissionsFamily._dependencies,
+          allTransitiveDependencies:
+              FeedbackSubmissionsFamily._allTransitiveDependencies,
+          page: page,
+          orderBy: orderBy,
+          direction: direction,
+        );
+
+  FeedbackSubmissionsProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.page,
+    required this.orderBy,
+    required this.direction,
+  }) : super.internal();
+
+  final int page;
+  final String orderBy;
+  final String direction;
+
+  @override
+  Override overrideWith(
+    FutureOr<fb.ResultsPagination<fb.Post>> Function(
+            FeedbackSubmissionsRef provider)
+        create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: FeedbackSubmissionsProvider._internal(
+        (ref) => create(ref as FeedbackSubmissionsRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        page: page,
+        orderBy: orderBy,
+        direction: direction,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<fb.ResultsPagination<fb.Post>>
+      createElement() {
+    return _FeedbackSubmissionsProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is FeedbackSubmissionsProvider &&
+        other.page == page &&
+        other.orderBy == orderBy &&
+        other.direction == direction;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, page.hashCode);
+    hash = _SystemHash.combine(hash, orderBy.hashCode);
+    hash = _SystemHash.combine(hash, direction.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+mixin FeedbackSubmissionsRef
+    on AutoDisposeFutureProviderRef<fb.ResultsPagination<fb.Post>> {
+  /// The parameter `page` of this provider.
+  int get page;
+
+  /// The parameter `orderBy` of this provider.
+  String get orderBy;
+
+  /// The parameter `direction` of this provider.
+  String get direction;
+}
+
+class _FeedbackSubmissionsProviderElement
+    extends AutoDisposeFutureProviderElement<fb.ResultsPagination<fb.Post>>
+    with FeedbackSubmissionsRef {
+  _FeedbackSubmissionsProviderElement(super.provider);
+
+  @override
+  int get page => (origin as FeedbackSubmissionsProvider).page;
+  @override
+  String get orderBy => (origin as FeedbackSubmissionsProvider).orderBy;
+  @override
+  String get direction => (origin as FeedbackSubmissionsProvider).direction;
+}
+
+String _$helpCenterInfoHash() => r'543b41a14be94bb62056a1a835d1c77531e03eb4';
 
 /// See also [helpCenterInfo].
 @ProviderFor(helpCenterInfo)
@@ -648,6 +819,176 @@ final getOrganizationProvider =
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef GetOrganizationRef = AutoDisposeFutureProviderRef<fb.Organization>;
+String _$getUserActivitiesHash() => r'135e35b368c1927592123f24194ee1561019dd90';
+
+/// See also [getUserActivities].
+@ProviderFor(getUserActivities)
+const getUserActivitiesProvider = GetUserActivitiesFamily();
+
+/// See also [getUserActivities].
+class GetUserActivitiesFamily
+    extends Family<AsyncValue<List<fb.UserActivity>>> {
+  /// See also [getUserActivities].
+  const GetUserActivitiesFamily();
+
+  /// See also [getUserActivities].
+  GetUserActivitiesProvider call(
+    String id,
+  ) {
+    return GetUserActivitiesProvider(
+      id,
+    );
+  }
+
+  @override
+  GetUserActivitiesProvider getProviderOverride(
+    covariant GetUserActivitiesProvider provider,
+  ) {
+    return call(
+      provider.id,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'getUserActivitiesProvider';
+}
+
+/// See also [getUserActivities].
+class GetUserActivitiesProvider
+    extends AutoDisposeFutureProvider<List<fb.UserActivity>> {
+  /// See also [getUserActivities].
+  GetUserActivitiesProvider(
+    String id,
+  ) : this._internal(
+          (ref) => getUserActivities(
+            ref as GetUserActivitiesRef,
+            id,
+          ),
+          from: getUserActivitiesProvider,
+          name: r'getUserActivitiesProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$getUserActivitiesHash,
+          dependencies: GetUserActivitiesFamily._dependencies,
+          allTransitiveDependencies:
+              GetUserActivitiesFamily._allTransitiveDependencies,
+          id: id,
+        );
+
+  GetUserActivitiesProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.id,
+  }) : super.internal();
+
+  final String id;
+
+  @override
+  Override overrideWith(
+    FutureOr<List<fb.UserActivity>> Function(GetUserActivitiesRef provider)
+        create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: GetUserActivitiesProvider._internal(
+        (ref) => create(ref as GetUserActivitiesRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        id: id,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<List<fb.UserActivity>> createElement() {
+    return _GetUserActivitiesProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is GetUserActivitiesProvider && other.id == id;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+mixin GetUserActivitiesRef
+    on AutoDisposeFutureProviderRef<List<fb.UserActivity>> {
+  /// The parameter `id` of this provider.
+  String get id;
+}
+
+class _GetUserActivitiesProviderElement
+    extends AutoDisposeFutureProviderElement<List<fb.UserActivity>>
+    with GetUserActivitiesRef {
+  _GetUserActivitiesProviderElement(super.provider);
+
+  @override
+  String get id => (origin as GetUserActivitiesProvider).id;
+}
+
+String _$getCurrentUserHash() => r'495d0500a191ee002228987b62f7987bcf4cb888';
+
+/// See also [getCurrentUser].
+@ProviderFor(getCurrentUser)
+final getCurrentUserProvider = AutoDisposeFutureProvider<fb.User>.internal(
+  getCurrentUser,
+  name: r'getCurrentUserProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$getCurrentUserHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef GetCurrentUserRef = AutoDisposeFutureProviderRef<fb.User>;
+String _$feedbackSubmissionsListHash() =>
+    r'c0d5b5613d814f518ec31e182e937a11050d77d9';
+
+/// See also [FeedbackSubmissionsList].
+@ProviderFor(FeedbackSubmissionsList)
+final feedbackSubmissionsListProvider = AutoDisposeNotifierProvider<
+    FeedbackSubmissionsList, fb.ResultsPagination<fb.Post>>.internal(
+  FeedbackSubmissionsList.new,
+  name: r'feedbackSubmissionsListProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$feedbackSubmissionsListHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$FeedbackSubmissionsList
+    = AutoDisposeNotifier<fb.ResultsPagination<fb.Post>>;
 String _$changelogsListHash() => r'e5e6c8ed9a521445f46025f1c1301359c2439001';
 
 abstract class _$ChangelogsList

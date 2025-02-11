@@ -18,6 +18,7 @@ import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:searchfield/searchfield.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:styled_text/styled_text.dart';
 import 'package:universal_io/io.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -30,11 +31,17 @@ part 'api/endpoint_base.dart';
 part 'api/endpoints/help_center.dart';
 part 'api/endpoints/changelog.dart';
 part 'api/endpoints/organization.dart';
-
+part 'api/endpoints/feedback.dart';
+part 'api/endpoints/user.dart';
+part 'api/endpoints/comment.dart';
 //UI
-part 'ui/help_center/help_center.dart';
+part 'ui/profile/profile.dart';
+part 'ui/profile/widgets/activity_item.dart';
 part 'ui/changelog/changelog.dart';
 part 'ui/changelog/widgets/changelog_card.dart';
+part 'ui/feedback/feedback.dart';
+part 'ui/feedback/post/post.dart';
+part 'ui/help_center/help_center.dart';
 part 'ui/help_center/collection/collection.dart';
 part 'ui/help_center/article/article.dart';
 part 'ui/help_center/widgets/collection_card.dart';
@@ -46,14 +53,19 @@ part 'ui/widgets/safe_cachednetworkimage.dart';
 part 'ui/widgets/language_picker.dart';
 part 'ui/widgets/error_loading_widget.dart';
 part 'ui/widgets/render_html_widget.dart';
+part 'ui/widgets/post_card.dart';
+part 'ui/widgets/post_status_badge.dart';
+part 'ui/widgets/fade_tap_widget.dart';
+part 'ui/widgets/post_popup.dart';
 
 //Providers
+part 'providers/feedback.dart';
 part 'providers/service.dart';
 part 'providers/icons.dart';
 part 'providers/help_center.dart';
 part 'providers/changelog.dart';
 part 'providers/organization.dart';
-
+part 'providers/user.dart';
 //Other
 part 'actions.dart';
 part 'utils.dart';

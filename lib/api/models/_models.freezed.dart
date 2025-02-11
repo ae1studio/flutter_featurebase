@@ -4020,6 +4020,10 @@ Organization _$OrganizationFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Organization {
+  /// The name of the organization
+  @JsonKey(name: 'name', required: true)
+  String get name => throw _privateConstructorUsedError;
+
   /// The display name of the organization
   @JsonKey(name: 'displayName', required: true)
   String get displayName => throw _privateConstructorUsedError;
@@ -4032,9 +4036,21 @@ mixin _$Organization {
   @JsonKey(name: 'ssoUrl')
   String? get ssoUrl => throw _privateConstructorUsedError;
 
+  /// Custom domain
+  @JsonKey(name: 'customDomain')
+  String? get customDomain => throw _privateConstructorUsedError;
+
   /// The widgets of the organization
   @JsonKey(name: 'widget')
   AIOWidget? get widget => throw _privateConstructorUsedError;
+
+  /// The settings of the organization
+  @JsonKey(name: 'settings', required: true)
+  OrganizationSettings get settings => throw _privateConstructorUsedError;
+
+  /// The post categories of the organization
+  @JsonKey(name: 'postCategories', required: true)
+  List<PostCategory> get postCategories => throw _privateConstructorUsedError;
 
   /// Picture url
   @JsonKey(name: 'picture')
@@ -4057,13 +4073,19 @@ abstract class $OrganizationCopyWith<$Res> {
       _$OrganizationCopyWithImpl<$Res, Organization>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'displayName', required: true) String displayName,
+      {@JsonKey(name: 'name', required: true) String name,
+      @JsonKey(name: 'displayName', required: true) String displayName,
       @JsonKey(name: 'color', required: true) String color,
       @JsonKey(name: 'ssoUrl') String? ssoUrl,
+      @JsonKey(name: 'customDomain') String? customDomain,
       @JsonKey(name: 'widget') AIOWidget? widget,
+      @JsonKey(name: 'settings', required: true) OrganizationSettings settings,
+      @JsonKey(name: 'postCategories', required: true)
+      List<PostCategory> postCategories,
       @JsonKey(name: 'picture') String? picture});
 
   $AIOWidgetCopyWith<$Res>? get widget;
+  $OrganizationSettingsCopyWith<$Res> get settings;
 }
 
 /// @nodoc
@@ -4081,13 +4103,21 @@ class _$OrganizationCopyWithImpl<$Res, $Val extends Organization>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? name = null,
     Object? displayName = null,
     Object? color = null,
     Object? ssoUrl = freezed,
+    Object? customDomain = freezed,
     Object? widget = freezed,
+    Object? settings = null,
+    Object? postCategories = null,
     Object? picture = freezed,
   }) {
     return _then(_value.copyWith(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       displayName: null == displayName
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
@@ -4100,10 +4130,22 @@ class _$OrganizationCopyWithImpl<$Res, $Val extends Organization>
           ? _value.ssoUrl
           : ssoUrl // ignore: cast_nullable_to_non_nullable
               as String?,
+      customDomain: freezed == customDomain
+          ? _value.customDomain
+          : customDomain // ignore: cast_nullable_to_non_nullable
+              as String?,
       widget: freezed == widget
           ? _value.widget
           : widget // ignore: cast_nullable_to_non_nullable
               as AIOWidget?,
+      settings: null == settings
+          ? _value.settings
+          : settings // ignore: cast_nullable_to_non_nullable
+              as OrganizationSettings,
+      postCategories: null == postCategories
+          ? _value.postCategories
+          : postCategories // ignore: cast_nullable_to_non_nullable
+              as List<PostCategory>,
       picture: freezed == picture
           ? _value.picture
           : picture // ignore: cast_nullable_to_non_nullable
@@ -4124,6 +4166,16 @@ class _$OrganizationCopyWithImpl<$Res, $Val extends Organization>
       return _then(_value.copyWith(widget: value) as $Val);
     });
   }
+
+  /// Create a copy of Organization
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $OrganizationSettingsCopyWith<$Res> get settings {
+    return $OrganizationSettingsCopyWith<$Res>(_value.settings, (value) {
+      return _then(_value.copyWith(settings: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -4135,14 +4187,21 @@ abstract class _$$OrganizationImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'displayName', required: true) String displayName,
+      {@JsonKey(name: 'name', required: true) String name,
+      @JsonKey(name: 'displayName', required: true) String displayName,
       @JsonKey(name: 'color', required: true) String color,
       @JsonKey(name: 'ssoUrl') String? ssoUrl,
+      @JsonKey(name: 'customDomain') String? customDomain,
       @JsonKey(name: 'widget') AIOWidget? widget,
+      @JsonKey(name: 'settings', required: true) OrganizationSettings settings,
+      @JsonKey(name: 'postCategories', required: true)
+      List<PostCategory> postCategories,
       @JsonKey(name: 'picture') String? picture});
 
   @override
   $AIOWidgetCopyWith<$Res>? get widget;
+  @override
+  $OrganizationSettingsCopyWith<$Res> get settings;
 }
 
 /// @nodoc
@@ -4158,13 +4217,21 @@ class __$$OrganizationImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? name = null,
     Object? displayName = null,
     Object? color = null,
     Object? ssoUrl = freezed,
+    Object? customDomain = freezed,
     Object? widget = freezed,
+    Object? settings = null,
+    Object? postCategories = null,
     Object? picture = freezed,
   }) {
     return _then(_$OrganizationImpl(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
       displayName: null == displayName
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
@@ -4177,10 +4244,22 @@ class __$$OrganizationImplCopyWithImpl<$Res>
           ? _value.ssoUrl
           : ssoUrl // ignore: cast_nullable_to_non_nullable
               as String?,
+      customDomain: freezed == customDomain
+          ? _value.customDomain
+          : customDomain // ignore: cast_nullable_to_non_nullable
+              as String?,
       widget: freezed == widget
           ? _value.widget
           : widget // ignore: cast_nullable_to_non_nullable
               as AIOWidget?,
+      settings: null == settings
+          ? _value.settings
+          : settings // ignore: cast_nullable_to_non_nullable
+              as OrganizationSettings,
+      postCategories: null == postCategories
+          ? _value._postCategories
+          : postCategories // ignore: cast_nullable_to_non_nullable
+              as List<PostCategory>,
       picture: freezed == picture
           ? _value.picture
           : picture // ignore: cast_nullable_to_non_nullable
@@ -4193,14 +4272,25 @@ class __$$OrganizationImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$OrganizationImpl implements _Organization {
   const _$OrganizationImpl(
-      {@JsonKey(name: 'displayName', required: true) required this.displayName,
+      {@JsonKey(name: 'name', required: true) required this.name,
+      @JsonKey(name: 'displayName', required: true) required this.displayName,
       @JsonKey(name: 'color', required: true) required this.color,
       @JsonKey(name: 'ssoUrl') this.ssoUrl,
+      @JsonKey(name: 'customDomain') this.customDomain,
       @JsonKey(name: 'widget') this.widget,
-      @JsonKey(name: 'picture') this.picture});
+      @JsonKey(name: 'settings', required: true) required this.settings,
+      @JsonKey(name: 'postCategories', required: true)
+      required final List<PostCategory> postCategories,
+      @JsonKey(name: 'picture') this.picture})
+      : _postCategories = postCategories;
 
   factory _$OrganizationImpl.fromJson(Map<String, dynamic> json) =>
       _$$OrganizationImplFromJson(json);
+
+  /// The name of the organization
+  @override
+  @JsonKey(name: 'name', required: true)
+  final String name;
 
   /// The display name of the organization
   @override
@@ -4217,10 +4307,32 @@ class _$OrganizationImpl implements _Organization {
   @JsonKey(name: 'ssoUrl')
   final String? ssoUrl;
 
+  /// Custom domain
+  @override
+  @JsonKey(name: 'customDomain')
+  final String? customDomain;
+
   /// The widgets of the organization
   @override
   @JsonKey(name: 'widget')
   final AIOWidget? widget;
+
+  /// The settings of the organization
+  @override
+  @JsonKey(name: 'settings', required: true)
+  final OrganizationSettings settings;
+
+  /// The post categories of the organization
+  final List<PostCategory> _postCategories;
+
+  /// The post categories of the organization
+  @override
+  @JsonKey(name: 'postCategories', required: true)
+  List<PostCategory> get postCategories {
+    if (_postCategories is EqualUnmodifiableListView) return _postCategories;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_postCategories);
+  }
 
   /// Picture url
   @override
@@ -4229,7 +4341,7 @@ class _$OrganizationImpl implements _Organization {
 
   @override
   String toString() {
-    return 'Organization(displayName: $displayName, color: $color, ssoUrl: $ssoUrl, widget: $widget, picture: $picture)';
+    return 'Organization(name: $name, displayName: $displayName, color: $color, ssoUrl: $ssoUrl, customDomain: $customDomain, widget: $widget, settings: $settings, postCategories: $postCategories, picture: $picture)';
   }
 
   @override
@@ -4237,18 +4349,34 @@ class _$OrganizationImpl implements _Organization {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$OrganizationImpl &&
+            (identical(other.name, name) || other.name == name) &&
             (identical(other.displayName, displayName) ||
                 other.displayName == displayName) &&
             (identical(other.color, color) || other.color == color) &&
             (identical(other.ssoUrl, ssoUrl) || other.ssoUrl == ssoUrl) &&
+            (identical(other.customDomain, customDomain) ||
+                other.customDomain == customDomain) &&
             (identical(other.widget, widget) || other.widget == widget) &&
+            (identical(other.settings, settings) ||
+                other.settings == settings) &&
+            const DeepCollectionEquality()
+                .equals(other._postCategories, _postCategories) &&
             (identical(other.picture, picture) || other.picture == picture));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, displayName, color, ssoUrl, widget, picture);
+  int get hashCode => Object.hash(
+      runtimeType,
+      name,
+      displayName,
+      color,
+      ssoUrl,
+      customDomain,
+      widget,
+      settings,
+      const DeepCollectionEquality().hash(_postCategories),
+      picture);
 
   /// Create a copy of Organization
   /// with the given fields replaced by the non-null parameter values.
@@ -4268,15 +4396,26 @@ class _$OrganizationImpl implements _Organization {
 
 abstract class _Organization implements Organization {
   const factory _Organization(
-      {@JsonKey(name: 'displayName', required: true)
+      {@JsonKey(name: 'name', required: true) required final String name,
+      @JsonKey(name: 'displayName', required: true)
       required final String displayName,
       @JsonKey(name: 'color', required: true) required final String color,
       @JsonKey(name: 'ssoUrl') final String? ssoUrl,
+      @JsonKey(name: 'customDomain') final String? customDomain,
       @JsonKey(name: 'widget') final AIOWidget? widget,
+      @JsonKey(name: 'settings', required: true)
+      required final OrganizationSettings settings,
+      @JsonKey(name: 'postCategories', required: true)
+      required final List<PostCategory> postCategories,
       @JsonKey(name: 'picture') final String? picture}) = _$OrganizationImpl;
 
   factory _Organization.fromJson(Map<String, dynamic> json) =
       _$OrganizationImpl.fromJson;
+
+  /// The name of the organization
+  @override
+  @JsonKey(name: 'name', required: true)
+  String get name;
 
   /// The display name of the organization
   @override
@@ -4293,10 +4432,25 @@ abstract class _Organization implements Organization {
   @JsonKey(name: 'ssoUrl')
   String? get ssoUrl;
 
+  /// Custom domain
+  @override
+  @JsonKey(name: 'customDomain')
+  String? get customDomain;
+
   /// The widgets of the organization
   @override
   @JsonKey(name: 'widget')
   AIOWidget? get widget;
+
+  /// The settings of the organization
+  @override
+  @JsonKey(name: 'settings', required: true)
+  OrganizationSettings get settings;
+
+  /// The post categories of the organization
+  @override
+  @JsonKey(name: 'postCategories', required: true)
+  List<PostCategory> get postCategories;
 
   /// Picture url
   @override
@@ -4757,6 +4911,910 @@ abstract class _AIOCard implements AIOCard {
       throw _privateConstructorUsedError;
 }
 
+OrganizationSettings _$OrganizationSettingsFromJson(Map<String, dynamic> json) {
+  return _OrganizationSettings.fromJson(json);
+}
+
+/// @nodoc
+mixin _$OrganizationSettings {
+  /// Downvotes feature enabled
+  @JsonKey(name: 'downvotesEnabled', defaultValue: false)
+  bool get downvotesEnabled => throw _privateConstructorUsedError;
+
+  /// Default sorting order of posts
+  @JsonKey(name: 'defaultSortingOrder', required: true)
+  String get defaultSortingOrder => throw _privateConstructorUsedError;
+
+  /// Hide vote counts until voted
+  @JsonKey(name: 'hideVoteCountUntilVoted', defaultValue: false)
+  bool get hideVoteCountUntilVoted => throw _privateConstructorUsedError;
+
+  /// Serializes this OrganizationSettings to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of OrganizationSettings
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $OrganizationSettingsCopyWith<OrganizationSettings> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $OrganizationSettingsCopyWith<$Res> {
+  factory $OrganizationSettingsCopyWith(OrganizationSettings value,
+          $Res Function(OrganizationSettings) then) =
+      _$OrganizationSettingsCopyWithImpl<$Res, OrganizationSettings>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'downvotesEnabled', defaultValue: false)
+      bool downvotesEnabled,
+      @JsonKey(name: 'defaultSortingOrder', required: true)
+      String defaultSortingOrder,
+      @JsonKey(name: 'hideVoteCountUntilVoted', defaultValue: false)
+      bool hideVoteCountUntilVoted});
+}
+
+/// @nodoc
+class _$OrganizationSettingsCopyWithImpl<$Res,
+        $Val extends OrganizationSettings>
+    implements $OrganizationSettingsCopyWith<$Res> {
+  _$OrganizationSettingsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of OrganizationSettings
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? downvotesEnabled = null,
+    Object? defaultSortingOrder = null,
+    Object? hideVoteCountUntilVoted = null,
+  }) {
+    return _then(_value.copyWith(
+      downvotesEnabled: null == downvotesEnabled
+          ? _value.downvotesEnabled
+          : downvotesEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      defaultSortingOrder: null == defaultSortingOrder
+          ? _value.defaultSortingOrder
+          : defaultSortingOrder // ignore: cast_nullable_to_non_nullable
+              as String,
+      hideVoteCountUntilVoted: null == hideVoteCountUntilVoted
+          ? _value.hideVoteCountUntilVoted
+          : hideVoteCountUntilVoted // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$OrganizationSettingsImplCopyWith<$Res>
+    implements $OrganizationSettingsCopyWith<$Res> {
+  factory _$$OrganizationSettingsImplCopyWith(_$OrganizationSettingsImpl value,
+          $Res Function(_$OrganizationSettingsImpl) then) =
+      __$$OrganizationSettingsImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'downvotesEnabled', defaultValue: false)
+      bool downvotesEnabled,
+      @JsonKey(name: 'defaultSortingOrder', required: true)
+      String defaultSortingOrder,
+      @JsonKey(name: 'hideVoteCountUntilVoted', defaultValue: false)
+      bool hideVoteCountUntilVoted});
+}
+
+/// @nodoc
+class __$$OrganizationSettingsImplCopyWithImpl<$Res>
+    extends _$OrganizationSettingsCopyWithImpl<$Res, _$OrganizationSettingsImpl>
+    implements _$$OrganizationSettingsImplCopyWith<$Res> {
+  __$$OrganizationSettingsImplCopyWithImpl(_$OrganizationSettingsImpl _value,
+      $Res Function(_$OrganizationSettingsImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of OrganizationSettings
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? downvotesEnabled = null,
+    Object? defaultSortingOrder = null,
+    Object? hideVoteCountUntilVoted = null,
+  }) {
+    return _then(_$OrganizationSettingsImpl(
+      downvotesEnabled: null == downvotesEnabled
+          ? _value.downvotesEnabled
+          : downvotesEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+      defaultSortingOrder: null == defaultSortingOrder
+          ? _value.defaultSortingOrder
+          : defaultSortingOrder // ignore: cast_nullable_to_non_nullable
+              as String,
+      hideVoteCountUntilVoted: null == hideVoteCountUntilVoted
+          ? _value.hideVoteCountUntilVoted
+          : hideVoteCountUntilVoted // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$OrganizationSettingsImpl implements _OrganizationSettings {
+  const _$OrganizationSettingsImpl(
+      {@JsonKey(name: 'downvotesEnabled', defaultValue: false)
+      this.downvotesEnabled = false,
+      @JsonKey(name: 'defaultSortingOrder', required: true)
+      required this.defaultSortingOrder,
+      @JsonKey(name: 'hideVoteCountUntilVoted', defaultValue: false)
+      this.hideVoteCountUntilVoted = false});
+
+  factory _$OrganizationSettingsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OrganizationSettingsImplFromJson(json);
+
+  /// Downvotes feature enabled
+  @override
+  @JsonKey(name: 'downvotesEnabled', defaultValue: false)
+  final bool downvotesEnabled;
+
+  /// Default sorting order of posts
+  @override
+  @JsonKey(name: 'defaultSortingOrder', required: true)
+  final String defaultSortingOrder;
+
+  /// Hide vote counts until voted
+  @override
+  @JsonKey(name: 'hideVoteCountUntilVoted', defaultValue: false)
+  final bool hideVoteCountUntilVoted;
+
+  @override
+  String toString() {
+    return 'OrganizationSettings(downvotesEnabled: $downvotesEnabled, defaultSortingOrder: $defaultSortingOrder, hideVoteCountUntilVoted: $hideVoteCountUntilVoted)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OrganizationSettingsImpl &&
+            (identical(other.downvotesEnabled, downvotesEnabled) ||
+                other.downvotesEnabled == downvotesEnabled) &&
+            (identical(other.defaultSortingOrder, defaultSortingOrder) ||
+                other.defaultSortingOrder == defaultSortingOrder) &&
+            (identical(
+                    other.hideVoteCountUntilVoted, hideVoteCountUntilVoted) ||
+                other.hideVoteCountUntilVoted == hideVoteCountUntilVoted));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, downvotesEnabled,
+      defaultSortingOrder, hideVoteCountUntilVoted);
+
+  /// Create a copy of OrganizationSettings
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OrganizationSettingsImplCopyWith<_$OrganizationSettingsImpl>
+      get copyWith =>
+          __$$OrganizationSettingsImplCopyWithImpl<_$OrganizationSettingsImpl>(
+              this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$OrganizationSettingsImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _OrganizationSettings implements OrganizationSettings {
+  const factory _OrganizationSettings(
+      {@JsonKey(name: 'downvotesEnabled', defaultValue: false)
+      final bool downvotesEnabled,
+      @JsonKey(name: 'defaultSortingOrder', required: true)
+      required final String defaultSortingOrder,
+      @JsonKey(name: 'hideVoteCountUntilVoted', defaultValue: false)
+      final bool hideVoteCountUntilVoted}) = _$OrganizationSettingsImpl;
+
+  factory _OrganizationSettings.fromJson(Map<String, dynamic> json) =
+      _$OrganizationSettingsImpl.fromJson;
+
+  /// Downvotes feature enabled
+  @override
+  @JsonKey(name: 'downvotesEnabled', defaultValue: false)
+  bool get downvotesEnabled;
+
+  /// Default sorting order of posts
+  @override
+  @JsonKey(name: 'defaultSortingOrder', required: true)
+  String get defaultSortingOrder;
+
+  /// Hide vote counts until voted
+  @override
+  @JsonKey(name: 'hideVoteCountUntilVoted', defaultValue: false)
+  bool get hideVoteCountUntilVoted;
+
+  /// Create a copy of OrganizationSettings
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$OrganizationSettingsImplCopyWith<_$OrganizationSettingsImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+UserActivity _$UserActivityFromJson(Map<String, dynamic> json) {
+  return _UserActivity.fromJson(json);
+}
+
+/// @nodoc
+mixin _$UserActivity {
+  /// The type of the user activity
+  @JsonKey(name: 'type')
+  String get type => throw _privateConstructorUsedError;
+
+  /// The submission id
+  @JsonKey(name: 'submissionId')
+  String get submissionId => throw _privateConstructorUsedError;
+
+  /// The created at date
+  @JsonKey(name: 'createdAt')
+  DateTime get createdAt => throw _privateConstructorUsedError;
+
+  /// The submission
+  @JsonKey(name: 'submission')
+  UserActivitySubmission get submission => throw _privateConstructorUsedError;
+
+  /// The comment
+  @JsonKey(name: 'comment')
+  UserActivityComment? get comment => throw _privateConstructorUsedError;
+
+  /// Serializes this UserActivity to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of UserActivity
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $UserActivityCopyWith<UserActivity> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UserActivityCopyWith<$Res> {
+  factory $UserActivityCopyWith(
+          UserActivity value, $Res Function(UserActivity) then) =
+      _$UserActivityCopyWithImpl<$Res, UserActivity>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'type') String type,
+      @JsonKey(name: 'submissionId') String submissionId,
+      @JsonKey(name: 'createdAt') DateTime createdAt,
+      @JsonKey(name: 'submission') UserActivitySubmission submission,
+      @JsonKey(name: 'comment') UserActivityComment? comment});
+
+  $UserActivitySubmissionCopyWith<$Res> get submission;
+  $UserActivityCommentCopyWith<$Res>? get comment;
+}
+
+/// @nodoc
+class _$UserActivityCopyWithImpl<$Res, $Val extends UserActivity>
+    implements $UserActivityCopyWith<$Res> {
+  _$UserActivityCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of UserActivity
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+    Object? submissionId = null,
+    Object? createdAt = null,
+    Object? submission = null,
+    Object? comment = freezed,
+  }) {
+    return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      submissionId: null == submissionId
+          ? _value.submissionId
+          : submissionId // ignore: cast_nullable_to_non_nullable
+              as String,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      submission: null == submission
+          ? _value.submission
+          : submission // ignore: cast_nullable_to_non_nullable
+              as UserActivitySubmission,
+      comment: freezed == comment
+          ? _value.comment
+          : comment // ignore: cast_nullable_to_non_nullable
+              as UserActivityComment?,
+    ) as $Val);
+  }
+
+  /// Create a copy of UserActivity
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $UserActivitySubmissionCopyWith<$Res> get submission {
+    return $UserActivitySubmissionCopyWith<$Res>(_value.submission, (value) {
+      return _then(_value.copyWith(submission: value) as $Val);
+    });
+  }
+
+  /// Create a copy of UserActivity
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $UserActivityCommentCopyWith<$Res>? get comment {
+    if (_value.comment == null) {
+      return null;
+    }
+
+    return $UserActivityCommentCopyWith<$Res>(_value.comment!, (value) {
+      return _then(_value.copyWith(comment: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$UserActivityImplCopyWith<$Res>
+    implements $UserActivityCopyWith<$Res> {
+  factory _$$UserActivityImplCopyWith(
+          _$UserActivityImpl value, $Res Function(_$UserActivityImpl) then) =
+      __$$UserActivityImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'type') String type,
+      @JsonKey(name: 'submissionId') String submissionId,
+      @JsonKey(name: 'createdAt') DateTime createdAt,
+      @JsonKey(name: 'submission') UserActivitySubmission submission,
+      @JsonKey(name: 'comment') UserActivityComment? comment});
+
+  @override
+  $UserActivitySubmissionCopyWith<$Res> get submission;
+  @override
+  $UserActivityCommentCopyWith<$Res>? get comment;
+}
+
+/// @nodoc
+class __$$UserActivityImplCopyWithImpl<$Res>
+    extends _$UserActivityCopyWithImpl<$Res, _$UserActivityImpl>
+    implements _$$UserActivityImplCopyWith<$Res> {
+  __$$UserActivityImplCopyWithImpl(
+      _$UserActivityImpl _value, $Res Function(_$UserActivityImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserActivity
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+    Object? submissionId = null,
+    Object? createdAt = null,
+    Object? submission = null,
+    Object? comment = freezed,
+  }) {
+    return _then(_$UserActivityImpl(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      submissionId: null == submissionId
+          ? _value.submissionId
+          : submissionId // ignore: cast_nullable_to_non_nullable
+              as String,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      submission: null == submission
+          ? _value.submission
+          : submission // ignore: cast_nullable_to_non_nullable
+              as UserActivitySubmission,
+      comment: freezed == comment
+          ? _value.comment
+          : comment // ignore: cast_nullable_to_non_nullable
+              as UserActivityComment?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$UserActivityImpl implements _UserActivity {
+  const _$UserActivityImpl(
+      {@JsonKey(name: 'type') required this.type,
+      @JsonKey(name: 'submissionId') required this.submissionId,
+      @JsonKey(name: 'createdAt') required this.createdAt,
+      @JsonKey(name: 'submission') required this.submission,
+      @JsonKey(name: 'comment') this.comment});
+
+  factory _$UserActivityImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserActivityImplFromJson(json);
+
+  /// The type of the user activity
+  @override
+  @JsonKey(name: 'type')
+  final String type;
+
+  /// The submission id
+  @override
+  @JsonKey(name: 'submissionId')
+  final String submissionId;
+
+  /// The created at date
+  @override
+  @JsonKey(name: 'createdAt')
+  final DateTime createdAt;
+
+  /// The submission
+  @override
+  @JsonKey(name: 'submission')
+  final UserActivitySubmission submission;
+
+  /// The comment
+  @override
+  @JsonKey(name: 'comment')
+  final UserActivityComment? comment;
+
+  @override
+  String toString() {
+    return 'UserActivity(type: $type, submissionId: $submissionId, createdAt: $createdAt, submission: $submission, comment: $comment)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UserActivityImpl &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.submissionId, submissionId) ||
+                other.submissionId == submissionId) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.submission, submission) ||
+                other.submission == submission) &&
+            (identical(other.comment, comment) || other.comment == comment));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, type, submissionId, createdAt, submission, comment);
+
+  /// Create a copy of UserActivity
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UserActivityImplCopyWith<_$UserActivityImpl> get copyWith =>
+      __$$UserActivityImplCopyWithImpl<_$UserActivityImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$UserActivityImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _UserActivity implements UserActivity {
+  const factory _UserActivity(
+          {@JsonKey(name: 'type') required final String type,
+          @JsonKey(name: 'submissionId') required final String submissionId,
+          @JsonKey(name: 'createdAt') required final DateTime createdAt,
+          @JsonKey(name: 'submission')
+          required final UserActivitySubmission submission,
+          @JsonKey(name: 'comment') final UserActivityComment? comment}) =
+      _$UserActivityImpl;
+
+  factory _UserActivity.fromJson(Map<String, dynamic> json) =
+      _$UserActivityImpl.fromJson;
+
+  /// The type of the user activity
+  @override
+  @JsonKey(name: 'type')
+  String get type;
+
+  /// The submission id
+  @override
+  @JsonKey(name: 'submissionId')
+  String get submissionId;
+
+  /// The created at date
+  @override
+  @JsonKey(name: 'createdAt')
+  DateTime get createdAt;
+
+  /// The submission
+  @override
+  @JsonKey(name: 'submission')
+  UserActivitySubmission get submission;
+
+  /// The comment
+  @override
+  @JsonKey(name: 'comment')
+  UserActivityComment? get comment;
+
+  /// Create a copy of UserActivity
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UserActivityImplCopyWith<_$UserActivityImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+UserActivitySubmission _$UserActivitySubmissionFromJson(
+    Map<String, dynamic> json) {
+  return _UserActivitySubmission.fromJson(json);
+}
+
+/// @nodoc
+mixin _$UserActivitySubmission {
+  /// The title of the submission
+  @JsonKey(name: 'title')
+  String get title => throw _privateConstructorUsedError;
+
+  /// The submission content
+  @JsonKey(name: 'content')
+  String get content => throw _privateConstructorUsedError;
+
+  /// Serializes this UserActivitySubmission to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of UserActivitySubmission
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $UserActivitySubmissionCopyWith<UserActivitySubmission> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UserActivitySubmissionCopyWith<$Res> {
+  factory $UserActivitySubmissionCopyWith(UserActivitySubmission value,
+          $Res Function(UserActivitySubmission) then) =
+      _$UserActivitySubmissionCopyWithImpl<$Res, UserActivitySubmission>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'title') String title,
+      @JsonKey(name: 'content') String content});
+}
+
+/// @nodoc
+class _$UserActivitySubmissionCopyWithImpl<$Res,
+        $Val extends UserActivitySubmission>
+    implements $UserActivitySubmissionCopyWith<$Res> {
+  _$UserActivitySubmissionCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of UserActivitySubmission
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? title = null,
+    Object? content = null,
+  }) {
+    return _then(_value.copyWith(
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      content: null == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$UserActivitySubmissionImplCopyWith<$Res>
+    implements $UserActivitySubmissionCopyWith<$Res> {
+  factory _$$UserActivitySubmissionImplCopyWith(
+          _$UserActivitySubmissionImpl value,
+          $Res Function(_$UserActivitySubmissionImpl) then) =
+      __$$UserActivitySubmissionImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'title') String title,
+      @JsonKey(name: 'content') String content});
+}
+
+/// @nodoc
+class __$$UserActivitySubmissionImplCopyWithImpl<$Res>
+    extends _$UserActivitySubmissionCopyWithImpl<$Res,
+        _$UserActivitySubmissionImpl>
+    implements _$$UserActivitySubmissionImplCopyWith<$Res> {
+  __$$UserActivitySubmissionImplCopyWithImpl(
+      _$UserActivitySubmissionImpl _value,
+      $Res Function(_$UserActivitySubmissionImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserActivitySubmission
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? title = null,
+    Object? content = null,
+  }) {
+    return _then(_$UserActivitySubmissionImpl(
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      content: null == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$UserActivitySubmissionImpl implements _UserActivitySubmission {
+  const _$UserActivitySubmissionImpl(
+      {@JsonKey(name: 'title') required this.title,
+      @JsonKey(name: 'content') required this.content});
+
+  factory _$UserActivitySubmissionImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserActivitySubmissionImplFromJson(json);
+
+  /// The title of the submission
+  @override
+  @JsonKey(name: 'title')
+  final String title;
+
+  /// The submission content
+  @override
+  @JsonKey(name: 'content')
+  final String content;
+
+  @override
+  String toString() {
+    return 'UserActivitySubmission(title: $title, content: $content)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UserActivitySubmissionImpl &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.content, content) || other.content == content));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, title, content);
+
+  /// Create a copy of UserActivitySubmission
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UserActivitySubmissionImplCopyWith<_$UserActivitySubmissionImpl>
+      get copyWith => __$$UserActivitySubmissionImplCopyWithImpl<
+          _$UserActivitySubmissionImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$UserActivitySubmissionImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _UserActivitySubmission implements UserActivitySubmission {
+  const factory _UserActivitySubmission(
+          {@JsonKey(name: 'title') required final String title,
+          @JsonKey(name: 'content') required final String content}) =
+      _$UserActivitySubmissionImpl;
+
+  factory _UserActivitySubmission.fromJson(Map<String, dynamic> json) =
+      _$UserActivitySubmissionImpl.fromJson;
+
+  /// The title of the submission
+  @override
+  @JsonKey(name: 'title')
+  String get title;
+
+  /// The submission content
+  @override
+  @JsonKey(name: 'content')
+  String get content;
+
+  /// Create a copy of UserActivitySubmission
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UserActivitySubmissionImplCopyWith<_$UserActivitySubmissionImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+UserActivityComment _$UserActivityCommentFromJson(Map<String, dynamic> json) {
+  return _UserActivityComment.fromJson(json);
+}
+
+/// @nodoc
+mixin _$UserActivityComment {
+  /// The comment content
+  @JsonKey(name: 'content')
+  String get content => throw _privateConstructorUsedError;
+
+  /// Serializes this UserActivityComment to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of UserActivityComment
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $UserActivityCommentCopyWith<UserActivityComment> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UserActivityCommentCopyWith<$Res> {
+  factory $UserActivityCommentCopyWith(
+          UserActivityComment value, $Res Function(UserActivityComment) then) =
+      _$UserActivityCommentCopyWithImpl<$Res, UserActivityComment>;
+  @useResult
+  $Res call({@JsonKey(name: 'content') String content});
+}
+
+/// @nodoc
+class _$UserActivityCommentCopyWithImpl<$Res, $Val extends UserActivityComment>
+    implements $UserActivityCommentCopyWith<$Res> {
+  _$UserActivityCommentCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of UserActivityComment
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? content = null,
+  }) {
+    return _then(_value.copyWith(
+      content: null == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$UserActivityCommentImplCopyWith<$Res>
+    implements $UserActivityCommentCopyWith<$Res> {
+  factory _$$UserActivityCommentImplCopyWith(_$UserActivityCommentImpl value,
+          $Res Function(_$UserActivityCommentImpl) then) =
+      __$$UserActivityCommentImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({@JsonKey(name: 'content') String content});
+}
+
+/// @nodoc
+class __$$UserActivityCommentImplCopyWithImpl<$Res>
+    extends _$UserActivityCommentCopyWithImpl<$Res, _$UserActivityCommentImpl>
+    implements _$$UserActivityCommentImplCopyWith<$Res> {
+  __$$UserActivityCommentImplCopyWithImpl(_$UserActivityCommentImpl _value,
+      $Res Function(_$UserActivityCommentImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of UserActivityComment
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? content = null,
+  }) {
+    return _then(_$UserActivityCommentImpl(
+      content: null == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$UserActivityCommentImpl implements _UserActivityComment {
+  const _$UserActivityCommentImpl(
+      {@JsonKey(name: 'content') required this.content});
+
+  factory _$UserActivityCommentImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserActivityCommentImplFromJson(json);
+
+  /// The comment content
+  @override
+  @JsonKey(name: 'content')
+  final String content;
+
+  @override
+  String toString() {
+    return 'UserActivityComment(content: $content)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UserActivityCommentImpl &&
+            (identical(other.content, content) || other.content == content));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, content);
+
+  /// Create a copy of UserActivityComment
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UserActivityCommentImplCopyWith<_$UserActivityCommentImpl> get copyWith =>
+      __$$UserActivityCommentImplCopyWithImpl<_$UserActivityCommentImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$UserActivityCommentImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _UserActivityComment implements UserActivityComment {
+  const factory _UserActivityComment(
+          {@JsonKey(name: 'content') required final String content}) =
+      _$UserActivityCommentImpl;
+
+  factory _UserActivityComment.fromJson(Map<String, dynamic> json) =
+      _$UserActivityCommentImpl.fromJson;
+
+  /// The comment content
+  @override
+  @JsonKey(name: 'content')
+  String get content;
+
+  /// Create a copy of UserActivityComment
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UserActivityCommentImplCopyWith<_$UserActivityCommentImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 Post _$PostFromJson(Map<String, dynamic> json) {
   return _Post.fromJson(json);
 }
@@ -4766,6 +5824,10 @@ mixin _$Post {
   /// The id of the post
   @JsonKey(name: 'id', required: true)
   String get id => throw _privateConstructorUsedError;
+
+  /// The slug of the post
+  @JsonKey(name: 'slug', required: true)
+  String get slug => throw _privateConstructorUsedError;
 
   /// The title of the post
   @JsonKey(name: 'title', required: true)
@@ -4835,6 +5897,7 @@ abstract class $PostCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'id', required: true) String id,
+      @JsonKey(name: 'slug', required: true) String slug,
       @JsonKey(name: 'title', required: true) String title,
       @JsonKey(name: 'content', required: true) String content,
       @JsonKey(name: 'user', required: true) UserSimple user,
@@ -4871,6 +5934,7 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
   @override
   $Res call({
     Object? id = null,
+    Object? slug = null,
     Object? title = null,
     Object? content = null,
     Object? user = null,
@@ -4889,6 +5953,10 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      slug: null == slug
+          ? _value.slug
+          : slug // ignore: cast_nullable_to_non_nullable
               as String,
       title: null == title
           ? _value.title
@@ -4985,6 +6053,7 @@ abstract class _$$PostImplCopyWith<$Res> implements $PostCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'id', required: true) String id,
+      @JsonKey(name: 'slug', required: true) String slug,
       @JsonKey(name: 'title', required: true) String title,
       @JsonKey(name: 'content', required: true) String content,
       @JsonKey(name: 'user', required: true) UserSimple user,
@@ -5021,6 +6090,7 @@ class __$$PostImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? slug = null,
     Object? title = null,
     Object? content = null,
     Object? user = null,
@@ -5039,6 +6109,10 @@ class __$$PostImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      slug: null == slug
+          ? _value.slug
+          : slug // ignore: cast_nullable_to_non_nullable
               as String,
       title: null == title
           ? _value.title
@@ -5101,6 +6175,7 @@ class __$$PostImplCopyWithImpl<$Res>
 class _$PostImpl implements _Post {
   const _$PostImpl(
       {@JsonKey(name: 'id', required: true) required this.id,
+      @JsonKey(name: 'slug', required: true) required this.slug,
       @JsonKey(name: 'title', required: true) required this.title,
       @JsonKey(name: 'content', required: true) required this.content,
       @JsonKey(name: 'user', required: true) required this.user,
@@ -5124,6 +6199,11 @@ class _$PostImpl implements _Post {
   @override
   @JsonKey(name: 'id', required: true)
   final String id;
+
+  /// The slug of the post
+  @override
+  @JsonKey(name: 'slug', required: true)
+  final String slug;
 
   /// The title of the post
   @override
@@ -5192,7 +6272,7 @@ class _$PostImpl implements _Post {
 
   @override
   String toString() {
-    return 'Post(id: $id, title: $title, content: $content, user: $user, status: $status, upvotes: $upvotes, commentCount: $commentCount, upvoted: $upvoted, downvoted: $downvoted, pinned: $pinned, isSubscribed: $isSubscribed, date: $date, lastModified: $lastModified, postCategory: $postCategory)';
+    return 'Post(id: $id, slug: $slug, title: $title, content: $content, user: $user, status: $status, upvotes: $upvotes, commentCount: $commentCount, upvoted: $upvoted, downvoted: $downvoted, pinned: $pinned, isSubscribed: $isSubscribed, date: $date, lastModified: $lastModified, postCategory: $postCategory)';
   }
 
   @override
@@ -5201,6 +6281,7 @@ class _$PostImpl implements _Post {
         (other.runtimeType == runtimeType &&
             other is _$PostImpl &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.slug, slug) || other.slug == slug) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.content, content) || other.content == content) &&
             (identical(other.user, user) || other.user == user) &&
@@ -5226,6 +6307,7 @@ class _$PostImpl implements _Post {
   int get hashCode => Object.hash(
       runtimeType,
       id,
+      slug,
       title,
       content,
       user,
@@ -5259,6 +6341,7 @@ class _$PostImpl implements _Post {
 abstract class _Post implements Post {
   const factory _Post(
       {@JsonKey(name: 'id', required: true) required final String id,
+      @JsonKey(name: 'slug', required: true) required final String slug,
       @JsonKey(name: 'title', required: true) required final String title,
       @JsonKey(name: 'content', required: true) required final String content,
       @JsonKey(name: 'user', required: true) required final UserSimple user,
@@ -5283,6 +6366,11 @@ abstract class _Post implements Post {
   @override
   @JsonKey(name: 'id', required: true)
   String get id;
+
+  /// The slug of the post
+  @override
+  @JsonKey(name: 'slug', required: true)
+  String get slug;
 
   /// The title of the post
   @override
@@ -5364,6 +6452,10 @@ PostCategory _$PostCategoryFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$PostCategory {
   /// The category name
+  @JsonKey(name: 'id', required: true)
+  String get id => throw _privateConstructorUsedError;
+
+  /// The category name
   @JsonKey(name: 'category', required: true)
   String get category => throw _privateConstructorUsedError;
 
@@ -5388,7 +6480,8 @@ abstract class $PostCategoryCopyWith<$Res> {
       _$PostCategoryCopyWithImpl<$Res, PostCategory>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'category', required: true) String category,
+      {@JsonKey(name: 'id', required: true) String id,
+      @JsonKey(name: 'category', required: true) String category,
       @JsonKey(name: 'private', defaultValue: false) bool private});
 }
 
@@ -5407,10 +6500,15 @@ class _$PostCategoryCopyWithImpl<$Res, $Val extends PostCategory>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? category = null,
     Object? private = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       category: null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -5432,7 +6530,8 @@ abstract class _$$PostCategoryImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'category', required: true) String category,
+      {@JsonKey(name: 'id', required: true) String id,
+      @JsonKey(name: 'category', required: true) String category,
       @JsonKey(name: 'private', defaultValue: false) bool private});
 }
 
@@ -5449,10 +6548,15 @@ class __$$PostCategoryImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? category = null,
     Object? private = null,
   }) {
     return _then(_$PostCategoryImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       category: null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -5469,11 +6573,17 @@ class __$$PostCategoryImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PostCategoryImpl implements _PostCategory {
   const _$PostCategoryImpl(
-      {@JsonKey(name: 'category', required: true) required this.category,
+      {@JsonKey(name: 'id', required: true) required this.id,
+      @JsonKey(name: 'category', required: true) required this.category,
       @JsonKey(name: 'private', defaultValue: false) required this.private});
 
   factory _$PostCategoryImpl.fromJson(Map<String, dynamic> json) =>
       _$$PostCategoryImplFromJson(json);
+
+  /// The category name
+  @override
+  @JsonKey(name: 'id', required: true)
+  final String id;
 
   /// The category name
   @override
@@ -5487,7 +6597,7 @@ class _$PostCategoryImpl implements _PostCategory {
 
   @override
   String toString() {
-    return 'PostCategory(category: $category, private: $private)';
+    return 'PostCategory(id: $id, category: $category, private: $private)';
   }
 
   @override
@@ -5495,6 +6605,7 @@ class _$PostCategoryImpl implements _PostCategory {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PostCategoryImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.category, category) ||
                 other.category == category) &&
             (identical(other.private, private) || other.private == private));
@@ -5502,7 +6613,7 @@ class _$PostCategoryImpl implements _PostCategory {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, category, private);
+  int get hashCode => Object.hash(runtimeType, id, category, private);
 
   /// Create a copy of PostCategory
   /// with the given fields replaced by the non-null parameter values.
@@ -5522,13 +6633,18 @@ class _$PostCategoryImpl implements _PostCategory {
 
 abstract class _PostCategory implements PostCategory {
   const factory _PostCategory(
-      {@JsonKey(name: 'category', required: true)
-      required final String category,
+      {@JsonKey(name: 'id', required: true) required final String id,
+      @JsonKey(name: 'category', required: true) required final String category,
       @JsonKey(name: 'private', defaultValue: false)
       required final bool private}) = _$PostCategoryImpl;
 
   factory _PostCategory.fromJson(Map<String, dynamic> json) =
       _$PostCategoryImpl.fromJson;
+
+  /// The category name
+  @override
+  @JsonKey(name: 'id', required: true)
+  String get id;
 
   /// The category name
   @override
@@ -6039,5 +7155,854 @@ abstract class _UserSimple implements UserSimple {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UserSimpleImplCopyWith<_$UserSimpleImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+User _$UserFromJson(Map<String, dynamic> json) {
+  return _User.fromJson(json);
+}
+
+/// @nodoc
+mixin _$User {
+  /// The featurebase id for the user
+  @JsonKey(name: 'id', required: true)
+  String get id => throw _privateConstructorUsedError;
+
+  /// The platforms user id
+  @JsonKey(name: 'userId', required: true)
+  String get userId => throw _privateConstructorUsedError;
+
+  /// The name of the user
+  @JsonKey(name: 'name', required: true)
+  String get name => throw _privateConstructorUsedError;
+
+  /// The users picture
+  @JsonKey(name: 'profilePicture')
+  String? get picture => throw _privateConstructorUsedError;
+
+  /// The amount of comments the user has created
+  @JsonKey(name: 'commentsCreated')
+  int get commentsCreated => throw _privateConstructorUsedError;
+
+  /// The amount of posts the user has created
+  @JsonKey(name: 'postsCreated')
+  int get postsCreated => throw _privateConstructorUsedError;
+
+  /// The type of the user
+  @JsonKey(name: 'type', required: true)
+  String get type => throw _privateConstructorUsedError;
+
+  /// Serializes this User to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of User
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UserCopyWith<$Res> {
+  factory $UserCopyWith(User value, $Res Function(User) then) =
+      _$UserCopyWithImpl<$Res, User>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'id', required: true) String id,
+      @JsonKey(name: 'userId', required: true) String userId,
+      @JsonKey(name: 'name', required: true) String name,
+      @JsonKey(name: 'profilePicture') String? picture,
+      @JsonKey(name: 'commentsCreated') int commentsCreated,
+      @JsonKey(name: 'postsCreated') int postsCreated,
+      @JsonKey(name: 'type', required: true) String type});
+}
+
+/// @nodoc
+class _$UserCopyWithImpl<$Res, $Val extends User>
+    implements $UserCopyWith<$Res> {
+  _$UserCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of User
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? userId = null,
+    Object? name = null,
+    Object? picture = freezed,
+    Object? commentsCreated = null,
+    Object? postsCreated = null,
+    Object? type = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      picture: freezed == picture
+          ? _value.picture
+          : picture // ignore: cast_nullable_to_non_nullable
+              as String?,
+      commentsCreated: null == commentsCreated
+          ? _value.commentsCreated
+          : commentsCreated // ignore: cast_nullable_to_non_nullable
+              as int,
+      postsCreated: null == postsCreated
+          ? _value.postsCreated
+          : postsCreated // ignore: cast_nullable_to_non_nullable
+              as int,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
+  factory _$$UserImplCopyWith(
+          _$UserImpl value, $Res Function(_$UserImpl) then) =
+      __$$UserImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'id', required: true) String id,
+      @JsonKey(name: 'userId', required: true) String userId,
+      @JsonKey(name: 'name', required: true) String name,
+      @JsonKey(name: 'profilePicture') String? picture,
+      @JsonKey(name: 'commentsCreated') int commentsCreated,
+      @JsonKey(name: 'postsCreated') int postsCreated,
+      @JsonKey(name: 'type', required: true) String type});
+}
+
+/// @nodoc
+class __$$UserImplCopyWithImpl<$Res>
+    extends _$UserCopyWithImpl<$Res, _$UserImpl>
+    implements _$$UserImplCopyWith<$Res> {
+  __$$UserImplCopyWithImpl(_$UserImpl _value, $Res Function(_$UserImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of User
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? userId = null,
+    Object? name = null,
+    Object? picture = freezed,
+    Object? commentsCreated = null,
+    Object? postsCreated = null,
+    Object? type = null,
+  }) {
+    return _then(_$UserImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      userId: null == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      picture: freezed == picture
+          ? _value.picture
+          : picture // ignore: cast_nullable_to_non_nullable
+              as String?,
+      commentsCreated: null == commentsCreated
+          ? _value.commentsCreated
+          : commentsCreated // ignore: cast_nullable_to_non_nullable
+              as int,
+      postsCreated: null == postsCreated
+          ? _value.postsCreated
+          : postsCreated // ignore: cast_nullable_to_non_nullable
+              as int,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$UserImpl implements _User {
+  const _$UserImpl(
+      {@JsonKey(name: 'id', required: true) required this.id,
+      @JsonKey(name: 'userId', required: true) required this.userId,
+      @JsonKey(name: 'name', required: true) required this.name,
+      @JsonKey(name: 'profilePicture') this.picture,
+      @JsonKey(name: 'commentsCreated') this.commentsCreated = 0,
+      @JsonKey(name: 'postsCreated') this.postsCreated = 0,
+      @JsonKey(name: 'type', required: true) required this.type});
+
+  factory _$UserImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserImplFromJson(json);
+
+  /// The featurebase id for the user
+  @override
+  @JsonKey(name: 'id', required: true)
+  final String id;
+
+  /// The platforms user id
+  @override
+  @JsonKey(name: 'userId', required: true)
+  final String userId;
+
+  /// The name of the user
+  @override
+  @JsonKey(name: 'name', required: true)
+  final String name;
+
+  /// The users picture
+  @override
+  @JsonKey(name: 'profilePicture')
+  final String? picture;
+
+  /// The amount of comments the user has created
+  @override
+  @JsonKey(name: 'commentsCreated')
+  final int commentsCreated;
+
+  /// The amount of posts the user has created
+  @override
+  @JsonKey(name: 'postsCreated')
+  final int postsCreated;
+
+  /// The type of the user
+  @override
+  @JsonKey(name: 'type', required: true)
+  final String type;
+
+  @override
+  String toString() {
+    return 'User(id: $id, userId: $userId, name: $name, picture: $picture, commentsCreated: $commentsCreated, postsCreated: $postsCreated, type: $type)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UserImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.picture, picture) || other.picture == picture) &&
+            (identical(other.commentsCreated, commentsCreated) ||
+                other.commentsCreated == commentsCreated) &&
+            (identical(other.postsCreated, postsCreated) ||
+                other.postsCreated == postsCreated) &&
+            (identical(other.type, type) || other.type == type));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, userId, name, picture,
+      commentsCreated, postsCreated, type);
+
+  /// Create a copy of User
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UserImplCopyWith<_$UserImpl> get copyWith =>
+      __$$UserImplCopyWithImpl<_$UserImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$UserImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _User implements User {
+  const factory _User(
+          {@JsonKey(name: 'id', required: true) required final String id,
+          @JsonKey(name: 'userId', required: true) required final String userId,
+          @JsonKey(name: 'name', required: true) required final String name,
+          @JsonKey(name: 'profilePicture') final String? picture,
+          @JsonKey(name: 'commentsCreated') final int commentsCreated,
+          @JsonKey(name: 'postsCreated') final int postsCreated,
+          @JsonKey(name: 'type', required: true) required final String type}) =
+      _$UserImpl;
+
+  factory _User.fromJson(Map<String, dynamic> json) = _$UserImpl.fromJson;
+
+  /// The featurebase id for the user
+  @override
+  @JsonKey(name: 'id', required: true)
+  String get id;
+
+  /// The platforms user id
+  @override
+  @JsonKey(name: 'userId', required: true)
+  String get userId;
+
+  /// The name of the user
+  @override
+  @JsonKey(name: 'name', required: true)
+  String get name;
+
+  /// The users picture
+  @override
+  @JsonKey(name: 'profilePicture')
+  String? get picture;
+
+  /// The amount of comments the user has created
+  @override
+  @JsonKey(name: 'commentsCreated')
+  int get commentsCreated;
+
+  /// The amount of posts the user has created
+  @override
+  @JsonKey(name: 'postsCreated')
+  int get postsCreated;
+
+  /// The type of the user
+  @override
+  @JsonKey(name: 'type', required: true)
+  String get type;
+
+  /// Create a copy of User
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UserImplCopyWith<_$UserImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+Comment _$CommentFromJson(Map<String, dynamic> json) {
+  return _Comment.fromJson(json);
+}
+
+/// @nodoc
+mixin _$Comment {
+  /// The comment id
+  @JsonKey(name: 'id', required: true)
+  String get id => throw _privateConstructorUsedError;
+
+  /// The user who created the comment
+  @JsonKey(name: 'user', required: true)
+  UserSimple get user => throw _privateConstructorUsedError;
+
+  /// The id of the user who created the comment
+  @JsonKey(name: 'createdBy', required: true)
+  String get createdBy => throw _privateConstructorUsedError;
+
+  /// The content of the comment
+  @JsonKey(name: 'content', required: true)
+  String get content => throw _privateConstructorUsedError;
+
+  /// The amount of upvotes the comment has
+  @JsonKey(name: 'upvotes')
+  int get upvotes => throw _privateConstructorUsedError;
+
+  /// The amount of downvotes the comment has
+  @JsonKey(name: 'downvotes')
+  int get downvotes => throw _privateConstructorUsedError;
+
+  /// Whether the user has upvoted the comment
+  @JsonKey(name: 'upvoted')
+  bool get upvoted => throw _privateConstructorUsedError;
+
+  /// Whether the user has downvoted the comment
+  @JsonKey(name: 'downvoted')
+  bool get downvoted => throw _privateConstructorUsedError;
+
+  /// The replies to the comment
+  @JsonKey(name: 'replies')
+  List<Comment> get replies => throw _privateConstructorUsedError;
+
+  /// Whether the comment is pinned
+  @JsonKey(name: 'pinned')
+  bool get pinned => throw _privateConstructorUsedError;
+
+  /// Whether the comment is private
+  @JsonKey(name: 'isPrivate')
+  bool get isPrivate => throw _privateConstructorUsedError;
+
+  /// The date the comment was created
+  @JsonKey(name: 'createdAt', required: true)
+  DateTime get createdAt => throw _privateConstructorUsedError;
+
+  /// Serializes this Comment to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of Comment
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $CommentCopyWith<Comment> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CommentCopyWith<$Res> {
+  factory $CommentCopyWith(Comment value, $Res Function(Comment) then) =
+      _$CommentCopyWithImpl<$Res, Comment>;
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'id', required: true) String id,
+      @JsonKey(name: 'user', required: true) UserSimple user,
+      @JsonKey(name: 'createdBy', required: true) String createdBy,
+      @JsonKey(name: 'content', required: true) String content,
+      @JsonKey(name: 'upvotes') int upvotes,
+      @JsonKey(name: 'downvotes') int downvotes,
+      @JsonKey(name: 'upvoted') bool upvoted,
+      @JsonKey(name: 'downvoted') bool downvoted,
+      @JsonKey(name: 'replies') List<Comment> replies,
+      @JsonKey(name: 'pinned') bool pinned,
+      @JsonKey(name: 'isPrivate') bool isPrivate,
+      @JsonKey(name: 'createdAt', required: true) DateTime createdAt});
+
+  $UserSimpleCopyWith<$Res> get user;
+}
+
+/// @nodoc
+class _$CommentCopyWithImpl<$Res, $Val extends Comment>
+    implements $CommentCopyWith<$Res> {
+  _$CommentCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of Comment
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? user = null,
+    Object? createdBy = null,
+    Object? content = null,
+    Object? upvotes = null,
+    Object? downvotes = null,
+    Object? upvoted = null,
+    Object? downvoted = null,
+    Object? replies = null,
+    Object? pinned = null,
+    Object? isPrivate = null,
+    Object? createdAt = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserSimple,
+      createdBy: null == createdBy
+          ? _value.createdBy
+          : createdBy // ignore: cast_nullable_to_non_nullable
+              as String,
+      content: null == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String,
+      upvotes: null == upvotes
+          ? _value.upvotes
+          : upvotes // ignore: cast_nullable_to_non_nullable
+              as int,
+      downvotes: null == downvotes
+          ? _value.downvotes
+          : downvotes // ignore: cast_nullable_to_non_nullable
+              as int,
+      upvoted: null == upvoted
+          ? _value.upvoted
+          : upvoted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      downvoted: null == downvoted
+          ? _value.downvoted
+          : downvoted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      replies: null == replies
+          ? _value.replies
+          : replies // ignore: cast_nullable_to_non_nullable
+              as List<Comment>,
+      pinned: null == pinned
+          ? _value.pinned
+          : pinned // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isPrivate: null == isPrivate
+          ? _value.isPrivate
+          : isPrivate // ignore: cast_nullable_to_non_nullable
+              as bool,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ) as $Val);
+  }
+
+  /// Create a copy of Comment
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $UserSimpleCopyWith<$Res> get user {
+    return $UserSimpleCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$CommentImplCopyWith<$Res> implements $CommentCopyWith<$Res> {
+  factory _$$CommentImplCopyWith(
+          _$CommentImpl value, $Res Function(_$CommentImpl) then) =
+      __$$CommentImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@JsonKey(name: 'id', required: true) String id,
+      @JsonKey(name: 'user', required: true) UserSimple user,
+      @JsonKey(name: 'createdBy', required: true) String createdBy,
+      @JsonKey(name: 'content', required: true) String content,
+      @JsonKey(name: 'upvotes') int upvotes,
+      @JsonKey(name: 'downvotes') int downvotes,
+      @JsonKey(name: 'upvoted') bool upvoted,
+      @JsonKey(name: 'downvoted') bool downvoted,
+      @JsonKey(name: 'replies') List<Comment> replies,
+      @JsonKey(name: 'pinned') bool pinned,
+      @JsonKey(name: 'isPrivate') bool isPrivate,
+      @JsonKey(name: 'createdAt', required: true) DateTime createdAt});
+
+  @override
+  $UserSimpleCopyWith<$Res> get user;
+}
+
+/// @nodoc
+class __$$CommentImplCopyWithImpl<$Res>
+    extends _$CommentCopyWithImpl<$Res, _$CommentImpl>
+    implements _$$CommentImplCopyWith<$Res> {
+  __$$CommentImplCopyWithImpl(
+      _$CommentImpl _value, $Res Function(_$CommentImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of Comment
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? user = null,
+    Object? createdBy = null,
+    Object? content = null,
+    Object? upvotes = null,
+    Object? downvotes = null,
+    Object? upvoted = null,
+    Object? downvoted = null,
+    Object? replies = null,
+    Object? pinned = null,
+    Object? isPrivate = null,
+    Object? createdAt = null,
+  }) {
+    return _then(_$CommentImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserSimple,
+      createdBy: null == createdBy
+          ? _value.createdBy
+          : createdBy // ignore: cast_nullable_to_non_nullable
+              as String,
+      content: null == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String,
+      upvotes: null == upvotes
+          ? _value.upvotes
+          : upvotes // ignore: cast_nullable_to_non_nullable
+              as int,
+      downvotes: null == downvotes
+          ? _value.downvotes
+          : downvotes // ignore: cast_nullable_to_non_nullable
+              as int,
+      upvoted: null == upvoted
+          ? _value.upvoted
+          : upvoted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      downvoted: null == downvoted
+          ? _value.downvoted
+          : downvoted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      replies: null == replies
+          ? _value._replies
+          : replies // ignore: cast_nullable_to_non_nullable
+              as List<Comment>,
+      pinned: null == pinned
+          ? _value.pinned
+          : pinned // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isPrivate: null == isPrivate
+          ? _value.isPrivate
+          : isPrivate // ignore: cast_nullable_to_non_nullable
+              as bool,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$CommentImpl implements _Comment {
+  const _$CommentImpl(
+      {@JsonKey(name: 'id', required: true) required this.id,
+      @JsonKey(name: 'user', required: true) required this.user,
+      @JsonKey(name: 'createdBy', required: true) required this.createdBy,
+      @JsonKey(name: 'content', required: true) required this.content,
+      @JsonKey(name: 'upvotes') this.upvotes = 0,
+      @JsonKey(name: 'downvotes') this.downvotes = 0,
+      @JsonKey(name: 'upvoted') this.upvoted = false,
+      @JsonKey(name: 'downvoted') this.downvoted = false,
+      @JsonKey(name: 'replies') required final List<Comment> replies,
+      @JsonKey(name: 'pinned') this.pinned = false,
+      @JsonKey(name: 'isPrivate') this.isPrivate = false,
+      @JsonKey(name: 'createdAt', required: true) required this.createdAt})
+      : _replies = replies;
+
+  factory _$CommentImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CommentImplFromJson(json);
+
+  /// The comment id
+  @override
+  @JsonKey(name: 'id', required: true)
+  final String id;
+
+  /// The user who created the comment
+  @override
+  @JsonKey(name: 'user', required: true)
+  final UserSimple user;
+
+  /// The id of the user who created the comment
+  @override
+  @JsonKey(name: 'createdBy', required: true)
+  final String createdBy;
+
+  /// The content of the comment
+  @override
+  @JsonKey(name: 'content', required: true)
+  final String content;
+
+  /// The amount of upvotes the comment has
+  @override
+  @JsonKey(name: 'upvotes')
+  final int upvotes;
+
+  /// The amount of downvotes the comment has
+  @override
+  @JsonKey(name: 'downvotes')
+  final int downvotes;
+
+  /// Whether the user has upvoted the comment
+  @override
+  @JsonKey(name: 'upvoted')
+  final bool upvoted;
+
+  /// Whether the user has downvoted the comment
+  @override
+  @JsonKey(name: 'downvoted')
+  final bool downvoted;
+
+  /// The replies to the comment
+  final List<Comment> _replies;
+
+  /// The replies to the comment
+  @override
+  @JsonKey(name: 'replies')
+  List<Comment> get replies {
+    if (_replies is EqualUnmodifiableListView) return _replies;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_replies);
+  }
+
+  /// Whether the comment is pinned
+  @override
+  @JsonKey(name: 'pinned')
+  final bool pinned;
+
+  /// Whether the comment is private
+  @override
+  @JsonKey(name: 'isPrivate')
+  final bool isPrivate;
+
+  /// The date the comment was created
+  @override
+  @JsonKey(name: 'createdAt', required: true)
+  final DateTime createdAt;
+
+  @override
+  String toString() {
+    return 'Comment(id: $id, user: $user, createdBy: $createdBy, content: $content, upvotes: $upvotes, downvotes: $downvotes, upvoted: $upvoted, downvoted: $downvoted, replies: $replies, pinned: $pinned, isPrivate: $isPrivate, createdAt: $createdAt)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CommentImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.user, user) || other.user == user) &&
+            (identical(other.createdBy, createdBy) ||
+                other.createdBy == createdBy) &&
+            (identical(other.content, content) || other.content == content) &&
+            (identical(other.upvotes, upvotes) || other.upvotes == upvotes) &&
+            (identical(other.downvotes, downvotes) ||
+                other.downvotes == downvotes) &&
+            (identical(other.upvoted, upvoted) || other.upvoted == upvoted) &&
+            (identical(other.downvoted, downvoted) ||
+                other.downvoted == downvoted) &&
+            const DeepCollectionEquality().equals(other._replies, _replies) &&
+            (identical(other.pinned, pinned) || other.pinned == pinned) &&
+            (identical(other.isPrivate, isPrivate) ||
+                other.isPrivate == isPrivate) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      user,
+      createdBy,
+      content,
+      upvotes,
+      downvotes,
+      upvoted,
+      downvoted,
+      const DeepCollectionEquality().hash(_replies),
+      pinned,
+      isPrivate,
+      createdAt);
+
+  /// Create a copy of Comment
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CommentImplCopyWith<_$CommentImpl> get copyWith =>
+      __$$CommentImplCopyWithImpl<_$CommentImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$CommentImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _Comment implements Comment {
+  const factory _Comment(
+      {@JsonKey(name: 'id', required: true) required final String id,
+      @JsonKey(name: 'user', required: true) required final UserSimple user,
+      @JsonKey(name: 'createdBy', required: true)
+      required final String createdBy,
+      @JsonKey(name: 'content', required: true) required final String content,
+      @JsonKey(name: 'upvotes') final int upvotes,
+      @JsonKey(name: 'downvotes') final int downvotes,
+      @JsonKey(name: 'upvoted') final bool upvoted,
+      @JsonKey(name: 'downvoted') final bool downvoted,
+      @JsonKey(name: 'replies') required final List<Comment> replies,
+      @JsonKey(name: 'pinned') final bool pinned,
+      @JsonKey(name: 'isPrivate') final bool isPrivate,
+      @JsonKey(name: 'createdAt', required: true)
+      required final DateTime createdAt}) = _$CommentImpl;
+
+  factory _Comment.fromJson(Map<String, dynamic> json) = _$CommentImpl.fromJson;
+
+  /// The comment id
+  @override
+  @JsonKey(name: 'id', required: true)
+  String get id;
+
+  /// The user who created the comment
+  @override
+  @JsonKey(name: 'user', required: true)
+  UserSimple get user;
+
+  /// The id of the user who created the comment
+  @override
+  @JsonKey(name: 'createdBy', required: true)
+  String get createdBy;
+
+  /// The content of the comment
+  @override
+  @JsonKey(name: 'content', required: true)
+  String get content;
+
+  /// The amount of upvotes the comment has
+  @override
+  @JsonKey(name: 'upvotes')
+  int get upvotes;
+
+  /// The amount of downvotes the comment has
+  @override
+  @JsonKey(name: 'downvotes')
+  int get downvotes;
+
+  /// Whether the user has upvoted the comment
+  @override
+  @JsonKey(name: 'upvoted')
+  bool get upvoted;
+
+  /// Whether the user has downvoted the comment
+  @override
+  @JsonKey(name: 'downvoted')
+  bool get downvoted;
+
+  /// The replies to the comment
+  @override
+  @JsonKey(name: 'replies')
+  List<Comment> get replies;
+
+  /// Whether the comment is pinned
+  @override
+  @JsonKey(name: 'pinned')
+  bool get pinned;
+
+  /// Whether the comment is private
+  @override
+  @JsonKey(name: 'isPrivate')
+  bool get isPrivate;
+
+  /// The date the comment was created
+  @override
+  @JsonKey(name: 'createdAt', required: true)
+  DateTime get createdAt;
+
+  /// Create a copy of Comment
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CommentImplCopyWith<_$CommentImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

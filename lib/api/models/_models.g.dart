@@ -328,25 +328,42 @@ Map<String, dynamic> _$$NavItemImplToJson(_$NavItemImpl instance) =>
 _$OrganizationImpl _$$OrganizationImplFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
-    requiredKeys: const ['displayName', 'color'],
+    requiredKeys: const [
+      'name',
+      'displayName',
+      'color',
+      'settings',
+      'postCategories'
+    ],
   );
   return _$OrganizationImpl(
+    name: json['name'] as String,
     displayName: json['displayName'] as String,
     color: json['color'] as String,
     ssoUrl: json['ssoUrl'] as String?,
+    customDomain: json['customDomain'] as String?,
     widget: json['widget'] == null
         ? null
         : AIOWidget.fromJson(json['widget'] as Map<String, dynamic>),
+    settings:
+        OrganizationSettings.fromJson(json['settings'] as Map<String, dynamic>),
+    postCategories: (json['postCategories'] as List<dynamic>)
+        .map((e) => PostCategory.fromJson(e as Map<String, dynamic>))
+        .toList(),
     picture: json['picture'] as String?,
   );
 }
 
 Map<String, dynamic> _$$OrganizationImplToJson(_$OrganizationImpl instance) =>
     <String, dynamic>{
+      'name': instance.name,
       'displayName': instance.displayName,
       'color': instance.color,
       'ssoUrl': instance.ssoUrl,
+      'customDomain': instance.customDomain,
       'widget': instance.widget,
+      'settings': instance.settings,
+      'postCategories': instance.postCategories,
       'picture': instance.picture,
     };
 
@@ -390,11 +407,81 @@ Map<String, dynamic> _$$AIOCardImplToJson(_$AIOCardImpl instance) =>
       'category': instance.category,
     };
 
+_$OrganizationSettingsImpl _$$OrganizationSettingsImplFromJson(
+    Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    requiredKeys: const ['defaultSortingOrder'],
+  );
+  return _$OrganizationSettingsImpl(
+    downvotesEnabled: json['downvotesEnabled'] as bool? ?? false,
+    defaultSortingOrder: json['defaultSortingOrder'] as String,
+    hideVoteCountUntilVoted: json['hideVoteCountUntilVoted'] as bool? ?? false,
+  );
+}
+
+Map<String, dynamic> _$$OrganizationSettingsImplToJson(
+        _$OrganizationSettingsImpl instance) =>
+    <String, dynamic>{
+      'downvotesEnabled': instance.downvotesEnabled,
+      'defaultSortingOrder': instance.defaultSortingOrder,
+      'hideVoteCountUntilVoted': instance.hideVoteCountUntilVoted,
+    };
+
+_$UserActivityImpl _$$UserActivityImplFromJson(Map<String, dynamic> json) =>
+    _$UserActivityImpl(
+      type: json['type'] as String,
+      submissionId: json['submissionId'] as String,
+      createdAt: DateTime.parse(json['createdAt'] as String),
+      submission: UserActivitySubmission.fromJson(
+          json['submission'] as Map<String, dynamic>),
+      comment: json['comment'] == null
+          ? null
+          : UserActivityComment.fromJson(
+              json['comment'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$UserActivityImplToJson(_$UserActivityImpl instance) =>
+    <String, dynamic>{
+      'type': instance.type,
+      'submissionId': instance.submissionId,
+      'createdAt': instance.createdAt.toIso8601String(),
+      'submission': instance.submission,
+      'comment': instance.comment,
+    };
+
+_$UserActivitySubmissionImpl _$$UserActivitySubmissionImplFromJson(
+        Map<String, dynamic> json) =>
+    _$UserActivitySubmissionImpl(
+      title: json['title'] as String,
+      content: json['content'] as String,
+    );
+
+Map<String, dynamic> _$$UserActivitySubmissionImplToJson(
+        _$UserActivitySubmissionImpl instance) =>
+    <String, dynamic>{
+      'title': instance.title,
+      'content': instance.content,
+    };
+
+_$UserActivityCommentImpl _$$UserActivityCommentImplFromJson(
+        Map<String, dynamic> json) =>
+    _$UserActivityCommentImpl(
+      content: json['content'] as String,
+    );
+
+Map<String, dynamic> _$$UserActivityCommentImplToJson(
+        _$UserActivityCommentImpl instance) =>
+    <String, dynamic>{
+      'content': instance.content,
+    };
+
 _$PostImpl _$$PostImplFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
     requiredKeys: const [
       'id',
+      'slug',
       'title',
       'content',
       'user',
@@ -406,6 +493,7 @@ _$PostImpl _$$PostImplFromJson(Map<String, dynamic> json) {
   );
   return _$PostImpl(
     id: json['id'] as String,
+    slug: json['slug'] as String,
     title: json['title'] as String,
     content: json['content'] as String,
     user: UserSimple.fromJson(json['user'] as Map<String, dynamic>),
@@ -426,6 +514,7 @@ _$PostImpl _$$PostImplFromJson(Map<String, dynamic> json) {
 Map<String, dynamic> _$$PostImplToJson(_$PostImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
+      'slug': instance.slug,
       'title': instance.title,
       'content': instance.content,
       'user': instance.user,
@@ -444,9 +533,10 @@ Map<String, dynamic> _$$PostImplToJson(_$PostImpl instance) =>
 _$PostCategoryImpl _$$PostCategoryImplFromJson(Map<String, dynamic> json) {
   $checkKeys(
     json,
-    requiredKeys: const ['category'],
+    requiredKeys: const ['id', 'category'],
   );
   return _$PostCategoryImpl(
+    id: json['id'] as String,
     category: json['category'] as String,
     private: json['private'] as bool? ?? false,
   );
@@ -454,6 +544,7 @@ _$PostCategoryImpl _$$PostCategoryImplFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$$PostCategoryImplToJson(_$PostCategoryImpl instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'category': instance.category,
       'private': instance.private,
     };
@@ -498,6 +589,72 @@ Map<String, dynamic> _$$UserSimpleImplToJson(_$UserSimpleImpl instance) =>
       'type': instance.type,
       'name': instance.name,
       'picture': instance.picture,
+    };
+
+_$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    requiredKeys: const ['id', 'userId', 'name', 'type'],
+  );
+  return _$UserImpl(
+    id: json['id'] as String,
+    userId: json['userId'] as String,
+    name: json['name'] as String,
+    picture: json['profilePicture'] as String?,
+    commentsCreated: (json['commentsCreated'] as num?)?.toInt() ?? 0,
+    postsCreated: (json['postsCreated'] as num?)?.toInt() ?? 0,
+    type: json['type'] as String,
+  );
+}
+
+Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'userId': instance.userId,
+      'name': instance.name,
+      'profilePicture': instance.picture,
+      'commentsCreated': instance.commentsCreated,
+      'postsCreated': instance.postsCreated,
+      'type': instance.type,
+    };
+
+_$CommentImpl _$$CommentImplFromJson(Map<String, dynamic> json) {
+  $checkKeys(
+    json,
+    requiredKeys: const ['id', 'user', 'createdBy', 'content', 'createdAt'],
+  );
+  return _$CommentImpl(
+    id: json['id'] as String,
+    user: UserSimple.fromJson(json['user'] as Map<String, dynamic>),
+    createdBy: json['createdBy'] as String,
+    content: json['content'] as String,
+    upvotes: (json['upvotes'] as num?)?.toInt() ?? 0,
+    downvotes: (json['downvotes'] as num?)?.toInt() ?? 0,
+    upvoted: json['upvoted'] as bool? ?? false,
+    downvoted: json['downvoted'] as bool? ?? false,
+    replies: (json['replies'] as List<dynamic>)
+        .map((e) => Comment.fromJson(e as Map<String, dynamic>))
+        .toList(),
+    pinned: json['pinned'] as bool? ?? false,
+    isPrivate: json['isPrivate'] as bool? ?? false,
+    createdAt: DateTime.parse(json['createdAt'] as String),
+  );
+}
+
+Map<String, dynamic> _$$CommentImplToJson(_$CommentImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'user': instance.user,
+      'createdBy': instance.createdBy,
+      'content': instance.content,
+      'upvotes': instance.upvotes,
+      'downvotes': instance.downvotes,
+      'upvoted': instance.upvoted,
+      'downvoted': instance.downvoted,
+      'replies': instance.replies,
+      'pinned': instance.pinned,
+      'isPrivate': instance.isPrivate,
+      'createdAt': instance.createdAt.toIso8601String(),
     };
 
 ResultsPagination<T> _$ResultsPaginationFromJson<T>(
