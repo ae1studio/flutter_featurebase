@@ -14,3 +14,4 @@ part 'nav_item.dart';
 part 'organization.dart';
 part 'post.dart';
 part 'user.dart';
+part 'comment.dart';

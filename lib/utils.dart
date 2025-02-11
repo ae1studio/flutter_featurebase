@@ -171,6 +171,10 @@ Color _darkenColor(Color color, {double amount = .1}) {
   return darkened.toColor();
 }
 
+Color _mutedColor(BuildContext context) {
+  return Theme.of(context).textTheme.displayLarge!.color!.withOpacity(0.7);
+}
+
 _callHaptic() {
   if (!kIsWeb && _fbService.isHapticEnabled) {
     if (Platform.isAndroid || Platform.isIOS) {
@@ -208,4 +212,75 @@ _setupTimeAgo() {
   timeago.setLocaleMessages('uk', timeago.UkMessages());
   timeago.setLocaleMessages('vi', timeago.ViMessages());
   timeago.setLocaleMessages('zh_CN', timeago.ZhCnMessages());
+}
+
+String _stripHtmlTags(String htmlString) {
+  return htmlString.replaceAll(RegExp(r'<[^>]*>'), '');
+}
+
+String _daysAgo(DateTime date) {
+  final now = DateTime.now();
+  final difference = now.difference(date);
+  if (difference.inHours == 0) {
+    return '${difference.inMinutes} minutes ago';
+  }
+  if (difference.inDays == 0) {
+    return '${difference.inHours} hours ago';
+  }
+  return '${difference.inDays} days ago';
+}
+
+String _orderByLabel(String orderBy) {
+  switch (orderBy) {
+    case 'date':
+      return 'Recent posts';
+    case 'upvotes':
+      return 'Top upvoted';
+    case 'trending':
+      return 'Trending posts';
+    default:
+      return 'Unknown';
+  }
+}
+
+String _orderByIcon(String orderBy) {
+  switch (orderBy) {
+    case 'date':
+      return 'IconClock';
+    case 'upvotes':
+      return 'IconTrendingUp';
+    case 'trending':
+      return 'IconFire';
+    default:
+      return 'Unknown';
+  }
+}
+
+void _showCreatePostPopup(BuildContext context, fb.Organization organization) {
+  showModalBottomSheet(
+    context: context,
+    backgroundColor: Theme.of(context).cardColor,
+    isScrollControlled: true,
+    builder: (context) => SafeArea(
+      child: _PostPopup(
+        organization: organization,
+      ),
+    ),
+  );
+}
+
+String _generateUrl(dynamic item, fb.Organization organization) {
+  String baseUrl = 'https://${organization.name}.featurebase.app';
+
+  // If the organization has a custom domain, use it
+  if (organization.customDomain != null) {
+    baseUrl = 'https://${organization.customDomain}';
+  }
+
+  switch (item) {
+    case fb.Post _:
+      return '$baseUrl/p/${item.slug}';
+    default:
+      return baseUrl;
+  }
 }

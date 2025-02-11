@@ -400,12 +400,10 @@ class _PostViewState extends ConsumerState<_PostView> {
                 ),
               ),
             ),
-
             CommentSection(
               comments: comments,
               organization: widget.organization,
             ),
-
             //Bottom
             SliverToBoxAdapter(
               child: Container(
