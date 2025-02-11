@@ -25,7 +25,6 @@ class _CollectionCard extends StatelessWidget {
             builder: (context) => _CollectionView(
               collection: collection,
               textColor: textColor,
-              hideAuthors: hideAuthors,
               locale: locale,
             ),
           ),
@@ -83,11 +82,12 @@ class _CollectionCard extends StatelessWidget {
             const SizedBox(height: 6),
             Row(
               children: [
-                if (!hideAuthors)
+                if (!hideAuthors && collection.authors != null)
                   _AuthorsImageStack(
-                    authors: collection.authors,
+                    authors: collection.authors!,
                   ),
-                if (!hideAuthors) const SizedBox(width: 2),
+                if (!hideAuthors && collection.authors != null)
+                  const SizedBox(width: 2),
                 StyledText(
                   text: FeaturebaseLocalizations.of(context).countArticles(
                     collection.structure?.length ?? 0,

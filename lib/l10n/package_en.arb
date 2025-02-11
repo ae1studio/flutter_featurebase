@@ -18,6 +18,15 @@
       }
     }
   },
+  "lastUpdated": "Last updated {daysAgo}",
+  "@lastUpdated": {
+    "placeholders": {
+      "daysAgo": {
+        "type": "String",
+        "example": "28 days ago"
+      }
+    }
+  },
   "failedToLoad": "Failed to load",
   "@failedToLoad": {
     "description": "This is the error message that is displayed when the data fails to load."

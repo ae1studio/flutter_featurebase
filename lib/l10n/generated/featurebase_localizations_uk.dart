@@ -27,6 +27,11 @@ class FeaturebaseLocalizationsUk extends FeaturebaseLocalizations {
   }
 
   @override
+  String lastUpdated(String daysAgo) {
+    return 'Last updated $daysAgo';
+  }
+
+  @override
   String get failedToLoad => 'Не вдалося завантажити';
 
   @override

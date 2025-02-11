@@ -25,6 +25,11 @@ class FeaturebaseLocalizationsZh extends FeaturebaseLocalizations {
   }
 
   @override
+  String lastUpdated(String daysAgo) {
+    return 'Last updated $daysAgo';
+  }
+
+  @override
   String get failedToLoad => '載入失敗';
 
   @override

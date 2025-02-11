@@ -64,11 +64,11 @@ mixin _$Article {
   @JsonKey(name: 'locale', required: true)
   String get locale =>
       throw _privateConstructorUsedError; //TODO: add translations
-  /// The date when the article was created.
-  DateTime get createdAt => throw _privateConstructorUsedError;
+  /// The date when the article was created (will be null if hideDateInfo is true)
+  DateTime? get createdAt => throw _privateConstructorUsedError;
 
-  /// The date when the article was last updated.
-  DateTime get updatedAt => throw _privateConstructorUsedError;
+  /// The date when the article was last updated (will be null if hideDateInfo is true)
+  DateTime? get updatedAt => throw _privateConstructorUsedError;
 
   /// The URL-friendly slug of the article.
   @JsonKey(name: 'slug', required: true)
@@ -126,8 +126,8 @@ abstract class $ArticleCopyWith<$Res> {
       @JsonKey(name: 'organizationId', required: true) String organizationId,
       @JsonKey(name: 'state', defaultValue: 'live') String state,
       @JsonKey(name: 'locale', required: true) String locale,
-      DateTime createdAt,
-      DateTime updatedAt,
+      DateTime? createdAt,
+      DateTime? updatedAt,
       @JsonKey(name: 'slug', required: true) String slug,
       @JsonKey(name: 'featurebaseUrl', required: true) String featurebaseUrl,
       String? externalUrl,
@@ -169,8 +169,8 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
     Object? organizationId = null,
     Object? state = null,
     Object? locale = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
     Object? slug = null,
     Object? featurebaseUrl = null,
     Object? externalUrl = freezed,
@@ -221,14 +221,14 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
               as String,
-      createdAt: null == createdAt
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: null == updatedAt
+              as DateTime?,
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       slug: null == slug
           ? _value.slug
           : slug // ignore: cast_nullable_to_non_nullable
@@ -311,8 +311,8 @@ abstract class _$$ArticleImplCopyWith<$Res> implements $ArticleCopyWith<$Res> {
       @JsonKey(name: 'organizationId', required: true) String organizationId,
       @JsonKey(name: 'state', defaultValue: 'live') String state,
       @JsonKey(name: 'locale', required: true) String locale,
-      DateTime createdAt,
-      DateTime updatedAt,
+      DateTime? createdAt,
+      DateTime? updatedAt,
       @JsonKey(name: 'slug', required: true) String slug,
       @JsonKey(name: 'featurebaseUrl', required: true) String featurebaseUrl,
       String? externalUrl,
@@ -354,8 +354,8 @@ class __$$ArticleImplCopyWithImpl<$Res>
     Object? organizationId = null,
     Object? state = null,
     Object? locale = null,
-    Object? createdAt = null,
-    Object? updatedAt = null,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
     Object? slug = null,
     Object? featurebaseUrl = null,
     Object? externalUrl = freezed,
@@ -406,14 +406,14 @@ class __$$ArticleImplCopyWithImpl<$Res>
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
               as String,
-      createdAt: null == createdAt
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: null == updatedAt
+              as DateTime?,
+      updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       slug: null == slug
           ? _value.slug
           : slug // ignore: cast_nullable_to_non_nullable
@@ -465,8 +465,8 @@ class _$ArticleImpl implements _Article {
       required this.organizationId,
       @JsonKey(name: 'state', defaultValue: 'live') required this.state,
       @JsonKey(name: 'locale', required: true) required this.locale,
-      required this.createdAt,
-      required this.updatedAt,
+      this.createdAt,
+      this.updatedAt,
       @JsonKey(name: 'slug', required: true) required this.slug,
       @JsonKey(name: 'featurebaseUrl', required: true)
       required this.featurebaseUrl,
@@ -540,13 +540,13 @@ class _$ArticleImpl implements _Article {
   @JsonKey(name: 'locale', required: true)
   final String locale;
 //TODO: add translations
-  /// The date when the article was created.
+  /// The date when the article was created (will be null if hideDateInfo is true)
   @override
-  final DateTime createdAt;
+  final DateTime? createdAt;
 
-  /// The date when the article was last updated.
+  /// The date when the article was last updated (will be null if hideDateInfo is true)
   @override
-  final DateTime updatedAt;
+  final DateTime? updatedAt;
 
   /// The URL-friendly slug of the article.
   @override
@@ -706,8 +706,8 @@ abstract class _Article implements Article {
       required final String organizationId,
       @JsonKey(name: 'state', defaultValue: 'live') required final String state,
       @JsonKey(name: 'locale', required: true) required final String locale,
-      required final DateTime createdAt,
-      required final DateTime updatedAt,
+      final DateTime? createdAt,
+      final DateTime? updatedAt,
       @JsonKey(name: 'slug', required: true) required final String slug,
       @JsonKey(name: 'featurebaseUrl', required: true)
       required final String featurebaseUrl,
@@ -777,13 +777,13 @@ abstract class _Article implements Article {
   @override
   @JsonKey(name: 'locale', required: true)
   String get locale; //TODO: add translations
-  /// The date when the article was created.
+  /// The date when the article was created (will be null if hideDateInfo is true)
   @override
-  DateTime get createdAt;
+  DateTime? get createdAt;
 
-  /// The date when the article was last updated.
+  /// The date when the article was last updated (will be null if hideDateInfo is true)
   @override
-  DateTime get updatedAt;
+  DateTime? get updatedAt;
 
   /// The URL-friendly slug of the article.
   @override
@@ -1908,9 +1908,9 @@ mixin _$Collection {
   @JsonKey(name: 'locale', required: true)
   String get locale => throw _privateConstructorUsedError;
 
-  /// Authors of the article
-  @JsonKey(name: 'authors', required: true)
-  List<Author> get authors => throw _privateConstructorUsedError;
+  /// Authors of the article (will be null if hideAuthorInfo is true)
+  @JsonKey(name: 'authors')
+  List<Author>? get authors => throw _privateConstructorUsedError;
 
   /// An array of available locales for the collection.
   @JsonKey(name: 'availableLocales', required: true)
@@ -1951,7 +1951,7 @@ abstract class $CollectionCopyWith<$Res> {
       @JsonKey(name: 'featurebaseUrl', required: true) String featurebaseUrl,
       String? externalUrl,
       @JsonKey(name: 'locale', required: true) String locale,
-      @JsonKey(name: 'authors', required: true) List<Author> authors,
+      @JsonKey(name: 'authors') List<Author>? authors,
       @JsonKey(name: 'availableLocales', required: true)
       List<String> availableLocales,
       List<CollectionContent>? structure});
@@ -1989,7 +1989,7 @@ class _$CollectionCopyWithImpl<$Res, $Val extends Collection>
     Object? featurebaseUrl = null,
     Object? externalUrl = freezed,
     Object? locale = null,
-    Object? authors = null,
+    Object? authors = freezed,
     Object? availableLocales = null,
     Object? structure = freezed,
   }) {
@@ -2054,10 +2054,10 @@ class _$CollectionCopyWithImpl<$Res, $Val extends Collection>
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
               as String,
-      authors: null == authors
+      authors: freezed == authors
           ? _value.authors
           : authors // ignore: cast_nullable_to_non_nullable
-              as List<Author>,
+              as List<Author>?,
       availableLocales: null == availableLocales
           ? _value.availableLocales
           : availableLocales // ignore: cast_nullable_to_non_nullable
@@ -2108,7 +2108,7 @@ abstract class _$$CollectionImplCopyWith<$Res>
       @JsonKey(name: 'featurebaseUrl', required: true) String featurebaseUrl,
       String? externalUrl,
       @JsonKey(name: 'locale', required: true) String locale,
-      @JsonKey(name: 'authors', required: true) List<Author> authors,
+      @JsonKey(name: 'authors') List<Author>? authors,
       @JsonKey(name: 'availableLocales', required: true)
       List<String> availableLocales,
       List<CollectionContent>? structure});
@@ -2145,7 +2145,7 @@ class __$$CollectionImplCopyWithImpl<$Res>
     Object? featurebaseUrl = null,
     Object? externalUrl = freezed,
     Object? locale = null,
-    Object? authors = null,
+    Object? authors = freezed,
     Object? availableLocales = null,
     Object? structure = freezed,
   }) {
@@ -2210,10 +2210,10 @@ class __$$CollectionImplCopyWithImpl<$Res>
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
               as String,
-      authors: null == authors
+      authors: freezed == authors
           ? _value._authors
           : authors // ignore: cast_nullable_to_non_nullable
-              as List<Author>,
+              as List<Author>?,
       availableLocales: null == availableLocales
           ? _value._availableLocales
           : availableLocales // ignore: cast_nullable_to_non_nullable
@@ -2249,8 +2249,7 @@ class _$CollectionImpl implements _Collection {
       required this.featurebaseUrl,
       required this.externalUrl,
       @JsonKey(name: 'locale', required: true) required this.locale,
-      @JsonKey(name: 'authors', required: true)
-      required final List<Author> authors,
+      @JsonKey(name: 'authors') final List<Author>? authors,
       @JsonKey(name: 'availableLocales', required: true)
       required final List<String> availableLocales,
       final List<CollectionContent>? structure})
@@ -2333,16 +2332,18 @@ class _$CollectionImpl implements _Collection {
   @JsonKey(name: 'locale', required: true)
   final String locale;
 
-  /// Authors of the article
-  final List<Author> _authors;
+  /// Authors of the article (will be null if hideAuthorInfo is true)
+  final List<Author>? _authors;
 
-  /// Authors of the article
+  /// Authors of the article (will be null if hideAuthorInfo is true)
   @override
-  @JsonKey(name: 'authors', required: true)
-  List<Author> get authors {
+  @JsonKey(name: 'authors')
+  List<Author>? get authors {
+    final value = _authors;
+    if (value == null) return null;
     if (_authors is EqualUnmodifiableListView) return _authors;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_authors);
+    return EqualUnmodifiableListView(value);
   }
 
   /// An array of available locales for the collection.
@@ -2474,8 +2475,7 @@ abstract class _Collection implements Collection {
       required final String featurebaseUrl,
       required final String? externalUrl,
       @JsonKey(name: 'locale', required: true) required final String locale,
-      @JsonKey(name: 'authors', required: true)
-      required final List<Author> authors,
+      @JsonKey(name: 'authors') final List<Author>? authors,
       @JsonKey(name: 'availableLocales', required: true)
       required final List<String> availableLocales,
       final List<CollectionContent>? structure}) = _$CollectionImpl;
@@ -2555,10 +2555,10 @@ abstract class _Collection implements Collection {
   @JsonKey(name: 'locale', required: true)
   String get locale;
 
-  /// Authors of the article
+  /// Authors of the article (will be null if hideAuthorInfo is true)
   @override
-  @JsonKey(name: 'authors', required: true)
-  List<Author> get authors;
+  @JsonKey(name: 'authors')
+  List<Author>? get authors;
 
   /// An array of available locales for the collection.
   @override

@@ -5,6 +5,7 @@ class _NavbarPopupWidget extends ConsumerWidget {
   final Color textColor;
   final Color primaryColor;
   final bool hideAuthors;
+  final bool hideDate;
   final Locale locale;
   final BuildContext helpCenterContext;
   final Function(Locale) onLocaleChange;
@@ -13,6 +14,7 @@ class _NavbarPopupWidget extends ConsumerWidget {
     required this.textColor,
     required this.primaryColor,
     required this.hideAuthors,
+    required this.hideDate,
     required this.locale,
     required this.helpCenterContext,
     required this.onLocaleChange,
@@ -60,6 +62,7 @@ class _NavbarPopupWidget extends ConsumerWidget {
                           collection: collection,
                           textColor: textColor,
                           hideAuthors: hideAuthors,
+                          hideDate: hideDate,
                           locale: locale,
                           helpCenterContext: helpCenterContext,
                         );

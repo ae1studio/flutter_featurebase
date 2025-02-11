@@ -26,6 +26,11 @@ class FeaturebaseLocalizationsSk extends FeaturebaseLocalizations {
   }
 
   @override
+  String lastUpdated(String daysAgo) {
+    return 'Last updated $daysAgo';
+  }
+
+  @override
   String get failedToLoad => 'Nepodarilo sa načítať';
 
   @override

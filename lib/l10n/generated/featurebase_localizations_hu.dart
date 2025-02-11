@@ -25,6 +25,11 @@ class FeaturebaseLocalizationsHu extends FeaturebaseLocalizations {
   }
 
   @override
+  String lastUpdated(String daysAgo) {
+    return 'Last updated $daysAgo';
+  }
+
+  @override
   String get failedToLoad => 'Betöltés sikertelen';
 
   @override

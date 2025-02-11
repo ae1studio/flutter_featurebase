@@ -26,6 +26,11 @@ class FeaturebaseLocalizationsSl extends FeaturebaseLocalizations {
   }
 
   @override
+  String lastUpdated(String daysAgo) {
+    return 'Last updated $daysAgo';
+  }
+
+  @override
   String get failedToLoad => 'Napaka pri nalaganju';
 
   @override

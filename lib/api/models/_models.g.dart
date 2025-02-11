@@ -33,8 +33,12 @@ _$ArticleImpl _$$ArticleImplFromJson(Map<String, dynamic> json) {
     organizationId: json['organizationId'] as String,
     state: json['state'] as String? ?? 'live',
     locale: json['locale'] as String,
-    createdAt: DateTime.parse(json['createdAt'] as String),
-    updatedAt: DateTime.parse(json['updatedAt'] as String),
+    createdAt: json['createdAt'] == null
+        ? null
+        : DateTime.parse(json['createdAt'] as String),
+    updatedAt: json['updatedAt'] == null
+        ? null
+        : DateTime.parse(json['updatedAt'] as String),
     slug: json['slug'] as String,
     featurebaseUrl: json['featurebaseUrl'] as String,
     externalUrl: json['externalUrl'] as String?,
@@ -64,8 +68,8 @@ Map<String, dynamic> _$$ArticleImplToJson(_$ArticleImpl instance) =>
       'organizationId': instance.organizationId,
       'state': instance.state,
       'locale': instance.locale,
-      'createdAt': instance.createdAt.toIso8601String(),
-      'updatedAt': instance.updatedAt.toIso8601String(),
+      'createdAt': instance.createdAt?.toIso8601String(),
+      'updatedAt': instance.updatedAt?.toIso8601String(),
       'slug': instance.slug,
       'featurebaseUrl': instance.featurebaseUrl,
       'externalUrl': instance.externalUrl,
@@ -185,7 +189,6 @@ _$CollectionImpl _$$CollectionImplFromJson(Map<String, dynamic> json) {
       'slug',
       'featurebaseUrl',
       'locale',
-      'authors',
       'availableLocales'
     ],
   );
@@ -207,8 +210,8 @@ _$CollectionImpl _$$CollectionImplFromJson(Map<String, dynamic> json) {
     featurebaseUrl: json['featurebaseUrl'] as String,
     externalUrl: json['externalUrl'] as String?,
     locale: json['locale'] as String,
-    authors: (json['authors'] as List<dynamic>)
-        .map((e) => Author.fromJson(e as Map<String, dynamic>))
+    authors: (json['authors'] as List<dynamic>?)
+        ?.map((e) => Author.fromJson(e as Map<String, dynamic>))
         .toList(),
     availableLocales: (json['availableLocales'] as List<dynamic>)
         .map((e) => e as String)

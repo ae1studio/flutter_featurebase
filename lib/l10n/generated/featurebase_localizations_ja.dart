@@ -25,6 +25,11 @@ class FeaturebaseLocalizationsJa extends FeaturebaseLocalizations {
   }
 
   @override
+  String lastUpdated(String daysAgo) {
+    return 'Last updated $daysAgo';
+  }
+
+  @override
   String get failedToLoad => '読み込みに失敗しました';
 
   @override

@@ -3,14 +3,12 @@ part of featurebase;
 class _ArticleView extends ConsumerStatefulWidget {
   final fb.Article article;
   final Color textColor;
-  final bool hideAuthors;
   final Locale locale;
   const _ArticleView({
     // ignore: unused_element
     super.key,
     required this.article,
     required this.textColor,
-    required this.hideAuthors,
     required this.locale,
   });
 
@@ -58,30 +56,56 @@ class _ArticleViewState extends ConsumerState<_ArticleView> {
                         ),
                         textAlign: TextAlign.start,
                       ),
-                    if (!widget.hideAuthors && widget.article.author != null)
+                    if (widget.article.author != null &&
+                        widget.article.createdAt != null)
                       const SizedBox(height: 15),
-                    if (!widget.hideAuthors && widget.article.author != null)
+                    if (widget.article.author != null &&
+                        widget.article.createdAt != null)
                       Row(
                         children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(40),
-                            child: _SafeCachedNetworkImage(
-                              imageUrl: widget.article.author!.avatarUrl,
-                              height: 40,
-                              width: 40,
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          Expanded(
-                            child: Text(
-                              FeaturebaseLocalizations.of(context)
-                                  .writtenBy(widget.article.author!.name),
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontFamily: 'Inter',
-                                fontWeight: FontWeight.w600,
-                                color: widget.textColor.withOpacity(0.7),
+                          if (widget.article.author != null)
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(40),
+                              child: _SafeCachedNetworkImage(
+                                imageUrl: widget.article.author!.avatarUrl,
+                                height: 40,
+                                width: 40,
                               ),
+                            ),
+                          if (widget.article.author != null)
+                            const SizedBox(width: 10),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                if (widget.article.author != null)
+                                  Text(
+                                    FeaturebaseLocalizations.of(context)
+                                        .writtenBy(widget.article.author!.name),
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      fontFamily: 'Inter',
+                                      fontWeight: FontWeight.w600,
+                                      color: widget.textColor.withOpacity(0.7),
+                                    ),
+                                  ),
+                                if (widget.article.updatedAt != null)
+                                  Text(
+                                    FeaturebaseLocalizations.of(context)
+                                        .lastUpdated(timeago.format(
+                                      widget.article.updatedAt!,
+                                      locale:
+                                          FeaturebaseLocalizations.of(context)
+                                              .localeName,
+                                    )),
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      fontFamily: 'Inter',
+                                      fontWeight: FontWeight.w600,
+                                      color: widget.textColor.withOpacity(0.7),
+                                    ),
+                                  ),
+                              ],
                             ),
                           ),
                         ],
@@ -99,7 +123,6 @@ class _ArticleViewState extends ConsumerState<_ArticleView> {
                   locale: widget.locale,
                   textColor: widget.textColor,
                   renderMode: RenderMode.sliverList,
-                  hideAuthors: widget.hideAuthors,
                 ),
               ),
               error: (error, stackTrace) => SliverToBoxAdapter(

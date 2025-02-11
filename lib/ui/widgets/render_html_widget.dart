@@ -5,14 +5,12 @@ class _RenderHtmlWidget extends ConsumerWidget {
   final RenderMode renderMode;
   final Locale locale;
   final Color textColor;
-  final bool hideAuthors;
 
   const _RenderHtmlWidget({
     required this.html,
     this.renderMode = RenderMode.sliverList,
     required this.locale,
     required this.textColor,
-    this.hideAuthors = false,
   });
 
   @override
@@ -38,7 +36,6 @@ class _RenderHtmlWidget extends ConsumerWidget {
                 builder: (context) => _ArticleView(
                   article: temp,
                   textColor: textColor,
-                  hideAuthors: hideAuthors,
                   locale: locale,
                 ),
               ),

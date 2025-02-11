@@ -178,3 +178,34 @@ _callHaptic() {
     }
   }
 }
+
+_setupTimeAgo() {
+  timeago.setLocaleMessages('en', timeago.EnMessages());
+  timeago.setLocaleMessages('nl', timeago.NlMessages());
+  timeago.setLocaleMessages('bn', timeago.BnMessages());
+  timeago.setLocaleMessages('bs', timeago.BsMessages());
+  timeago.setLocaleMessages('pt_BR', timeago.PtBrMessages());
+  timeago.setLocaleMessages('ca', timeago.CaMessages());
+  timeago.setLocaleMessages('cs', timeago.CsMessages());
+  timeago.setLocaleMessages('da', timeago.DaMessages());
+  timeago.setLocaleMessages('de', timeago.DeMessages());
+  timeago.setLocaleMessages('hi', timeago.HiMessages());
+  timeago.setLocaleMessages('hu', timeago.HuMessages());
+  timeago.setLocaleMessages('id', timeago.IdMessages());
+  timeago.setLocaleMessages('it', timeago.ItMessages());
+  timeago.setLocaleMessages('ja', timeago.JaMessages());
+  timeago.setLocaleMessages('ko', timeago.KoMessages());
+  timeago.setLocaleMessages('lv', timeago.LvMessages());
+  timeago.setLocaleMessages('mn', timeago.MnMessages());
+  timeago.setLocaleMessages('pl', timeago.PlMessages());
+  timeago.setLocaleMessages('ro', timeago.RoMessages());
+  timeago.setLocaleMessages('ru', timeago.RuMessages());
+  timeago.setLocaleMessages('sr', timeago.SrMessages());
+  timeago.setLocaleMessages('es', timeago.EsMessages());
+  timeago.setLocaleMessages('sv', timeago.SvMessages());
+  timeago.setLocaleMessages('th', timeago.ThMessages());
+  timeago.setLocaleMessages('tr', timeago.TrMessages());
+  timeago.setLocaleMessages('uk', timeago.UkMessages());
+  timeago.setLocaleMessages('vi', timeago.ViMessages());
+  timeago.setLocaleMessages('zh_CN', timeago.ZhCnMessages());
+}

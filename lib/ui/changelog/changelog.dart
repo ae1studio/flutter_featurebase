@@ -54,6 +54,7 @@ class _ChangelogViewState extends ConsumerState<ChangelogView> {
     currentLocale = widget.defaultLocale;
     initializeDateFormatting(currentLocale.languageCode);
     _fbService.setup(widget.organizationName, widget.enableHapticFeedback);
+    _setupTimeAgo();
   }
 
   @override

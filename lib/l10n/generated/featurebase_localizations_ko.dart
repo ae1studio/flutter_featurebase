@@ -25,6 +25,11 @@ class FeaturebaseLocalizationsKo extends FeaturebaseLocalizations {
   }
 
   @override
+  String lastUpdated(String daysAgo) {
+    return 'Last updated $daysAgo';
+  }
+
+  @override
   String get failedToLoad => '로드 실패';
 
   @override

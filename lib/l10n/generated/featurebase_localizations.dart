@@ -201,6 +201,12 @@ abstract class FeaturebaseLocalizations {
   /// **'Written by {author}'**
   String writtenBy(String author);
 
+  /// No description provided for @lastUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Last updated {daysAgo}'**
+  String lastUpdated(String daysAgo);
+
   /// This is the error message that is displayed when the data fails to load.
   ///
   /// In en, this message translates to:

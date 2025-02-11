@@ -64,6 +64,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
   void initState() {
     currentLocale = widget.defaultLocale;
     _fbService.setup(widget.organizationName, widget.enableHapticFeedback);
+    _setupTimeAgo();
     super.initState();
   }
 
@@ -183,6 +184,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                           textColor: widget.textColor,
                           primaryColor: widget.primaryColor,
                           hideAuthors: data.hideAuthorInfo,
+                          hideDate: data.hideDateInfo,
                           locale: currentLocale,
                           helpCenterContext:
                               _helpCenterNavigatorKey.currentContext!,
@@ -327,7 +329,6 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                                     builder: (context) => _ArticleView(
                                       article: p0.item!,
                                       textColor: widget.textColor,
-                                      hideAuthors: data.hideAuthorInfo,
                                       locale: widget.defaultLocale,
                                     ),
                                   ),

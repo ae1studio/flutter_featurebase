@@ -25,6 +25,11 @@ class FeaturebaseLocalizationsSv extends FeaturebaseLocalizations {
   }
 
   @override
+  String lastUpdated(String daysAgo) {
+    return 'Last updated $daysAgo';
+  }
+
+  @override
   String get failedToLoad => 'Det gick inte att ladda';
 
   @override

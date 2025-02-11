@@ -25,6 +25,11 @@ class FeaturebaseLocalizationsNb extends FeaturebaseLocalizations {
   }
 
   @override
+  String lastUpdated(String daysAgo) {
+    return 'Last updated $daysAgo';
+  }
+
+  @override
   String get failedToLoad => 'Kunne ikke laste inn';
 
   @override

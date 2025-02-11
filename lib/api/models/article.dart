@@ -42,11 +42,11 @@ class Article with _$Article {
 
     //TODO: add translations
 
-    /// The date when the article was created.
-    required DateTime createdAt,
+    /// The date when the article was created (will be null if hideDateInfo is true)
+    DateTime? createdAt,
 
-    /// The date when the article was last updated.
-    required DateTime updatedAt,
+    /// The date when the article was last updated (will be null if hideDateInfo is true)
+    DateTime? updatedAt,
 
     /// The URL-friendly slug of the article.
     @JsonKey(name: 'slug', required: true) required String slug,

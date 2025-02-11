@@ -4,12 +4,14 @@ class _NavbarExpandingCollection extends StatefulWidget {
   final fb.Collection collection;
   final Color textColor;
   final bool hideAuthors;
+  final bool hideDate;
   final Locale locale;
   final BuildContext helpCenterContext;
   const _NavbarExpandingCollection({
     required this.collection,
     required this.textColor,
     required this.hideAuthors,
+    required this.hideDate,
     required this.locale,
     required this.helpCenterContext,
   });
@@ -91,7 +93,6 @@ class _NavbarExpandingCollectionState
                                     builder: (context) => _ArticleView(
                                       article: article,
                                       textColor: widget.textColor,
-                                      hideAuthors: widget.hideAuthors,
                                       locale: widget.locale,
                                     ),
                                   ),
@@ -150,7 +151,6 @@ class _NavbarExpandingCollectionState
                                     builder: (context) => _CollectionView(
                                       collection: collection,
                                       textColor: widget.textColor,
-                                      hideAuthors: widget.hideAuthors,
                                       locale: widget.locale,
                                     ),
                                   ),

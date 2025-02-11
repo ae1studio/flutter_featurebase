@@ -25,6 +25,11 @@ class FeaturebaseLocalizationsTh extends FeaturebaseLocalizations {
   }
 
   @override
+  String lastUpdated(String daysAgo) {
+    return 'Last updated $daysAgo';
+  }
+
+  @override
   String get failedToLoad => 'โหลดไม่สำเร็จ';
 
   @override
