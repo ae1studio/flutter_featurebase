@@ -68,6 +68,47 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           ListTile(
             leading: Icon(
+              Icons.feedback_rounded,
+              color: Theme.of(context).iconTheme.color,
+            ),
+            title: Text(
+              'Feedback',
+              style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
+            ),
+            trailing: Icon(
+              Icons.arrow_right_rounded,
+              color: Theme.of(context).iconTheme.color,
+            ),
+            onTap: () {
+              openFeedbackPage(
+                logo: SvgPicture.asset(
+                  'assets/logo.svg',
+                  height: 25,
+                  width: 25,
+                  colorFilter: const ColorFilter.mode(
+                    Colors.white,
+                    BlendMode.srcIn,
+                  ),
+                ),
+                ssoAuthToken: 'Bearer ae1fbdemo2025',
+                ssoTokenUrl:
+                    'https://fb-sdk-api.xn--1-3fa.com/v1/sso/featurebase/token',
+                appName: 'Featurebase',
+                organizationName:
+                    'featurebaseflutter', //Development Org for the SDK
+                primaryColor: Theme.of(context).primaryColor,
+                textColor: Colors.white,
+                backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                defaultLocale: Locale('en'),
+                context: context,
+              );
+            },
+          ),
+          ListTile(
+            leading: Icon(
               Icons.support,
               color: Theme.of(context).iconTheme.color,
             ),
