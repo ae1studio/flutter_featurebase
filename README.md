@@ -2,20 +2,18 @@
 
 Featurebase is a Feedback, Help center, Changelog and Survey hub. Learn more at <https://featurebase.app>
 
-## Features
+## 📋 Features
 
 - [X] Feedback - ⚠️ Only for users using SSO login ⚠️
 - [X] Help center
 - [X] Changelog
-- [ ] Surveys
+- [ ] Surveys (Planned)
 
-## Platform Support
+## 📱🖥️ Platform Support
 
 | Android |  iOS  | MacOS |  Web  | Linux | Windows |
 | :-----: | :---: | :---: | :---: | :---: | :-----: |
-|   ✅   |   ✅   |   ✅   |   ❌*  |   ✅    |    ✅   |
-
-Some CORS issues cause it not to load on web (looking into a fix) *
+|   ✅   |   ✅   |   ✅   |   ❌  |   ✅    |    ✅   |
 
 ## 🚀 Get started
 
