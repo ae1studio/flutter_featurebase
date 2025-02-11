@@ -18,6 +18,15 @@
       }
     }
   },
+  "lastUpdated": "最后更新 {daysAgo}",
+  "@lastUpdated": {
+    "placeholders": {
+      "daysAgo": {
+        "type": "String",
+        "example": "28 天"
+      }
+    }
+  },
   "failedToLoad": "加载失败",
   "@failedToLoad": {
     "description": "This is the error message that is displayed when the data fails to load."

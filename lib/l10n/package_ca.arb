@@ -18,6 +18,15 @@
       }
     }
   },
+  "lastUpdated": "Actualitzat fa {daysAgo}",
+  "@lastUpdated": {
+    "placeholders": {
+      "daysAgo": {
+        "type": "String",
+        "example": "28"
+      }
+    }
+  },
   "failedToLoad": "No s'ha pogut carregar",
   "@failedToLoad": {
     "description": "This is the error message that is displayed when the data fails to load."

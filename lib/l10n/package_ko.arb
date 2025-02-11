@@ -18,6 +18,15 @@
       }
     }
   },
+  "lastUpdated": "마지막 업데이트 {daysAgo}",
+  "@lastUpdated": {
+    "placeholders": {
+      "daysAgo": {
+        "type": "String",
+        "example": "28 일"
+      }
+    }
+  },
   "failedToLoad": "로드 실패",
   "@failedToLoad": {
     "description": "This is the error message that is displayed when the data fails to load."

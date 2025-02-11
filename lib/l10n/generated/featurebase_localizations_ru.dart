@@ -28,7 +28,7 @@ class FeaturebaseLocalizationsRu extends FeaturebaseLocalizations {
 
   @override
   String lastUpdated(String daysAgo) {
-    return 'Last updated $daysAgo';
+    return 'Последнее обновление $daysAgo';
   }
 
   @override

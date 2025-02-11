@@ -27,7 +27,7 @@ class FeaturebaseLocalizationsSl extends FeaturebaseLocalizations {
 
   @override
   String lastUpdated(String daysAgo) {
-    return 'Last updated $daysAgo';
+    return 'Naposledy posodobljeno $daysAgo';
   }
 
   @override

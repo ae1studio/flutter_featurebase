@@ -18,6 +18,15 @@
       }
     }
   },
+  "lastUpdated": "अंतिम अपडेट {daysAgo}",
+  "@lastUpdated": {
+    "placeholders": {
+      "daysAgo": {
+        "type": "String",
+        "example": "28 दिन पहले"
+      }
+    }
+  },
   "failedToLoad": "लोड करने में विफल",
   "@failedToLoad": {
     "description": "This is the error message that is displayed when the data fails to load."

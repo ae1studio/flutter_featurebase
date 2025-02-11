@@ -18,6 +18,15 @@
       }
     }
   },
+  "lastUpdated": "{daysAgo} дневно",
+  "@lastUpdated": {
+    "placeholders": {
+      "daysAgo": {
+        "type": "String",
+        "example": "28"
+      }
+    }
+  },
   "failedToLoad": "Грешка при зареждането",
   "@failedToLoad": {
     "description": "This is the error message that is displayed when the data fails to load."

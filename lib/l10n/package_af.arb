@@ -18,10 +18,16 @@
       }
     }
   },
-  "failedToLoad": "Kon nie laai nie",
-  "@failedToLoad": {
-    "description": "This is the error message that is displayed when the data fails to load."
+  "lastUpdated": "Gewysig deur {daysAgo}",
+  "@lastUpdated": {
+    "placeholders": {
+      "daysAgo": {
+        "type": "String",
+        "example": "28 dae gelede"
+      }
+    }
   },
+  "failedToLoad": "Kon nie laai nie",
   "tryAgainLater": "Probeer later weer",
   "@tryAgainLater": {
     "description": "This is the message that is displayed when the user should try again later."

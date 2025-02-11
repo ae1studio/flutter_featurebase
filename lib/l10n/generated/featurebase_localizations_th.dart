@@ -26,7 +26,7 @@ class FeaturebaseLocalizationsTh extends FeaturebaseLocalizations {
 
   @override
   String lastUpdated(String daysAgo) {
-    return 'Last updated $daysAgo';
+    return 'อัพเดตล่าสุด $daysAgo';
   }
 
   @override

@@ -18,6 +18,15 @@
       }
     }
   },
+  "lastUpdated": "Останнє оновлення {daysAgo}",
+  "@lastUpdated": {
+    "placeholders": {
+      "daysAgo": {
+        "type": "String",
+        "example": "28 днів"
+      }
+    }
+  },
   "failedToLoad": "Не вдалося завантажити",
   "@failedToLoad": {
     "description": "This is the error message that is displayed when the data fails to load."

@@ -18,6 +18,15 @@
       }
     }
   },
+  "lastUpdated": "Последнее обновление {daysAgo}",
+  "@lastUpdated": {
+    "placeholders": {
+      "daysAgo": {
+        "type": "String",
+        "example": "28 дней"
+      }
+    }
+  },
   "failedToLoad": "Не удалось загрузить",
   "@failedToLoad": {
     "description": "This is the error message that is displayed when the data fails to load."

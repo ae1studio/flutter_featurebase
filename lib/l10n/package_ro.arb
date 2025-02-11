@@ -18,6 +18,15 @@
       }
     }
   },
+  "lastUpdated": "Ultima actualizare {daysAgo}",
+  "@lastUpdated": {
+    "placeholders": {
+      "daysAgo": {
+        "type": "String",
+        "example": "28 zile"
+      }
+    }
+  },
   "failedToLoad": "Încărcare eșuată",
   "@failedToLoad": {
     "description": "This is the error message that is displayed when the data fails to load."

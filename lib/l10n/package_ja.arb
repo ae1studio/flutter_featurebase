@@ -18,6 +18,15 @@
       }
     }
   },
+  "lastUpdated": "最終更新 {daysAgo}",
+  "@lastUpdated": {
+    "placeholders": {
+      "daysAgo": {
+        "type": "String",
+        "example": "28 日"
+      }
+    }
+  },
   "failedToLoad": "読み込みに失敗しました",
   "@failedToLoad": {
     "description": "This is the error message that is displayed when the data fails to load."

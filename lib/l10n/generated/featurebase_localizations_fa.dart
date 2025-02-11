@@ -26,7 +26,7 @@ class FeaturebaseLocalizationsFa extends FeaturebaseLocalizations {
 
   @override
   String lastUpdated(String daysAgo) {
-    return 'Last updated $daysAgo';
+    return 'آخرین به‌روزرسانی $daysAgo';
   }
 
   @override

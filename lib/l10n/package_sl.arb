@@ -18,6 +18,15 @@
       }
     }
   },
+  "lastUpdated": "Naposledy posodobljeno {daysAgo}",
+  "@lastUpdated": {
+    "placeholders": {
+      "daysAgo": {
+        "type": "String",
+        "example": "28 dni"
+      }
+    }
+  },
   "failedToLoad": "Napaka pri nalaganju",
   "@failedToLoad": {
     "description": "This is the error message that is displayed when the data fails to load."

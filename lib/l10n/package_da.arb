@@ -18,6 +18,15 @@
       }
     }
   },
+  "lastUpdated": "Sidst opdateret {daysAgo}",
+  "@lastUpdated": {
+    "placeholders": {
+      "daysAgo": {
+        "type": "String",
+        "example": "28"
+      }
+    }
+  },
   "failedToLoad": "Kunne ikke indlæse",
   "@failedToLoad": {
     "description": "This is the error message that is displayed when the data fails to load."

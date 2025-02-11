@@ -26,7 +26,7 @@ class FeaturebaseLocalizationsDe extends FeaturebaseLocalizations {
 
   @override
   String lastUpdated(String daysAgo) {
-    return 'Last updated $daysAgo';
+    return 'Letzte Aktualisierung $daysAgo';
   }
 
   @override
@@ -71,6 +71,11 @@ class FeaturebaseLocalizationsDeCh extends FeaturebaseLocalizationsDe {
   @override
   String writtenBy(String author) {
     return 'Geschrieben von $author';
+  }
+
+  @override
+  String lastUpdated(String daysAgo) {
+    return 'Zuletzt aktualisiert $daysAgo';
   }
 
   @override

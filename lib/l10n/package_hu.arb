@@ -18,6 +18,15 @@
       }
     }
   },
+  "lastUpdated": "Utoljára frissítve {daysAgo}",
+  "@lastUpdated": {
+    "placeholders": {
+      "daysAgo": {
+        "type": "String",
+        "example": "28 napja"
+      }
+    }
+  },
   "failedToLoad": "Betöltés sikertelen",
   "@failedToLoad": {
     "description": "This is the error message that is displayed when the data fails to load."

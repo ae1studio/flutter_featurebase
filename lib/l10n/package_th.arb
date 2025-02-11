@@ -18,6 +18,15 @@
       }
     }
   },
+  "lastUpdated": "อัพเดตล่าสุด {daysAgo}",
+  "@lastUpdated": {
+    "placeholders": {
+      "daysAgo": {
+        "type": "String",
+        "example": "28 วันที่ผ่านมา"
+      }
+    }
+  },
   "failedToLoad": "โหลดไม่สำเร็จ",
   "@failedToLoad": {
     "description": "This is the error message that is displayed when the data fails to load."

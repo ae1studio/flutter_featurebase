@@ -18,6 +18,15 @@
       }
     }
   },
+  "lastUpdated": "Son güncelleme {daysAgo}",
+  "@lastUpdated": {
+    "placeholders": {
+      "daysAgo": {
+        "type": "String",
+        "example": "28 gün"
+      }
+    }
+  },
   "failedToLoad": "Yüklenemedi",
   "@failedToLoad": {
     "description": "This is the error message that is displayed when the data fails to load."

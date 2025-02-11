@@ -26,7 +26,7 @@ class FeaturebaseLocalizationsZh extends FeaturebaseLocalizations {
 
   @override
   String lastUpdated(String daysAgo) {
-    return 'Last updated $daysAgo';
+    return '最後更新 $daysAgo';
   }
 
   @override
@@ -74,6 +74,11 @@ class FeaturebaseLocalizationsZhHans extends FeaturebaseLocalizationsZh {
   }
 
   @override
+  String lastUpdated(String daysAgo) {
+    return '最后更新 $daysAgo';
+  }
+
+  @override
   String get failedToLoad => '加载失败';
 
   @override
@@ -118,6 +123,11 @@ class FeaturebaseLocalizationsZhHant extends FeaturebaseLocalizationsZh {
   }
 
   @override
+  String lastUpdated(String daysAgo) {
+    return '最後更新 $daysAgo';
+  }
+
+  @override
   String get failedToLoad => '載入失敗';
 
   @override
@@ -159,6 +169,11 @@ class FeaturebaseLocalizationsZhTw extends FeaturebaseLocalizationsZh {
   @override
   String writtenBy(String author) {
     return '作者：$author';
+  }
+
+  @override
+  String lastUpdated(String daysAgo) {
+    return '最後更新 $daysAgo';
   }
 
   @override

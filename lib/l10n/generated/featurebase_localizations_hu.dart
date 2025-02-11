@@ -26,7 +26,7 @@ class FeaturebaseLocalizationsHu extends FeaturebaseLocalizations {
 
   @override
   String lastUpdated(String daysAgo) {
-    return 'Last updated $daysAgo';
+    return 'Utoljára frissítve $daysAgo';
   }
 
   @override

@@ -18,6 +18,15 @@
       }
     }
   },
+  "lastUpdated": "Cập nhật lần cuối {daysAgo}",
+  "@lastUpdated": {
+    "placeholders": {
+      "daysAgo": {
+        "type": "String",
+        "example": "28 ngày"
+      }
+    }
+  },
   "failedToLoad": "Không thể tải",
   "@failedToLoad": {
     "description": "This is the error message that is displayed when the data fails to load."

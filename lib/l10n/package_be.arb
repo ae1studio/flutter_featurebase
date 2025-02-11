@@ -18,6 +18,15 @@
       }
     }
   },
+  "lastUpdated": "{daysAgo} абнаўлена",
+  "@lastUpdated": {
+    "placeholders": {
+      "daysAgo": {
+        "type": "String",
+        "example": "28 дзён таму"
+      }
+    }
+  },
   "failedToLoad": "Не атрымалася загрузіць",
   "@failedToLoad": {
     "description": "This is the error message that is displayed when the data fails to load."

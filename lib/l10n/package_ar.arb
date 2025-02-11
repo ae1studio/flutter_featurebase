@@ -18,10 +18,16 @@
       }
     }
   },
-  "failedToLoad": "فشل التحميل",
-  "@failedToLoad": {
-    "description": "This is the error message that is displayed when the data fails to load."
+  "lastUpdated": "تم التحديث بواسطة {daysAgo}",
+  "@lastUpdated": {
+    "placeholders": {
+      "daysAgo": {
+        "type": "String",
+        "example": "28 يوماً مضت"
+      }
+    }
   },
+  "failedToLoad": "فشل التحميل",
   "tryAgainLater": "حاول مرة أخرى لاحقاً",
   "@tryAgainLater": {
     "description": "This is the message that is displayed when the user should try again later."

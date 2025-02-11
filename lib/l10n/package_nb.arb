@@ -18,6 +18,15 @@
       }
     }
   },
+  "lastUpdated": "Sist oppdatert {daysAgo}",
+  "@lastUpdated": {
+    "placeholders": {
+      "daysAgo": {
+        "type": "String",
+        "example": "28 dager"
+      }
+    }
+  },
   "failedToLoad": "Kunne ikke laste inn",
   "@failedToLoad": {
     "description": "This is the error message that is displayed when the data fails to load."
