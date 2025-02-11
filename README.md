@@ -62,6 +62,33 @@ The GET endpoint that you setup should return the data formated like the example
 
 ```
 
+### Open Feedback page
+
+Call the openFeedbackPage function to open the feedback page.
+
+```dart
+openFeedbackPage(
+    logo: SvgPicture.asset(
+        'assets/logo.svg',
+        height: 25,
+        width: 25,
+        colorFilter: const ColorFilter.mode(
+            Colors.white,
+            BlendMode.srcIn,
+        ),
+    ),
+    ssoAuthToken: 'Bearer mytoken123',
+    ssoTokenUrl:'https://api.example.com/v1/auth/featurebase/token',
+    appName: 'Featurebase',
+    organizationName: 'exampleOrg',
+    primaryColor: Theme.of(context).primaryColor,
+    textColor: Colors.white,
+    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+    defaultLocale: Locale('en'),
+    context: context,
+);
+```
+
 ## 📖 Help Center
 
 Call the openHelpCenter function to open the help center panel.
