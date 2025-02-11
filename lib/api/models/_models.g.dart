@@ -259,6 +259,8 @@ _$HelpCenterImpl _$$HelpCenterImplFromJson(Map<String, dynamic> json) =>
           .toList(),
       createdAt: DateTime.parse(json['createdAt'] as String),
       updatedAt: DateTime.parse(json['updatedAt'] as String),
+      hideDateInfo: json['hideDateInfo'] as bool? ?? false,
+      hideAuthorInfo: json['hideAuthorInfo'] as bool? ?? false,
       structure: (json['structure'] as List<dynamic>?)
           ?.map((e) => Collection.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -279,6 +281,8 @@ Map<String, dynamic> _$$HelpCenterImplToJson(_$HelpCenterImpl instance) =>
       'availableLocales': instance.availableLocales,
       'createdAt': instance.createdAt.toIso8601String(),
       'updatedAt': instance.updatedAt.toIso8601String(),
+      'hideDateInfo': instance.hideDateInfo,
+      'hideAuthorInfo': instance.hideAuthorInfo,
       'structure': instance.structure,
     };
 

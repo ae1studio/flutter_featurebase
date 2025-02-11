@@ -3012,6 +3012,12 @@ mixin _$HelpCenter {
   /// The date when the help center was last updated.
   DateTime get updatedAt => throw _privateConstructorUsedError;
 
+  /// Whether to hide the date info on articles.
+  bool get hideDateInfo => throw _privateConstructorUsedError;
+
+  /// Whether to hide the author info on articles.
+  bool get hideAuthorInfo => throw _privateConstructorUsedError;
+
   /// List of collections (only returned when using the withStructure option)
   List<Collection>? get structure => throw _privateConstructorUsedError;
 
@@ -3045,6 +3051,8 @@ abstract class $HelpCenterCopyWith<$Res> {
       List<String> availableLocales,
       DateTime createdAt,
       DateTime updatedAt,
+      bool hideDateInfo,
+      bool hideAuthorInfo,
       List<Collection>? structure});
 }
 
@@ -3076,6 +3084,8 @@ class _$HelpCenterCopyWithImpl<$Res, $Val extends HelpCenter>
     Object? availableLocales = null,
     Object? createdAt = null,
     Object? updatedAt = null,
+    Object? hideDateInfo = null,
+    Object? hideAuthorInfo = null,
     Object? structure = freezed,
   }) {
     return _then(_value.copyWith(
@@ -3131,6 +3141,14 @@ class _$HelpCenterCopyWithImpl<$Res, $Val extends HelpCenter>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      hideDateInfo: null == hideDateInfo
+          ? _value.hideDateInfo
+          : hideDateInfo // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hideAuthorInfo: null == hideAuthorInfo
+          ? _value.hideAuthorInfo
+          : hideAuthorInfo // ignore: cast_nullable_to_non_nullable
+              as bool,
       structure: freezed == structure
           ? _value.structure
           : structure // ignore: cast_nullable_to_non_nullable
@@ -3161,6 +3179,8 @@ abstract class _$$HelpCenterImplCopyWith<$Res>
       List<String> availableLocales,
       DateTime createdAt,
       DateTime updatedAt,
+      bool hideDateInfo,
+      bool hideAuthorInfo,
       List<Collection>? structure});
 }
 
@@ -3190,6 +3210,8 @@ class __$$HelpCenterImplCopyWithImpl<$Res>
     Object? availableLocales = null,
     Object? createdAt = null,
     Object? updatedAt = null,
+    Object? hideDateInfo = null,
+    Object? hideAuthorInfo = null,
     Object? structure = freezed,
   }) {
     return _then(_$HelpCenterImpl(
@@ -3245,6 +3267,14 @@ class __$$HelpCenterImplCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      hideDateInfo: null == hideDateInfo
+          ? _value.hideDateInfo
+          : hideDateInfo // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hideAuthorInfo: null == hideAuthorInfo
+          ? _value.hideAuthorInfo
+          : hideAuthorInfo // ignore: cast_nullable_to_non_nullable
+              as bool,
       structure: freezed == structure
           ? _value._structure
           : structure // ignore: cast_nullable_to_non_nullable
@@ -3270,6 +3300,8 @@ class _$HelpCenterImpl implements _HelpCenter {
       required final List<String> availableLocales,
       required this.createdAt,
       required this.updatedAt,
+      this.hideDateInfo = false,
+      this.hideAuthorInfo = false,
       final List<Collection>? structure})
       : _navItems = navItems,
         _availableLocales = availableLocales,
@@ -3345,6 +3377,16 @@ class _$HelpCenterImpl implements _HelpCenter {
   @override
   final DateTime updatedAt;
 
+  /// Whether to hide the date info on articles.
+  @override
+  @JsonKey()
+  final bool hideDateInfo;
+
+  /// Whether to hide the author info on articles.
+  @override
+  @JsonKey()
+  final bool hideAuthorInfo;
+
   /// List of collections (only returned when using the withStructure option)
   final List<Collection>? _structure;
 
@@ -3360,7 +3402,7 @@ class _$HelpCenterImpl implements _HelpCenter {
 
   @override
   String toString() {
-    return 'HelpCenter(helpCenterId: $helpCenterId, displayName: $displayName, title: $title, description: $description, searchPlaceholder: $searchPlaceholder, navItems: $navItems, isPublic: $isPublic, organizationId: $organizationId, defaultLocale: $defaultLocale, locale: $locale, availableLocales: $availableLocales, createdAt: $createdAt, updatedAt: $updatedAt, structure: $structure)';
+    return 'HelpCenter(helpCenterId: $helpCenterId, displayName: $displayName, title: $title, description: $description, searchPlaceholder: $searchPlaceholder, navItems: $navItems, isPublic: $isPublic, organizationId: $organizationId, defaultLocale: $defaultLocale, locale: $locale, availableLocales: $availableLocales, createdAt: $createdAt, updatedAt: $updatedAt, hideDateInfo: $hideDateInfo, hideAuthorInfo: $hideAuthorInfo, structure: $structure)';
   }
 
   @override
@@ -3391,6 +3433,10 @@ class _$HelpCenterImpl implements _HelpCenter {
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
                 other.updatedAt == updatedAt) &&
+            (identical(other.hideDateInfo, hideDateInfo) ||
+                other.hideDateInfo == hideDateInfo) &&
+            (identical(other.hideAuthorInfo, hideAuthorInfo) ||
+                other.hideAuthorInfo == hideAuthorInfo) &&
             const DeepCollectionEquality()
                 .equals(other._structure, _structure));
   }
@@ -3412,6 +3458,8 @@ class _$HelpCenterImpl implements _HelpCenter {
       const DeepCollectionEquality().hash(_availableLocales),
       createdAt,
       updatedAt,
+      hideDateInfo,
+      hideAuthorInfo,
       const DeepCollectionEquality().hash(_structure));
 
   /// Create a copy of HelpCenter
@@ -3445,6 +3493,8 @@ abstract class _HelpCenter implements HelpCenter {
       required final List<String> availableLocales,
       required final DateTime createdAt,
       required final DateTime updatedAt,
+      final bool hideDateInfo,
+      final bool hideAuthorInfo,
       final List<Collection>? structure}) = _$HelpCenterImpl;
 
   factory _HelpCenter.fromJson(Map<String, dynamic> json) =
@@ -3501,6 +3551,14 @@ abstract class _HelpCenter implements HelpCenter {
   /// The date when the help center was last updated.
   @override
   DateTime get updatedAt;
+
+  /// Whether to hide the date info on articles.
+  @override
+  bool get hideDateInfo;
+
+  /// Whether to hide the author info on articles.
+  @override
+  bool get hideAuthorInfo;
 
   /// List of collections (only returned when using the withStructure option)
   @override

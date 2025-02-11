@@ -19,9 +19,6 @@ class HelpCenterView extends ConsumerStatefulWidget {
   /// Search fill color
   final Color? searchFillColor;
 
-  /// Hide Authors
-  final bool hideAuthors;
-
   /// Show Search Bar
   final bool showSearchBar;
 
@@ -38,7 +35,6 @@ class HelpCenterView extends ConsumerStatefulWidget {
     required this.primaryColor,
     this.textColor = Colors.black,
     this.backgroundColor,
-    this.hideAuthors = false,
     this.defaultLocale = const Locale('en'),
     this.showSearchBar = true,
     this.searchFillColor,
@@ -186,7 +182,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                           helpCenter: data,
                           textColor: widget.textColor,
                           primaryColor: widget.primaryColor,
-                          hideAuthors: widget.hideAuthors,
+                          hideAuthors: data.hideAuthorInfo,
                           locale: currentLocale,
                           helpCenterContext:
                               _helpCenterNavigatorKey.currentContext!,
@@ -331,7 +327,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                                     builder: (context) => _ArticleView(
                                       article: p0.item!,
                                       textColor: widget.textColor,
-                                      hideAuthors: widget.hideAuthors,
+                                      hideAuthors: data.hideAuthorInfo,
                                       locale: widget.defaultLocale,
                                     ),
                                   ),
@@ -388,7 +384,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                             child: _CollectionCard(
                               collection: collection,
                               textColor: widget.textColor,
-                              hideAuthors: widget.hideAuthors,
+                              hideAuthors: data.hideAuthorInfo,
                               locale: widget.defaultLocale,
                             ),
                           );

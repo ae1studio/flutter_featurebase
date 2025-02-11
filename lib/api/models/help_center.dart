@@ -42,6 +42,12 @@ class HelpCenter with _$HelpCenter {
     /// The date when the help center was last updated.
     required DateTime updatedAt,
 
+    /// Whether to hide the date info on articles.
+    @Default(false) bool hideDateInfo,
+
+    /// Whether to hide the author info on articles.
+    @Default(false) bool hideAuthorInfo,
+
     /// List of collections (only returned when using the withStructure option)
     List<Collection>? structure,
   }) = _HelpCenter;
