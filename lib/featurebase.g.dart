@@ -971,6 +971,206 @@ final getCurrentUserProvider = AutoDisposeFutureProvider<fb.User>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef GetCurrentUserRef = AutoDisposeFutureProviderRef<fb.User>;
+String _$commentsHash() => r'18121452bd2031d736b92f78aacfd4adcc8f8162';
+
+/// See also [comments].
+@ProviderFor(comments)
+const commentsProvider = CommentsFamily();
+
+/// See also [comments].
+class CommentsFamily
+    extends Family<AsyncValue<fb.ResultsPagination<fb.Comment>>> {
+  /// See also [comments].
+  const CommentsFamily();
+
+  /// See also [comments].
+  CommentsProvider call({
+    int page = 1,
+    String sortBy = 'new',
+    String? submissionId,
+    String? changelogId,
+    String? commentThreadId,
+  }) {
+    return CommentsProvider(
+      page: page,
+      sortBy: sortBy,
+      submissionId: submissionId,
+      changelogId: changelogId,
+      commentThreadId: commentThreadId,
+    );
+  }
+
+  @override
+  CommentsProvider getProviderOverride(
+    covariant CommentsProvider provider,
+  ) {
+    return call(
+      page: provider.page,
+      sortBy: provider.sortBy,
+      submissionId: provider.submissionId,
+      changelogId: provider.changelogId,
+      commentThreadId: provider.commentThreadId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'commentsProvider';
+}
+
+/// See also [comments].
+class CommentsProvider
+    extends AutoDisposeFutureProvider<fb.ResultsPagination<fb.Comment>> {
+  /// See also [comments].
+  CommentsProvider({
+    int page = 1,
+    String sortBy = 'new',
+    String? submissionId,
+    String? changelogId,
+    String? commentThreadId,
+  }) : this._internal(
+          (ref) => comments(
+            ref as CommentsRef,
+            page: page,
+            sortBy: sortBy,
+            submissionId: submissionId,
+            changelogId: changelogId,
+            commentThreadId: commentThreadId,
+          ),
+          from: commentsProvider,
+          name: r'commentsProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$commentsHash,
+          dependencies: CommentsFamily._dependencies,
+          allTransitiveDependencies: CommentsFamily._allTransitiveDependencies,
+          page: page,
+          sortBy: sortBy,
+          submissionId: submissionId,
+          changelogId: changelogId,
+          commentThreadId: commentThreadId,
+        );
+
+  CommentsProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.page,
+    required this.sortBy,
+    required this.submissionId,
+    required this.changelogId,
+    required this.commentThreadId,
+  }) : super.internal();
+
+  final int page;
+  final String sortBy;
+  final String? submissionId;
+  final String? changelogId;
+  final String? commentThreadId;
+
+  @override
+  Override overrideWith(
+    FutureOr<fb.ResultsPagination<fb.Comment>> Function(CommentsRef provider)
+        create,
+  ) {
+    return ProviderOverride(
+      origin: this,
+      override: CommentsProvider._internal(
+        (ref) => create(ref as CommentsRef),
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        page: page,
+        sortBy: sortBy,
+        submissionId: submissionId,
+        changelogId: changelogId,
+        commentThreadId: commentThreadId,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeFutureProviderElement<fb.ResultsPagination<fb.Comment>>
+      createElement() {
+    return _CommentsProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is CommentsProvider &&
+        other.page == page &&
+        other.sortBy == sortBy &&
+        other.submissionId == submissionId &&
+        other.changelogId == changelogId &&
+        other.commentThreadId == commentThreadId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, page.hashCode);
+    hash = _SystemHash.combine(hash, sortBy.hashCode);
+    hash = _SystemHash.combine(hash, submissionId.hashCode);
+    hash = _SystemHash.combine(hash, changelogId.hashCode);
+    hash = _SystemHash.combine(hash, commentThreadId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+mixin CommentsRef
+    on AutoDisposeFutureProviderRef<fb.ResultsPagination<fb.Comment>> {
+  /// The parameter `page` of this provider.
+  int get page;
+
+  /// The parameter `sortBy` of this provider.
+  String get sortBy;
+
+  /// The parameter `submissionId` of this provider.
+  String? get submissionId;
+
+  /// The parameter `changelogId` of this provider.
+  String? get changelogId;
+
+  /// The parameter `commentThreadId` of this provider.
+  String? get commentThreadId;
+}
+
+class _CommentsProviderElement
+    extends AutoDisposeFutureProviderElement<fb.ResultsPagination<fb.Comment>>
+    with CommentsRef {
+  _CommentsProviderElement(super.provider);
+
+  @override
+  int get page => (origin as CommentsProvider).page;
+  @override
+  String get sortBy => (origin as CommentsProvider).sortBy;
+  @override
+  String? get submissionId => (origin as CommentsProvider).submissionId;
+  @override
+  String? get changelogId => (origin as CommentsProvider).changelogId;
+  @override
+  String? get commentThreadId => (origin as CommentsProvider).commentThreadId;
+}
+
 String _$feedbackSubmissionsListHash() =>
     r'c0d5b5613d814f518ec31e182e937a11050d77d9';
 
@@ -1133,6 +1333,196 @@ class _ChangelogsListProviderElement extends AutoDisposeNotifierProviderElement<
 
   @override
   String get locale => (origin as ChangelogsListProvider).locale;
+}
+
+String _$commentsListHash() => r'd9fe050a6c55722126ee7636eeb83fc102c7666d';
+
+abstract class _$CommentsList
+    extends BuildlessAutoDisposeNotifier<fb.ResultsPagination<fb.Comment>> {
+  late final String? submissionId;
+  late final String? changelogId;
+  late final String? commentThreadId;
+
+  fb.ResultsPagination<fb.Comment> build({
+    String? submissionId,
+    String? changelogId,
+    String? commentThreadId,
+  });
+}
+
+/// See also [CommentsList].
+@ProviderFor(CommentsList)
+const commentsListProvider = CommentsListFamily();
+
+/// See also [CommentsList].
+class CommentsListFamily extends Family<fb.ResultsPagination<fb.Comment>> {
+  /// See also [CommentsList].
+  const CommentsListFamily();
+
+  /// See also [CommentsList].
+  CommentsListProvider call({
+    String? submissionId,
+    String? changelogId,
+    String? commentThreadId,
+  }) {
+    return CommentsListProvider(
+      submissionId: submissionId,
+      changelogId: changelogId,
+      commentThreadId: commentThreadId,
+    );
+  }
+
+  @override
+  CommentsListProvider getProviderOverride(
+    covariant CommentsListProvider provider,
+  ) {
+    return call(
+      submissionId: provider.submissionId,
+      changelogId: provider.changelogId,
+      commentThreadId: provider.commentThreadId,
+    );
+  }
+
+  static const Iterable<ProviderOrFamily>? _dependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
+
+  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
+
+  @override
+  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
+      _allTransitiveDependencies;
+
+  @override
+  String? get name => r'commentsListProvider';
+}
+
+/// See also [CommentsList].
+class CommentsListProvider extends AutoDisposeNotifierProviderImpl<CommentsList,
+    fb.ResultsPagination<fb.Comment>> {
+  /// See also [CommentsList].
+  CommentsListProvider({
+    String? submissionId,
+    String? changelogId,
+    String? commentThreadId,
+  }) : this._internal(
+          () => CommentsList()
+            ..submissionId = submissionId
+            ..changelogId = changelogId
+            ..commentThreadId = commentThreadId,
+          from: commentsListProvider,
+          name: r'commentsListProvider',
+          debugGetCreateSourceHash:
+              const bool.fromEnvironment('dart.vm.product')
+                  ? null
+                  : _$commentsListHash,
+          dependencies: CommentsListFamily._dependencies,
+          allTransitiveDependencies:
+              CommentsListFamily._allTransitiveDependencies,
+          submissionId: submissionId,
+          changelogId: changelogId,
+          commentThreadId: commentThreadId,
+        );
+
+  CommentsListProvider._internal(
+    super._createNotifier, {
+    required super.name,
+    required super.dependencies,
+    required super.allTransitiveDependencies,
+    required super.debugGetCreateSourceHash,
+    required super.from,
+    required this.submissionId,
+    required this.changelogId,
+    required this.commentThreadId,
+  }) : super.internal();
+
+  final String? submissionId;
+  final String? changelogId;
+  final String? commentThreadId;
+
+  @override
+  fb.ResultsPagination<fb.Comment> runNotifierBuild(
+    covariant CommentsList notifier,
+  ) {
+    return notifier.build(
+      submissionId: submissionId,
+      changelogId: changelogId,
+      commentThreadId: commentThreadId,
+    );
+  }
+
+  @override
+  Override overrideWith(CommentsList Function() create) {
+    return ProviderOverride(
+      origin: this,
+      override: CommentsListProvider._internal(
+        () => create()
+          ..submissionId = submissionId
+          ..changelogId = changelogId
+          ..commentThreadId = commentThreadId,
+        from: from,
+        name: null,
+        dependencies: null,
+        allTransitiveDependencies: null,
+        debugGetCreateSourceHash: null,
+        submissionId: submissionId,
+        changelogId: changelogId,
+        commentThreadId: commentThreadId,
+      ),
+    );
+  }
+
+  @override
+  AutoDisposeNotifierProviderElement<CommentsList,
+      fb.ResultsPagination<fb.Comment>> createElement() {
+    return _CommentsListProviderElement(this);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return other is CommentsListProvider &&
+        other.submissionId == submissionId &&
+        other.changelogId == changelogId &&
+        other.commentThreadId == commentThreadId;
+  }
+
+  @override
+  int get hashCode {
+    var hash = _SystemHash.combine(0, runtimeType.hashCode);
+    hash = _SystemHash.combine(hash, submissionId.hashCode);
+    hash = _SystemHash.combine(hash, changelogId.hashCode);
+    hash = _SystemHash.combine(hash, commentThreadId.hashCode);
+
+    return _SystemHash.finish(hash);
+  }
+}
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+mixin CommentsListRef
+    on AutoDisposeNotifierProviderRef<fb.ResultsPagination<fb.Comment>> {
+  /// The parameter `submissionId` of this provider.
+  String? get submissionId;
+
+  /// The parameter `changelogId` of this provider.
+  String? get changelogId;
+
+  /// The parameter `commentThreadId` of this provider.
+  String? get commentThreadId;
+}
+
+class _CommentsListProviderElement extends AutoDisposeNotifierProviderElement<
+    CommentsList, fb.ResultsPagination<fb.Comment>> with CommentsListRef {
+  _CommentsListProviderElement(super.provider);
+
+  @override
+  String? get submissionId => (origin as CommentsListProvider).submissionId;
+  @override
+  String? get changelogId => (origin as CommentsListProvider).changelogId;
+  @override
+  String? get commentThreadId =>
+      (origin as CommentsListProvider).commentThreadId;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

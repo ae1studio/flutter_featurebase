@@ -57,7 +57,7 @@ part 'ui/widgets/post_card.dart';
 part 'ui/widgets/post_status_badge.dart';
 part 'ui/widgets/fade_tap_widget.dart';
 part 'ui/widgets/post_popup.dart';
-
+part 'ui/widgets/comment_section.dart';
 //Providers
 part 'providers/feedback.dart';
 part 'providers/service.dart';
@@ -66,6 +66,7 @@ part 'providers/help_center.dart';
 part 'providers/changelog.dart';
 part 'providers/organization.dart';
 part 'providers/user.dart';
+part 'providers/comment.dart';
 //Other
 part 'actions.dart';
 part 'utils.dart';
