@@ -83,9 +83,7 @@ class _CommentSectionState extends State<CommentSection> {
                           padding: const EdgeInsets.only(left: 40, top: 4),
                           child: Row(
                             children: [
-                              Icon(Icons.thumb_up_outlined, size: 16),
-                              const SizedBox(width: 4),
-                              Text(comment.upvotes.toString()),
+                              _buildVoteButtons(comment),
                               const SizedBox(width: 16),
                               // TextButton(
                               //   onPressed: () {/* Handle reply */},
@@ -176,9 +174,7 @@ class _CommentSectionState extends State<CommentSection> {
                       padding: const EdgeInsets.only(left: 40, top: 4),
                       child: Row(
                         children: [
-                          Icon(Icons.thumb_up_outlined, size: 16),
-                          const SizedBox(width: 4),
-                          Text(reply.upvotes.toString()),
+                          _buildVoteButtons(reply),
                           const SizedBox(width: 16),
                           // TextButton(
                           //   onPressed: () {/* Handle reply */},
@@ -195,6 +191,25 @@ class _CommentSectionState extends State<CommentSection> {
           );
         }).toList(),
       ),
+    );
+  }
+
+  Widget _buildVoteButtons(fb.Comment comment) {
+    return Row(
+      children: [
+        _FadeTapWidget(
+          onTap: () {
+            _callHaptic();
+          },
+          child: Icon(
+            Icons.keyboard_arrow_up_rounded,
+            size: 20,
+            color: comment.upvoted ? Colors.green : _mutedColor(context),
+          ),
+        ),
+        const SizedBox(width: 2),
+        Text(comment.upvotes.toString()),
+      ],
     );
   }
 }
