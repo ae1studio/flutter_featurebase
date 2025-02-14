@@ -106,7 +106,8 @@ class _RenderHtmlWidget extends ConsumerWidget {
         if (element.outerHtml.contains('<p>')) {
           Color color = _darkenColor(textColor, amount: 0.15);
           return {
-            'color': 'rgb(${color.red}, ${color.green}, ${color.blue})',
+            'color':
+                'rgb(${(color.r * 255).toInt()}, ${(color.g * 255).toInt()}, ${(color.b * 255).toInt()})',
             'font-weight': '500',
           };
         }
@@ -114,7 +115,8 @@ class _RenderHtmlWidget extends ConsumerWidget {
         if (element.outerHtml.contains('<h1>')) {
           Color color = textColor;
           return {
-            'color': 'rgb(${color.red}, ${color.green}, ${color.blue})',
+            'color':
+                'rgb(${(color.r * 255).toInt()}, ${(color.g * 255).toInt()}, ${(color.b * 255).toInt()})',
             'font-weight': '700',
             'font-size': '22px',
           };
@@ -123,7 +125,8 @@ class _RenderHtmlWidget extends ConsumerWidget {
         if (element.outerHtml.contains('<h2>')) {
           Color color = textColor;
           return {
-            'color': 'rgb(${color.red}, ${color.green}, ${color.blue})',
+            'color':
+                'rgb(${(color.r * 255).toInt()}, ${(color.g * 255).toInt()}, ${(color.b * 255).toInt()})',
             'font-weight': '600',
             'font-size': '18px',
           };
@@ -132,7 +135,8 @@ class _RenderHtmlWidget extends ConsumerWidget {
         if (element.outerHtml.contains('<h3>')) {
           Color color = textColor;
           return {
-            'color': 'rgb(${color.red}, ${color.green}, ${color.blue})',
+            'color':
+                'rgb(${(color.r * 255).toInt()}, ${(color.g * 255).toInt()}, ${(color.b * 255).toInt()})',
             'font-weight': '600',
             'font-size': '17px',
           };
@@ -140,9 +144,8 @@ class _RenderHtmlWidget extends ConsumerWidget {
 
         if (element.classes.contains('link')) {
           Color color = Theme.of(context).primaryColor;
-          // rgba(${color.r * 255}, ${color.g * 255}, ${color.b * 255}, 255)',
           return {
-            'color': 'rgb(${color.red}, ${color.green}, ${color.blue})',
+            'color': 'rgb(${color.r}, ${color.g}, ${color.b})',
             'text-decoration': 'none',
           };
         }
