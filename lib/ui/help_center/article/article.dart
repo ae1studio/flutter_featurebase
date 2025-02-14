@@ -5,7 +5,7 @@ class _ArticleView extends ConsumerStatefulWidget {
   final Color textColor;
   final Locale locale;
   const _ArticleView({
-    // ignore: unused_element
+    // ignore: unused_element, unused_element_parameter
     super.key,
     required this.article,
     required this.textColor,
@@ -50,7 +50,7 @@ class _ArticleViewState extends ConsumerState<_ArticleView> {
                       Text(
                         widget.article.description,
                         style: TextStyle(
-                          color: widget.textColor.withOpacity(0.7),
+                          color: _mutedColor(context),
                           fontWeight: FontWeight.w500,
                           fontFamily: 'Inter',
                         ),
@@ -86,7 +86,7 @@ class _ArticleViewState extends ConsumerState<_ArticleView> {
                                       fontSize: 14,
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w600,
-                                      color: widget.textColor.withOpacity(0.7),
+                                      color: _mutedColor(context),
                                     ),
                                   ),
                                 if (widget.article.updatedAt != null)
@@ -102,7 +102,7 @@ class _ArticleViewState extends ConsumerState<_ArticleView> {
                                       fontSize: 14,
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w600,
-                                      color: widget.textColor.withOpacity(0.7),
+                                      color: _mutedColor(context),
                                     ),
                                   ),
                               ],

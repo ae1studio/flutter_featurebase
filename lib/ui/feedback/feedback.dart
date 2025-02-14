@@ -149,10 +149,10 @@ class _FeedbackViewState extends ConsumerState<FeedbackView> {
         primaryColor: widget.primaryColor,
         inputDecorationTheme: InputDecorationTheme(
           fillColor:
-              widget.searchFillColor ?? widget.textColor.withOpacity(0.5),
+              widget.searchFillColor ?? widget.textColor.withValues(alpha: 0.5),
           filled: true,
         ),
-        dividerColor: widget.textColor.withOpacity(0.3),
+        dividerColor: widget.textColor.withValues(alpha: 0.3),
         textTheme: TextTheme(
           displayLarge: TextStyle(
             fontSize: 20,
@@ -303,8 +303,7 @@ class _FeedbackViewState extends ConsumerState<FeedbackView> {
                                         .copyWith(
                                           fontWeight: FontWeight.w500,
                                           fontSize: 16,
-                                          color:
-                                              widget.textColor.withOpacity(0.7),
+                                          color: _mutedColor(context),
                                         ),
                                   ),
                                 ],
@@ -342,8 +341,8 @@ class _FeedbackViewState extends ConsumerState<FeedbackView> {
                                       color: Theme.of(context).cardColor,
                                       borderRadius: BorderRadius.circular(8),
                                       border: Border.all(
-                                        color:
-                                            widget.textColor.withOpacity(0.1),
+                                        color: widget.textColor
+                                            .withValues(alpha: 0.1),
                                         width: 1,
                                       ),
                                     ),
@@ -364,9 +363,8 @@ class _FeedbackViewState extends ConsumerState<FeedbackView> {
                                                     isDark: false,
                                                     textColor: widget.textColor,
                                                     size: 18,
-                                                    primaryColor: widget
-                                                        .textColor
-                                                        .withOpacity(0.7),
+                                                    primaryColor:
+                                                        _mutedColor(context),
                                                   ),
                                                   const SizedBox(width: 3),
                                                   Text(
@@ -378,9 +376,8 @@ class _FeedbackViewState extends ConsumerState<FeedbackView> {
                                                           fontWeight:
                                                               FontWeight.w600,
                                                           fontSize: 16,
-                                                          color: widget
-                                                              .textColor
-                                                              .withOpacity(0.7),
+                                                          color: _mutedColor(
+                                                              context),
                                                         ),
                                                   ),
                                                 ],
@@ -480,8 +477,7 @@ class _FeedbackViewState extends ConsumerState<FeedbackView> {
                                         child: Text(
                                           '-',
                                           style: TextStyle(
-                                            color: widget.textColor
-                                                .withOpacity(0.7),
+                                            color: _mutedColor(context),
                                             fontSize: 18,
                                             fontWeight: FontWeight.w500,
                                           ),
@@ -491,8 +487,7 @@ class _FeedbackViewState extends ConsumerState<FeedbackView> {
                                         child: Text(
                                           'No more posts',
                                           style: TextStyle(
-                                            color: widget.textColor
-                                                .withOpacity(0.7),
+                                            color: _mutedColor(context),
                                             fontSize: 16,
                                             fontWeight: FontWeight.w500,
                                           ),

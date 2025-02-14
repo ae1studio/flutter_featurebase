@@ -46,7 +46,8 @@ class _NavbarPopupWidget extends ConsumerWidget {
         ),
         backgroundColor: Colors.transparent,
         body: Container(
-          color: Theme.of(context).scaffoldBackgroundColor.withOpacity(0.5),
+          color:
+              Theme.of(context).scaffoldBackgroundColor.withValues(alpha: 0.5),
           child: SafeArea(
             child: Column(
               children: [
@@ -71,7 +72,7 @@ class _NavbarPopupWidget extends ConsumerWidget {
                   ),
                 ),
                 Divider(
-                  color: textColor.withOpacity(0.08),
+                  color: textColor.withValues(alpha: 0.08),
                 ),
                 ...List.generate(
                   helpCenter.navItems.length,
@@ -103,7 +104,7 @@ class _NavbarPopupWidget extends ConsumerWidget {
                                 child: _FBIconWidget(
                                   icon: helpCenter.navItems[index].icon,
                                   textColor: textColor,
-                                  primaryColor: textColor.withOpacity(0.7),
+                                  primaryColor: _mutedColor(context),
                                   size: 19,
                                 ),
                               ),
@@ -113,7 +114,7 @@ class _NavbarPopupWidget extends ConsumerWidget {
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500,
-                                  color: textColor.withOpacity(0.7),
+                                  color: _mutedColor(context),
                                   fontFamily: 'Inter',
                                 ),
                                 maxLines: 1,
@@ -129,7 +130,7 @@ class _NavbarPopupWidget extends ConsumerWidget {
                 ),
                 if (helpCenter.availableLocales.length > 1)
                   Divider(
-                    color: textColor.withOpacity(0.08),
+                    color: textColor.withValues(alpha: 0.08),
                   ),
                 if (helpCenter.availableLocales.length > 1)
                   Row(

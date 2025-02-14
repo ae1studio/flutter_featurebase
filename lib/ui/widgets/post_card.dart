@@ -28,10 +28,10 @@ class _PostCardState extends ConsumerState<_PostCard> {
 
   Color _backgroundColor(BuildContext context) {
     if (post.upvoted) {
-      return Colors.green.withOpacity(0.1);
+      return Colors.green.withValues(alpha: 0.1);
     }
     if (post.downvoted) {
-      return Colors.red.withOpacity(0.1);
+      return Colors.red.withValues(alpha: 0.1);
     }
     return Theme.of(context).scaffoldBackgroundColor;
   }
@@ -96,7 +96,7 @@ class _PostCardState extends ConsumerState<_PostCard> {
       decoration: BoxDecoration(
         border: Border(
           top: BorderSide(
-            color: widget.textColor.withOpacity(0.1),
+            color: widget.textColor.withValues(alpha: 0.1),
             width: 1,
           ),
         ),
@@ -130,7 +130,7 @@ class _PostCardState extends ConsumerState<_PostCard> {
                   color: Theme.of(context).scaffoldBackgroundColor,
                   border: Border(
                     right: BorderSide(
-                      color: widget.textColor.withOpacity(0.1),
+                      color: widget.textColor.withValues(alpha: 0.1),
                       width: 1,
                     ),
                   ),
@@ -165,7 +165,7 @@ class _PostCardState extends ConsumerState<_PostCard> {
                         style:
                             Theme.of(context).textTheme.displayLarge!.copyWith(
                                   fontSize: 15,
-                                  color: widget.textColor.withOpacity(0.7),
+                                  color: _mutedColor(context),
                                   fontWeight: FontWeight.w500,
                                 ),
                         maxLines: 2,
@@ -192,7 +192,7 @@ class _PostCardState extends ConsumerState<_PostCard> {
                               .displayLarge!
                               .copyWith(
                                 fontSize: 15,
-                                color: widget.textColor.withOpacity(0.7),
+                                color: _mutedColor(context),
                                 fontWeight: FontWeight.w600,
                               ),
                         ),
@@ -204,7 +204,7 @@ class _PostCardState extends ConsumerState<_PostCard> {
                               .displayLarge!
                               .copyWith(
                                 fontSize: 14,
-                                color: widget.textColor.withOpacity(0.5),
+                                color: widget.textColor.withValues(alpha: 0.5),
                                 fontWeight: FontWeight.w600,
                               ),
                         ),
@@ -222,7 +222,7 @@ class _PostCardState extends ConsumerState<_PostCard> {
                           isDark: false,
                           textColor: widget.textColor,
                           size: 16,
-                          primaryColor: widget.textColor.withOpacity(0.4),
+                          primaryColor: widget.textColor.withValues(alpha: 0.4),
                         ),
                         const SizedBox(width: 2),
                         Text(
@@ -232,7 +232,7 @@ class _PostCardState extends ConsumerState<_PostCard> {
                               .displayLarge!
                               .copyWith(
                                 fontSize: 15,
-                                color: widget.textColor.withOpacity(0.4),
+                                color: widget.textColor.withValues(alpha: 0.4),
                                 fontWeight: FontWeight.w600,
                               ),
                         ),
@@ -243,10 +243,10 @@ class _PostCardState extends ConsumerState<_PostCard> {
                             vertical: 4,
                           ),
                           decoration: BoxDecoration(
-                            color: widget.textColor.withOpacity(0.1),
+                            color: widget.textColor.withValues(alpha: 0.1),
                             borderRadius: BorderRadius.circular(8),
                             border: Border.all(
-                              color: widget.textColor.withOpacity(0.1),
+                              color: widget.textColor.withValues(alpha: 0.1),
                               width: 1,
                             ),
                           ),
@@ -257,7 +257,8 @@ class _PostCardState extends ConsumerState<_PostCard> {
                                 .displayLarge!
                                 .copyWith(
                                   fontSize: 14,
-                                  color: widget.textColor.withOpacity(0.8),
+                                  color:
+                                      widget.textColor.withValues(alpha: 0.8),
                                   fontWeight: FontWeight.w600,
                                 ),
                           ),
@@ -284,9 +285,7 @@ class _PostCardState extends ConsumerState<_PostCard> {
                     child: Icon(
                       Icons.keyboard_arrow_up_rounded,
                       size: 21,
-                      color: post.upvoted
-                          ? Colors.green
-                          : widget.textColor.withOpacity(0.7),
+                      color: post.upvoted ? Colors.green : _mutedColor(context),
                     ),
                   ),
                 ),
@@ -294,7 +293,7 @@ class _PostCardState extends ConsumerState<_PostCard> {
                   widget.post.upvotes.toString(),
                   style: Theme.of(context).textTheme.displayLarge!.copyWith(
                         fontSize: 16,
-                        color: widget.textColor.withOpacity(0.7),
+                        color: _mutedColor(context),
                       ),
                 ),
                 if (widget.organization.settings.downvotesEnabled)
@@ -308,9 +307,8 @@ class _PostCardState extends ConsumerState<_PostCard> {
                       child: Icon(
                         Icons.keyboard_arrow_down_rounded,
                         size: 21,
-                        color: post.downvoted
-                            ? Colors.red
-                            : widget.textColor.withOpacity(0.7),
+                        color:
+                            post.downvoted ? Colors.red : _mutedColor(context),
                       ),
                     ),
                   ),

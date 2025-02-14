@@ -6,7 +6,7 @@ class _CollectionCard extends StatelessWidget {
   final bool hideAuthors;
   final Locale locale;
   const _CollectionCard({
-    // ignore: unused_element
+    // ignore: unused_element, unused_element_parameter
     super.key,
     required this.collection,
     required this.textColor,
@@ -34,7 +34,7 @@ class _CollectionCard extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           border: Border.all(
-            color: textColor.withOpacity(0.05),
+            color: textColor.withValues(alpha: 0.05),
           ),
           borderRadius: BorderRadius.circular(8),
           color: Theme.of(context).cardColor,
@@ -49,9 +49,9 @@ class _CollectionCard extends StatelessWidget {
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: textColor.withOpacity(0.05),
+                    color: textColor.withValues(alpha: 0.05),
                   ),
-                  color: Theme.of(context).primaryColor.withOpacity(0.05),
+                  color: Theme.of(context).primaryColor.withValues(alpha: 0.05),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: _FBIconWidget(
@@ -73,7 +73,7 @@ class _CollectionCard extends StatelessWidget {
               Text(
                 collection.description,
                 style: TextStyle(
-                  color: textColor.withOpacity(0.7),
+                  color: _mutedColor(context),
                   fontWeight: FontWeight.w500,
                   fontSize: 14,
                   fontFamily: 'Inter',
@@ -93,7 +93,7 @@ class _CollectionCard extends StatelessWidget {
                     collection.structure?.length ?? 0,
                   ),
                   style: TextStyle(
-                    color: textColor.withOpacity(0.7),
+                    color: _mutedColor(context),
                     fontWeight: FontWeight.w500,
                     fontSize: 13,
                     fontFamily: 'Inter',
@@ -102,7 +102,7 @@ class _CollectionCard extends StatelessWidget {
                     'strong': StyledTextTag(
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
-                        color: textColor.withOpacity(0.7),
+                        color: _mutedColor(context),
                         fontSize: 13,
                         fontFamily: 'Inter',
                       ),

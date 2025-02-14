@@ -96,7 +96,7 @@ class _RenderHtmlWidget extends ConsumerWidget {
         // Divider
         if (element.outerHtml.contains('<hr>')) {
           return Divider(
-            color: textColor.withOpacity(0.2),
+            color: textColor.withValues(alpha: 0.2),
           );
         }
 

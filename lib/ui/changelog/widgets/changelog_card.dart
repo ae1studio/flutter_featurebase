@@ -18,7 +18,7 @@ class _ChangelogCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Divider(
-            color: textColor.withOpacity(0.2),
+            color: textColor.withValues(alpha: 0.2),
           ),
           const SizedBox(height: 6),
           Row(
@@ -29,7 +29,7 @@ class _ChangelogCard extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w600,
-                    color: textColor.withOpacity(0.7),
+                    color: _mutedColor(context),
                     fontFamily: 'Inter',
                   ),
                 ),
@@ -90,7 +90,8 @@ class _ChangelogCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 4),
       decoration: BoxDecoration(
-        color: _fbColorStringToColor(category.color, context).withOpacity(0.2),
+        color: _fbColorStringToColor(category.color, context)
+            .withValues(alpha: 0.2),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Text(

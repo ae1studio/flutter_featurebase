@@ -7,7 +7,7 @@ class _FBIconWidget extends StatelessWidget {
   final double size;
   final bool isDark;
   const _FBIconWidget({
-    // ignore: unused_element
+    // ignore: unused_element, unused_element_parameter
     super.key,
     required this.icon,
     required this.textColor,
@@ -19,7 +19,7 @@ class _FBIconWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Color primeColor = primaryColor ?? Theme.of(context).primaryColor;
-    Color iconColor = isDark ? primeColor.withOpacity(0.8) : primeColor;
+    Color iconColor = isDark ? primeColor.withValues(alpha: 0.8) : primeColor;
 
     //Predefined icon
     if (icon?.type == 'predefined') {

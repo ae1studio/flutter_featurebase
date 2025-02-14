@@ -20,13 +20,13 @@ class _PostStatusBadge extends StatelessWidget {
         color: _fbColorStringToColor(
           post.status.color,
           context,
-        ).withOpacity(0.2),
+        ).withValues(alpha: 0.2),
         borderRadius: BorderRadius.circular(8),
         border: Border.all(
           color: _fbColorStringToColor(
             post.status.color,
             context,
-          ).withOpacity(0.1),
+          ).withValues(alpha: 0.1),
           width: 1,
         ),
       ),

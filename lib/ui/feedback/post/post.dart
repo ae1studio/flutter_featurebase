@@ -4,7 +4,7 @@ class _PostView extends ConsumerStatefulWidget {
   final fb.Post post;
   final fb.Organization organization;
   const _PostView({
-    // ignore: unused_element
+    // ignore: unused_element, unused_element_parameter
     super.key,
     required this.post,
     required this.organization,
@@ -25,10 +25,10 @@ class _PostViewState extends ConsumerState<_PostView> {
 
   Color _voteButtonBackgroundColor(BuildContext context) {
     if (post.upvoted) {
-      return Colors.green.withOpacity(0.1);
+      return Colors.green.withValues(alpha: 0.1);
     }
     if (post.downvoted) {
-      return Colors.red.withOpacity(0.1);
+      return Colors.red.withValues(alpha: 0.1);
     }
     return Theme.of(context).cardColor;
   }
@@ -76,11 +76,7 @@ class _PostViewState extends ConsumerState<_PostView> {
                               .displayLarge!
                               .copyWith(
                                 fontSize: 15,
-                                color: Theme.of(context)
-                                    .textTheme
-                                    .displayLarge!
-                                    .color!
-                                    .withOpacity(0.7),
+                                color: _mutedColor(context),
                                 fontWeight: FontWeight.w600,
                               ),
                         ),
@@ -97,7 +93,7 @@ class _PostViewState extends ConsumerState<_PostView> {
                                       .textTheme
                                       .displayLarge!
                                       .color!
-                                      .withOpacity(0.5),
+                                      .withValues(alpha: 0.5),
                                   fontWeight: FontWeight.w600,
                                 ),
                           ),
@@ -309,7 +305,7 @@ class _PostViewState extends ConsumerState<_PostView> {
                                       .textTheme
                                       .displayLarge!
                                       .color!
-                                      .withOpacity(0.4),
+                                      .withValues(alpha: 0.4),
                                 ),
                               ),
                               Text(
@@ -320,11 +316,7 @@ class _PostViewState extends ConsumerState<_PostView> {
                                     .copyWith(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w600,
-                                      color: Theme.of(context)
-                                          .textTheme
-                                          .displayLarge!
-                                          .color!
-                                          .withOpacity(0.7),
+                                      color: _mutedColor(context),
                                     ),
                               ),
                               const SizedBox(width: 3),
@@ -350,11 +342,7 @@ class _PostViewState extends ConsumerState<_PostView> {
                                   size: 21,
                                   color: post.upvoted
                                       ? Colors.green
-                                      : Theme.of(context)
-                                          .textTheme
-                                          .displayLarge!
-                                          .color!
-                                          .withOpacity(0.7),
+                                      : _mutedColor(context),
                                 ),
                               ),
                               Text(
@@ -365,11 +353,7 @@ class _PostViewState extends ConsumerState<_PostView> {
                                     .copyWith(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w600,
-                                      color: Theme.of(context)
-                                          .textTheme
-                                          .displayLarge!
-                                          .color!
-                                          .withOpacity(0.7),
+                                      color: _mutedColor(context),
                                     ),
                               ),
                               if (widget.organization.settings.downvotesEnabled)
@@ -380,11 +364,7 @@ class _PostViewState extends ConsumerState<_PostView> {
                                     size: 21,
                                     color: post.downvoted
                                         ? Colors.red
-                                        : Theme.of(context)
-                                            .textTheme
-                                            .displayLarge!
-                                            .color!
-                                            .withOpacity(0.7),
+                                        : _mutedColor(context),
                                   ),
                                 ),
                               if (!widget

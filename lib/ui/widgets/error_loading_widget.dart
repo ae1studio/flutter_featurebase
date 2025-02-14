@@ -33,7 +33,7 @@ class _ErrorLoadingWidget extends StatelessWidget {
             style: TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.w500,
-              color: textColor.withOpacity(0.7),
+              color: _mutedColor(context),
               fontFamily: 'Inter',
             ),
             textAlign: TextAlign.center,

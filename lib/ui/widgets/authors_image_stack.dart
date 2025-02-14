@@ -3,7 +3,7 @@ part of featurebase;
 class _AuthorsImageStack extends StatelessWidget {
   final List<fb.Author> authors;
   const _AuthorsImageStack({
-    // ignore: unused_element
+    // ignore: unused_element, unused_element_parameter
     super.key,
     required this.authors,
   });

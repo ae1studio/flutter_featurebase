@@ -148,7 +148,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
         primaryColor: widget.primaryColor,
         inputDecorationTheme: InputDecorationTheme(
           fillColor:
-              widget.searchFillColor ?? widget.textColor.withOpacity(0.5),
+              widget.searchFillColor ?? widget.textColor.withValues(alpha: 0.5),
           filled: true,
         ),
       ),
@@ -217,7 +217,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                   icon: Icon(
                     Icons.menu_rounded,
                     color: _calculateTextColor(widget.primaryColor)
-                        .withOpacity(0.4),
+                        .withValues(alpha: 0.4),
                   ),
                 );
               },
@@ -266,7 +266,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                                   data.description,
                                   style: TextStyle(
                                     fontWeight: FontWeight.w500,
-                                    color: widget.textColor.withOpacity(0.7),
+                                    color: _mutedColor(context),
                                     fontFamily: 'Inter',
                                   ),
                                   textAlign: TextAlign.center,
@@ -293,7 +293,8 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(8),
                                   borderSide: BorderSide(
-                                    color: widget.textColor.withOpacity(0.2),
+                                    color:
+                                        widget.textColor.withValues(alpha: 0.2),
                                   ),
                                 ),
                                 fillColor: Theme.of(context)
@@ -303,7 +304,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                                 hintText: data.searchPlaceholder,
                                 hintStyle: TextStyle(
                                   fontWeight: FontWeight.w500,
-                                  color: widget.textColor.withOpacity(0.7),
+                                  color: _mutedColor(context),
                                   fontFamily: 'Inter',
                                 ),
                                 searchStyle: TextStyle(
@@ -316,7 +317,8 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                                 color: Theme.of(context).cardColor,
                                 borderRadius: BorderRadius.circular(8),
                                 border: Border.all(
-                                  color: widget.textColor.withOpacity(0.1),
+                                  color:
+                                      widget.textColor.withValues(alpha: 0.1),
                                 ),
                               ),
                               onSuggestionTap: (p0) {
@@ -343,7 +345,8 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                                   color: Theme.of(context).cardColor,
                                   borderRadius: BorderRadius.circular(8),
                                   border: Border.all(
-                                    color: widget.textColor.withOpacity(0.1),
+                                    color:
+                                        widget.textColor.withValues(alpha: 0.1),
                                   ),
                                 ),
                                 child: Center(
@@ -352,15 +355,13 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                                     children: [
                                       Icon(
                                         Icons.search_rounded,
-                                        color:
-                                            widget.textColor.withOpacity(0.7),
+                                        color: _mutedColor(context),
                                       ),
                                       Text(
                                         FeaturebaseLocalizations.of(context)
                                             .noResultsFound,
                                         style: TextStyle(
-                                          color:
-                                              widget.textColor.withOpacity(0.7),
+                                          color: _mutedColor(context),
                                           fontSize: 16,
                                           fontWeight: FontWeight.w500,
                                           fontFamily: 'Inter',
@@ -434,7 +435,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
-                      color: widget.textColor.withOpacity(0.7),
+                      color: _mutedColor(context),
                       fontFamily: 'Inter',
                     ),
                     textAlign: TextAlign.center,
@@ -485,7 +486,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w500,
-                color: widget.textColor.withOpacity(0.7),
+                color: _mutedColor(context),
                 fontFamily: 'Inter',
               ),
               maxLines: 2,

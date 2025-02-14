@@ -5,7 +5,7 @@ class _CollectionView extends StatefulWidget {
   final Color textColor;
   final Locale locale;
   const _CollectionView({
-    // ignore: unused_element
+    // ignore: unused_element, unused_element_parameter
     super.key,
     required this.collection,
     required this.textColor,
@@ -55,7 +55,7 @@ class _CollectionViewState extends State<_CollectionView> {
                       Text(
                         widget.collection.description,
                         style: TextStyle(
-                          color: widget.textColor.withOpacity(0.7),
+                          color: _mutedColor(context),
                           fontWeight: FontWeight.w500,
                           fontFamily: 'Inter',
                         ),
@@ -115,18 +115,20 @@ class _CollectionViewState extends State<_CollectionView> {
                         border: Border(
                           top: !articleBefore
                               ? BorderSide(
-                                  color: widget.textColor.withOpacity(0.1),
+                                  color:
+                                      widget.textColor.withValues(alpha: 0.1),
                                 )
                               : BorderSide.none,
                           left: BorderSide(
-                            color: widget.textColor.withOpacity(0.1),
+                            color: widget.textColor.withValues(alpha: 0.1),
                           ),
                           right: BorderSide(
-                            color: widget.textColor.withOpacity(0.1),
+                            color: widget.textColor.withValues(alpha: 0.1),
                           ),
                           bottom: !articleAfter
                               ? BorderSide(
-                                  color: widget.textColor.withOpacity(0.1),
+                                  color:
+                                      widget.textColor.withValues(alpha: 0.1),
                                 )
                               : BorderSide.none,
                         ),
@@ -169,7 +171,7 @@ class _CollectionViewState extends State<_CollectionView> {
                                     fontFamily: 'Inter',
                                     fontSize: 16,
                                     fontWeight: FontWeight.w600,
-                                    color: widget.textColor.withOpacity(0.7),
+                                    color: _mutedColor(context),
                                   ),
                                   maxLines: 1,
                                   overflow: TextOverflow.fade,
@@ -178,7 +180,7 @@ class _CollectionViewState extends State<_CollectionView> {
                               ),
                               Icon(
                                 Icons.arrow_right_rounded,
-                                color: widget.textColor.withOpacity(0.7),
+                                color: _mutedColor(context),
                               ),
                             ],
                           ),
@@ -195,7 +197,7 @@ class _CollectionViewState extends State<_CollectionView> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
                         border: Border.all(
-                          color: widget.textColor.withOpacity(0.1),
+                          color: widget.textColor.withValues(alpha: 0.1),
                         ),
                       ),
                       child: Column(
@@ -207,7 +209,7 @@ class _CollectionViewState extends State<_CollectionView> {
                               horizontal: 7,
                             ),
                             decoration: BoxDecoration(
-                              color: widget.textColor.withOpacity(0.05),
+                              color: widget.textColor.withValues(alpha: 0.05),
                               borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(8),
                                 topRight: Radius.circular(8),
@@ -231,7 +233,8 @@ class _CollectionViewState extends State<_CollectionView> {
                                       fontFamily: 'Inter',
                                       fontSize: 16,
                                       fontWeight: FontWeight.w600,
-                                      color: widget.textColor.withOpacity(0.7),
+                                      color: widget.textColor
+                                          .withValues(alpha: 0.7),
                                     ),
                                     maxLines: 1,
                                     overflow: TextOverflow.fade,
@@ -295,8 +298,7 @@ class _CollectionViewState extends State<_CollectionView> {
                                                 fontFamily: 'Inter',
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.w600,
-                                                color: widget.textColor
-                                                    .withOpacity(0.7),
+                                                color: _mutedColor(context),
                                               ),
                                               maxLines: 1,
                                               overflow: TextOverflow.fade,
@@ -305,8 +307,7 @@ class _CollectionViewState extends State<_CollectionView> {
                                           ),
                                           Icon(
                                             Icons.arrow_right_rounded,
-                                            color: widget.textColor
-                                                .withOpacity(0.7),
+                                            color: _mutedColor(context),
                                           ),
                                         ],
                                       ),

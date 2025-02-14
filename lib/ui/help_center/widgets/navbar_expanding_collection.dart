@@ -55,7 +55,7 @@ class _NavbarExpandingCollectionState
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
-                        color: widget.textColor.withOpacity(0.7),
+                        color: _mutedColor(context),
                         fontFamily: 'Inter',
                       ),
                       maxLines: 1,
@@ -67,7 +67,7 @@ class _NavbarExpandingCollectionState
                     isExpanded
                         ? Icons.keyboard_arrow_down_rounded
                         : Icons.keyboard_arrow_right_rounded,
-                    color: widget.textColor.withOpacity(0.7),
+                    color: _mutedColor(context),
                   ),
                 ],
               ),
@@ -113,8 +113,7 @@ class _NavbarExpandingCollectionState
                                         child: _FBIconWidget(
                                           icon: article.icon,
                                           textColor: widget.textColor,
-                                          primaryColor:
-                                              widget.textColor.withOpacity(0.7),
+                                          primaryColor: _mutedColor(context),
                                           isDark: false,
                                           size: 19,
                                         ),
@@ -125,8 +124,7 @@ class _NavbarExpandingCollectionState
                                         style: TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.w500,
-                                          color:
-                                              widget.textColor.withOpacity(0.7),
+                                          color: _mutedColor(context),
                                           fontFamily: 'Inter',
                                         ),
                                         maxLines: 1,
@@ -171,8 +169,7 @@ class _NavbarExpandingCollectionState
                                         child: _FBIconWidget(
                                           icon: collection.icon,
                                           textColor: widget.textColor,
-                                          primaryColor:
-                                              widget.textColor.withOpacity(0.7),
+                                          primaryColor: _mutedColor(context),
                                           isDark: false,
                                           size: 19,
                                         ),
@@ -183,8 +180,7 @@ class _NavbarExpandingCollectionState
                                         style: TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.w500,
-                                          color:
-                                              widget.textColor.withOpacity(0.7),
+                                          color: _mutedColor(context),
                                           fontFamily: 'Inter',
                                         ),
                                         maxLines: 1,

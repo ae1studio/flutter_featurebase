@@ -68,7 +68,7 @@ class _ChangelogViewState extends ConsumerState<ChangelogView> {
         scaffoldBackgroundColor: widget.backgroundColor,
         primaryColor: widget.primaryColor,
         inputDecorationTheme: InputDecorationTheme(
-          fillColor: widget.textColor.withOpacity(0.1),
+          fillColor: widget.textColor.withValues(alpha: 0.1),
         ),
       ),
       child: Scaffold(
@@ -115,7 +115,7 @@ class _ChangelogViewState extends ConsumerState<ChangelogView> {
                             .changelogDescription(widget.appName),
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
-                          color: widget.textColor.withOpacity(0.7),
+                          color: _mutedColor(context),
                           fontFamily: 'Inter',
                         ),
                         textAlign: TextAlign.center,
@@ -181,7 +181,7 @@ class _ChangelogViewState extends ConsumerState<ChangelogView> {
                           child: Text(
                             '-',
                             style: TextStyle(
-                              color: widget.textColor.withOpacity(0.7),
+                              color: _mutedColor(context),
                               fontSize: 18,
                               fontWeight: FontWeight.w500,
                             ),
@@ -192,7 +192,7 @@ class _ChangelogViewState extends ConsumerState<ChangelogView> {
                             FeaturebaseLocalizations.of(context)
                                 .noMoreChangelogs,
                             style: TextStyle(
-                              color: widget.textColor.withOpacity(0.7),
+                              color: _mutedColor(context),
                               fontSize: 16,
                               fontWeight: FontWeight.w500,
                             ),

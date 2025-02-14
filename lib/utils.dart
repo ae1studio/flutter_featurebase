@@ -172,7 +172,11 @@ Color _darkenColor(Color color, {double amount = .1}) {
 }
 
 Color _mutedColor(BuildContext context) {
-  return Theme.of(context).textTheme.displayLarge!.color!.withOpacity(0.7);
+  return Theme.of(context)
+      .textTheme
+      .displayLarge!
+      .color!
+      .withValues(alpha: 0.7);
 }
 
 _callHaptic() {

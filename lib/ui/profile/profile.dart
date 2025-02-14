@@ -4,7 +4,7 @@ class _ProfileView extends ConsumerStatefulWidget {
   final fb.Organization organization;
   final fb.User user;
   const _ProfileView({
-    // ignore: unused_element
+    // ignore: unused_element, unused_element_parameter
     super.key,
     required this.user,
     required this.organization,

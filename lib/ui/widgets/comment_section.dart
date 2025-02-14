@@ -35,7 +35,7 @@ class _CommentSectionState extends State<CommentSection> {
                     bottom: 0,
                     child: Container(
                       width: 2,
-                      color: _mutedColor(context).withOpacity(0.1),
+                      color: _mutedColor(context).withValues(alpha: 0.1),
                     ),
                   ),
                   // Replies
@@ -134,7 +134,7 @@ class _CommentSectionState extends State<CommentSection> {
                   bottom: 0,
                   child: Container(
                     width: 2,
-                    color: _mutedColor(context).withOpacity(0.1),
+                    color: _mutedColor(context).withValues(alpha: 0.1),
                   ),
                 ),
                 // Replies

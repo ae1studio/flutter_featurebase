@@ -3,7 +3,7 @@ part of featurebase;
 class _PostPopup extends ConsumerStatefulWidget {
   final fb.Organization organization;
   const _PostPopup({
-    // ignore: unused_element
+    // ignore: unused_element, unused_element_parameter
     super.key,
     required this.organization,
   });
@@ -81,7 +81,7 @@ class _PostPopupState extends ConsumerState<_PostPopup> {
                           .textTheme
                           .displayLarge!
                           .color!
-                          .withOpacity(0.1),
+                          .withValues(alpha: 0.1),
                       width: 1,
                     ),
                   ),
