@@ -1,4 +1,4 @@
-// ignore_for_file: unused_element
+// ignore_for_file: unused_element, unused_element_parameter
 
 part of featurebase;
 
@@ -11,6 +11,7 @@ class _SafeCachedNetworkImage extends StatelessWidget {
   final BoxFit fit;
   final Duration fadeInDuration;
   const _SafeCachedNetworkImage({
+    // ignore: unused_element, unused_element_parameter
     super.key,
     this.imageUrl,
     this.height,
