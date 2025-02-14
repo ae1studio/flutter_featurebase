@@ -11,7 +11,6 @@ class _SafeCachedNetworkImage extends StatelessWidget {
   final BoxFit fit;
   final Duration fadeInDuration;
   const _SafeCachedNetworkImage({
-    // ignore: unused_element, unused_element_parameter
     super.key,
     this.imageUrl,
     this.height,
