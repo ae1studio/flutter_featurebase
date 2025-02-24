@@ -93,8 +93,7 @@ class CommentsList extends _$CommentsList {
   void updateComment(fb.Comment comment) {
     int temp = state.results.indexWhere((element) => element.id == comment.id);
     if (temp != -1) {
-      state.results.removeAt(temp);
-      state.results.insert(temp, comment);
+      _processCommentInList(state.results, comment.id, updatedComment: comment);
       ref.notifyListeners();
     }
   }
@@ -107,7 +106,7 @@ class CommentsList extends _$CommentsList {
 
   /// Delete a comment
   void deleteComment(String commentId) {
-    state.results.removeWhere((element) => element.id == commentId);
+    _processCommentInList(state.results, commentId, updatedComment: null);
     ref.notifyListeners();
   }
 
