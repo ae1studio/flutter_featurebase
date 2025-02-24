@@ -1,3 +1,4 @@
+// ignore: unnecessary_library_name
 library featurebase.models;
 
 import 'package:freezed_annotation/freezed_annotation.dart';
