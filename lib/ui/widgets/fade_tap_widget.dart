@@ -44,7 +44,6 @@ class _FadeTapWidgetState extends State<_FadeTapWidget>
         onTapDown: (TapDownDetails details) {
           if (widget.onTap != null) {
             o.reverse();
-            print('tap down');
           }
         },
         onTapUp: (TapUpDetails details) {
