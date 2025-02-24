@@ -25,7 +25,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   intl: ^0.19.0
-  dio: ^5.7.0
+  dio: ^5.8.0+1
   freezed_annotation: ^2.4.4
   json_annotation: ^4.9.0
   flutter_riverpod: ^2.6.1
@@ -33,10 +33,10 @@ dependencies:
   url_launcher: ^6.3.1
   custom_top_navigator_plus: ^0.0.4
   flutter_svg: ^2.0.17
-  flutter_widget_from_html: ^0.15.3
+  flutter_widget_from_html: ^0.16.0
   cached_network_image: ^3.4.1
   styled_text: ^9.0.0-beta-4
-  searchfield: ^1.2.2
+  searchfield: ^1.2.4
   easy_infinite_pagination: ^0.0.6
   universal_io: ^2.2.2
   timeago: ^3.7.0
