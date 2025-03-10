@@ -40,6 +40,32 @@ class _PostViewState extends ConsumerState<_PostView> {
     ref.read(feedbackSubmissionsListProvider.notifier).deletePost(post.id);
   }
 
+  void _upvote() async {
+    // Update local state based on provider result
+    upvotePost(
+      post: post,
+      updatePost: (updatedPost) {
+        ref.read(feedbackSubmissionsListProvider.notifier).updatePost(post);
+        setState(() {
+          post = updatedPost;
+        });
+      },
+    );
+  }
+
+  void _downvote() async {
+    // Update local state based on provider result
+    downvotePost(
+      post: post,
+      updatePost: (updatedPost) {
+        ref.read(feedbackSubmissionsListProvider.notifier).updatePost(post);
+        setState(() {
+          post = updatedPost;
+        });
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     AsyncValue<fb.ResultsPagination<fb.Comment>> comments =
@@ -335,14 +361,20 @@ class _PostViewState extends ConsumerState<_PostView> {
                           ),
                           child: Row(
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.all(3),
-                                child: Icon(
-                                  Icons.keyboard_arrow_up_rounded,
-                                  size: 21,
-                                  color: post.upvoted
-                                      ? Colors.green
-                                      : _mutedColor(context),
+                              _FadeTapWidget(
+                                onTap: () {
+                                  _callHaptic();
+                                  _upvote();
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(3),
+                                  child: Icon(
+                                    Icons.keyboard_arrow_up_rounded,
+                                    size: 21,
+                                    color: post.upvoted
+                                        ? Colors.green
+                                        : _mutedColor(context),
+                                  ),
                                 ),
                               ),
                               Text(
@@ -357,14 +389,20 @@ class _PostViewState extends ConsumerState<_PostView> {
                                     ),
                               ),
                               if (widget.organization.settings.downvotesEnabled)
-                                Padding(
-                                  padding: const EdgeInsets.all(3),
-                                  child: Icon(
-                                    Icons.keyboard_arrow_down_rounded,
-                                    size: 21,
-                                    color: post.downvoted
-                                        ? Colors.red
-                                        : _mutedColor(context),
+                                _FadeTapWidget(
+                                  onTap: () {
+                                    _callHaptic();
+                                    _downvote();
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(3),
+                                    child: Icon(
+                                      Icons.keyboard_arrow_down_rounded,
+                                      size: 21,
+                                      color: post.downvoted
+                                          ? Colors.red
+                                          : _mutedColor(context),
+                                    ),
                                   ),
                                 ),
                               if (!widget

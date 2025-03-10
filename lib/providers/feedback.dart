@@ -90,3 +90,73 @@ class FeedbackSubmissionsList extends _$FeedbackSubmissionsList {
     ref.notifyListeners();
   }
 }
+
+/// Upvote a post
+Future<fb.Post?> upvotePost({
+  required fb.Post post,
+  required Function(fb.Post) updatePost,
+}) async {
+  fb.Post updatedPost;
+
+  // Optimistic UI update
+  if (post.upvoted) {
+    updatedPost = post.copyWith(upvoted: false, upvotes: post.upvotes - 1);
+  } else {
+    updatedPost = post.copyWith(upvoted: true, upvotes: post.upvotes + 1);
+  }
+
+  // Update state
+  updatePost(updatedPost);
+
+  try {
+    // Call API
+    await _fbService.api.feedback.upvotePost(postId: post.id);
+    return updatedPost;
+  } catch (e) {
+    // Revert on error
+    if (post.upvoted) {
+      updatedPost = post.copyWith(upvoted: false, upvotes: post.upvotes + 1);
+    } else {
+      updatedPost = post.copyWith(upvoted: true, upvotes: post.upvotes - 1);
+    }
+
+    updatePost(updatedPost);
+    // TODO: Add error handling
+    return updatedPost;
+  }
+}
+
+/// Downvote a post
+Future<fb.Post?> downvotePost({
+  required fb.Post post,
+  required Function(fb.Post) updatePost,
+}) async {
+  fb.Post updatedPost;
+
+  // Optimistic UI update
+  if (post.downvoted) {
+    updatedPost = post.copyWith(downvoted: false, upvotes: post.upvotes + 1);
+  } else {
+    updatedPost = post.copyWith(downvoted: true, upvotes: post.upvotes - 1);
+  }
+
+  // Update state
+  updatePost(updatedPost);
+
+  try {
+    // Call API
+    await _fbService.api.feedback.downvotePost(postId: post.id);
+    return updatedPost;
+  } catch (e) {
+    // Revert on error
+    if (post.downvoted) {
+      updatedPost = post.copyWith(downvoted: false, upvotes: post.upvotes + 1);
+    } else {
+      updatedPost = post.copyWith(downvoted: true, upvotes: post.upvotes - 1);
+    }
+
+    updatePost(updatedPost);
+    // TODO: Add error handling
+    return updatedPost;
+  }
+}

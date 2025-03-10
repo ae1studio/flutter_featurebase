@@ -1335,7 +1335,7 @@ class _ChangelogsListProviderElement extends AutoDisposeNotifierProviderElement<
   String get locale => (origin as ChangelogsListProvider).locale;
 }
 
-String _$commentsListHash() => r'd9fe050a6c55722126ee7636eeb83fc102c7666d';
+String _$commentsListHash() => r'ba73a46eb4a5e24c1d7f9a66e4b09dc06fc64d66';
 
 abstract class _$CommentsList
     extends BuildlessAutoDisposeNotifier<fb.ResultsPagination<fb.Comment>> {

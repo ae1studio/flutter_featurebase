@@ -37,57 +37,29 @@ class _PostCardState extends ConsumerState<_PostCard> {
   }
 
   void _upvote() async {
-    try {
-      //Update UI
-      if (post.upvoted) {
-        post = post.copyWith(upvoted: false, upvotes: post.upvotes - 1);
-      } else {
-        post = post.copyWith(upvoted: true, upvotes: post.upvotes + 1);
-      }
-      ref.read(feedbackSubmissionsListProvider.notifier).updatePost(post);
-      setState(() {});
-
-      //Upvote
-      await _fbService.api.feedback.upvotePost(postId: post.id);
-    } catch (e) {
-      //TODO: Show error
-
-      if (post.upvoted) {
-        post = post.copyWith(upvoted: false, upvotes: post.upvotes + 1);
-      } else {
-        post = post.copyWith(upvoted: true, upvotes: post.upvotes - 1);
-      }
-      ref.read(feedbackSubmissionsListProvider.notifier).updatePost(post);
-      setState(() {});
-      return;
-    }
+    // Update local state based on provider result
+    upvotePost(
+      post: post,
+      updatePost: (updatedPost) {
+        ref.read(feedbackSubmissionsListProvider.notifier).updatePost(post);
+        setState(() {
+          post = updatedPost;
+        });
+      },
+    );
   }
 
   void _downvote() async {
-    try {
-      //Update UI
-      if (post.downvoted) {
-        post = post.copyWith(downvoted: false, upvotes: post.upvotes + 1);
-      } else {
-        post = post.copyWith(downvoted: true, upvotes: post.upvotes - 1);
-      }
-      ref.read(feedbackSubmissionsListProvider.notifier).updatePost(post);
-      setState(() {});
-
-      //Upvote
-      await _fbService.api.feedback.downvotePost(postId: post.id);
-    } catch (e) {
-      //TODO: Show error
-
-      if (post.downvoted) {
-        post = post.copyWith(downvoted: false, upvotes: post.upvotes + 1);
-      } else {
-        post = post.copyWith(downvoted: true, upvotes: post.upvotes - 1);
-      }
-      ref.read(feedbackSubmissionsListProvider.notifier).updatePost(post);
-      setState(() {});
-      return;
-    }
+    // Update local state based on provider result
+    downvotePost(
+      post: post,
+      updatePost: (updatedPost) {
+        ref.read(feedbackSubmissionsListProvider.notifier).updatePost(post);
+        setState(() {
+          post = updatedPost;
+        });
+      },
+    );
   }
 
   @override
