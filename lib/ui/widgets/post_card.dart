@@ -41,7 +41,9 @@ class _PostCardState extends ConsumerState<_PostCard> {
     upvotePost(
       post: post,
       updatePost: (updatedPost) {
-        ref.read(feedbackSubmissionsListProvider.notifier).updatePost(post);
+        ref
+            .read(feedbackSubmissionsListProvider.notifier)
+            .updatePost(updatedPost);
         setState(() {
           post = updatedPost;
         });
@@ -54,7 +56,9 @@ class _PostCardState extends ConsumerState<_PostCard> {
     downvotePost(
       post: post,
       updatePost: (updatedPost) {
-        ref.read(feedbackSubmissionsListProvider.notifier).updatePost(post);
+        ref
+            .read(feedbackSubmissionsListProvider.notifier)
+            .updatePost(updatedPost);
         setState(() {
           post = updatedPost;
         });

@@ -19,7 +19,7 @@ class _PostViewState extends ConsumerState<_PostView> {
 
   @override
   void initState() {
-    post = widget.post;
+    post = widget.post.copyWith();
     super.initState();
   }
 
@@ -45,7 +45,9 @@ class _PostViewState extends ConsumerState<_PostView> {
     upvotePost(
       post: post,
       updatePost: (updatedPost) {
-        ref.read(feedbackSubmissionsListProvider.notifier).updatePost(post);
+        ref
+            .read(feedbackSubmissionsListProvider.notifier)
+            .updatePost(updatedPost);
         setState(() {
           post = updatedPost;
         });
@@ -58,7 +60,9 @@ class _PostViewState extends ConsumerState<_PostView> {
     downvotePost(
       post: post,
       updatePost: (updatedPost) {
-        ref.read(feedbackSubmissionsListProvider.notifier).updatePost(post);
+        ref
+            .read(feedbackSubmissionsListProvider.notifier)
+            .updatePost(updatedPost);
         setState(() {
           post = updatedPost;
         });
@@ -335,7 +339,7 @@ class _PostViewState extends ConsumerState<_PostView> {
                                 ),
                               ),
                               Text(
-                                '${widget.post.commentCount}',
+                                '${post.commentCount}',
                                 style: Theme.of(context)
                                     .textTheme
                                     .displayLarge!
@@ -378,7 +382,7 @@ class _PostViewState extends ConsumerState<_PostView> {
                                 ),
                               ),
                               Text(
-                                '${widget.post.upvotes}',
+                                '${post.upvotes}',
                                 style: Theme.of(context)
                                     .textTheme
                                     .displayLarge!
