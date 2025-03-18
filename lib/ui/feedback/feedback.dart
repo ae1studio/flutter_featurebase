@@ -7,11 +7,8 @@ class FeedbackView extends ConsumerStatefulWidget {
   /// Featurebase organization name (example: featurebase)
   final String organizationName;
 
-  /// SSO Token URL (See README.md for more information)
-  final String ssoTokenUrl;
-
-  /// SSO Auth Token (See README.md for more information)
-  final String ssoAuthToken;
+  /// SSO Auth (See README.md for more information)
+  final SSOAuth auth;
 
   /// App name (example: Featurebase)
   final String appName;
@@ -38,8 +35,7 @@ class FeedbackView extends ConsumerStatefulWidget {
     super.key,
     required this.logo,
     required this.organizationName,
-    required this.ssoTokenUrl,
-    required this.ssoAuthToken,
+    required this.auth,
     required this.appName,
     required this.primaryColor,
     this.textColor = Colors.black,
@@ -84,8 +80,8 @@ class _FeedbackViewState extends ConsumerState<FeedbackView> {
     _fbService.setup(
       widget.organizationName,
       widget.enableHapticFeedback,
-      ssoTokenUrl: widget.ssoTokenUrl,
-      ssoAuthToken: widget.ssoAuthToken,
+      ssoTokenUrl: widget.auth.tokenUrl,
+      ssoAuthToken: widget.auth.token,
     );
     init();
     super.initState();

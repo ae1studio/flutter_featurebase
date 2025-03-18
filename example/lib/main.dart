@@ -93,9 +93,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     BlendMode.srcIn,
                   ),
                 ),
-                ssoAuthToken: 'Bearer ae1fbdemo2025',
-                ssoTokenUrl:
-                    'https://fb-sdk-api.xn--1-3fa.com/v1/sso/featurebase/token',
+                auth: SSOAuth(
+                  token: 'Bearer ae1fbdemo2025',
+                  tokenUrl:
+                      'https://fb-sdk-api.xn--1-3fa.com/v1/sso/featurebase/token',
+                ),
                 appName: 'Featurebase',
                 organizationName:
                     'featurebaseflutter', //Development Org for the SDK

@@ -43,8 +43,10 @@ When launching the feedback page you will need to provide an authoration token (
 ```dart
 openFeedbackPage(
   //...
-  ssoAuthToken: "Bearer mytoken123",
-  ssoTokenUrl: "https://api.example.com/v1/auth/featurebase/token",
+  auth: SSOAuth(
+    token: 'Bearer mytoken123',
+    tokenUrl: 'https://api.example.com/v1/auth/featurebase/token',
+  ),
   //...
 );
 ```

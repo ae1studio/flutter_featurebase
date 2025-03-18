@@ -11,11 +11,8 @@ void openFeedbackPage({
   /// App name (example: Featurebase)
   required String appName,
 
-  /// SSO Auth Token (See README.md for more information)
-  required String ssoAuthToken,
-
-  /// SSO Token URL (See README.md for more information)
-  required String ssoTokenUrl,
+  /// SSO Auth (See README.md for more information)
+  required SSOAuth auth,
 
   /// Primary color used
   required Color primaryColor,
@@ -44,8 +41,7 @@ void openFeedbackPage({
         child: FeedbackView(
           logo: logo,
           organizationName: organizationName,
-          ssoAuthToken: ssoAuthToken,
-          ssoTokenUrl: ssoTokenUrl,
+          auth: auth,
           primaryColor: primaryColor,
           appName: appName,
           textColor: textColor,

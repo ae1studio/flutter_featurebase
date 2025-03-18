@@ -70,5 +70,5 @@ part 'providers/comment.dart';
 //Other
 part 'actions.dart';
 part 'utils.dart';
-
+part 'models/sso_auth.dart';
 part 'featurebase.g.dart';
