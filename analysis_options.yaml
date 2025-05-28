@@ -4,5 +4,6 @@ analyzer:
     use_string_in_part_of_directives: ignore
     invalid_annotation_target: ignore
     use_build_context_synchronously: ignore
+    unused_element_parameter: ignore
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options
