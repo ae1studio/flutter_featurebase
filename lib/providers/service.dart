@@ -4,7 +4,7 @@ _FBService _fbService = _FBService();
 
 class _FBService {
   /// Featurebase API
-  late _FeaturebaseApi api;
+  late fb.FeaturebaseApi api;
 
   ///User info
   fb.User? user;
@@ -21,7 +21,7 @@ class _FBService {
   /// Setup the Featurebase API
   void setup(String organizationName, bool hapticEnabled,
       {String? ssoTokenUrl, String? ssoAuthToken}) {
-    api = _FeaturebaseApi.from(
+    api = fb.FeaturebaseApi.from(
       organizationName: organizationName,
     );
     isHapticEnabled = hapticEnabled;

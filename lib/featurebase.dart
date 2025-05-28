@@ -23,17 +23,7 @@ import 'package:styled_text/styled_text.dart';
 import 'package:universal_io/io.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:timeago/timeago.dart' as timeago;
-import 'api/models/_models.dart' as fb;
-
-//API
-part 'api/featurebase.dart';
-part 'api/endpoint_base.dart';
-part 'api/endpoints/help_center.dart';
-part 'api/endpoints/changelog.dart';
-part 'api/endpoints/organization.dart';
-part 'api/endpoints/feedback.dart';
-part 'api/endpoints/user.dart';
-part 'api/endpoints/comment.dart';
+import 'package:fb_core/fb_core.dart' as fb;
 
 //UI
 part 'ui/profile/profile.dart';

@@ -44,6 +44,9 @@ dependencies:
   copy_with_extension: ^6.0.0
   share_plus: ^10.1.4
   image_picker: ^1.1.2
+  fb_core: #TODO: Replace with published package
+    git:
+      url: https://github.com/ae1dev/fb_core.git
 
 dev_dependencies:
   flutter_test:
