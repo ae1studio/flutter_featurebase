@@ -421,7 +421,14 @@ class _PostViewState extends ConsumerState<_PostView> {
                 ),
               ),
             ),
-            CommentSection(
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 15),
+                child: _CommentBox(post: post),
+              ),
+            ),
+
+            _CommentSection(
               comments: comments,
               organization: widget.organization,
             ),

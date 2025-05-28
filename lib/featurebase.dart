@@ -34,6 +34,7 @@ part 'api/endpoints/organization.dart';
 part 'api/endpoints/feedback.dart';
 part 'api/endpoints/user.dart';
 part 'api/endpoints/comment.dart';
+
 //UI
 part 'ui/profile/profile.dart';
 part 'ui/profile/widgets/activity_item.dart';
@@ -58,6 +59,8 @@ part 'ui/widgets/post_status_badge.dart';
 part 'ui/widgets/fade_tap_widget.dart';
 part 'ui/widgets/post_popup.dart';
 part 'ui/widgets/comment_section.dart';
+part 'ui/widgets/comment_box.dart';
+
 //Providers
 part 'providers/feedback.dart';
 part 'providers/service.dart';
@@ -67,6 +70,7 @@ part 'providers/changelog.dart';
 part 'providers/organization.dart';
 part 'providers/user.dart';
 part 'providers/comment.dart';
+
 //Other
 part 'actions.dart';
 part 'utils.dart';

@@ -1,19 +1,20 @@
 part of featurebase;
 
-class CommentSection extends StatefulWidget {
+class _CommentSection extends StatefulWidget {
   final fb.Organization organization;
   final AsyncValue<fb.ResultsPagination<fb.Comment>> comments;
-  const CommentSection({
+  const _CommentSection({
+    // ignore: unused_element_parameter
     super.key,
     required this.comments,
     required this.organization,
   });
 
   @override
-  State<CommentSection> createState() => _CommentSectionState();
+  State<_CommentSection> createState() => _CommentSectionState();
 }
 
-class _CommentSectionState extends State<CommentSection> {
+class _CommentSectionState extends State<_CommentSection> {
   @override
   Widget build(BuildContext context) {
     return widget.comments.when(
