@@ -4,7 +4,7 @@ Featurebase is a Feedback, Help center, Changelog and Survey hub. Learn more at 
 
 ## 📋 Features
 
-- [X] Feedback - ⚠️ Only for users using SSO login ⚠️
+- [ ] Feedback
 - [X] Help center
 - [X] Changelog
 - [ ] Surveys (Planned)
@@ -28,67 +28,6 @@ localizationsDelegates: [
     FeaturebaseLocalizations.delegate,
     //Any other delegates
 ],
-```
-
-### Setup SSO Auth [Optional]
-
-SSO is only needed if you want to use the Feedback module.
-
-For the SSO auth you will need to create a GET endpoint that the SDK can call out to to get the JWT for Featurebase. You can [read this article](https://help.featurebase.app/articles/5257986-creating-and-signing-a-jwt-for-single-sign-on) on how to create a JWT token for Featurebase.
-
-When launching the feedback page you will need to provide an authoration token (that will be passed in the `Authorization` header field) that works on your endpoint and an endpoint url.
-
-```dart
-openFeedbackPage(
-  //...
-  auth: SSOAuth(
-    token: 'Bearer mytoken123',
-    tokenUrl: 'https://api.example.com/v1/auth/featurebase/token',
-  ),
-  //...
-);
-```
-
-The GET endpoint that you setup should return the data formated like the example below for the SDK to read.
-
-```json
-{
-    "data": {
-        "token": "the-jwt-token-string"
-    }
-}
-
-```
-
-## 💬 Feedback
-
-To use the feedback page, you must be using SSO login for your Featurebase organization.
-
-Call the openFeedbackPage function to open the feedback page.
-
-```dart
-openFeedbackPage(
-    logo: SvgPicture.asset(
-        'assets/logo.svg',
-        height: 25,
-        width: 25,
-        colorFilter: const ColorFilter.mode(
-            Colors.white,
-            BlendMode.srcIn,
-        ),
-    ),
-    auth: SSOAuth(
-        token: 'Bearer mytoken123',
-        tokenUrl: 'https://api.example.com/v1/auth/featurebase/token',
-    ),
-    appName: 'Featurebase',
-    organizationName: 'exampleOrg',
-    primaryColor: Theme.of(context).primaryColor,
-    textColor: Colors.white,
-    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-    defaultLocale: Locale('en'),
-    context: context,
-);
 ```
 
 ## 📖 Help Center
