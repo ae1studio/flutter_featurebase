@@ -26,7 +26,7 @@ class _RenderHtmlWidget extends ConsumerWidget {
           final articleId = url.split('/articles/')[1].split('-')[0];
 
           fb.Article temp = await ref.read(
-              GetHelpCenterArticleProvider(articleId, _getLocale(locale))
+              getHelpCenterArticleProvider(articleId, _getLocale(locale))
                   .future);
 
           if (context.mounted) {

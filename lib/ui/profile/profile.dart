@@ -37,7 +37,7 @@ class _ProfileViewState extends ConsumerState<_ProfileView> {
   @override
   Widget build(BuildContext context) {
     AsyncValue<List<fb.UserActivity>> activities =
-        ref.watch(GetUserActivitiesProvider(widget.user.id));
+        ref.watch(getUserActivitiesProvider(widget.user.id));
 
     return Scaffold(
       appBar: AppBar(

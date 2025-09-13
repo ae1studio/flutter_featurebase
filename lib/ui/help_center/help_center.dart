@@ -139,7 +139,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
   @override
   Widget build(BuildContext context) {
     AsyncValue<fb.HelpCenter> helpCenterAsync = ref.watch(
-      HelpCenterInfoProvider(_getLocale(currentLocale)),
+      helpCenterInfoProvider(_getLocale(currentLocale)),
     );
 
     return Theme(

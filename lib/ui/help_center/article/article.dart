@@ -20,7 +20,7 @@ class _ArticleViewState extends ConsumerState<_ArticleView> {
   @override
   Widget build(BuildContext context) {
     AsyncValue<String?> articleAsync = ref.watch(
-      GetHelpCenterArticleBodyProvider(widget.article.articleId,
+      getHelpCenterArticleBodyProvider(widget.article.articleId,
           widget.article.body, _getLocale(widget.locale)),
     );
 

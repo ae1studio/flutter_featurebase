@@ -13,7 +13,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -52,14 +51,9 @@ part 'ui/widgets/comment_section.dart';
 part 'ui/widgets/comment_box.dart';
 
 //Providers
-part 'providers/feedback.dart';
+part 'providers/provider.dart';
 part 'providers/service.dart';
 part 'providers/icons.dart';
-part 'providers/help_center.dart';
-part 'providers/changelog.dart';
-part 'providers/organization.dart';
-part 'providers/user.dart';
-part 'providers/comment.dart';
 
 //Other
 part 'actions.dart';

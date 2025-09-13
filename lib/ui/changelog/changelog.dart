@@ -60,7 +60,7 @@ class _ChangelogViewState extends ConsumerState<ChangelogView> {
   @override
   Widget build(BuildContext context) {
     fb.ResultsPagination<fb.Changelog> changelogs = ref.watch(
-      ChangelogsListProvider(_getLocale(currentLocale)),
+      changelogsListProvider(_getLocale(currentLocale)),
     );
 
     return Theme(
@@ -213,7 +213,7 @@ class _ChangelogViewState extends ConsumerState<ChangelogView> {
                     try {
                       fb.ResultsPagination<fb.Changelog> added = await ref
                           .read(
-                              ChangelogsListProvider(_getLocale(currentLocale))
+                              changelogsListProvider(_getLocale(currentLocale))
                                   .notifier)
                           .loadMore(_getLocale(currentLocale));
                       // If 10 new items are not added there is no more

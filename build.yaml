@@ -1,0 +1,7 @@
+targets:
+  $default:
+    builders:
+      riverpod_generator|riverpod_generator:
+        enabled: true
+        generate_for:
+          - lib/featurebase.dart
