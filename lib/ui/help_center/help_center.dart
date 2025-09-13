@@ -189,7 +189,7 @@ class _HelpCenterViewState extends ConsumerState<HelpCenterView> {
                           helpCenterContext:
                               _helpCenterNavigatorKey.currentContext!,
                           onLocaleChange: (newLocale) {
-                            ref.invalidate(HelpCenterInfoProvider(
+                            ref.invalidate(helpCenterInfoProvider(
                                 _getLocale(currentLocale)));
                             currentLocale = newLocale;
                             _helpCenterNavigatorKey.currentState
