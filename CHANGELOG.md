@@ -1,3 +1,7 @@
+## 0.9.0
+
+- Updated dependencies.
+
 ## 0.8.1
 
 - Added support for hiding author and date information from articles (read more here: <https://help.featurebase.app/en/articles/7797557-configuring-the-help-center#i4lbl8z37f1>).
